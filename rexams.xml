@@ -11,48 +11,48 @@
 
 <question type="numerical">
 <name>
-<text> R1 Q1 : rexams_gettysburg </text>
+<text> R1 Q1 : rexams_jane-austen </text>
 </name>
 <questiontext format="html">
 <text><![CDATA[
 <p>
-<p>You can see the text of the Gettysburg address from Abraham Lincoln <a href="https://en.wikipedia.org/wiki/Gettysburg_Address#Text">here</a>. Count the number of occurences of the letter W in this text.</p>
+<p>The <code>janeaustenr</code> package contains the text of several Jane Austern novels, (if not already installed, use <code>install.packages("janeaustenr")</code>). Calculate the number of letters in the book <strong>Sense &amp; Sensibility</strong>.</p>
 </p>]]></text>
 </questiontext>
 <generalfeedback format="html">
 <text><![CDATA[<p>
-<p>Use the R command <code>str_count()</code>.</p>
+<p>Use the R command <code>nchar(book_name) |&gt; sum()</code>.</p>
 </p>]]></text>
 </generalfeedback>
 <penalty>0</penalty>
 <defaultgrade>1</defaultgrade>
 <answer fraction="100" format="moodle_auto_format">
-<text>2</text>
-<tolerance>0.02</tolerance>
+<text>661064</text>
+<tolerance>6610.64</tolerance>
 </answer>
 </question>
 
 
 <question type="numerical">
 <name>
-<text> R2 Q1 : rexams_gettysburg </text>
+<text> R2 Q1 : rexams_jane-austen </text>
 </name>
 <questiontext format="html">
 <text><![CDATA[
 <p>
-<p>You can see the text of the Gettysburg address from Abraham Lincoln <a href="https://en.wikipedia.org/wiki/Gettysburg_Address#Text">here</a>. Count the number of occurences of the letter a in this text.</p>
+<p>The <code>janeaustenr</code> package contains the text of several Jane Austern novels, (if not already installed, use <code>install.packages("janeaustenr")</code>). Calculate the number of letters in the book <strong>Sense &amp; Sensibility</strong>.</p>
 </p>]]></text>
 </questiontext>
 <generalfeedback format="html">
 <text><![CDATA[<p>
-<p>Use the R command <code>str_count()</code>.</p>
+<p>Use the R command <code>nchar(book_name) |&gt; sum()</code>.</p>
 </p>]]></text>
 </generalfeedback>
 <penalty>0</penalty>
 <defaultgrade>1</defaultgrade>
 <answer fraction="100" format="moodle_auto_format">
-<text>102</text>
-<tolerance>1.02</tolerance>
+<text>661064</text>
+<tolerance>6610.64</tolerance>
 </answer>
 </question>
 

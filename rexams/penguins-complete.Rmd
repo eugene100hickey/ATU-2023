@@ -10,7 +10,7 @@ solution <- 1 - (sum(complete.cases(penguins)) / nrow(penguins)) |> signif(3)
 
 Question
 ========
-Below is an excerpt from the penguins dataset of the `palmerpenguins` package:
+Below is an excerpt from the penguins dataset of the `palmerpenguins` package (if not already installed, use `install.packages("palmerpenguins")`):
 
 ```{r}
 library(tidyverse)

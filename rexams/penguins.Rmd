@@ -27,7 +27,7 @@ solution <- case_when(
 
 Question
 ========
-Below is an excerpt from the penguins dataset of the `palmerpenguins` package:
+Below is an excerpt from the penguins dataset of the `palmerpenguins` package (if not already installed, use `install.packages("palmerpenguins")`):
 
 ```{r}
 library(tidyverse)
