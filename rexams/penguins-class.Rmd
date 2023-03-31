@@ -58,7 +58,7 @@ Answerlist
 
 Meta-information
 ================
-exname: R package authors
+exname: R penguin class
 extype: schoice
 exsolution: 100000
 exshuffle: 5

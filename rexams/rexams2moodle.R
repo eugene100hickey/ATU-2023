@@ -1,5 +1,10 @@
 library(exams)
-elearn_exam <- c("rexams/diamonds.Rmd")
+# elearn_exam <- c("rexams/penguins.Rmd",
+#                  "rexams/diamonds.Rmd",
+#                  "rexams/diamonds.Rmd",
+#                  "rexams/penguins-class.Rmd")
 
-set.seed(2021-01-22)
-exams2moodle(elearn_exam, n = 3, name = "rexams")
+elearn_exam <- c("rexams/titanic-proportions-table.Rmd")
+
+set.seed(42)
+exams2moodle(elearn_exam, n = 2, name = "rexams")

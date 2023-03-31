@@ -46,5 +46,5 @@ Meta-information
 ================
 extype: num
 exsolution: `r solution %>% signif(3)`
-exname: natural gas
+exname: diamonds
 extol: `r solution*0.05`
