@@ -9,7 +9,10 @@ states <- state_regions |>
   left_join(state_areas, join_by(state == state_name))
 regions <- levels(states$region)
 my_region <- sample(regions, 1)
-solution <- states |> filter(region == my_region) |> pull(area) |> sum()
+solution <- states |> 
+  filter(region == my_region) |> 
+  pull(area) |> 
+  sum(na.rm = T)
 ```
 
 
@@ -25,20 +28,20 @@ state_regions <- read_rds("https://github.com/eugene100hickey/ATU-2023/blob/main
 Then join these two data frames together to make one that looks like this:
 
 ```{r}
-gt::gt(states |> head())
+#states |> head()
 ```
 
-What is the sum of the area ofthe states in the `r my_region`?
+What is the sum of the area of the states in the `r my_region`?
 
 Solution
 ========
-Use `mutate(inaccuracy = abs(distance - observed_distance))`.
+Use `left_join(state_areas, join_by(state == state_name))`.
 
 
 
 Meta-information
 ================
 extype: num
-exsolution: `r solution %>% signif(4)`
-exname: us-contagious
-extol: `r solution*0.002`
+exsolution: `r solution`
+exname: us-areas-join
+extol: `r solution`
