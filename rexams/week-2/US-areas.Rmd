@@ -44,4 +44,4 @@ Meta-information
 extype: num
 exsolution: `r solution`
 exname: us-areas-join
-extol: `r solution`
+extol: `r solution*0.02`
