@@ -1,0 +1,64 @@
+```{r data generation, echo = FALSE, results = "hide", message=F, warning=F}
+library(exams)
+library(tidyverse)
+library(palmerpenguins)
+
+parameters <- names(penguins)
+index <- sample(1:length(parameters), 1)
+classes <- c("factor", "numeric", "integer", "character", "data.frame", "tibble", "logical")
+
+answer_class <- class(penguins[[1, index]])
+
+classes <- classes[classes != answer_class] |> 
+  sample()
+
+solution <- c(answer_class, classes)
+solution
+parameters[index]
+
+```
+
+
+Question
+========
+Install the `palmerpenguins` package and load it up as shown below.
+
+```{r eval=FALSE}
+install.packages("palmerpenguins")
+library(tidyverse)
+library(palmerpenguins)
+
+```
+
+What type of variable is the `r parameters[index]` column?
+
+Answerlist
+----------
+* `r solution[1]`
+* `r solution[2]`
+* `r solution[3]`
+* `r solution[4]`
+* `r solution[5]`
+* `r solution[6]`
+
+
+Solution
+========
+Use the R command `class(penguins$....)` to find out.
+
+Answerlist
+----------
+* True
+* False
+* False
+* False
+* False
+* False
+
+
+Meta-information
+================
+exname: R penguin class
+extype: schoice
+exsolution: 100000
+exshuffle: 5
