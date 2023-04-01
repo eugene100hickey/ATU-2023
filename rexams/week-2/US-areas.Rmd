@@ -1,31 +1,34 @@
 ```{r data generation, echo = FALSE, results = "hide", message=F, warning=F}
 library(exams)
 library(tidyverse)
-library(dslabs)
 
-my_number <- sample(1:100, 1)
-set.seed(my_number)
-z <- rfalling_object(n = 1000) |> 
-  mutate(inaccuracy = abs(distance - observed_distance))
+state_areas <- read_rds("https://github.com/eugene100hickey/ATU-2023/blob/main/rexams/data/state-areas?raw=true")
+state_regions <- read_rds("https://github.com/eugene100hickey/ATU-2023/blob/main/rexams/data/state-regions?raw=true")
 
-solution <- sum(z$inaccuracy) |> round(0)
-
+states <- state_regions |> 
+  left_join(state_areas, join_by(state == state_name))
+regions <- levels(states$region)
+my_region <- sample(regions, 1)
+solution <- states |> filter(region == my_region) |> pull(area) |> sum()
 ```
 
 
 Question
 ========
-Install the `dslabs` package if you haven't already (`install.packages("dslabs")`. Create an `rfalling_object` using the code below (note, the `set.seed()` is crucial otherwise the random number generator won't be the same. Use the value `r my_number` for `my_number`)
+Run the code lines below to read in two data frames called `state_areas` and `state_regions`. 
 
 ```{r eval=FALSE}
-library(tidyverse)
-library(dslabs)
-
-set.seed(my_number)
-falling <- rfalling_object(n = 1000)
+state_areas <- read_rds("https://github.com/eugene100hickey/ATU-2023/blob/main/rexams/data/state-areas?raw=true")
+state_regions <- read_rds("https://github.com/eugene100hickey/ATU-2023/blob/main/rexams/data/state-regions?raw=true")
 ```
 
-Create a new column using `mutate()` of the absolute value difference between the `distance` and `observed_distance` columns (the R function `abs()` will be useful). What is the sum of the values in this column? Give your answer to the nearest whole number.
+Then join these two data frames together to make one that looks like this:
+
+```{r}
+gt::gt(states |> head())
+```
+
+What is the sum of the area ofthe states in the `r my_region`?
 
 Solution
 ========
