@@ -33,7 +33,7 @@ state_regions &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/b
 <defaultgrade>1</defaultgrade>
 <answer fraction="100" format="moodle_auto_format">
 <text>1.78396</text>
-<tolerance>1.78396</tolerance>
+<tolerance>0.0356792</tolerance>
 </answer>
 </question>
 
@@ -50,7 +50,7 @@ state_regions &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/b
 state_regions &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/blob/main/rexams/data/state-regions?raw=true&quot;)</code></pre>
 <p>Then join these two data frames together to make one that looks like this:</p>
 <pre><code>#states |&gt; head()</code></pre>
-<p>What is the sum of the area of the states in the North Central?</p>
+<p>What is the sum of the area of the states in the Northeast?</p>
 </p>]]></text>
 </questiontext>
 <generalfeedback format="html">
@@ -61,8 +61,8 @@ state_regions &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/b
 <penalty>0</penalty>
 <defaultgrade>1</defaultgrade>
 <answer fraction="100" format="moodle_auto_format">
-<text>0.76553</text>
-<tolerance>0.76553</tolerance>
+<text>0.169353</text>
+<tolerance>0.0033871</tolerance>
 </answer>
 </question>
 

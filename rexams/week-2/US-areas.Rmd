@@ -28,7 +28,7 @@ state_regions <- read_rds("https://github.com/eugene100hickey/ATU-2023/blob/main
 Then join these two data frames together to make one that looks like this:
 
 ```{r}
-#states |> head()
+gt::gt(states |> head())
 ```
 
 What is the sum of the area of the states in the `r my_region`?
