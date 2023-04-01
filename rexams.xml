@@ -11,48 +11,60 @@
 
 <question type="numerical">
 <name>
-<text> R1 Q1 : rexams_jane-austen </text>
+<text> R1 Q1 : rexams_week-2_falling </text>
 </name>
 <questiontext format="html">
 <text><![CDATA[
 <p>
-<p>The <code>janeaustenr</code> package contains the text of several Jane Austern novels, (if not already installed, use <code>install.packages("janeaustenr")</code>). Calculate the number of letters in the book <strong>Sense &amp; Sensibility</strong>.</p>
+<p>Install the <code>dslabs</code> package if you haven’t already (<code>install.packages("dslabs")</code>. Create a <code>rfalling_object</code> using the code below (note, the <code>set.seed()</code> is crucial otherwise the random number generator won’t be the same. Use the value 49 for <code>my_number</code>)</p>
+<pre><code>library(tidyverse)
+library(dslabs)
+
+set.seed(my_number)
+falling &lt;- rfalling_object(n = 1000)</code></pre>
+<p>Create a new column using <code>mutate()</code> of the absolute value difference between the <code>distance</code> and <code>observed_distance</code> columns (the R function <code>abs()</code> will be useful). What is te sum of the values in this column? Give your answer to the nearest whole number.</p>
 </p>]]></text>
 </questiontext>
 <generalfeedback format="html">
 <text><![CDATA[<p>
-<p>Use the R command <code>nchar(book_name) |&gt; sum()</code>.</p>
+<p>Use <code>mutate(inaccuracy = abs(distance - observed_distance))</code>.</p>
 </p>]]></text>
 </generalfeedback>
 <penalty>0</penalty>
 <defaultgrade>1</defaultgrade>
 <answer fraction="100" format="moodle_auto_format">
-<text>661064</text>
-<tolerance>6610.64</tolerance>
+<text>831</text>
+<tolerance>1.662</tolerance>
 </answer>
 </question>
 
 
 <question type="numerical">
 <name>
-<text> R2 Q1 : rexams_jane-austen </text>
+<text> R2 Q1 : rexams_week-2_falling </text>
 </name>
 <questiontext format="html">
 <text><![CDATA[
 <p>
-<p>The <code>janeaustenr</code> package contains the text of several Jane Austern novels, (if not already installed, use <code>install.packages("janeaustenr")</code>). Calculate the number of letters in the book <strong>Sense &amp; Sensibility</strong>.</p>
+<p>Install the <code>dslabs</code> package if you haven’t already (<code>install.packages("dslabs")</code>. Create a <code>rfalling_object</code> using the code below (note, the <code>set.seed()</code> is crucial otherwise the random number generator won’t be the same. Use the value 63 for <code>my_number</code>)</p>
+<pre><code>library(tidyverse)
+library(dslabs)
+
+set.seed(my_number)
+falling &lt;- rfalling_object(n = 1000)</code></pre>
+<p>Create a new column using <code>mutate()</code> of the absolute value difference between the <code>distance</code> and <code>observed_distance</code> columns (the R function <code>abs()</code> will be useful). What is te sum of the values in this column? Give your answer to the nearest whole number.</p>
 </p>]]></text>
 </questiontext>
 <generalfeedback format="html">
 <text><![CDATA[<p>
-<p>Use the R command <code>nchar(book_name) |&gt; sum()</code>.</p>
+<p>Use <code>mutate(inaccuracy = abs(distance - observed_distance))</code>.</p>
 </p>]]></text>
 </generalfeedback>
 <penalty>0</penalty>
 <defaultgrade>1</defaultgrade>
 <answer fraction="100" format="moodle_auto_format">
-<text>661064</text>
-<tolerance>6610.64</tolerance>
+<text>823</text>
+<tolerance>1.646</tolerance>
 </answer>
 </question>
 
