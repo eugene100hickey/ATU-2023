@@ -7,7 +7,7 @@ library(showtext)
 font_add_google(name = "Caveat", family = "Caveat")
 showtext_auto()
 
-z <- read_rds("https://github.com/eugene100hickey/ATU-2023/blob/main/rexams/data/ABAData-wide?raw=true")
+z <- read_rds("https://github.com/eugene100hickey/ATU-2023/blob/main/rexams/data/ABAData-wider?raw=true")
 
 genes <- colnames(z)[2:dim(z)[2]] |> 
   sample(10)
