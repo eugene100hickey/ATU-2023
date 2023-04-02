@@ -9,25 +9,24 @@
 </question>
 
 
-<question type="numerical">
+<question type="cloze">
 <name>
-<text> R1 Q1 : rexams_week-2_US-areas </text>
+<text> R1 Q1 : rexams_week-2_ABA-group </text>
 </name>
 <questiontext format="html">
 <text><![CDATA[
 <p>
-<p>Run the code lines below to read in two data frames called <code>state_areas</code> and <code>state_regions</code>.</p>
-<pre><code>state_areas &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/blob/main/rexams/data/state-areas?raw=true&quot;)
-state_regions &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/blob/main/rexams/data/state-regions?raw=true&quot;)</code></pre>
-<p>Then join these two data frames together to make one that looks like this:</p>
-<pre><code>gt::gt(states |&gt; head())</code></pre>
+<p>Run the code line below to read in a data frame called <code>ABAData</code>.</p>
+<p>brain_gene_expression &lt;- read_rds(“https://github.com/eugene100hickey/ATU-2023/blob/main/rexams/data/ABAData?raw=true”) |&gt;
+filter(hgnc_symbol %in% c(“SEC13”, “VWA2”))</p>
+<p>Use <code>group_by()</code> and <code>summarise()</code> to calculate the mean gene expression for each gene for each age category. Use thisto fill out the table below.</p>
 <!--html_preserve-->
-<div id="eayjdrzqox" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="rmedbxrcxw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+  font-family: Caveat;
 }
 
-#eayjdrzqox .gt_table {
+#rmedbxrcxw .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -35,7 +34,7 @@ state_regions &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/b
   color: #333333;
   font-size: 16px;
   font-weight: normal;
-  font-style: normal;
+  font-style: oblique;
   background-color: #FFFFFF;
   width: auto;
   border-top-style: solid;
@@ -52,7 +51,7 @@ state_regions &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/b
   border-left-color: #D3D3D3;
 }
 
-#eayjdrzqox .gt_heading {
+#rmedbxrcxw .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -64,12 +63,12 @@ state_regions &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/b
   border-right-color: #D3D3D3;
 }
 
-#eayjdrzqox .gt_caption {
+#rmedbxrcxw .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#eayjdrzqox .gt_title {
+#rmedbxrcxw .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -81,7 +80,7 @@ state_regions &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/b
   border-bottom-width: 0;
 }
 
-#eayjdrzqox .gt_subtitle {
+#rmedbxrcxw .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -93,13 +92,13 @@ state_regions &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/b
   border-top-width: 0;
 }
 
-#eayjdrzqox .gt_bottom_border {
+#rmedbxrcxw .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#eayjdrzqox .gt_col_headings {
+#rmedbxrcxw .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -114,18 +113,18 @@ state_regions &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/b
   border-right-color: #D3D3D3;
 }
 
-#eayjdrzqox .gt_col_heading {
-  color: #333333;
-  background-color: #FFFFFF;
+#rmedbxrcxw .gt_col_heading {
+  color: #FFFFFF;
+  background-color: #6495ED;
   font-size: 100%;
-  font-weight: normal;
+  font-weight: bold;
   text-transform: inherit;
-  border-left-style: none;
+  border-left-style: solid;
   border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
+  border-left-color: #00008B;
+  border-right-style: solid;
   border-right-width: 1px;
-  border-right-color: #D3D3D3;
+  border-right-color: #00008B;
   vertical-align: bottom;
   padding-top: 5px;
   padding-bottom: 6px;
@@ -134,11 +133,11 @@ state_regions &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/b
   overflow-x: hidden;
 }
 
-#eayjdrzqox .gt_column_spanner_outer {
-  color: #333333;
-  background-color: #FFFFFF;
+#rmedbxrcxw .gt_column_spanner_outer {
+  color: #FFFFFF;
+  background-color: #6495ED;
   font-size: 100%;
-  font-weight: normal;
+  font-weight: bold;
   text-transform: inherit;
   padding-top: 0;
   padding-bottom: 0;
@@ -146,15 +145,15 @@ state_regions &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/b
   padding-right: 4px;
 }
 
-#eayjdrzqox .gt_column_spanner_outer:first-child {
+#rmedbxrcxw .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#eayjdrzqox .gt_column_spanner_outer:last-child {
+#rmedbxrcxw .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#eayjdrzqox .gt_column_spanner {
+#rmedbxrcxw .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -166,7 +165,7 @@ state_regions &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/b
   width: 100%;
 }
 
-#eayjdrzqox .gt_group_heading {
+#rmedbxrcxw .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -192,7 +191,7 @@ state_regions &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/b
   text-align: left;
 }
 
-#eayjdrzqox .gt_empty_group_heading {
+#rmedbxrcxw .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -207,15 +206,15 @@ state_regions &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/b
   vertical-align: middle;
 }
 
-#eayjdrzqox .gt_from_md > :first-child {
+#rmedbxrcxw .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#eayjdrzqox .gt_from_md > :last-child {
+#rmedbxrcxw .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#eayjdrzqox .gt_row {
+#rmedbxrcxw .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -224,17 +223,17 @@ state_regions &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/b
   border-top-style: solid;
   border-top-width: 1px;
   border-top-color: #D3D3D3;
-  border-left-style: none;
+  border-left-style: solid;
   border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
+  border-left-color: #00008B;
+  border-right-style: solid;
   border-right-width: 1px;
-  border-right-color: #D3D3D3;
+  border-right-color: #00008B;
   vertical-align: middle;
   overflow-x: hidden;
 }
 
-#eayjdrzqox .gt_stub {
+#rmedbxrcxw .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -247,7 +246,7 @@ state_regions &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/b
   padding-right: 5px;
 }
 
-#eayjdrzqox .gt_stub_row_group {
+#rmedbxrcxw .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -261,11 +260,11 @@ state_regions &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/b
   vertical-align: top;
 }
 
-#eayjdrzqox .gt_row_group_first td {
+#rmedbxrcxw .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#eayjdrzqox .gt_summary_row {
+#rmedbxrcxw .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -275,16 +274,16 @@ state_regions &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/b
   padding-right: 5px;
 }
 
-#eayjdrzqox .gt_first_summary_row {
+#rmedbxrcxw .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#eayjdrzqox .gt_first_summary_row.thick {
+#rmedbxrcxw .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#eayjdrzqox .gt_last_summary_row {
+#rmedbxrcxw .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -294,7 +293,7 @@ state_regions &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/b
   border-bottom-color: #D3D3D3;
 }
 
-#eayjdrzqox .gt_grand_summary_row {
+#rmedbxrcxw .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -304,7 +303,7 @@ state_regions &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/b
   padding-right: 5px;
 }
 
-#eayjdrzqox .gt_first_grand_summary_row {
+#rmedbxrcxw .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -314,11 +313,11 @@ state_regions &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/b
   border-top-color: #D3D3D3;
 }
 
-#eayjdrzqox .gt_striped {
+#rmedbxrcxw .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#eayjdrzqox .gt_table_body {
+#rmedbxrcxw .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -327,7 +326,7 @@ state_regions &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/b
   border-bottom-color: #D3D3D3;
 }
 
-#eayjdrzqox .gt_footnotes {
+#rmedbxrcxw .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -341,7 +340,7 @@ state_regions &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/b
   border-right-color: #D3D3D3;
 }
 
-#eayjdrzqox .gt_footnote {
+#rmedbxrcxw .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -350,7 +349,7 @@ state_regions &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/b
   padding-right: 5px;
 }
 
-#eayjdrzqox .gt_sourcenotes {
+#rmedbxrcxw .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -364,7 +363,7 @@ state_regions &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/b
   border-right-color: #D3D3D3;
 }
 
-#eayjdrzqox .gt_sourcenote {
+#rmedbxrcxw .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -372,188 +371,183 @@ state_regions &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/b
   padding-right: 5px;
 }
 
-#eayjdrzqox .gt_left {
+#rmedbxrcxw .gt_left {
   text-align: left;
 }
 
-#eayjdrzqox .gt_center {
+#rmedbxrcxw .gt_center {
   text-align: center;
 }
 
-#eayjdrzqox .gt_right {
+#rmedbxrcxw .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#eayjdrzqox .gt_font_normal {
+#rmedbxrcxw .gt_font_normal {
   font-weight: normal;
 }
 
-#eayjdrzqox .gt_font_bold {
+#rmedbxrcxw .gt_font_bold {
   font-weight: bold;
 }
 
-#eayjdrzqox .gt_font_italic {
+#rmedbxrcxw .gt_font_italic {
   font-style: italic;
 }
 
-#eayjdrzqox .gt_super {
+#rmedbxrcxw .gt_super {
   font-size: 65%;
 }
 
-#eayjdrzqox .gt_footnote_marks {
+#rmedbxrcxw .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#eayjdrzqox .gt_asterisk {
+#rmedbxrcxw .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#eayjdrzqox .gt_indent_1 {
+#rmedbxrcxw .gt_indent_1 {
   text-indent: 5px;
 }
 
-#eayjdrzqox .gt_indent_2 {
+#rmedbxrcxw .gt_indent_2 {
   text-indent: 10px;
 }
 
-#eayjdrzqox .gt_indent_3 {
+#rmedbxrcxw .gt_indent_3 {
   text-indent: 15px;
 }
 
-#eayjdrzqox .gt_indent_4 {
+#rmedbxrcxw .gt_indent_4 {
   text-indent: 20px;
 }
 
-#eayjdrzqox .gt_indent_5 {
+#rmedbxrcxw .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
 <table class="gt_table">
 <thead class="gt_col_headings">
 <tr>
-<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="state">
-state
+<th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="Age Category">
+Age Category
 </th>
-<th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="region">
-region
+<th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="Mean Expression for SEC13">
+Mean Expression for SEC13
 </th>
-<th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="area">
-area
+<th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="Mean Expression for VWA2">
+Mean Expression for VWA2
 </th>
 </tr>
 </thead>
 <tbody class="gt_table_body">
 <tr>
-<td headers="state" class="gt_row gt_left">
-Alabama
+<td headers="ages" class="gt_row gt_center">
+prenatal
 </td>
-<td headers="region" class="gt_row gt_center">
-East South Central
+<td headers="gene1_answers" class="gt_row gt_center">
+ {1:NUMERICAL:=11.6:0.05~%0%599740:0}
 </td>
-<td headers="area" class="gt_row gt_right">
-0.051609
-</td>
-</tr>
-<tr>
-<td headers="state" class="gt_row gt_left">
-Alaska
-</td>
-<td headers="region" class="gt_row gt_center">
-Pacific
-</td>
-<td headers="area" class="gt_row gt_right">
-0.589757
+<td headers="gene2_answers" class="gt_row gt_center">
+ {1:NUMERICAL:=0.604:0.05~%0%599740:0}
 </td>
 </tr>
 <tr>
-<td headers="state" class="gt_row gt_left">
-Arizona
+<td headers="ages" class="gt_row gt_center">
+infant
 </td>
-<td headers="region" class="gt_row gt_center">
-Mountain
+<td headers="gene1_answers" class="gt_row gt_center">
+ {1:NUMERICAL:=7.53:0.05~%0%599740:0}
 </td>
-<td headers="area" class="gt_row gt_right">
-0.113909
-</td>
-</tr>
-<tr>
-<td headers="state" class="gt_row gt_left">
-Arkansas
-</td>
-<td headers="region" class="gt_row gt_center">
-West South Central
-</td>
-<td headers="area" class="gt_row gt_right">
-0.053104
+<td headers="gene2_answers" class="gt_row gt_center">
+ {1:NUMERICAL:=1.18:0.05~%0%599740:0}
 </td>
 </tr>
 <tr>
-<td headers="state" class="gt_row gt_left">
-California
+<td headers="ages" class="gt_row gt_center">
+child
 </td>
-<td headers="region" class="gt_row gt_center">
-Pacific
+<td headers="gene1_answers" class="gt_row gt_center">
+ {1:NUMERICAL:=7.81:0.05~%0%599740:0}
 </td>
-<td headers="area" class="gt_row gt_right">
-0.158693
+<td headers="gene2_answers" class="gt_row gt_center">
+ {1:NUMERICAL:=0.633:0.05~%0%599740:0}
 </td>
 </tr>
 <tr>
-<td headers="state" class="gt_row gt_left">
-Colorado
+<td headers="ages" class="gt_row gt_center">
+adolescent
 </td>
-<td headers="region" class="gt_row gt_center">
-Mountain
+<td headers="gene1_answers" class="gt_row gt_center">
+ {1:NUMERICAL:=7.6:0.05~%0%599740:0}
 </td>
-<td headers="area" class="gt_row gt_right">
-0.104247
+<td headers="gene2_answers" class="gt_row gt_center">
+ {1:NUMERICAL:=0.66:0.05~%0%599740:0}
+</td>
+</tr>
+<tr>
+<td headers="ages" class="gt_row gt_center">
+adult
+</td>
+<td headers="gene1_answers" class="gt_row gt_center">
+ {1:NUMERICAL:=7.49:0.05~%0%599740:0}
+</td>
+<td headers="gene2_answers" class="gt_row gt_center">
+ {1:NUMERICAL:=0.474:0.05~%0%599740:0}
 </td>
 </tr>
 </tbody>
 </table>
 </div>
 <!--/html_preserve-->
-<p>What is the sum of the area of the states in the New England?</p>
 </p>]]></text>
 </questiontext>
 <generalfeedback format="html">
 <text><![CDATA[<p>
-<p>Use <code>left_join(state_areas, join_by(state == state_name))</code>.</p>
+<p>Use <code>group_by(hgnc_symbol, age) |&gt; summarise(gene_signal = mean(signal))</code></p>
+<ol type = "a">
+<li> 11.6 </li>
+<li> 7.53 </li>
+<li> 7.81 </li>
+<li> 7.6 </li>
+<li> 7.49 </li>
+<li> 0.604 </li>
+<li> 1.18 </li>
+<li> 0.633 </li>
+<li> 0.66 </li>
+<li> 0.474 </li>
+</ol>
 </p>]]></text>
 </generalfeedback>
 <penalty>0</penalty>
-<defaultgrade>1</defaultgrade>
-<answer fraction="100" format="moodle_auto_format">
-<text>0.066608</text>
-<tolerance>0.0013322</tolerance>
-</answer>
+<defaultgrade>10</defaultgrade>
 </question>
 
 
-<question type="numerical">
+<question type="cloze">
 <name>
-<text> R2 Q1 : rexams_week-2_US-areas </text>
+<text> R2 Q1 : rexams_week-2_ABA-group </text>
 </name>
 <questiontext format="html">
 <text><![CDATA[
 <p>
-<p>Run the code lines below to read in two data frames called <code>state_areas</code> and <code>state_regions</code>.</p>
-<pre><code>state_areas &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/blob/main/rexams/data/state-areas?raw=true&quot;)
-state_regions &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/blob/main/rexams/data/state-regions?raw=true&quot;)</code></pre>
-<p>Then join these two data frames together to make one that looks like this:</p>
-<pre><code>gt::gt(states |&gt; head())</code></pre>
+<p>Run the code line below to read in a data frame called <code>ABAData</code>.</p>
+<p>brain_gene_expression &lt;- read_rds(“https://github.com/eugene100hickey/ATU-2023/blob/main/rexams/data/ABAData?raw=true”) |&gt;
+filter(hgnc_symbol %in% c(“MPHOSPH8”, “FAM179A”))</p>
+<p>Use <code>group_by()</code> and <code>summarise()</code> to calculate the mean gene expression for each gene for each age category. Use thisto fill out the table below.</p>
 <!--html_preserve-->
-<div id="dyentzroci" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="rffbtcvubw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+  font-family: Caveat;
 }
 
-#dyentzroci .gt_table {
+#rffbtcvubw .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -561,7 +555,7 @@ state_regions &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/b
   color: #333333;
   font-size: 16px;
   font-weight: normal;
-  font-style: normal;
+  font-style: oblique;
   background-color: #FFFFFF;
   width: auto;
   border-top-style: solid;
@@ -578,7 +572,7 @@ state_regions &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/b
   border-left-color: #D3D3D3;
 }
 
-#dyentzroci .gt_heading {
+#rffbtcvubw .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -590,12 +584,12 @@ state_regions &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/b
   border-right-color: #D3D3D3;
 }
 
-#dyentzroci .gt_caption {
+#rffbtcvubw .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#dyentzroci .gt_title {
+#rffbtcvubw .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -607,7 +601,7 @@ state_regions &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/b
   border-bottom-width: 0;
 }
 
-#dyentzroci .gt_subtitle {
+#rffbtcvubw .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -619,13 +613,13 @@ state_regions &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/b
   border-top-width: 0;
 }
 
-#dyentzroci .gt_bottom_border {
+#rffbtcvubw .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#dyentzroci .gt_col_headings {
+#rffbtcvubw .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -640,18 +634,18 @@ state_regions &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/b
   border-right-color: #D3D3D3;
 }
 
-#dyentzroci .gt_col_heading {
-  color: #333333;
-  background-color: #FFFFFF;
+#rffbtcvubw .gt_col_heading {
+  color: #FFFFFF;
+  background-color: #6495ED;
   font-size: 100%;
-  font-weight: normal;
+  font-weight: bold;
   text-transform: inherit;
-  border-left-style: none;
+  border-left-style: solid;
   border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
+  border-left-color: #00008B;
+  border-right-style: solid;
   border-right-width: 1px;
-  border-right-color: #D3D3D3;
+  border-right-color: #00008B;
   vertical-align: bottom;
   padding-top: 5px;
   padding-bottom: 6px;
@@ -660,11 +654,11 @@ state_regions &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/b
   overflow-x: hidden;
 }
 
-#dyentzroci .gt_column_spanner_outer {
-  color: #333333;
-  background-color: #FFFFFF;
+#rffbtcvubw .gt_column_spanner_outer {
+  color: #FFFFFF;
+  background-color: #6495ED;
   font-size: 100%;
-  font-weight: normal;
+  font-weight: bold;
   text-transform: inherit;
   padding-top: 0;
   padding-bottom: 0;
@@ -672,15 +666,15 @@ state_regions &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/b
   padding-right: 4px;
 }
 
-#dyentzroci .gt_column_spanner_outer:first-child {
+#rffbtcvubw .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#dyentzroci .gt_column_spanner_outer:last-child {
+#rffbtcvubw .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#dyentzroci .gt_column_spanner {
+#rffbtcvubw .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -692,7 +686,7 @@ state_regions &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/b
   width: 100%;
 }
 
-#dyentzroci .gt_group_heading {
+#rffbtcvubw .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -718,7 +712,7 @@ state_regions &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/b
   text-align: left;
 }
 
-#dyentzroci .gt_empty_group_heading {
+#rffbtcvubw .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -733,15 +727,15 @@ state_regions &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/b
   vertical-align: middle;
 }
 
-#dyentzroci .gt_from_md > :first-child {
+#rffbtcvubw .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#dyentzroci .gt_from_md > :last-child {
+#rffbtcvubw .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#dyentzroci .gt_row {
+#rffbtcvubw .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -750,17 +744,17 @@ state_regions &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/b
   border-top-style: solid;
   border-top-width: 1px;
   border-top-color: #D3D3D3;
-  border-left-style: none;
+  border-left-style: solid;
   border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
+  border-left-color: #00008B;
+  border-right-style: solid;
   border-right-width: 1px;
-  border-right-color: #D3D3D3;
+  border-right-color: #00008B;
   vertical-align: middle;
   overflow-x: hidden;
 }
 
-#dyentzroci .gt_stub {
+#rffbtcvubw .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -773,7 +767,7 @@ state_regions &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/b
   padding-right: 5px;
 }
 
-#dyentzroci .gt_stub_row_group {
+#rffbtcvubw .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -787,11 +781,11 @@ state_regions &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/b
   vertical-align: top;
 }
 
-#dyentzroci .gt_row_group_first td {
+#rffbtcvubw .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#dyentzroci .gt_summary_row {
+#rffbtcvubw .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -801,16 +795,16 @@ state_regions &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/b
   padding-right: 5px;
 }
 
-#dyentzroci .gt_first_summary_row {
+#rffbtcvubw .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#dyentzroci .gt_first_summary_row.thick {
+#rffbtcvubw .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#dyentzroci .gt_last_summary_row {
+#rffbtcvubw .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -820,7 +814,7 @@ state_regions &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/b
   border-bottom-color: #D3D3D3;
 }
 
-#dyentzroci .gt_grand_summary_row {
+#rffbtcvubw .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -830,7 +824,7 @@ state_regions &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/b
   padding-right: 5px;
 }
 
-#dyentzroci .gt_first_grand_summary_row {
+#rffbtcvubw .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -840,11 +834,11 @@ state_regions &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/b
   border-top-color: #D3D3D3;
 }
 
-#dyentzroci .gt_striped {
+#rffbtcvubw .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#dyentzroci .gt_table_body {
+#rffbtcvubw .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -853,7 +847,7 @@ state_regions &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/b
   border-bottom-color: #D3D3D3;
 }
 
-#dyentzroci .gt_footnotes {
+#rffbtcvubw .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -867,7 +861,7 @@ state_regions &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/b
   border-right-color: #D3D3D3;
 }
 
-#dyentzroci .gt_footnote {
+#rffbtcvubw .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -876,7 +870,7 @@ state_regions &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/b
   padding-right: 5px;
 }
 
-#dyentzroci .gt_sourcenotes {
+#rffbtcvubw .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -890,7 +884,7 @@ state_regions &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/b
   border-right-color: #D3D3D3;
 }
 
-#dyentzroci .gt_sourcenote {
+#rffbtcvubw .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -898,166 +892,162 @@ state_regions &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/b
   padding-right: 5px;
 }
 
-#dyentzroci .gt_left {
+#rffbtcvubw .gt_left {
   text-align: left;
 }
 
-#dyentzroci .gt_center {
+#rffbtcvubw .gt_center {
   text-align: center;
 }
 
-#dyentzroci .gt_right {
+#rffbtcvubw .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#dyentzroci .gt_font_normal {
+#rffbtcvubw .gt_font_normal {
   font-weight: normal;
 }
 
-#dyentzroci .gt_font_bold {
+#rffbtcvubw .gt_font_bold {
   font-weight: bold;
 }
 
-#dyentzroci .gt_font_italic {
+#rffbtcvubw .gt_font_italic {
   font-style: italic;
 }
 
-#dyentzroci .gt_super {
+#rffbtcvubw .gt_super {
   font-size: 65%;
 }
 
-#dyentzroci .gt_footnote_marks {
+#rffbtcvubw .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#dyentzroci .gt_asterisk {
+#rffbtcvubw .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#dyentzroci .gt_indent_1 {
+#rffbtcvubw .gt_indent_1 {
   text-indent: 5px;
 }
 
-#dyentzroci .gt_indent_2 {
+#rffbtcvubw .gt_indent_2 {
   text-indent: 10px;
 }
 
-#dyentzroci .gt_indent_3 {
+#rffbtcvubw .gt_indent_3 {
   text-indent: 15px;
 }
 
-#dyentzroci .gt_indent_4 {
+#rffbtcvubw .gt_indent_4 {
   text-indent: 20px;
 }
 
-#dyentzroci .gt_indent_5 {
+#rffbtcvubw .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
 <table class="gt_table">
 <thead class="gt_col_headings">
 <tr>
-<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="state">
-state
+<th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="Age Category">
+Age Category
 </th>
-<th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="region">
-region
+<th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="Mean Expression for MPHOSPH8">
+Mean Expression for MPHOSPH8
 </th>
-<th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="area">
-area
+<th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="Mean Expression for FAM179A">
+Mean Expression for FAM179A
 </th>
 </tr>
 </thead>
 <tbody class="gt_table_body">
 <tr>
-<td headers="state" class="gt_row gt_left">
-Alabama
+<td headers="ages" class="gt_row gt_center">
+prenatal
 </td>
-<td headers="region" class="gt_row gt_center">
-East South Central
+<td headers="gene1_answers" class="gt_row gt_center">
+ {1:NUMERICAL:=0.0729:0.05~%0%1639838:0}
 </td>
-<td headers="area" class="gt_row gt_right">
-0.051609
-</td>
-</tr>
-<tr>
-<td headers="state" class="gt_row gt_left">
-Alaska
-</td>
-<td headers="region" class="gt_row gt_center">
-Pacific
-</td>
-<td headers="area" class="gt_row gt_right">
-0.589757
+<td headers="gene2_answers" class="gt_row gt_center">
+ {1:NUMERICAL:=10.4:0.05~%0%1639838:0}
 </td>
 </tr>
 <tr>
-<td headers="state" class="gt_row gt_left">
-Arizona
+<td headers="ages" class="gt_row gt_center">
+infant
 </td>
-<td headers="region" class="gt_row gt_center">
-Mountain
+<td headers="gene1_answers" class="gt_row gt_center">
+ {1:NUMERICAL:=0.189:0.05~%0%1639838:0}
 </td>
-<td headers="area" class="gt_row gt_right">
-0.113909
-</td>
-</tr>
-<tr>
-<td headers="state" class="gt_row gt_left">
-Arkansas
-</td>
-<td headers="region" class="gt_row gt_center">
-West South Central
-</td>
-<td headers="area" class="gt_row gt_right">
-0.053104
+<td headers="gene2_answers" class="gt_row gt_center">
+ {1:NUMERICAL:=9.79:0.05~%0%1639838:0}
 </td>
 </tr>
 <tr>
-<td headers="state" class="gt_row gt_left">
-California
+<td headers="ages" class="gt_row gt_center">
+child
 </td>
-<td headers="region" class="gt_row gt_center">
-Pacific
+<td headers="gene1_answers" class="gt_row gt_center">
+ {1:NUMERICAL:=0.113:0.05~%0%1639838:0}
 </td>
-<td headers="area" class="gt_row gt_right">
-0.158693
+<td headers="gene2_answers" class="gt_row gt_center">
+ {1:NUMERICAL:=8.99:0.05~%0%1639838:0}
 </td>
 </tr>
 <tr>
-<td headers="state" class="gt_row gt_left">
-Colorado
+<td headers="ages" class="gt_row gt_center">
+adolescent
 </td>
-<td headers="region" class="gt_row gt_center">
-Mountain
+<td headers="gene1_answers" class="gt_row gt_center">
+ {1:NUMERICAL:=0.235:0.05~%0%1639838:0}
 </td>
-<td headers="area" class="gt_row gt_right">
-0.104247
+<td headers="gene2_answers" class="gt_row gt_center">
+ {1:NUMERICAL:=13.6:0.05~%0%1639838:0}
+</td>
+</tr>
+<tr>
+<td headers="ages" class="gt_row gt_center">
+adult
+</td>
+<td headers="gene1_answers" class="gt_row gt_center">
+ {1:NUMERICAL:=0.255:0.05~%0%1639838:0}
+</td>
+<td headers="gene2_answers" class="gt_row gt_center">
+ {1:NUMERICAL:=15.4:0.05~%0%1639838:0}
 </td>
 </tr>
 </tbody>
 </table>
 </div>
 <!--/html_preserve-->
-<p>What is the sum of the area of the states in the West North Central?</p>
 </p>]]></text>
 </questiontext>
 <generalfeedback format="html">
 <text><![CDATA[<p>
-<p>Use <code>left_join(state_areas, join_by(state == state_name))</code>.</p>
+<p>Use <code>group_by(hgnc_symbol, age) |&gt; summarise(gene_signal = mean(signal))</code></p>
+<ol type = "a">
+<li> 0.0729 </li>
+<li> 0.189 </li>
+<li> 0.113 </li>
+<li> 0.235 </li>
+<li> 0.255 </li>
+<li> 10.4 </li>
+<li> 9.79 </li>
+<li> 8.99 </li>
+<li> 13.6 </li>
+<li> 15.4 </li>
+</ol>
 </p>]]></text>
 </generalfeedback>
 <penalty>0</penalty>
-<defaultgrade>1</defaultgrade>
-<answer fraction="100" format="moodle_auto_format">
-<text>0.517247</text>
-<tolerance>0.0103449</tolerance>
-</answer>
+<defaultgrade>10</defaultgrade>
 </question>
 
 </quiz>

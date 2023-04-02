@@ -7,7 +7,7 @@ library(showtext)
 font_add_google(name = "Caveat", family = "Caveat")
 showtext_auto()
 
-z <- readRDS("rexams/data/ABAData")
+z <- read_rds("https://github.com/eugene100hickey/ATU-2023/blob/main/rexams/data/ABAData?raw=true")
 
 genes <- unique(z$hgnc_symbol) |> 
   sample(2)
@@ -17,7 +17,7 @@ z1 <- z |>
   group_by(hgnc_symbol, age) |> 
   summarise(gene_signal = mean(signal))
 
-solution <- z1$gene_signal
+solution <- z1$gene_signal |> signif(3)
 
 ages <- levels(z1$age)
 gene1_numbers <- 1:5
@@ -33,14 +33,15 @@ my_table <- tibble(ages, gene1_answers, gene2_answers)
 
 Question
 ========
-Run the code line below to read in a data frame called `ABAData`. 
+Run the code line below to read in a data frame called `brain_gene_expression`. 
 
-```{r eval=FALSE}
 brain_gene_expression <- read_rds("https://github.com/eugene100hickey/ATU-2023/blob/main/rexams/data/ABAData?raw=true") |> 
-  filter(hgnc_symbol %in% glue::glue("c(\"{genes[1]}\", \"{genes[2]}\")"))
-```
+  filter(hgnc_symbol %in% c("`r {genes[1]}`", "`r {genes[2]}`"))
+  
+(note that if you cut and paste in this text, you might have to rewrite the quotation marks, __"__)
 
-Use `group_by()` and `summarise()` to calculate the mean gene expression for each gene for each age category. Use thisto fill out the table below.
+
+Use `group_by()` and `summarise()` to calculate the mean gene expression for each gene for each age category. Use this to fill out the table below.
 
 ```{r echo=FALSE}
 my_table %>% 
@@ -72,10 +73,10 @@ answerlist(rep("", length(solution)), markup = "markdown")
 Solution
 ========
 
-Using the information from the text, we can directly calculate the following joint probabilities:
+Use `group_by(hgnc_symbol, age) |> summarise(gene_signal = mean(signal))`
 
 ```{r solutionlist, echo = FALSE, results = "asis"}
-answerlist(c(glue::glue("{gene1_numbers}"), glue::glue("{gene2_numbers}")), markup = "markdown")
+answerlist(c(glue::glue("{solution}")), markup = "markdown")
 ```
 
 
