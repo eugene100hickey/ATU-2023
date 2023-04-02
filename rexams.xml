@@ -11,22 +11,22 @@
 
 <question type="numerical">
 <name>
-<text> R1 Q1 : rexams_week-2_ABA-pivot-long </text>
+<text> R1 Q1 : rexams_week-2_ABA-join </text>
 </name>
 <questiontext format="html">
 <text><![CDATA[
 <p>
-<p>Run the code line below to read in a data frame called <code>brain_gene_expression_wide</code>.</p>
-<p><code>brain_gene_expression_wide &lt;- read_rds("https://github.com/eugene100hickey/ATU-2023/blob/main/rexams/data/ABAData-wide?raw=true") |&gt;    select(structure, ATG7, VWA2, CENPI, H3F3B, MAML1, RCBTB1, CD36, FAM179A, MAFG, SCNN1G)</code></p>
-<p>(note that if you cut and paste in this text, you might have to rewrite the quotation marks, <strong>“</strong>)</p>
-<p>Use <code>pivot_long()</code> to recast this data in long format. The top of this table is shown below. Use this to calculate the mean level of gene expression.</p>
+<p>Run the code lines below to read in two data frames called <code>gene_data</code> and <code>brain_data</code>.</p>
+<pre><code>gene_data &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/blob/main/rexams/data/ABA-adult?raw=true&quot;)
+brain_data &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/blob/main/rexams/data/brain-area-codes?raw=true&quot;)</code></pre>
+<p>Then join these two data frames together to make one that looks like this:</p>
 <!--html_preserve-->
-<div id="bxxbyknbbj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="eayjdrzqox" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
-  font-family: Caveat;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#bxxbyknbbj .gt_table {
+#eayjdrzqox .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -34,7 +34,7 @@
   color: #333333;
   font-size: 16px;
   font-weight: normal;
-  font-style: oblique;
+  font-style: normal;
   background-color: #FFFFFF;
   width: auto;
   border-top-style: solid;
@@ -51,7 +51,7 @@
   border-left-color: #D3D3D3;
 }
 
-#bxxbyknbbj .gt_heading {
+#eayjdrzqox .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -63,12 +63,12 @@
   border-right-color: #D3D3D3;
 }
 
-#bxxbyknbbj .gt_caption {
+#eayjdrzqox .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#bxxbyknbbj .gt_title {
+#eayjdrzqox .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -80,7 +80,7 @@
   border-bottom-width: 0;
 }
 
-#bxxbyknbbj .gt_subtitle {
+#eayjdrzqox .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -92,13 +92,13 @@
   border-top-width: 0;
 }
 
-#bxxbyknbbj .gt_bottom_border {
+#eayjdrzqox .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#bxxbyknbbj .gt_col_headings {
+#eayjdrzqox .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -113,18 +113,18 @@
   border-right-color: #D3D3D3;
 }
 
-#bxxbyknbbj .gt_col_heading {
-  color: #FFFFFF;
-  background-color: #6495ED;
+#eayjdrzqox .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
   font-size: 100%;
-  font-weight: bold;
+  font-weight: normal;
   text-transform: inherit;
-  border-left-style: solid;
+  border-left-style: none;
   border-left-width: 1px;
-  border-left-color: #00008B;
-  border-right-style: solid;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
   border-right-width: 1px;
-  border-right-color: #00008B;
+  border-right-color: #D3D3D3;
   vertical-align: bottom;
   padding-top: 5px;
   padding-bottom: 6px;
@@ -133,11 +133,11 @@
   overflow-x: hidden;
 }
 
-#bxxbyknbbj .gt_column_spanner_outer {
-  color: #FFFFFF;
-  background-color: #6495ED;
+#eayjdrzqox .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
   font-size: 100%;
-  font-weight: bold;
+  font-weight: normal;
   text-transform: inherit;
   padding-top: 0;
   padding-bottom: 0;
@@ -145,15 +145,15 @@
   padding-right: 4px;
 }
 
-#bxxbyknbbj .gt_column_spanner_outer:first-child {
+#eayjdrzqox .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#bxxbyknbbj .gt_column_spanner_outer:last-child {
+#eayjdrzqox .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#bxxbyknbbj .gt_column_spanner {
+#eayjdrzqox .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -165,7 +165,7 @@
   width: 100%;
 }
 
-#bxxbyknbbj .gt_group_heading {
+#eayjdrzqox .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -191,7 +191,7 @@
   text-align: left;
 }
 
-#bxxbyknbbj .gt_empty_group_heading {
+#eayjdrzqox .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -206,15 +206,15 @@
   vertical-align: middle;
 }
 
-#bxxbyknbbj .gt_from_md > :first-child {
+#eayjdrzqox .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#bxxbyknbbj .gt_from_md > :last-child {
+#eayjdrzqox .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#bxxbyknbbj .gt_row {
+#eayjdrzqox .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -223,17 +223,17 @@
   border-top-style: solid;
   border-top-width: 1px;
   border-top-color: #D3D3D3;
-  border-left-style: solid;
+  border-left-style: none;
   border-left-width: 1px;
-  border-left-color: #00008B;
-  border-right-style: solid;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
   border-right-width: 1px;
-  border-right-color: #00008B;
+  border-right-color: #D3D3D3;
   vertical-align: middle;
   overflow-x: hidden;
 }
 
-#bxxbyknbbj .gt_stub {
+#eayjdrzqox .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -246,7 +246,7 @@
   padding-right: 5px;
 }
 
-#bxxbyknbbj .gt_stub_row_group {
+#eayjdrzqox .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -260,11 +260,11 @@
   vertical-align: top;
 }
 
-#bxxbyknbbj .gt_row_group_first td {
+#eayjdrzqox .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#bxxbyknbbj .gt_summary_row {
+#eayjdrzqox .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -274,16 +274,16 @@
   padding-right: 5px;
 }
 
-#bxxbyknbbj .gt_first_summary_row {
+#eayjdrzqox .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#bxxbyknbbj .gt_first_summary_row.thick {
+#eayjdrzqox .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#bxxbyknbbj .gt_last_summary_row {
+#eayjdrzqox .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -293,7 +293,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#bxxbyknbbj .gt_grand_summary_row {
+#eayjdrzqox .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -303,7 +303,7 @@
   padding-right: 5px;
 }
 
-#bxxbyknbbj .gt_first_grand_summary_row {
+#eayjdrzqox .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -313,11 +313,11 @@
   border-top-color: #D3D3D3;
 }
 
-#bxxbyknbbj .gt_striped {
+#eayjdrzqox .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#bxxbyknbbj .gt_table_body {
+#eayjdrzqox .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -326,7 +326,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#bxxbyknbbj .gt_footnotes {
+#eayjdrzqox .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -340,7 +340,7 @@
   border-right-color: #D3D3D3;
 }
 
-#bxxbyknbbj .gt_footnote {
+#eayjdrzqox .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -349,7 +349,7 @@
   padding-right: 5px;
 }
 
-#bxxbyknbbj .gt_sourcenotes {
+#eayjdrzqox .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -363,7 +363,7 @@
   border-right-color: #D3D3D3;
 }
 
-#bxxbyknbbj .gt_sourcenote {
+#eayjdrzqox .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -371,186 +371,209 @@
   padding-right: 5px;
 }
 
-#bxxbyknbbj .gt_left {
+#eayjdrzqox .gt_left {
   text-align: left;
 }
 
-#bxxbyknbbj .gt_center {
+#eayjdrzqox .gt_center {
   text-align: center;
 }
 
-#bxxbyknbbj .gt_right {
+#eayjdrzqox .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#bxxbyknbbj .gt_font_normal {
+#eayjdrzqox .gt_font_normal {
   font-weight: normal;
 }
 
-#bxxbyknbbj .gt_font_bold {
+#eayjdrzqox .gt_font_bold {
   font-weight: bold;
 }
 
-#bxxbyknbbj .gt_font_italic {
+#eayjdrzqox .gt_font_italic {
   font-style: italic;
 }
 
-#bxxbyknbbj .gt_super {
+#eayjdrzqox .gt_super {
   font-size: 65%;
 }
 
-#bxxbyknbbj .gt_footnote_marks {
+#eayjdrzqox .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#bxxbyknbbj .gt_asterisk {
+#eayjdrzqox .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#bxxbyknbbj .gt_indent_1 {
+#eayjdrzqox .gt_indent_1 {
   text-indent: 5px;
 }
 
-#bxxbyknbbj .gt_indent_2 {
+#eayjdrzqox .gt_indent_2 {
   text-indent: 10px;
 }
 
-#bxxbyknbbj .gt_indent_3 {
+#eayjdrzqox .gt_indent_3 {
   text-indent: 15px;
 }
 
-#bxxbyknbbj .gt_indent_4 {
+#eayjdrzqox .gt_indent_4 {
   text-indent: 20px;
 }
 
-#bxxbyknbbj .gt_indent_5 {
+#eayjdrzqox .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
 <table class="gt_table">
 <thead class="gt_col_headings">
 <tr>
-<th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="Brain Area Code">
-Brain Area Code
+<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="hgnc_symbol">
+hgnc_symbol
 </th>
-<th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="Gene Name">
-Gene Name
+<th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="structure">
+structure
 </th>
-<th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="Gene Expression">
-Gene Expression
+<th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="signal">
+signal
+</th>
+<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="brain_area">
+brain_area
 </th>
 </tr>
 </thead>
 <tbody class="gt_table_body">
 <tr>
-<td headers="structure" class="gt_row gt_center">
-10163
+<td headers="hgnc_symbol" class="gt_row gt_left">
+ACAA1
 </td>
-<td headers="gene" class="gt_row gt_center">
-ATG7
+<td headers="structure" class="gt_row gt_right">
+4024
 </td>
-<td headers="signal" class="gt_row gt_center">
-7.01521267
+<td headers="signal" class="gt_row gt_right">
+8.425045
 </td>
-</tr>
-<tr>
-<td headers="structure" class="gt_row gt_center">
-10163
-</td>
-<td headers="gene" class="gt_row gt_center">
-VWA2
-</td>
-<td headers="signal" class="gt_row gt_center">
-0.49108550
+<td headers="brain_area" class="gt_row gt_left">
+Cx_Cerebral Cortex
 </td>
 </tr>
 <tr>
-<td headers="structure" class="gt_row gt_center">
-10163
+<td headers="hgnc_symbol" class="gt_row gt_left">
+ACAA1
 </td>
-<td headers="gene" class="gt_row gt_center">
-CENPI
+<td headers="structure" class="gt_row gt_right">
+4355
 </td>
-<td headers="signal" class="gt_row gt_center">
-0.07189867
+<td headers="signal" class="gt_row gt_right">
+7.995196
 </td>
-</tr>
-<tr>
-<td headers="structure" class="gt_row gt_center">
-10163
-</td>
-<td headers="gene" class="gt_row gt_center">
-H3F3B
-</td>
-<td headers="signal" class="gt_row gt_center">
-43.96552533
+<td headers="brain_area" class="gt_row gt_left">
+CxN_Cerebral Nuclei
 </td>
 </tr>
 <tr>
-<td headers="structure" class="gt_row gt_center">
-10163
+<td headers="hgnc_symbol" class="gt_row gt_left">
+ACAA1
 </td>
-<td headers="gene" class="gt_row gt_center">
-MAML1
+<td headers="structure" class="gt_row gt_right">
+4155
 </td>
-<td headers="signal" class="gt_row gt_center">
-1.87006567
+<td headers="signal" class="gt_row gt_right">
+8.025882
+</td>
+<td headers="brain_area" class="gt_row gt_left">
+Cx_Cerebral Cortex
 </td>
 </tr>
 <tr>
-<td headers="structure" class="gt_row gt_center">
-10163
+<td headers="hgnc_symbol" class="gt_row gt_left">
+ACAA1
 </td>
-<td headers="gene" class="gt_row gt_center">
-RCBTB1
+<td headers="structure" class="gt_row gt_right">
+4186
 </td>
-<td headers="signal" class="gt_row gt_center">
-7.11661667
+<td headers="signal" class="gt_row gt_right">
+8.331045
+</td>
+<td headers="brain_area" class="gt_row gt_left">
+Cx_Cerebral Cortex
+</td>
+</tr>
+<tr>
+<td headers="hgnc_symbol" class="gt_row gt_left">
+ACAA1
+</td>
+<td headers="structure" class="gt_row gt_right">
+4908
+</td>
+<td headers="signal" class="gt_row gt_right">
+8.459142
+</td>
+<td headers="brain_area" class="gt_row gt_left">
+Cx_Cerebral Cortex
+</td>
+</tr>
+<tr>
+<td headers="hgnc_symbol" class="gt_row gt_left">
+ACAA1
+</td>
+<td headers="structure" class="gt_row gt_right">
+4759
+</td>
+<td headers="signal" class="gt_row gt_right">
+7.825108
+</td>
+<td headers="brain_area" class="gt_row gt_left">
+Cb_Cerebellum
 </td>
 </tr>
 </tbody>
 </table>
 </div>
 <!--/html_preserve-->
+<p>Filter this to only look at gene expression from the Pons_Pons.</p>
+<p>What is the average gene expression in Pons_Pons?</p>
 </p>]]></text>
 </questiontext>
 <generalfeedback format="html">
 <text><![CDATA[<p>
-<p>Use <code>pivot_longer(-structure, names_to = "gene", values_to = "signal")</code>.</p>
+<p>Use <code>gene_data |&gt; left_join(brain_data, join_by(structure == brain_code))</code> and then <code>filter(brain_area == Pons_Pons)</code></p>
 </p>]]></text>
 </generalfeedback>
 <penalty>0</penalty>
 <defaultgrade>1</defaultgrade>
 <answer fraction="100" format="moodle_auto_format">
-<text>1500</text>
-<tolerance>30</tolerance>
+<text>5.73</text>
+<tolerance>0.1146</tolerance>
 </answer>
 </question>
 
 
 <question type="numerical">
 <name>
-<text> R2 Q1 : rexams_week-2_ABA-pivot-long </text>
+<text> R2 Q1 : rexams_week-2_ABA-join </text>
 </name>
 <questiontext format="html">
 <text><![CDATA[
 <p>
-<p>Run the code line below to read in a data frame called <code>brain_gene_expression_wide</code>.</p>
-<p><code>brain_gene_expression_wide &lt;- read_rds("https://github.com/eugene100hickey/ATU-2023/blob/main/rexams/data/ABAData-wide?raw=true") |&gt;    select(structure, PPP1R13L, FAM73B, ITGB5, CAPNS1, ANKFN1, HMGA2, TEX101, CDH3, ZDHHC20, OSBPL7)</code></p>
-<p>(note that if you cut and paste in this text, you might have to rewrite the quotation marks, <strong>“</strong>)</p>
-<p>Use <code>pivot_long()</code> to recast this data in long format. The top of this table is shown below. Use this to calculate the mean level of gene expression.</p>
+<p>Run the code lines below to read in two data frames called <code>gene_data</code> and <code>brain_data</code>.</p>
+<pre><code>gene_data &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/blob/main/rexams/data/ABA-adult?raw=true&quot;)
+brain_data &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/blob/main/rexams/data/brain-area-codes?raw=true&quot;)</code></pre>
+<p>Then join these two data frames together to make one that looks like this:</p>
 <!--html_preserve-->
-<div id="zmktzqtdtk" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="dyentzroci" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
-  font-family: Caveat;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#zmktzqtdtk .gt_table {
+#dyentzroci .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -558,7 +581,7 @@ RCBTB1
   color: #333333;
   font-size: 16px;
   font-weight: normal;
-  font-style: oblique;
+  font-style: normal;
   background-color: #FFFFFF;
   width: auto;
   border-top-style: solid;
@@ -575,7 +598,7 @@ RCBTB1
   border-left-color: #D3D3D3;
 }
 
-#zmktzqtdtk .gt_heading {
+#dyentzroci .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -587,12 +610,12 @@ RCBTB1
   border-right-color: #D3D3D3;
 }
 
-#zmktzqtdtk .gt_caption {
+#dyentzroci .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#zmktzqtdtk .gt_title {
+#dyentzroci .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -604,7 +627,7 @@ RCBTB1
   border-bottom-width: 0;
 }
 
-#zmktzqtdtk .gt_subtitle {
+#dyentzroci .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -616,13 +639,13 @@ RCBTB1
   border-top-width: 0;
 }
 
-#zmktzqtdtk .gt_bottom_border {
+#dyentzroci .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#zmktzqtdtk .gt_col_headings {
+#dyentzroci .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -637,18 +660,18 @@ RCBTB1
   border-right-color: #D3D3D3;
 }
 
-#zmktzqtdtk .gt_col_heading {
-  color: #FFFFFF;
-  background-color: #6495ED;
+#dyentzroci .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
   font-size: 100%;
-  font-weight: bold;
+  font-weight: normal;
   text-transform: inherit;
-  border-left-style: solid;
+  border-left-style: none;
   border-left-width: 1px;
-  border-left-color: #00008B;
-  border-right-style: solid;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
   border-right-width: 1px;
-  border-right-color: #00008B;
+  border-right-color: #D3D3D3;
   vertical-align: bottom;
   padding-top: 5px;
   padding-bottom: 6px;
@@ -657,11 +680,11 @@ RCBTB1
   overflow-x: hidden;
 }
 
-#zmktzqtdtk .gt_column_spanner_outer {
-  color: #FFFFFF;
-  background-color: #6495ED;
+#dyentzroci .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
   font-size: 100%;
-  font-weight: bold;
+  font-weight: normal;
   text-transform: inherit;
   padding-top: 0;
   padding-bottom: 0;
@@ -669,15 +692,15 @@ RCBTB1
   padding-right: 4px;
 }
 
-#zmktzqtdtk .gt_column_spanner_outer:first-child {
+#dyentzroci .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#zmktzqtdtk .gt_column_spanner_outer:last-child {
+#dyentzroci .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#zmktzqtdtk .gt_column_spanner {
+#dyentzroci .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -689,7 +712,7 @@ RCBTB1
   width: 100%;
 }
 
-#zmktzqtdtk .gt_group_heading {
+#dyentzroci .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -715,7 +738,7 @@ RCBTB1
   text-align: left;
 }
 
-#zmktzqtdtk .gt_empty_group_heading {
+#dyentzroci .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -730,15 +753,15 @@ RCBTB1
   vertical-align: middle;
 }
 
-#zmktzqtdtk .gt_from_md > :first-child {
+#dyentzroci .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#zmktzqtdtk .gt_from_md > :last-child {
+#dyentzroci .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#zmktzqtdtk .gt_row {
+#dyentzroci .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -747,17 +770,17 @@ RCBTB1
   border-top-style: solid;
   border-top-width: 1px;
   border-top-color: #D3D3D3;
-  border-left-style: solid;
+  border-left-style: none;
   border-left-width: 1px;
-  border-left-color: #00008B;
-  border-right-style: solid;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
   border-right-width: 1px;
-  border-right-color: #00008B;
+  border-right-color: #D3D3D3;
   vertical-align: middle;
   overflow-x: hidden;
 }
 
-#zmktzqtdtk .gt_stub {
+#dyentzroci .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -770,7 +793,7 @@ RCBTB1
   padding-right: 5px;
 }
 
-#zmktzqtdtk .gt_stub_row_group {
+#dyentzroci .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -784,11 +807,11 @@ RCBTB1
   vertical-align: top;
 }
 
-#zmktzqtdtk .gt_row_group_first td {
+#dyentzroci .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#zmktzqtdtk .gt_summary_row {
+#dyentzroci .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -798,16 +821,16 @@ RCBTB1
   padding-right: 5px;
 }
 
-#zmktzqtdtk .gt_first_summary_row {
+#dyentzroci .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#zmktzqtdtk .gt_first_summary_row.thick {
+#dyentzroci .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#zmktzqtdtk .gt_last_summary_row {
+#dyentzroci .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -817,7 +840,7 @@ RCBTB1
   border-bottom-color: #D3D3D3;
 }
 
-#zmktzqtdtk .gt_grand_summary_row {
+#dyentzroci .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -827,7 +850,7 @@ RCBTB1
   padding-right: 5px;
 }
 
-#zmktzqtdtk .gt_first_grand_summary_row {
+#dyentzroci .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -837,11 +860,11 @@ RCBTB1
   border-top-color: #D3D3D3;
 }
 
-#zmktzqtdtk .gt_striped {
+#dyentzroci .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#zmktzqtdtk .gt_table_body {
+#dyentzroci .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -850,7 +873,7 @@ RCBTB1
   border-bottom-color: #D3D3D3;
 }
 
-#zmktzqtdtk .gt_footnotes {
+#dyentzroci .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -864,7 +887,7 @@ RCBTB1
   border-right-color: #D3D3D3;
 }
 
-#zmktzqtdtk .gt_footnote {
+#dyentzroci .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -873,7 +896,7 @@ RCBTB1
   padding-right: 5px;
 }
 
-#zmktzqtdtk .gt_sourcenotes {
+#dyentzroci .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -887,7 +910,7 @@ RCBTB1
   border-right-color: #D3D3D3;
 }
 
-#zmktzqtdtk .gt_sourcenote {
+#dyentzroci .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -895,164 +918,187 @@ RCBTB1
   padding-right: 5px;
 }
 
-#zmktzqtdtk .gt_left {
+#dyentzroci .gt_left {
   text-align: left;
 }
 
-#zmktzqtdtk .gt_center {
+#dyentzroci .gt_center {
   text-align: center;
 }
 
-#zmktzqtdtk .gt_right {
+#dyentzroci .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#zmktzqtdtk .gt_font_normal {
+#dyentzroci .gt_font_normal {
   font-weight: normal;
 }
 
-#zmktzqtdtk .gt_font_bold {
+#dyentzroci .gt_font_bold {
   font-weight: bold;
 }
 
-#zmktzqtdtk .gt_font_italic {
+#dyentzroci .gt_font_italic {
   font-style: italic;
 }
 
-#zmktzqtdtk .gt_super {
+#dyentzroci .gt_super {
   font-size: 65%;
 }
 
-#zmktzqtdtk .gt_footnote_marks {
+#dyentzroci .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#zmktzqtdtk .gt_asterisk {
+#dyentzroci .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#zmktzqtdtk .gt_indent_1 {
+#dyentzroci .gt_indent_1 {
   text-indent: 5px;
 }
 
-#zmktzqtdtk .gt_indent_2 {
+#dyentzroci .gt_indent_2 {
   text-indent: 10px;
 }
 
-#zmktzqtdtk .gt_indent_3 {
+#dyentzroci .gt_indent_3 {
   text-indent: 15px;
 }
 
-#zmktzqtdtk .gt_indent_4 {
+#dyentzroci .gt_indent_4 {
   text-indent: 20px;
 }
 
-#zmktzqtdtk .gt_indent_5 {
+#dyentzroci .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
 <table class="gt_table">
 <thead class="gt_col_headings">
 <tr>
-<th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="Brain Area Code">
-Brain Area Code
+<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="hgnc_symbol">
+hgnc_symbol
 </th>
-<th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="Gene Name">
-Gene Name
+<th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="structure">
+structure
 </th>
-<th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="Gene Expression">
-Gene Expression
+<th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="signal">
+signal
+</th>
+<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="brain_area">
+brain_area
 </th>
 </tr>
 </thead>
 <tbody class="gt_table_body">
 <tr>
-<td headers="structure" class="gt_row gt_center">
-10163
+<td headers="hgnc_symbol" class="gt_row gt_left">
+ACAA1
 </td>
-<td headers="gene" class="gt_row gt_center">
-PPP1R13L
+<td headers="structure" class="gt_row gt_right">
+4024
 </td>
-<td headers="signal" class="gt_row gt_center">
-0.6222570
+<td headers="signal" class="gt_row gt_right">
+8.425045
 </td>
-</tr>
-<tr>
-<td headers="structure" class="gt_row gt_center">
-10163
-</td>
-<td headers="gene" class="gt_row gt_center">
-FAM73B
-</td>
-<td headers="signal" class="gt_row gt_center">
-5.9769438
+<td headers="brain_area" class="gt_row gt_left">
+Cx_Cerebral Cortex
 </td>
 </tr>
 <tr>
-<td headers="structure" class="gt_row gt_center">
-10163
+<td headers="hgnc_symbol" class="gt_row gt_left">
+ACAA1
 </td>
-<td headers="gene" class="gt_row gt_center">
-ITGB5
+<td headers="structure" class="gt_row gt_right">
+4355
 </td>
-<td headers="signal" class="gt_row gt_center">
-3.5195533
+<td headers="signal" class="gt_row gt_right">
+7.995196
 </td>
-</tr>
-<tr>
-<td headers="structure" class="gt_row gt_center">
-10163
-</td>
-<td headers="gene" class="gt_row gt_center">
-CAPNS1
-</td>
-<td headers="signal" class="gt_row gt_center">
-229.9781218
+<td headers="brain_area" class="gt_row gt_left">
+CxN_Cerebral Nuclei
 </td>
 </tr>
 <tr>
-<td headers="structure" class="gt_row gt_center">
-10163
+<td headers="hgnc_symbol" class="gt_row gt_left">
+ACAA1
 </td>
-<td headers="gene" class="gt_row gt_center">
-ANKFN1
+<td headers="structure" class="gt_row gt_right">
+4155
 </td>
-<td headers="signal" class="gt_row gt_center">
-0.1835993
+<td headers="signal" class="gt_row gt_right">
+8.025882
+</td>
+<td headers="brain_area" class="gt_row gt_left">
+Cx_Cerebral Cortex
 </td>
 </tr>
 <tr>
-<td headers="structure" class="gt_row gt_center">
-10163
+<td headers="hgnc_symbol" class="gt_row gt_left">
+ACAA1
 </td>
-<td headers="gene" class="gt_row gt_center">
-HMGA2
+<td headers="structure" class="gt_row gt_right">
+4186
 </td>
-<td headers="signal" class="gt_row gt_center">
-0.0017135
+<td headers="signal" class="gt_row gt_right">
+8.331045
+</td>
+<td headers="brain_area" class="gt_row gt_left">
+Cx_Cerebral Cortex
+</td>
+</tr>
+<tr>
+<td headers="hgnc_symbol" class="gt_row gt_left">
+ACAA1
+</td>
+<td headers="structure" class="gt_row gt_right">
+4908
+</td>
+<td headers="signal" class="gt_row gt_right">
+8.459142
+</td>
+<td headers="brain_area" class="gt_row gt_left">
+Cx_Cerebral Cortex
+</td>
+</tr>
+<tr>
+<td headers="hgnc_symbol" class="gt_row gt_left">
+ACAA1
+</td>
+<td headers="structure" class="gt_row gt_right">
+4759
+</td>
+<td headers="signal" class="gt_row gt_right">
+7.825108
+</td>
+<td headers="brain_area" class="gt_row gt_left">
+Cb_Cerebellum
 </td>
 </tr>
 </tbody>
 </table>
 </div>
 <!--/html_preserve-->
+<p>Filter this to only look at gene expression from the MTg_Midbrain Tegmentum.</p>
+<p>What is the average gene expression in MTg_Midbrain Tegmentum?</p>
 </p>]]></text>
 </questiontext>
 <generalfeedback format="html">
 <text><![CDATA[<p>
-<p>Use <code>pivot_longer(-structure, names_to = "gene", values_to = "signal")</code>.</p>
+<p>Use <code>gene_data |&gt; left_join(brain_data, join_by(structure == brain_code))</code> and then <code>filter(brain_area == MTg_Midbrain Tegmentum)</code></p>
 </p>]]></text>
 </generalfeedback>
 <penalty>0</penalty>
 <defaultgrade>1</defaultgrade>
 <answer fraction="100" format="moodle_auto_format">
-<text>3610</text>
-<tolerance>72.2</tolerance>
+<text>5.73</text>
+<tolerance>0.1146</tolerance>
 </answer>
 </question>
 

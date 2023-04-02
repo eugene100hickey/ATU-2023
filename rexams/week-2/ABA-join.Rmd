@@ -6,52 +6,42 @@ gene_data <- read_rds("https://github.com/eugene100hickey/ATU-2023/blob/main/rex
 brain_data <- read_rds("https://github.com/eugene100hickey/ATU-2023/blob/main/rexams/data/brain-area-codes?raw=true")
 my_brain_area <- brain_data$brain_area |> sample(1)
 
-genes <- colnames(z)[2:dim(z)[2]] |> 
-  sample(10)
-
-
 z1 <- gene_data |> 
-  left_join(brain_data, join_by(structure == brain_code)) |> 
+  left_join(brain_data, join_by(structure == brain_code))
+
+z2 <- z1 |> 
   filter(brain_area == my_brain_area)
 
-solution <- mean(z1$signal) |> signif(3)
+solution <- mean(z2$signal) |> signif(3)
 ```
 
 
 Question
 ========
-Run the code line below to read in a data frame called `brain_gene_expression_wide`. 
+Run the code lines below to read in two data frames called `gene_data` and `brain_data`. 
 
-`brain_gene_expression_wide <- read_rds("https://github.com/eugene100hickey/ATU-2023/blob/main/rexams/data/ABAData-wide?raw=true") |> 
-  select(structure, `r noquote(genes)`)`
+```{r eval=FALSE}
+gene_data <- read_rds("https://github.com/eugene100hickey/ATU-2023/blob/main/rexams/data/ABA-adult?raw=true")
+brain_data <- read_rds("https://github.com/eugene100hickey/ATU-2023/blob/main/rexams/data/brain-area-code?raw=true")
+```
 
-Use `pivot_longer()` to recast this data in long format. The top of this table is shown below. Use this to calculate the mean level of gene expression. 
+Then join these two data frames together to make one where the first few rows look like this:
 
 ```{r echo=FALSE}
-z1 %>% 
-  head() |> 
-  gt() %>% 
-  cols_label(structure = "Brain Area Code",
-             gene = md("Gene Name"), 
-             signal = md("Gene Expression")) %>% 
-  cols_align(align = "center") %>% 
-  tab_options(column_labels.background.color = "cornflowerblue", 
-              table.font.names = "Caveat",
-              table.font.style = "oblique",
-              column_labels.font.weight = "bold",
-              column_labels.vlines.width = 1,
-              column_labels.vlines.color = "darkblue",
-              column_labels.vlines.style = "solid",
-              table_body.vlines.width = 1,
-              table_body.vlines.color = "darkblue",
-              table_body.vlines.style = "solid"
-              )
+gt::gt(z1 |> head())
 ```
+
+`hgnc_xsymbol` refers to the name of the gene, `structure` is a code number for the specific brain area, `signal` measures how active the gene is in this brain area, and `brain_area` is the name for  the general brain area.
+
+Filter this to only look at gene expression from the `r my_brain_area`. 
+
+What is the average gene expression in `r my_brain_area`?
+
 
 
 Solution
 ========
-Use `pivot_longer(-structure, names_to = "gene", values_to = "signal")`.
+Use `gene_data |> left_join(brain_data, join_by(structure == brain_code))` and then `filter(brain_area == `r my_brain_area`)`
 
 
 
@@ -59,5 +49,5 @@ Meta-information
 ================
 extype: num
 exsolution: `r solution`
-exname: ABAData-pivot-long
-extol: `r solution*0.02`
+exname: ABAData-join
+extol: `r solution*0.002`
