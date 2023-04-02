@@ -15,7 +15,7 @@ solution <- sum(z$inaccuracy) |> round(0)
 
 Question
 ========
-Install the `dslabs` package if you haven't already (`install.packages("dslabs")`. Create an `rfalling_object` using the code below (note, the `set.seed()` is crucial otherwise the random number generator won't be the same. Use the value `r my_number` for `my_number`)
+Install the `dslabs` package if you haven't already (`install.packages("dslabs")`). Create an `rfalling_object` using the code below (note, the `set.seed()` is crucial otherwise the random number generator won't be the same. Use the value `r my_number` for `my_number`)
 
 ```{r eval=FALSE}
 library(tidyverse)
