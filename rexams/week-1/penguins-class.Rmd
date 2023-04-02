@@ -10,7 +10,7 @@ classes <- c("factor", "numeric", "integer", "character", "data.frame", "tibble"
 answer_class <- class(penguins[[1, index]])
 
 classes <- classes[classes != answer_class] |> 
-  sample()
+  sample(5)
 
 solution <- c(answer_class, classes)
 ```

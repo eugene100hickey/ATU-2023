@@ -9,1098 +9,164 @@
 </question>
 
 
-<question type="numerical">
+<question type="multichoice">
 <name>
-<text> R1 Q1 : rexams_week-2_ABA-join </text>
+<text> R1 Q1 : rexams_week-2_murders-arrange </text>
 </name>
 <questiontext format="html">
 <text><![CDATA[
 <p>
-<p>Run the code lines below to read in two data frames called <code>gene_data</code> and <code>brain_data</code>.</p>
-<pre><code>gene_data &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/blob/main/rexams/data/ABA-adult?raw=true&quot;)
-brain_data &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/blob/main/rexams/data/brain-area-code?raw=true&quot;)</code></pre>
-<p>Then join these two data frames together to make one where the first few rows look like this:</p>
-<!--html_preserve-->
-<div id="eayjdrzqox" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>html {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
-}
-
-#eayjdrzqox .gt_table {
-  display: table;
-  border-collapse: collapse;
-  margin-left: auto;
-  margin-right: auto;
-  color: #333333;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  background-color: #FFFFFF;
-  width: auto;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #A8A8A8;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #A8A8A8;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
-
-#eayjdrzqox .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#eayjdrzqox .gt_caption {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-#eayjdrzqox .gt_title {
-  color: #333333;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-color: #FFFFFF;
-  border-bottom-width: 0;
-}
-
-#eayjdrzqox .gt_subtitle {
-  color: #333333;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 0;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-color: #FFFFFF;
-  border-top-width: 0;
-}
-
-#eayjdrzqox .gt_bottom_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#eayjdrzqox .gt_col_headings {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#eayjdrzqox .gt_col_heading {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-x: hidden;
-}
-
-#eayjdrzqox .gt_column_spanner_outer {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-#eayjdrzqox .gt_column_spanner_outer:first-child {
-  padding-left: 0;
-}
-
-#eayjdrzqox .gt_column_spanner_outer:last-child {
-  padding-right: 0;
-}
-
-#eayjdrzqox .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow-x: hidden;
-  display: inline-block;
-  width: 100%;
-}
-
-#eayjdrzqox .gt_group_heading {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  text-align: left;
-}
-
-#eayjdrzqox .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-#eayjdrzqox .gt_from_md > :first-child {
-  margin-top: 0;
-}
-
-#eayjdrzqox .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-
-#eayjdrzqox .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10px;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-top-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  overflow-x: hidden;
-}
-
-#eayjdrzqox .gt_stub {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#eayjdrzqox .gt_stub_row_group {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-  vertical-align: top;
-}
-
-#eayjdrzqox .gt_row_group_first td {
-  border-top-width: 2px;
-}
-
-#eayjdrzqox .gt_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#eayjdrzqox .gt_first_summary_row {
-  border-top-style: solid;
-  border-top-color: #D3D3D3;
-}
-
-#eayjdrzqox .gt_first_summary_row.thick {
-  border-top-width: 2px;
-}
-
-#eayjdrzqox .gt_last_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#eayjdrzqox .gt_grand_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#eayjdrzqox .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: double;
-  border-top-width: 6px;
-  border-top-color: #D3D3D3;
-}
-
-#eayjdrzqox .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
-}
-
-#eayjdrzqox .gt_table_body {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#eayjdrzqox .gt_footnotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#eayjdrzqox .gt_footnote {
-  margin: 0px;
-  font-size: 90%;
-  padding-left: 4px;
-  padding-right: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#eayjdrzqox .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#eayjdrzqox .gt_sourcenote {
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#eayjdrzqox .gt_left {
-  text-align: left;
-}
-
-#eayjdrzqox .gt_center {
-  text-align: center;
-}
-
-#eayjdrzqox .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-#eayjdrzqox .gt_font_normal {
-  font-weight: normal;
-}
-
-#eayjdrzqox .gt_font_bold {
-  font-weight: bold;
-}
-
-#eayjdrzqox .gt_font_italic {
-  font-style: italic;
-}
-
-#eayjdrzqox .gt_super {
-  font-size: 65%;
-}
-
-#eayjdrzqox .gt_footnote_marks {
-  font-style: italic;
-  font-weight: normal;
-  font-size: 75%;
-  vertical-align: 0.4em;
-}
-
-#eayjdrzqox .gt_asterisk {
-  font-size: 100%;
-  vertical-align: 0;
-}
-
-#eayjdrzqox .gt_indent_1 {
-  text-indent: 5px;
-}
-
-#eayjdrzqox .gt_indent_2 {
-  text-indent: 10px;
-}
-
-#eayjdrzqox .gt_indent_3 {
-  text-indent: 15px;
-}
-
-#eayjdrzqox .gt_indent_4 {
-  text-indent: 20px;
-}
-
-#eayjdrzqox .gt_indent_5 {
-  text-indent: 25px;
-}
-</style>
-<table class="gt_table">
-<thead class="gt_col_headings">
-<tr>
-<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="hgnc_symbol">
-hgnc_symbol
-</th>
-<th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="structure">
-structure
-</th>
-<th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="signal">
-signal
-</th>
-<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="brain_area">
-brain_area
-</th>
-</tr>
-</thead>
-<tbody class="gt_table_body">
-<tr>
-<td headers="hgnc_symbol" class="gt_row gt_left">
-ACAA1
-</td>
-<td headers="structure" class="gt_row gt_right">
-4024
-</td>
-<td headers="signal" class="gt_row gt_right">
-8.425045
-</td>
-<td headers="brain_area" class="gt_row gt_left">
-Cerebral Cortex
-</td>
-</tr>
-<tr>
-<td headers="hgnc_symbol" class="gt_row gt_left">
-ACAA1
-</td>
-<td headers="structure" class="gt_row gt_right">
-4355
-</td>
-<td headers="signal" class="gt_row gt_right">
-7.995196
-</td>
-<td headers="brain_area" class="gt_row gt_left">
-Cerebral Nuclei
-</td>
-</tr>
-<tr>
-<td headers="hgnc_symbol" class="gt_row gt_left">
-ACAA1
-</td>
-<td headers="structure" class="gt_row gt_right">
-4155
-</td>
-<td headers="signal" class="gt_row gt_right">
-8.025882
-</td>
-<td headers="brain_area" class="gt_row gt_left">
-Cerebral Cortex
-</td>
-</tr>
-<tr>
-<td headers="hgnc_symbol" class="gt_row gt_left">
-ACAA1
-</td>
-<td headers="structure" class="gt_row gt_right">
-4186
-</td>
-<td headers="signal" class="gt_row gt_right">
-8.331045
-</td>
-<td headers="brain_area" class="gt_row gt_left">
-Cerebral Cortex
-</td>
-</tr>
-<tr>
-<td headers="hgnc_symbol" class="gt_row gt_left">
-ACAA1
-</td>
-<td headers="structure" class="gt_row gt_right">
-4908
-</td>
-<td headers="signal" class="gt_row gt_right">
-8.459142
-</td>
-<td headers="brain_area" class="gt_row gt_left">
-Cerebral Cortex
-</td>
-</tr>
-<tr>
-<td headers="hgnc_symbol" class="gt_row gt_left">
-ACAA1
-</td>
-<td headers="structure" class="gt_row gt_right">
-4759
-</td>
-<td headers="signal" class="gt_row gt_right">
-7.825108
-</td>
-<td headers="brain_area" class="gt_row gt_left">
-Cerebellum
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<!--/html_preserve-->
-<p><code>hgnc_xsymbol</code> refers to the name of the gene, <code>structure</code> is a code number for the specific brain area, <code>signal</code> measures how active the gene is in this brain area, and <code>brain_area</code> is the name for the general brain area.</p>
-<p>Filter this to only look at gene expression from the Pons.</p>
-<p>What is the average gene expression in Pons?</p>
+<p>Install the <code>dslabs</code> package if you haven’t already (<code>install.packages("dslabs")</code>. The <code>murders</code> dataset contains a list of US states by region with their number of murders and population.</p>
+<p>Use <code>mutate()</code> to create a new variable of the ratio of murders to population. Use <code>filter()</code> to keep just the states from the <strong>Northeast</strong>. Arrange the ratio of murders to population in descending order. Finally, choose the state in the <strong>5th</strong> position.</p>
 </p>]]></text>
 </questiontext>
 <generalfeedback format="html">
 <text><![CDATA[<p>
-<p>Use <code>gene_data |&gt; left_join(brain_data, join_by(structure == brain_code))</code> and then <code>filter(brain_area == Pons)</code></p>
+<p>Use the R command <code>mutate(ratio = total / population)</code> followed by <code>filter(region == Northeast)</code>, and then <code>arrange(desc(ratio))</code>.</p>
+<ol type = "a">
+<li> False </li>
+<li> True </li>
+<li> False </li>
+<li> False </li>
+<li> False </li>
+</ol>
 </p>]]></text>
 </generalfeedback>
 <penalty>0</penalty>
 <defaultgrade>1</defaultgrade>
-<answer fraction="100" format="moodle_auto_format">
-<text>5.84</text>
-<tolerance>0.01168</tolerance>
+<shuffleanswers>false</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="-25" format="html">
+<text><![CDATA[<p>
+Vermont
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+Massachusetts
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+True
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="-25" format="html">
+<text><![CDATA[<p>
+Maine
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="-25" format="html">
+<text><![CDATA[<p>
+Pennsylvania
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="-25" format="html">
+<text><![CDATA[<p>
+New Jersey
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False
+</p>]]></text>
+</feedback>
 </answer>
 </question>
 
 
-<question type="numerical">
+<question type="multichoice">
 <name>
-<text> R2 Q1 : rexams_week-2_ABA-join </text>
+<text> R2 Q1 : rexams_week-2_murders-arrange </text>
 </name>
 <questiontext format="html">
 <text><![CDATA[
 <p>
-<p>Run the code lines below to read in two data frames called <code>gene_data</code> and <code>brain_data</code>.</p>
-<pre><code>gene_data &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/blob/main/rexams/data/ABA-adult?raw=true&quot;)
-brain_data &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/blob/main/rexams/data/brain-area-code?raw=true&quot;)</code></pre>
-<p>Then join these two data frames together to make one where the first few rows look like this:</p>
-<!--html_preserve-->
-<div id="dyentzroci" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>html {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
-}
-
-#dyentzroci .gt_table {
-  display: table;
-  border-collapse: collapse;
-  margin-left: auto;
-  margin-right: auto;
-  color: #333333;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  background-color: #FFFFFF;
-  width: auto;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #A8A8A8;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #A8A8A8;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
-
-#dyentzroci .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#dyentzroci .gt_caption {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-#dyentzroci .gt_title {
-  color: #333333;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-color: #FFFFFF;
-  border-bottom-width: 0;
-}
-
-#dyentzroci .gt_subtitle {
-  color: #333333;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 0;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-color: #FFFFFF;
-  border-top-width: 0;
-}
-
-#dyentzroci .gt_bottom_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#dyentzroci .gt_col_headings {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#dyentzroci .gt_col_heading {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-x: hidden;
-}
-
-#dyentzroci .gt_column_spanner_outer {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-#dyentzroci .gt_column_spanner_outer:first-child {
-  padding-left: 0;
-}
-
-#dyentzroci .gt_column_spanner_outer:last-child {
-  padding-right: 0;
-}
-
-#dyentzroci .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow-x: hidden;
-  display: inline-block;
-  width: 100%;
-}
-
-#dyentzroci .gt_group_heading {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  text-align: left;
-}
-
-#dyentzroci .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-#dyentzroci .gt_from_md > :first-child {
-  margin-top: 0;
-}
-
-#dyentzroci .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-
-#dyentzroci .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10px;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-top-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  overflow-x: hidden;
-}
-
-#dyentzroci .gt_stub {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#dyentzroci .gt_stub_row_group {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-  vertical-align: top;
-}
-
-#dyentzroci .gt_row_group_first td {
-  border-top-width: 2px;
-}
-
-#dyentzroci .gt_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#dyentzroci .gt_first_summary_row {
-  border-top-style: solid;
-  border-top-color: #D3D3D3;
-}
-
-#dyentzroci .gt_first_summary_row.thick {
-  border-top-width: 2px;
-}
-
-#dyentzroci .gt_last_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#dyentzroci .gt_grand_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#dyentzroci .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: double;
-  border-top-width: 6px;
-  border-top-color: #D3D3D3;
-}
-
-#dyentzroci .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
-}
-
-#dyentzroci .gt_table_body {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#dyentzroci .gt_footnotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#dyentzroci .gt_footnote {
-  margin: 0px;
-  font-size: 90%;
-  padding-left: 4px;
-  padding-right: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#dyentzroci .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#dyentzroci .gt_sourcenote {
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#dyentzroci .gt_left {
-  text-align: left;
-}
-
-#dyentzroci .gt_center {
-  text-align: center;
-}
-
-#dyentzroci .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-#dyentzroci .gt_font_normal {
-  font-weight: normal;
-}
-
-#dyentzroci .gt_font_bold {
-  font-weight: bold;
-}
-
-#dyentzroci .gt_font_italic {
-  font-style: italic;
-}
-
-#dyentzroci .gt_super {
-  font-size: 65%;
-}
-
-#dyentzroci .gt_footnote_marks {
-  font-style: italic;
-  font-weight: normal;
-  font-size: 75%;
-  vertical-align: 0.4em;
-}
-
-#dyentzroci .gt_asterisk {
-  font-size: 100%;
-  vertical-align: 0;
-}
-
-#dyentzroci .gt_indent_1 {
-  text-indent: 5px;
-}
-
-#dyentzroci .gt_indent_2 {
-  text-indent: 10px;
-}
-
-#dyentzroci .gt_indent_3 {
-  text-indent: 15px;
-}
-
-#dyentzroci .gt_indent_4 {
-  text-indent: 20px;
-}
-
-#dyentzroci .gt_indent_5 {
-  text-indent: 25px;
-}
-</style>
-<table class="gt_table">
-<thead class="gt_col_headings">
-<tr>
-<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="hgnc_symbol">
-hgnc_symbol
-</th>
-<th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="structure">
-structure
-</th>
-<th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="signal">
-signal
-</th>
-<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="brain_area">
-brain_area
-</th>
-</tr>
-</thead>
-<tbody class="gt_table_body">
-<tr>
-<td headers="hgnc_symbol" class="gt_row gt_left">
-ACAA1
-</td>
-<td headers="structure" class="gt_row gt_right">
-4024
-</td>
-<td headers="signal" class="gt_row gt_right">
-8.425045
-</td>
-<td headers="brain_area" class="gt_row gt_left">
-Cerebral Cortex
-</td>
-</tr>
-<tr>
-<td headers="hgnc_symbol" class="gt_row gt_left">
-ACAA1
-</td>
-<td headers="structure" class="gt_row gt_right">
-4355
-</td>
-<td headers="signal" class="gt_row gt_right">
-7.995196
-</td>
-<td headers="brain_area" class="gt_row gt_left">
-Cerebral Nuclei
-</td>
-</tr>
-<tr>
-<td headers="hgnc_symbol" class="gt_row gt_left">
-ACAA1
-</td>
-<td headers="structure" class="gt_row gt_right">
-4155
-</td>
-<td headers="signal" class="gt_row gt_right">
-8.025882
-</td>
-<td headers="brain_area" class="gt_row gt_left">
-Cerebral Cortex
-</td>
-</tr>
-<tr>
-<td headers="hgnc_symbol" class="gt_row gt_left">
-ACAA1
-</td>
-<td headers="structure" class="gt_row gt_right">
-4186
-</td>
-<td headers="signal" class="gt_row gt_right">
-8.331045
-</td>
-<td headers="brain_area" class="gt_row gt_left">
-Cerebral Cortex
-</td>
-</tr>
-<tr>
-<td headers="hgnc_symbol" class="gt_row gt_left">
-ACAA1
-</td>
-<td headers="structure" class="gt_row gt_right">
-4908
-</td>
-<td headers="signal" class="gt_row gt_right">
-8.459142
-</td>
-<td headers="brain_area" class="gt_row gt_left">
-Cerebral Cortex
-</td>
-</tr>
-<tr>
-<td headers="hgnc_symbol" class="gt_row gt_left">
-ACAA1
-</td>
-<td headers="structure" class="gt_row gt_right">
-4759
-</td>
-<td headers="signal" class="gt_row gt_right">
-7.825108
-</td>
-<td headers="brain_area" class="gt_row gt_left">
-Cerebellum
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<!--/html_preserve-->
-<p><code>hgnc_xsymbol</code> refers to the name of the gene, <code>structure</code> is a code number for the specific brain area, <code>signal</code> measures how active the gene is in this brain area, and <code>brain_area</code> is the name for the general brain area.</p>
-<p>Filter this to only look at gene expression from the Midbrain Tegmentum.</p>
-<p>What is the average gene expression in Midbrain Tegmentum?</p>
+<p>Install the <code>dslabs</code> package if you haven’t already (<code>install.packages("dslabs")</code>. The <code>murders</code> dataset contains a list of US states by region with their number of murders and population.</p>
+<p>Use <code>mutate()</code> to create a new variable of the ratio of murders to population. Use <code>filter()</code> to keep just the states from the <strong>South</strong>. Arrange the ratio of murders to population in descending order. Finally, choose the state in the <strong>2nd</strong> position.</p>
 </p>]]></text>
 </questiontext>
 <generalfeedback format="html">
 <text><![CDATA[<p>
-<p>Use <code>gene_data |&gt; left_join(brain_data, join_by(structure == brain_code))</code> and then <code>filter(brain_area == Midbrain Tegmentum)</code></p>
+<p>Use the R command <code>mutate(ratio = total / population)</code> followed by <code>filter(region == South)</code>, and then <code>arrange(desc(ratio))</code>.</p>
+<ol type = "a">
+<li> False </li>
+<li> False </li>
+<li> False </li>
+<li> False </li>
+<li> True </li>
+</ol>
 </p>]]></text>
 </generalfeedback>
 <penalty>0</penalty>
 <defaultgrade>1</defaultgrade>
-<answer fraction="100" format="moodle_auto_format">
-<text>5.76</text>
-<tolerance>0.01152</tolerance>
+<shuffleanswers>false</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="-25" format="html">
+<text><![CDATA[<p>
+Texas
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="-25" format="html">
+<text><![CDATA[<p>
+South Carolina
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="-25" format="html">
+<text><![CDATA[<p>
+Alabama
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="-25" format="html">
+<text><![CDATA[<p>
+Virginia
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+Louisiana
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+True
+</p>]]></text>
+</feedback>
 </answer>
 </question>
 
