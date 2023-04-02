@@ -9,24 +9,24 @@
 </question>
 
 
-<question type="cloze">
+<question type="numerical">
 <name>
-<text> R1 Q1 : rexams_week-2_ABA-group </text>
+<text> R1 Q1 : rexams_week-2_ABA-pivot-long </text>
 </name>
 <questiontext format="html">
 <text><![CDATA[
 <p>
-<p>Run the code line below to read in a data frame called <code>ABAData</code>.</p>
-<p>brain_gene_expression &lt;- read_rds(“https://github.com/eugene100hickey/ATU-2023/blob/main/rexams/data/ABAData?raw=true”) |&gt;
-filter(hgnc_symbol %in% c(“SEC13”, “VWA2”))</p>
-<p>Use <code>group_by()</code> and <code>summarise()</code> to calculate the mean gene expression for each gene for each age category. Use thisto fill out the table below.</p>
+<p>Run the code line below to read in a data frame called <code>brain_gene_expression_wide</code>.</p>
+<p><code>brain_gene_expression_wide &lt;- read_rds("https://github.com/eugene100hickey/ATU-2023/blob/main/rexams/data/ABAData-wide?raw=true") |&gt;    select(structure, ATG7, VWA2, CENPI, H3F3B, MAML1, RCBTB1, CD36, FAM179A, MAFG, SCNN1G)</code></p>
+<p>(note that if you cut and paste in this text, you might have to rewrite the quotation marks, <strong>“</strong>)</p>
+<p>Use <code>pivot_long()</code> to recast this data in long format. The top of this table is shown below. Use this to calculate the mean level of gene expression.</p>
 <!--html_preserve-->
-<div id="rmedbxrcxw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="bxxbyknbbj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: Caveat;
 }
 
-#rmedbxrcxw .gt_table {
+#bxxbyknbbj .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -51,7 +51,7 @@ filter(hgnc_symbol %in% c(“SEC13”, “VWA2”))</p>
   border-left-color: #D3D3D3;
 }
 
-#rmedbxrcxw .gt_heading {
+#bxxbyknbbj .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -63,12 +63,12 @@ filter(hgnc_symbol %in% c(“SEC13”, “VWA2”))</p>
   border-right-color: #D3D3D3;
 }
 
-#rmedbxrcxw .gt_caption {
+#bxxbyknbbj .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#rmedbxrcxw .gt_title {
+#bxxbyknbbj .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -80,7 +80,7 @@ filter(hgnc_symbol %in% c(“SEC13”, “VWA2”))</p>
   border-bottom-width: 0;
 }
 
-#rmedbxrcxw .gt_subtitle {
+#bxxbyknbbj .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -92,13 +92,13 @@ filter(hgnc_symbol %in% c(“SEC13”, “VWA2”))</p>
   border-top-width: 0;
 }
 
-#rmedbxrcxw .gt_bottom_border {
+#bxxbyknbbj .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#rmedbxrcxw .gt_col_headings {
+#bxxbyknbbj .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -113,7 +113,7 @@ filter(hgnc_symbol %in% c(“SEC13”, “VWA2”))</p>
   border-right-color: #D3D3D3;
 }
 
-#rmedbxrcxw .gt_col_heading {
+#bxxbyknbbj .gt_col_heading {
   color: #FFFFFF;
   background-color: #6495ED;
   font-size: 100%;
@@ -133,7 +133,7 @@ filter(hgnc_symbol %in% c(“SEC13”, “VWA2”))</p>
   overflow-x: hidden;
 }
 
-#rmedbxrcxw .gt_column_spanner_outer {
+#bxxbyknbbj .gt_column_spanner_outer {
   color: #FFFFFF;
   background-color: #6495ED;
   font-size: 100%;
@@ -145,15 +145,15 @@ filter(hgnc_symbol %in% c(“SEC13”, “VWA2”))</p>
   padding-right: 4px;
 }
 
-#rmedbxrcxw .gt_column_spanner_outer:first-child {
+#bxxbyknbbj .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#rmedbxrcxw .gt_column_spanner_outer:last-child {
+#bxxbyknbbj .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#rmedbxrcxw .gt_column_spanner {
+#bxxbyknbbj .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -165,7 +165,7 @@ filter(hgnc_symbol %in% c(“SEC13”, “VWA2”))</p>
   width: 100%;
 }
 
-#rmedbxrcxw .gt_group_heading {
+#bxxbyknbbj .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -191,7 +191,7 @@ filter(hgnc_symbol %in% c(“SEC13”, “VWA2”))</p>
   text-align: left;
 }
 
-#rmedbxrcxw .gt_empty_group_heading {
+#bxxbyknbbj .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -206,15 +206,15 @@ filter(hgnc_symbol %in% c(“SEC13”, “VWA2”))</p>
   vertical-align: middle;
 }
 
-#rmedbxrcxw .gt_from_md > :first-child {
+#bxxbyknbbj .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#rmedbxrcxw .gt_from_md > :last-child {
+#bxxbyknbbj .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#rmedbxrcxw .gt_row {
+#bxxbyknbbj .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -233,7 +233,7 @@ filter(hgnc_symbol %in% c(“SEC13”, “VWA2”))</p>
   overflow-x: hidden;
 }
 
-#rmedbxrcxw .gt_stub {
+#bxxbyknbbj .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -246,7 +246,7 @@ filter(hgnc_symbol %in% c(“SEC13”, “VWA2”))</p>
   padding-right: 5px;
 }
 
-#rmedbxrcxw .gt_stub_row_group {
+#bxxbyknbbj .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -260,11 +260,11 @@ filter(hgnc_symbol %in% c(“SEC13”, “VWA2”))</p>
   vertical-align: top;
 }
 
-#rmedbxrcxw .gt_row_group_first td {
+#bxxbyknbbj .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#rmedbxrcxw .gt_summary_row {
+#bxxbyknbbj .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -274,16 +274,16 @@ filter(hgnc_symbol %in% c(“SEC13”, “VWA2”))</p>
   padding-right: 5px;
 }
 
-#rmedbxrcxw .gt_first_summary_row {
+#bxxbyknbbj .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#rmedbxrcxw .gt_first_summary_row.thick {
+#bxxbyknbbj .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#rmedbxrcxw .gt_last_summary_row {
+#bxxbyknbbj .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -293,7 +293,7 @@ filter(hgnc_symbol %in% c(“SEC13”, “VWA2”))</p>
   border-bottom-color: #D3D3D3;
 }
 
-#rmedbxrcxw .gt_grand_summary_row {
+#bxxbyknbbj .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -303,7 +303,7 @@ filter(hgnc_symbol %in% c(“SEC13”, “VWA2”))</p>
   padding-right: 5px;
 }
 
-#rmedbxrcxw .gt_first_grand_summary_row {
+#bxxbyknbbj .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -313,11 +313,11 @@ filter(hgnc_symbol %in% c(“SEC13”, “VWA2”))</p>
   border-top-color: #D3D3D3;
 }
 
-#rmedbxrcxw .gt_striped {
+#bxxbyknbbj .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#rmedbxrcxw .gt_table_body {
+#bxxbyknbbj .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -326,7 +326,7 @@ filter(hgnc_symbol %in% c(“SEC13”, “VWA2”))</p>
   border-bottom-color: #D3D3D3;
 }
 
-#rmedbxrcxw .gt_footnotes {
+#bxxbyknbbj .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -340,7 +340,7 @@ filter(hgnc_symbol %in% c(“SEC13”, “VWA2”))</p>
   border-right-color: #D3D3D3;
 }
 
-#rmedbxrcxw .gt_footnote {
+#bxxbyknbbj .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -349,7 +349,7 @@ filter(hgnc_symbol %in% c(“SEC13”, “VWA2”))</p>
   padding-right: 5px;
 }
 
-#rmedbxrcxw .gt_sourcenotes {
+#bxxbyknbbj .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -363,7 +363,7 @@ filter(hgnc_symbol %in% c(“SEC13”, “VWA2”))</p>
   border-right-color: #D3D3D3;
 }
 
-#rmedbxrcxw .gt_sourcenote {
+#bxxbyknbbj .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -371,135 +371,146 @@ filter(hgnc_symbol %in% c(“SEC13”, “VWA2”))</p>
   padding-right: 5px;
 }
 
-#rmedbxrcxw .gt_left {
+#bxxbyknbbj .gt_left {
   text-align: left;
 }
 
-#rmedbxrcxw .gt_center {
+#bxxbyknbbj .gt_center {
   text-align: center;
 }
 
-#rmedbxrcxw .gt_right {
+#bxxbyknbbj .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#rmedbxrcxw .gt_font_normal {
+#bxxbyknbbj .gt_font_normal {
   font-weight: normal;
 }
 
-#rmedbxrcxw .gt_font_bold {
+#bxxbyknbbj .gt_font_bold {
   font-weight: bold;
 }
 
-#rmedbxrcxw .gt_font_italic {
+#bxxbyknbbj .gt_font_italic {
   font-style: italic;
 }
 
-#rmedbxrcxw .gt_super {
+#bxxbyknbbj .gt_super {
   font-size: 65%;
 }
 
-#rmedbxrcxw .gt_footnote_marks {
+#bxxbyknbbj .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#rmedbxrcxw .gt_asterisk {
+#bxxbyknbbj .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#rmedbxrcxw .gt_indent_1 {
+#bxxbyknbbj .gt_indent_1 {
   text-indent: 5px;
 }
 
-#rmedbxrcxw .gt_indent_2 {
+#bxxbyknbbj .gt_indent_2 {
   text-indent: 10px;
 }
 
-#rmedbxrcxw .gt_indent_3 {
+#bxxbyknbbj .gt_indent_3 {
   text-indent: 15px;
 }
 
-#rmedbxrcxw .gt_indent_4 {
+#bxxbyknbbj .gt_indent_4 {
   text-indent: 20px;
 }
 
-#rmedbxrcxw .gt_indent_5 {
+#bxxbyknbbj .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
 <table class="gt_table">
 <thead class="gt_col_headings">
 <tr>
-<th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="Age Category">
-Age Category
+<th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="Brain Area Code">
+Brain Area Code
 </th>
-<th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="Mean Expression for SEC13">
-Mean Expression for SEC13
+<th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="Gene Name">
+Gene Name
 </th>
-<th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="Mean Expression for VWA2">
-Mean Expression for VWA2
+<th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="Gene Expression">
+Gene Expression
 </th>
 </tr>
 </thead>
 <tbody class="gt_table_body">
 <tr>
-<td headers="ages" class="gt_row gt_center">
-prenatal
+<td headers="structure" class="gt_row gt_center">
+10163
 </td>
-<td headers="gene1_answers" class="gt_row gt_center">
- {1:NUMERICAL:=11.6:0.05~%0%599740:0}
+<td headers="gene" class="gt_row gt_center">
+ATG7
 </td>
-<td headers="gene2_answers" class="gt_row gt_center">
- {1:NUMERICAL:=0.604:0.05~%0%599740:0}
-</td>
-</tr>
-<tr>
-<td headers="ages" class="gt_row gt_center">
-infant
-</td>
-<td headers="gene1_answers" class="gt_row gt_center">
- {1:NUMERICAL:=7.53:0.05~%0%599740:0}
-</td>
-<td headers="gene2_answers" class="gt_row gt_center">
- {1:NUMERICAL:=1.18:0.05~%0%599740:0}
+<td headers="signal" class="gt_row gt_center">
+7.01521267
 </td>
 </tr>
 <tr>
-<td headers="ages" class="gt_row gt_center">
-child
+<td headers="structure" class="gt_row gt_center">
+10163
 </td>
-<td headers="gene1_answers" class="gt_row gt_center">
- {1:NUMERICAL:=7.81:0.05~%0%599740:0}
+<td headers="gene" class="gt_row gt_center">
+VWA2
 </td>
-<td headers="gene2_answers" class="gt_row gt_center">
- {1:NUMERICAL:=0.633:0.05~%0%599740:0}
-</td>
-</tr>
-<tr>
-<td headers="ages" class="gt_row gt_center">
-adolescent
-</td>
-<td headers="gene1_answers" class="gt_row gt_center">
- {1:NUMERICAL:=7.6:0.05~%0%599740:0}
-</td>
-<td headers="gene2_answers" class="gt_row gt_center">
- {1:NUMERICAL:=0.66:0.05~%0%599740:0}
+<td headers="signal" class="gt_row gt_center">
+0.49108550
 </td>
 </tr>
 <tr>
-<td headers="ages" class="gt_row gt_center">
-adult
+<td headers="structure" class="gt_row gt_center">
+10163
 </td>
-<td headers="gene1_answers" class="gt_row gt_center">
- {1:NUMERICAL:=7.49:0.05~%0%599740:0}
+<td headers="gene" class="gt_row gt_center">
+CENPI
 </td>
-<td headers="gene2_answers" class="gt_row gt_center">
- {1:NUMERICAL:=0.474:0.05~%0%599740:0}
+<td headers="signal" class="gt_row gt_center">
+0.07189867
+</td>
+</tr>
+<tr>
+<td headers="structure" class="gt_row gt_center">
+10163
+</td>
+<td headers="gene" class="gt_row gt_center">
+H3F3B
+</td>
+<td headers="signal" class="gt_row gt_center">
+43.96552533
+</td>
+</tr>
+<tr>
+<td headers="structure" class="gt_row gt_center">
+10163
+</td>
+<td headers="gene" class="gt_row gt_center">
+MAML1
+</td>
+<td headers="signal" class="gt_row gt_center">
+1.87006567
+</td>
+</tr>
+<tr>
+<td headers="structure" class="gt_row gt_center">
+10163
+</td>
+<td headers="gene" class="gt_row gt_center">
+RCBTB1
+</td>
+<td headers="signal" class="gt_row gt_center">
+7.11661667
 </td>
 </tr>
 </tbody>
@@ -510,44 +521,36 @@ adult
 </questiontext>
 <generalfeedback format="html">
 <text><![CDATA[<p>
-<p>Use <code>group_by(hgnc_symbol, age) |&gt; summarise(gene_signal = mean(signal))</code></p>
-<ol type = "a">
-<li> 11.6 </li>
-<li> 7.53 </li>
-<li> 7.81 </li>
-<li> 7.6 </li>
-<li> 7.49 </li>
-<li> 0.604 </li>
-<li> 1.18 </li>
-<li> 0.633 </li>
-<li> 0.66 </li>
-<li> 0.474 </li>
-</ol>
+<p>Use <code>pivot_longer(-structure, names_to = "gene", values_to = "signal")</code>.</p>
 </p>]]></text>
 </generalfeedback>
 <penalty>0</penalty>
-<defaultgrade>10</defaultgrade>
+<defaultgrade>1</defaultgrade>
+<answer fraction="100" format="moodle_auto_format">
+<text>1500</text>
+<tolerance>30</tolerance>
+</answer>
 </question>
 
 
-<question type="cloze">
+<question type="numerical">
 <name>
-<text> R2 Q1 : rexams_week-2_ABA-group </text>
+<text> R2 Q1 : rexams_week-2_ABA-pivot-long </text>
 </name>
 <questiontext format="html">
 <text><![CDATA[
 <p>
-<p>Run the code line below to read in a data frame called <code>ABAData</code>.</p>
-<p>brain_gene_expression &lt;- read_rds(“https://github.com/eugene100hickey/ATU-2023/blob/main/rexams/data/ABAData?raw=true”) |&gt;
-filter(hgnc_symbol %in% c(“MPHOSPH8”, “FAM179A”))</p>
-<p>Use <code>group_by()</code> and <code>summarise()</code> to calculate the mean gene expression for each gene for each age category. Use thisto fill out the table below.</p>
+<p>Run the code line below to read in a data frame called <code>brain_gene_expression_wide</code>.</p>
+<p><code>brain_gene_expression_wide &lt;- read_rds("https://github.com/eugene100hickey/ATU-2023/blob/main/rexams/data/ABAData-wide?raw=true") |&gt;    select(structure, PPP1R13L, FAM73B, ITGB5, CAPNS1, ANKFN1, HMGA2, TEX101, CDH3, ZDHHC20, OSBPL7)</code></p>
+<p>(note that if you cut and paste in this text, you might have to rewrite the quotation marks, <strong>“</strong>)</p>
+<p>Use <code>pivot_long()</code> to recast this data in long format. The top of this table is shown below. Use this to calculate the mean level of gene expression.</p>
 <!--html_preserve-->
-<div id="rffbtcvubw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="zmktzqtdtk" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: Caveat;
 }
 
-#rffbtcvubw .gt_table {
+#zmktzqtdtk .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -572,7 +575,7 @@ filter(hgnc_symbol %in% c(“MPHOSPH8”, “FAM179A”))</p>
   border-left-color: #D3D3D3;
 }
 
-#rffbtcvubw .gt_heading {
+#zmktzqtdtk .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -584,12 +587,12 @@ filter(hgnc_symbol %in% c(“MPHOSPH8”, “FAM179A”))</p>
   border-right-color: #D3D3D3;
 }
 
-#rffbtcvubw .gt_caption {
+#zmktzqtdtk .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#rffbtcvubw .gt_title {
+#zmktzqtdtk .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -601,7 +604,7 @@ filter(hgnc_symbol %in% c(“MPHOSPH8”, “FAM179A”))</p>
   border-bottom-width: 0;
 }
 
-#rffbtcvubw .gt_subtitle {
+#zmktzqtdtk .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -613,13 +616,13 @@ filter(hgnc_symbol %in% c(“MPHOSPH8”, “FAM179A”))</p>
   border-top-width: 0;
 }
 
-#rffbtcvubw .gt_bottom_border {
+#zmktzqtdtk .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#rffbtcvubw .gt_col_headings {
+#zmktzqtdtk .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -634,7 +637,7 @@ filter(hgnc_symbol %in% c(“MPHOSPH8”, “FAM179A”))</p>
   border-right-color: #D3D3D3;
 }
 
-#rffbtcvubw .gt_col_heading {
+#zmktzqtdtk .gt_col_heading {
   color: #FFFFFF;
   background-color: #6495ED;
   font-size: 100%;
@@ -654,7 +657,7 @@ filter(hgnc_symbol %in% c(“MPHOSPH8”, “FAM179A”))</p>
   overflow-x: hidden;
 }
 
-#rffbtcvubw .gt_column_spanner_outer {
+#zmktzqtdtk .gt_column_spanner_outer {
   color: #FFFFFF;
   background-color: #6495ED;
   font-size: 100%;
@@ -666,15 +669,15 @@ filter(hgnc_symbol %in% c(“MPHOSPH8”, “FAM179A”))</p>
   padding-right: 4px;
 }
 
-#rffbtcvubw .gt_column_spanner_outer:first-child {
+#zmktzqtdtk .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#rffbtcvubw .gt_column_spanner_outer:last-child {
+#zmktzqtdtk .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#rffbtcvubw .gt_column_spanner {
+#zmktzqtdtk .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -686,7 +689,7 @@ filter(hgnc_symbol %in% c(“MPHOSPH8”, “FAM179A”))</p>
   width: 100%;
 }
 
-#rffbtcvubw .gt_group_heading {
+#zmktzqtdtk .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -712,7 +715,7 @@ filter(hgnc_symbol %in% c(“MPHOSPH8”, “FAM179A”))</p>
   text-align: left;
 }
 
-#rffbtcvubw .gt_empty_group_heading {
+#zmktzqtdtk .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -727,15 +730,15 @@ filter(hgnc_symbol %in% c(“MPHOSPH8”, “FAM179A”))</p>
   vertical-align: middle;
 }
 
-#rffbtcvubw .gt_from_md > :first-child {
+#zmktzqtdtk .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#rffbtcvubw .gt_from_md > :last-child {
+#zmktzqtdtk .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#rffbtcvubw .gt_row {
+#zmktzqtdtk .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -754,7 +757,7 @@ filter(hgnc_symbol %in% c(“MPHOSPH8”, “FAM179A”))</p>
   overflow-x: hidden;
 }
 
-#rffbtcvubw .gt_stub {
+#zmktzqtdtk .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -767,7 +770,7 @@ filter(hgnc_symbol %in% c(“MPHOSPH8”, “FAM179A”))</p>
   padding-right: 5px;
 }
 
-#rffbtcvubw .gt_stub_row_group {
+#zmktzqtdtk .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -781,11 +784,11 @@ filter(hgnc_symbol %in% c(“MPHOSPH8”, “FAM179A”))</p>
   vertical-align: top;
 }
 
-#rffbtcvubw .gt_row_group_first td {
+#zmktzqtdtk .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#rffbtcvubw .gt_summary_row {
+#zmktzqtdtk .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -795,16 +798,16 @@ filter(hgnc_symbol %in% c(“MPHOSPH8”, “FAM179A”))</p>
   padding-right: 5px;
 }
 
-#rffbtcvubw .gt_first_summary_row {
+#zmktzqtdtk .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#rffbtcvubw .gt_first_summary_row.thick {
+#zmktzqtdtk .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#rffbtcvubw .gt_last_summary_row {
+#zmktzqtdtk .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -814,7 +817,7 @@ filter(hgnc_symbol %in% c(“MPHOSPH8”, “FAM179A”))</p>
   border-bottom-color: #D3D3D3;
 }
 
-#rffbtcvubw .gt_grand_summary_row {
+#zmktzqtdtk .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -824,7 +827,7 @@ filter(hgnc_symbol %in% c(“MPHOSPH8”, “FAM179A”))</p>
   padding-right: 5px;
 }
 
-#rffbtcvubw .gt_first_grand_summary_row {
+#zmktzqtdtk .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -834,11 +837,11 @@ filter(hgnc_symbol %in% c(“MPHOSPH8”, “FAM179A”))</p>
   border-top-color: #D3D3D3;
 }
 
-#rffbtcvubw .gt_striped {
+#zmktzqtdtk .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#rffbtcvubw .gt_table_body {
+#zmktzqtdtk .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -847,7 +850,7 @@ filter(hgnc_symbol %in% c(“MPHOSPH8”, “FAM179A”))</p>
   border-bottom-color: #D3D3D3;
 }
 
-#rffbtcvubw .gt_footnotes {
+#zmktzqtdtk .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -861,7 +864,7 @@ filter(hgnc_symbol %in% c(“MPHOSPH8”, “FAM179A”))</p>
   border-right-color: #D3D3D3;
 }
 
-#rffbtcvubw .gt_footnote {
+#zmktzqtdtk .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -870,7 +873,7 @@ filter(hgnc_symbol %in% c(“MPHOSPH8”, “FAM179A”))</p>
   padding-right: 5px;
 }
 
-#rffbtcvubw .gt_sourcenotes {
+#zmktzqtdtk .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -884,7 +887,7 @@ filter(hgnc_symbol %in% c(“MPHOSPH8”, “FAM179A”))</p>
   border-right-color: #D3D3D3;
 }
 
-#rffbtcvubw .gt_sourcenote {
+#zmktzqtdtk .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -892,135 +895,146 @@ filter(hgnc_symbol %in% c(“MPHOSPH8”, “FAM179A”))</p>
   padding-right: 5px;
 }
 
-#rffbtcvubw .gt_left {
+#zmktzqtdtk .gt_left {
   text-align: left;
 }
 
-#rffbtcvubw .gt_center {
+#zmktzqtdtk .gt_center {
   text-align: center;
 }
 
-#rffbtcvubw .gt_right {
+#zmktzqtdtk .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#rffbtcvubw .gt_font_normal {
+#zmktzqtdtk .gt_font_normal {
   font-weight: normal;
 }
 
-#rffbtcvubw .gt_font_bold {
+#zmktzqtdtk .gt_font_bold {
   font-weight: bold;
 }
 
-#rffbtcvubw .gt_font_italic {
+#zmktzqtdtk .gt_font_italic {
   font-style: italic;
 }
 
-#rffbtcvubw .gt_super {
+#zmktzqtdtk .gt_super {
   font-size: 65%;
 }
 
-#rffbtcvubw .gt_footnote_marks {
+#zmktzqtdtk .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#rffbtcvubw .gt_asterisk {
+#zmktzqtdtk .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#rffbtcvubw .gt_indent_1 {
+#zmktzqtdtk .gt_indent_1 {
   text-indent: 5px;
 }
 
-#rffbtcvubw .gt_indent_2 {
+#zmktzqtdtk .gt_indent_2 {
   text-indent: 10px;
 }
 
-#rffbtcvubw .gt_indent_3 {
+#zmktzqtdtk .gt_indent_3 {
   text-indent: 15px;
 }
 
-#rffbtcvubw .gt_indent_4 {
+#zmktzqtdtk .gt_indent_4 {
   text-indent: 20px;
 }
 
-#rffbtcvubw .gt_indent_5 {
+#zmktzqtdtk .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
 <table class="gt_table">
 <thead class="gt_col_headings">
 <tr>
-<th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="Age Category">
-Age Category
+<th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="Brain Area Code">
+Brain Area Code
 </th>
-<th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="Mean Expression for MPHOSPH8">
-Mean Expression for MPHOSPH8
+<th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="Gene Name">
+Gene Name
 </th>
-<th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="Mean Expression for FAM179A">
-Mean Expression for FAM179A
+<th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="Gene Expression">
+Gene Expression
 </th>
 </tr>
 </thead>
 <tbody class="gt_table_body">
 <tr>
-<td headers="ages" class="gt_row gt_center">
-prenatal
+<td headers="structure" class="gt_row gt_center">
+10163
 </td>
-<td headers="gene1_answers" class="gt_row gt_center">
- {1:NUMERICAL:=0.0729:0.05~%0%1639838:0}
+<td headers="gene" class="gt_row gt_center">
+PPP1R13L
 </td>
-<td headers="gene2_answers" class="gt_row gt_center">
- {1:NUMERICAL:=10.4:0.05~%0%1639838:0}
-</td>
-</tr>
-<tr>
-<td headers="ages" class="gt_row gt_center">
-infant
-</td>
-<td headers="gene1_answers" class="gt_row gt_center">
- {1:NUMERICAL:=0.189:0.05~%0%1639838:0}
-</td>
-<td headers="gene2_answers" class="gt_row gt_center">
- {1:NUMERICAL:=9.79:0.05~%0%1639838:0}
+<td headers="signal" class="gt_row gt_center">
+0.6222570
 </td>
 </tr>
 <tr>
-<td headers="ages" class="gt_row gt_center">
-child
+<td headers="structure" class="gt_row gt_center">
+10163
 </td>
-<td headers="gene1_answers" class="gt_row gt_center">
- {1:NUMERICAL:=0.113:0.05~%0%1639838:0}
+<td headers="gene" class="gt_row gt_center">
+FAM73B
 </td>
-<td headers="gene2_answers" class="gt_row gt_center">
- {1:NUMERICAL:=8.99:0.05~%0%1639838:0}
-</td>
-</tr>
-<tr>
-<td headers="ages" class="gt_row gt_center">
-adolescent
-</td>
-<td headers="gene1_answers" class="gt_row gt_center">
- {1:NUMERICAL:=0.235:0.05~%0%1639838:0}
-</td>
-<td headers="gene2_answers" class="gt_row gt_center">
- {1:NUMERICAL:=13.6:0.05~%0%1639838:0}
+<td headers="signal" class="gt_row gt_center">
+5.9769438
 </td>
 </tr>
 <tr>
-<td headers="ages" class="gt_row gt_center">
-adult
+<td headers="structure" class="gt_row gt_center">
+10163
 </td>
-<td headers="gene1_answers" class="gt_row gt_center">
- {1:NUMERICAL:=0.255:0.05~%0%1639838:0}
+<td headers="gene" class="gt_row gt_center">
+ITGB5
 </td>
-<td headers="gene2_answers" class="gt_row gt_center">
- {1:NUMERICAL:=15.4:0.05~%0%1639838:0}
+<td headers="signal" class="gt_row gt_center">
+3.5195533
+</td>
+</tr>
+<tr>
+<td headers="structure" class="gt_row gt_center">
+10163
+</td>
+<td headers="gene" class="gt_row gt_center">
+CAPNS1
+</td>
+<td headers="signal" class="gt_row gt_center">
+229.9781218
+</td>
+</tr>
+<tr>
+<td headers="structure" class="gt_row gt_center">
+10163
+</td>
+<td headers="gene" class="gt_row gt_center">
+ANKFN1
+</td>
+<td headers="signal" class="gt_row gt_center">
+0.1835993
+</td>
+</tr>
+<tr>
+<td headers="structure" class="gt_row gt_center">
+10163
+</td>
+<td headers="gene" class="gt_row gt_center">
+HMGA2
+</td>
+<td headers="signal" class="gt_row gt_center">
+0.0017135
 </td>
 </tr>
 </tbody>
@@ -1031,23 +1045,15 @@ adult
 </questiontext>
 <generalfeedback format="html">
 <text><![CDATA[<p>
-<p>Use <code>group_by(hgnc_symbol, age) |&gt; summarise(gene_signal = mean(signal))</code></p>
-<ol type = "a">
-<li> 0.0729 </li>
-<li> 0.189 </li>
-<li> 0.113 </li>
-<li> 0.235 </li>
-<li> 0.255 </li>
-<li> 10.4 </li>
-<li> 9.79 </li>
-<li> 8.99 </li>
-<li> 13.6 </li>
-<li> 15.4 </li>
-</ol>
+<p>Use <code>pivot_longer(-structure, names_to = "gene", values_to = "signal")</code>.</p>
 </p>]]></text>
 </generalfeedback>
 <penalty>0</penalty>
-<defaultgrade>10</defaultgrade>
+<defaultgrade>1</defaultgrade>
+<answer fraction="100" format="moodle_auto_format">
+<text>3610</text>
+<tolerance>72.2</tolerance>
+</answer>
 </question>
 
 </quiz>

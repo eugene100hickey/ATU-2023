@@ -7,7 +7,7 @@ library(showtext)
 font_add_google(name = "Caveat", family = "Caveat")
 showtext_auto()
 
-z <- read_rds("https://github.com/eugene100hickey/ATU-2023/blob/main/rexams/data/ABAData-wider?raw=true")
+z <- read_rds("https://github.com/eugene100hickey/ATU-2023/blob/main/rexams/data/ABAData-wide?raw=true")
 
 genes <- colnames(z)[2:dim(z)[2]] |> 
   sample(10)
@@ -17,7 +17,7 @@ z1 <- z |>
   select(structure, any_of(genes)) |> 
   pivot_longer(-structure, names_to = "gene", values_to = "signal")
 
-solution <- z1$signal |> signif(3)
+solution <- mean(z1$signal) |> signif(3)
 ```
 
 
@@ -25,13 +25,10 @@ Question
 ========
 Run the code line below to read in a data frame called `brain_gene_expression_wide`. 
 
-brain_gene_expression_wide <- read_rds("https://github.com/eugene100hickey/ATU-2023/blob/main/rexams/data/ABAData-wide?raw=true") |> 
-  select(structure, `r noquote(paste(genes, ","))`)
-  
-(note that if you cut and paste in this text, you might have to rewrite the quotation marks, __"__)
+`brain_gene_expression_wide <- read_rds("https://github.com/eugene100hickey/ATU-2023/blob/main/rexams/data/ABAData-wide?raw=true") |> 
+  select(structure, `r noquote(genes)`)`
 
-
-Use `pivot_long()` torecast this data in long format. The top of this table is shown below. Use this to calculate the mean level of gene expression. 
+Use `pivot_longer()` to recast this data in long format. The top of this table is shown below. Use this to calculate the mean level of gene expression. 
 
 ```{r echo=FALSE}
 z1 %>% 
