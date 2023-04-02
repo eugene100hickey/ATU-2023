@@ -3,7 +3,7 @@ library(exams)
 library(tidyverse)
 
 gene_data <- read_rds("https://github.com/eugene100hickey/ATU-2023/blob/main/rexams/data/ABA-adult?raw=true")
-brain_data <- read_rds("https://github.com/eugene100hickey/ATU-2023/blob/main/rexams/data/brain-area-codes?raw=true")
+brain_data <- read_rds("https://github.com/eugene100hickey/ATU-2023/blob/main/rexams/data/brain-area-code?raw=true")
 my_brain_area <- brain_data$brain_area |> sample(1)
 
 z1 <- gene_data |> 

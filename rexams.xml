@@ -18,8 +18,8 @@
 <p>
 <p>Run the code lines below to read in two data frames called <code>gene_data</code> and <code>brain_data</code>.</p>
 <pre><code>gene_data &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/blob/main/rexams/data/ABA-adult?raw=true&quot;)
-brain_data &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/blob/main/rexams/data/brain-area-codes?raw=true&quot;)</code></pre>
-<p>Then join these two data frames together to make one that looks like this:</p>
+brain_data &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/blob/main/rexams/data/brain-area-code?raw=true&quot;)</code></pre>
+<p>Then join these two data frames together to make one where the first few rows look like this:</p>
 <!--html_preserve-->
 <div id="eayjdrzqox" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
@@ -461,7 +461,7 @@ ACAA1
 8.425045
 </td>
 <td headers="brain_area" class="gt_row gt_left">
-Cx_Cerebral Cortex
+Cerebral Cortex
 </td>
 </tr>
 <tr>
@@ -475,7 +475,7 @@ ACAA1
 7.995196
 </td>
 <td headers="brain_area" class="gt_row gt_left">
-CxN_Cerebral Nuclei
+Cerebral Nuclei
 </td>
 </tr>
 <tr>
@@ -489,7 +489,7 @@ ACAA1
 8.025882
 </td>
 <td headers="brain_area" class="gt_row gt_left">
-Cx_Cerebral Cortex
+Cerebral Cortex
 </td>
 </tr>
 <tr>
@@ -503,7 +503,7 @@ ACAA1
 8.331045
 </td>
 <td headers="brain_area" class="gt_row gt_left">
-Cx_Cerebral Cortex
+Cerebral Cortex
 </td>
 </tr>
 <tr>
@@ -517,7 +517,7 @@ ACAA1
 8.459142
 </td>
 <td headers="brain_area" class="gt_row gt_left">
-Cx_Cerebral Cortex
+Cerebral Cortex
 </td>
 </tr>
 <tr>
@@ -531,27 +531,28 @@ ACAA1
 7.825108
 </td>
 <td headers="brain_area" class="gt_row gt_left">
-Cb_Cerebellum
+Cerebellum
 </td>
 </tr>
 </tbody>
 </table>
 </div>
 <!--/html_preserve-->
-<p>Filter this to only look at gene expression from the Pons_Pons.</p>
-<p>What is the average gene expression in Pons_Pons?</p>
+<p><code>hgnc_xsymbol</code> refers to the name of the gene, <code>structure</code> is a code number for the specific brain area, <code>signal</code> measures how active the gene is in this brain area, and <code>brain_area</code> is the name for the general brain area.</p>
+<p>Filter this to only look at gene expression from the Pons.</p>
+<p>What is the average gene expression in Pons?</p>
 </p>]]></text>
 </questiontext>
 <generalfeedback format="html">
 <text><![CDATA[<p>
-<p>Use <code>gene_data |&gt; left_join(brain_data, join_by(structure == brain_code))</code> and then <code>filter(brain_area == Pons_Pons)</code></p>
+<p>Use <code>gene_data |&gt; left_join(brain_data, join_by(structure == brain_code))</code> and then <code>filter(brain_area == Pons)</code></p>
 </p>]]></text>
 </generalfeedback>
 <penalty>0</penalty>
 <defaultgrade>1</defaultgrade>
 <answer fraction="100" format="moodle_auto_format">
-<text>5.73</text>
-<tolerance>0.1146</tolerance>
+<text>5.84</text>
+<tolerance>0.01168</tolerance>
 </answer>
 </question>
 
@@ -565,8 +566,8 @@ Cb_Cerebellum
 <p>
 <p>Run the code lines below to read in two data frames called <code>gene_data</code> and <code>brain_data</code>.</p>
 <pre><code>gene_data &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/blob/main/rexams/data/ABA-adult?raw=true&quot;)
-brain_data &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/blob/main/rexams/data/brain-area-codes?raw=true&quot;)</code></pre>
-<p>Then join these two data frames together to make one that looks like this:</p>
+brain_data &lt;- read_rds(&quot;https://github.com/eugene100hickey/ATU-2023/blob/main/rexams/data/brain-area-code?raw=true&quot;)</code></pre>
+<p>Then join these two data frames together to make one where the first few rows look like this:</p>
 <!--html_preserve-->
 <div id="dyentzroci" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
@@ -1008,7 +1009,7 @@ ACAA1
 8.425045
 </td>
 <td headers="brain_area" class="gt_row gt_left">
-Cx_Cerebral Cortex
+Cerebral Cortex
 </td>
 </tr>
 <tr>
@@ -1022,7 +1023,7 @@ ACAA1
 7.995196
 </td>
 <td headers="brain_area" class="gt_row gt_left">
-CxN_Cerebral Nuclei
+Cerebral Nuclei
 </td>
 </tr>
 <tr>
@@ -1036,7 +1037,7 @@ ACAA1
 8.025882
 </td>
 <td headers="brain_area" class="gt_row gt_left">
-Cx_Cerebral Cortex
+Cerebral Cortex
 </td>
 </tr>
 <tr>
@@ -1050,7 +1051,7 @@ ACAA1
 8.331045
 </td>
 <td headers="brain_area" class="gt_row gt_left">
-Cx_Cerebral Cortex
+Cerebral Cortex
 </td>
 </tr>
 <tr>
@@ -1064,7 +1065,7 @@ ACAA1
 8.459142
 </td>
 <td headers="brain_area" class="gt_row gt_left">
-Cx_Cerebral Cortex
+Cerebral Cortex
 </td>
 </tr>
 <tr>
@@ -1078,27 +1079,28 @@ ACAA1
 7.825108
 </td>
 <td headers="brain_area" class="gt_row gt_left">
-Cb_Cerebellum
+Cerebellum
 </td>
 </tr>
 </tbody>
 </table>
 </div>
 <!--/html_preserve-->
-<p>Filter this to only look at gene expression from the MTg_Midbrain Tegmentum.</p>
-<p>What is the average gene expression in MTg_Midbrain Tegmentum?</p>
+<p><code>hgnc_xsymbol</code> refers to the name of the gene, <code>structure</code> is a code number for the specific brain area, <code>signal</code> measures how active the gene is in this brain area, and <code>brain_area</code> is the name for the general brain area.</p>
+<p>Filter this to only look at gene expression from the Midbrain Tegmentum.</p>
+<p>What is the average gene expression in Midbrain Tegmentum?</p>
 </p>]]></text>
 </questiontext>
 <generalfeedback format="html">
 <text><![CDATA[<p>
-<p>Use <code>gene_data |&gt; left_join(brain_data, join_by(structure == brain_code))</code> and then <code>filter(brain_area == MTg_Midbrain Tegmentum)</code></p>
+<p>Use <code>gene_data |&gt; left_join(brain_data, join_by(structure == brain_code))</code> and then <code>filter(brain_area == Midbrain Tegmentum)</code></p>
 </p>]]></text>
 </generalfeedback>
 <penalty>0</penalty>
 <defaultgrade>1</defaultgrade>
 <answer fraction="100" format="moodle_auto_format">
-<text>5.73</text>
-<tolerance>0.1146</tolerance>
+<text>5.76</text>
+<tolerance>0.01152</tolerance>
 </answer>
 </question>
 
