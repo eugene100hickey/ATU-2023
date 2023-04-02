@@ -27,7 +27,7 @@ state_regions <- read_rds("https://github.com/eugene100hickey/ATU-2023/blob/main
 
 Then join these two data frames together to make one that looks like this:
 
-```{r}
+```{r echo=FALSE}
 gt::gt(states |> head())
 ```
 
