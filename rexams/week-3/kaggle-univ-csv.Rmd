@@ -2,46 +2,25 @@
 library(exams)
 library(tidyverse)
 
-gene_data <- read_rds("https://github.com/eugene100hickey/ATU-2023/blob/main/rexams/data/ABA-adult?raw=true")
-brain_data <- read_rds("https://github.com/eugene100hickey/ATU-2023/blob/main/rexams/data/brain-area-code?raw=true")
-my_brain_area <- brain_data$brain_area |> sample(1)
+z <- read_csv("https://raw.githubusercontent.com/eugene100hickey/ATU-2023/main/rexams/data/university-rankings-kaggle.csv")
 
-z1 <- gene_data |> 
-  left_join(brain_data, join_by(structure == brain_code))
+country <- table(z$country)
+country <- country[country > 5]
+my_country <- names(country) |> 
+  sample(1)
 
-z2 <- z1 |> 
-  filter(brain_area == my_brain_area)
-
-solution <- mean(z2$signal) |> signif(3)
+solution <- country[my_country]
 ```
 
 
 Question
 ========
-Run the code lines below to read in two data frames called `gene_data` and `brain_data`. 
-
-```{r eval=FALSE}
-gene_data <- read_rds("https://github.com/eugene100hickey/ATU-2023/blob/main/rexams/data/ABA-adult?raw=true")
-brain_data <- read_rds("https://github.com/eugene100hickey/ATU-2023/blob/main/rexams/data/brain-area-code?raw=true")
-```
-
-Then join these two data frames together to make one where the first few rows look like this:
-
-```{r echo=FALSE}
-gt::gt(z1 |> head())
-```
-
-`hgnc_xsymbol` refers to the name of the gene, `structure` is a code number for the specific brain area, `signal` measures how active the gene is in this brain area, and `brain_area` is the name for  the general brain area.
-
-Filter this to only look at gene expression from the `r my_brain_area`. 
-
-What is the average gene expression in `r my_brain_area`?
-
+Read in the _csv_ file located at `"https://raw.githubusercontent.com/eugene100hickey/ATU-2023/main/rexams/data/university-rankings-kaggle.csv"`. This gives university rankings for 2023. How many universities from `r my_country` are present in this dataset?
 
 
 Solution
 ========
-Use `gene_data |> left_join(brain_data, join_by(structure == brain_code))` and then `filter(brain_area == `r my_brain_area`)`
+Use `read_csv("https://raw.githubusercontent.com/eugene100hickey/ATU-2023/main/rexams/data/university-rankings-kaggle.csv")` followed by `table(my_file_name$country)`.
 
 
 
@@ -49,5 +28,5 @@ Meta-information
 ================
 extype: num
 exsolution: `r solution`
-exname: ABAData-join
+exname: univ-csv
 extol: `r solution*0.002`

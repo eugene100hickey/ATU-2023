@@ -9,162 +9,50 @@
 </question>
 
 
-<question type="multichoice">
+<question type="numerical">
 <name>
-<text> R1 Q1 : rexams_week-2_lubridate </text>
+<text> R1 Q1 : rexams_week-3_kaggle-univ-csv </text>
 </name>
 <questiontext format="html">
 <text><![CDATA[
 <p>
-<p>The official way of presenting the date for <em>International Speak Like a Pirate Day</em> this year is 2023-09-19. Which of the format strings below would represent this as 23 September 19?</p>
+<p>Read in the <em>csv</em> file located at <code>"https://raw.githubusercontent.com/eugene100hickey/ATU-2023/main/rexams/data/university-rankings-kaggle.csv"</code>. This gives university rankings for 2023. How many universities from Russian Federation are present in this dataset?</p>
 </p>]]></text>
 </questiontext>
 <generalfeedback format="html">
 <text><![CDATA[<p>
-<p>Use the R command <code>format(2023-09-19, my_formats)</code> where <code>my_format</code> is a string specifier like <code>"%y %m %y"</code>.</p>
-<ol type = "a">
-<li> False </li>
-<li> False </li>
-<li> True </li>
-<li> False </li>
-<li> False </li>
-</ol>
+<p>Use <code>read_csv("https://raw.githubusercontent.com/eugene100hickey/ATU-2023/main/rexams/data/university-rankings-kaggle.csv")</code> followed by <code>table(my_file_name$country)</code>.</p>
 </p>]]></text>
 </generalfeedback>
 <penalty>0</penalty>
 <defaultgrade>1</defaultgrade>
-<shuffleanswers>false</shuffleanswers>
-<single>true</single>
-<answernumbering>abc</answernumbering>
-<answer fraction="-25" format="html">
-<text><![CDATA[<p>
-%y %m %d
-</p>]]></text>
-<feedback format="html">
-<text><![CDATA[<p>
-False
-</p>]]></text>
-</feedback>
-</answer>
-<answer fraction="-25" format="html">
-<text><![CDATA[<p>
-%Y %B %d
-</p>]]></text>
-<feedback format="html">
-<text><![CDATA[<p>
-False
-</p>]]></text>
-</feedback>
-</answer>
-<answer fraction="100" format="html">
-<text><![CDATA[<p>
-%y %B %d
-</p>]]></text>
-<feedback format="html">
-<text><![CDATA[<p>
-True
-</p>]]></text>
-</feedback>
-</answer>
-<answer fraction="-25" format="html">
-<text><![CDATA[<p>
-%b %d %m
-</p>]]></text>
-<feedback format="html">
-<text><![CDATA[<p>
-False
-</p>]]></text>
-</feedback>
-</answer>
-<answer fraction="-25" format="html">
-<text><![CDATA[<p>
-%Y %m %d
-</p>]]></text>
-<feedback format="html">
-<text><![CDATA[<p>
-False
-</p>]]></text>
-</feedback>
+<answer fraction="100" format="moodle_auto_format">
+<text>103</text>
+<tolerance>0.206</tolerance>
 </answer>
 </question>
 
 
-<question type="multichoice">
+<question type="numerical">
 <name>
-<text> R2 Q1 : rexams_week-2_lubridate </text>
+<text> R2 Q1 : rexams_week-3_kaggle-univ-csv </text>
 </name>
 <questiontext format="html">
 <text><![CDATA[
 <p>
-<p>The official way of presenting the date for <em>International Speak Like a Pirate Day</em> this year is 2023-09-19. Which of the format strings below would represent this as Sep 19 09?</p>
+<p>Read in the <em>csv</em> file located at <code>"https://raw.githubusercontent.com/eugene100hickey/ATU-2023/main/rexams/data/university-rankings-kaggle.csv"</code>. This gives university rankings for 2023. How many universities from United States are present in this dataset?</p>
 </p>]]></text>
 </questiontext>
 <generalfeedback format="html">
 <text><![CDATA[<p>
-<p>Use the R command <code>format(2023-09-19, my_formats)</code> where <code>my_format</code> is a string specifier like <code>"%y %m %y"</code>.</p>
-<ol type = "a">
-<li> False </li>
-<li> False </li>
-<li> False </li>
-<li> True </li>
-<li> False </li>
-</ol>
+<p>Use <code>read_csv("https://raw.githubusercontent.com/eugene100hickey/ATU-2023/main/rexams/data/university-rankings-kaggle.csv")</code> followed by <code>table(my_file_name$country)</code>.</p>
 </p>]]></text>
 </generalfeedback>
 <penalty>0</penalty>
 <defaultgrade>1</defaultgrade>
-<shuffleanswers>false</shuffleanswers>
-<single>true</single>
-<answernumbering>abc</answernumbering>
-<answer fraction="-25" format="html">
-<text><![CDATA[<p>
-%y %m %d
-</p>]]></text>
-<feedback format="html">
-<text><![CDATA[<p>
-False
-</p>]]></text>
-</feedback>
-</answer>
-<answer fraction="-25" format="html">
-<text><![CDATA[<p>
-%Y %d %B
-</p>]]></text>
-<feedback format="html">
-<text><![CDATA[<p>
-False
-</p>]]></text>
-</feedback>
-</answer>
-<answer fraction="-25" format="html">
-<text><![CDATA[<p>
-%y %B %d
-</p>]]></text>
-<feedback format="html">
-<text><![CDATA[<p>
-False
-</p>]]></text>
-</feedback>
-</answer>
-<answer fraction="100" format="html">
-<text><![CDATA[<p>
-%b %d %m
-</p>]]></text>
-<feedback format="html">
-<text><![CDATA[<p>
-True
-</p>]]></text>
-</feedback>
-</answer>
-<answer fraction="-25" format="html">
-<text><![CDATA[<p>
-%Y %B %d
-</p>]]></text>
-<feedback format="html">
-<text><![CDATA[<p>
-False
-</p>]]></text>
-</feedback>
+<answer fraction="100" format="moodle_auto_format">
+<text>179</text>
+<tolerance>0.358</tolerance>
 </answer>
 </question>
 
