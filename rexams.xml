@@ -11,48 +11,48 @@
 
 <question type="numerical">
 <name>
-<text> R1 Q1 : rexams_week-3_kaggle-univ-csv </text>
+<text> R1 Q1 : rexams_week-3_methane-csv </text>
 </name>
 <questiontext format="html">
 <text><![CDATA[
 <p>
-<p>Read in the <em>csv</em> file located at <code>"https://raw.githubusercontent.com/eugene100hickey/ATU-2023/main/rexams/data/university-rankings-kaggle.csv"</code>. This gives university rankings for 2023. How many universities from Russian Federation are present in this dataset?</p>
+<p>Read in the <em>csv</em> file located at <code>"https://raw.githubusercontent.com/eugene100hickey/ATU-2023/main/rexams/data/Methane_final.csv"</code>. This gives global methane emissions for (mostly) 2022. Calculate the total emissions due to Energy from Asia Pacific.</p>
 </p>]]></text>
 </questiontext>
 <generalfeedback format="html">
 <text><![CDATA[<p>
-<p>Use <code>read_csv("https://raw.githubusercontent.com/eugene100hickey/ATU-2023/main/rexams/data/university-rankings-kaggle.csv")</code> followed by <code>table(my_file_name$country)</code>.</p>
+<p>Use <code>read_csv("https://raw.githubusercontent.com/eugene100hickey/ATU-2023/main/rexams/data/Methane_final.csv")</code> followed by <code>group_by(type, region) |&gt; summarise(total = sum(emmisions)) |&gt; ungroup()</code>.</p>
 </p>]]></text>
 </generalfeedback>
 <penalty>0</penalty>
 <defaultgrade>1</defaultgrade>
 <answer fraction="100" format="moodle_auto_format">
-<text>103</text>
-<tolerance>0.206</tolerance>
+<text>83.2401715</text>
+<tolerance>0.1664803</tolerance>
 </answer>
 </question>
 
 
 <question type="numerical">
 <name>
-<text> R2 Q1 : rexams_week-3_kaggle-univ-csv </text>
+<text> R2 Q1 : rexams_week-3_methane-csv </text>
 </name>
 <questiontext format="html">
 <text><![CDATA[
 <p>
-<p>Read in the <em>csv</em> file located at <code>"https://raw.githubusercontent.com/eugene100hickey/ATU-2023/main/rexams/data/university-rankings-kaggle.csv"</code>. This gives university rankings for 2023. How many universities from United States are present in this dataset?</p>
+<p>Read in the <em>csv</em> file located at <code>"https://raw.githubusercontent.com/eugene100hickey/ATU-2023/main/rexams/data/Methane_final.csv"</code>. This gives global methane emissions for (mostly) 2022. Calculate the total emissions due to Other from Central and South America.</p>
 </p>]]></text>
 </questiontext>
 <generalfeedback format="html">
 <text><![CDATA[<p>
-<p>Use <code>read_csv("https://raw.githubusercontent.com/eugene100hickey/ATU-2023/main/rexams/data/university-rankings-kaggle.csv")</code> followed by <code>table(my_file_name$country)</code>.</p>
+<p>Use <code>read_csv("https://raw.githubusercontent.com/eugene100hickey/ATU-2023/main/rexams/data/Methane_final.csv")</code> followed by <code>group_by(type, region) |&gt; summarise(total = sum(emmisions)) |&gt; ungroup()</code>.</p>
 </p>]]></text>
 </generalfeedback>
 <penalty>0</penalty>
 <defaultgrade>1</defaultgrade>
 <answer fraction="100" format="moodle_auto_format">
-<text>179</text>
-<tolerance>0.358</tolerance>
+<text>0.7285917</text>
+<tolerance>0.0014572</tolerance>
 </answer>
 </question>
 

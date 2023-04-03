@@ -2,11 +2,11 @@
 library(exams)
 library(tidyverse)
 
-z <- read_csv("https://raw.githubusercontent.com/eugene100hickey/ATU-2023/main/rexams/data/Methane_final.csv")
+z <- read_csv("https://raw.githubusercontent.com/eugene100hickey/ATU-2023/main/rexams/data/Methane.csv")
 
 z <- z |> 
   group_by(type, region) |> 
-  summarise(total = sum(emmisions)) |> 
+  summarise(total = sum(emissions)) |> 
   ungroup()
 my_type <- z$type |> 
   unique() |> 
@@ -16,7 +16,7 @@ my_region <- z$region |>
   sample(1)
 
 solution <- z |> 
-  filter(type = my_type, region = my_region) |> 
+  filter(type == my_type, region == my_region) |> 
   pull(total)
 ```
 
