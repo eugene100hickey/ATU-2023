@@ -11,48 +11,48 @@
 
 <question type="numerical">
 <name>
-<text> R1 Q1 : rexams_week-3_imdb </text>
+<text> R1 Q1 : rexams_week-3_excel </text>
 </name>
 <questiontext format="html">
 <text><![CDATA[
 <p>
-<p>Examine the movie database webpage for <strong>2017</strong> at <strong>https://www.imdb.com/search/title/?title_type=feature&amp;year=2017-01-01,2017-12-31</strong>. What is the mean value for the gross takings (in billion dolars, divide IMDB figures by 1,000)? Just give the numerical answer, don’t include units.</p>
+<p>Open the sheet <strong><em>mnist</em></strong> from the file at <strong>https://github.com/eugene100hickey/ATU-2023/blob/main/rexams/data/excel-example.xlsx?raw=true</strong> using <code>rio::import(https://github.com/eugene100hickey/ATU-2023/blob/main/rexams/data/excel-example.xlsx?raw=true, which = "mnist")</code> (or else you can download the file to your computer and open with <code>read_excel()</code>). How many rows are there in this file?</p>
 </p>]]></text>
 </questiontext>
 <generalfeedback format="html">
 <text><![CDATA[<p>
-<p>Use <code>read_html()</code>, followed by <code>html_nodes()</code>, and then <code>html_text2()</code>.</p>
+<p>Use <code>excel_sheets()</code>, followed by <code>read_excel()</code>, and then <code>nrow()</code>.</p>
 </p>]]></text>
 </generalfeedback>
 <penalty>0</penalty>
 <defaultgrade>1</defaultgrade>
 <answer fraction="100" format="moodle_auto_format">
-<text>0.14</text>
-<tolerance>0.0028</tolerance>
+<text>800</text>
+<tolerance>16</tolerance>
 </answer>
 </question>
 
 
 <question type="numerical">
 <name>
-<text> R2 Q1 : rexams_week-3_imdb </text>
+<text> R2 Q1 : rexams_week-3_excel </text>
 </name>
 <questiontext format="html">
 <text><![CDATA[
 <p>
-<p>Examine the movie database webpage for <strong>2016</strong> at <strong>https://www.imdb.com/search/title/?title_type=feature&amp;year=2016-01-01,2016-12-31</strong>. What is the mean value for the movie duration in minutes? Just give the numerical answer, don’t include units.</p>
+<p>Open the sheet <strong><em>P_Troglodytes</em></strong> from the file at <strong>https://github.com/eugene100hickey/ATU-2023/blob/main/rexams/data/excel-example.xlsx?raw=true</strong> using <code>rio::import(https://github.com/eugene100hickey/ATU-2023/blob/main/rexams/data/excel-example.xlsx?raw=true, which = "P_Troglodytes")</code> (or else you can download the file to your computer and open with <code>read_excel()</code>). How many rows are there in this file?</p>
 </p>]]></text>
 </questiontext>
 <generalfeedback format="html">
 <text><![CDATA[<p>
-<p>Use <code>read_html()</code>, followed by <code>html_nodes()</code>, and then <code>html_text2()</code>.</p>
+<p>Use <code>excel_sheets()</code>, followed by <code>read_excel()</code>, and then <code>nrow()</code>.</p>
 </p>]]></text>
 </generalfeedback>
 <penalty>0</penalty>
 <defaultgrade>1</defaultgrade>
 <answer fraction="100" format="moodle_auto_format">
-<text>118</text>
-<tolerance>2.36</tolerance>
+<text>6309</text>
+<tolerance>126.18</tolerance>
 </answer>
 </question>
 
