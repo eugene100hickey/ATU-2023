@@ -17,13 +17,14 @@ my_region <- z$region |>
 
 solution <- z |> 
   filter(type == my_type, region == my_region) |> 
-  pull(total)
+  pull(total) |> 
+  signif(3)
 ```
 
 
 Question
 ========
-Read in the _csv_ file located at `"https://raw.githubusercontent.com/eugene100hickey/ATU-2023/main/rexams/data/Methane_final.csv"`. This gives global methane emissions for  (mostly) 2022. Calculate the total emissions due to `r  my_type` from `r my_region`.
+Read in the _csv_ file located at `"https://raw.githubusercontent.com/eugene100hickey/ATU-2023/main/rexams/data/Methane_final.csv"`. This gives global methane emissions for  (mostly) 2022. Calculate the total emissions due to *__`r  my_type`__* from *__`r my_region`__*.
 
 
 Solution

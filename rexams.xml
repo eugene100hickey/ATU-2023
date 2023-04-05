@@ -11,48 +11,48 @@
 
 <question type="numerical">
 <name>
-<text> R1 Q1 : rexams_week-3_methane-csv </text>
+<text> R1 Q1 : rexams_week-3_imdb </text>
 </name>
 <questiontext format="html">
 <text><![CDATA[
 <p>
-<p>Read in the <em>csv</em> file located at <code>"https://raw.githubusercontent.com/eugene100hickey/ATU-2023/main/rexams/data/Methane_final.csv"</code>. This gives global methane emissions for (mostly) 2022. Calculate the total emissions due to Energy from Asia Pacific.</p>
+<p>Examine the movie database webpage for <strong>2017</strong> at <strong>https://www.imdb.com/search/title/?title_type=feature&amp;year=2017-01-01,2017-12-31</strong>. What is the mean value for the gross takings (in billion dolars, divide IMDB figures by 1,000)? Just give the numerical answer, don’t include units.</p>
 </p>]]></text>
 </questiontext>
 <generalfeedback format="html">
 <text><![CDATA[<p>
-<p>Use <code>read_csv("https://raw.githubusercontent.com/eugene100hickey/ATU-2023/main/rexams/data/Methane_final.csv")</code> followed by <code>group_by(type, region) |&gt; summarise(total = sum(emmisions)) |&gt; ungroup()</code>.</p>
+<p>Use <code>read_html()</code>, followed by <code>html_nodes()</code>, and then <code>html_text2()</code>.</p>
 </p>]]></text>
 </generalfeedback>
 <penalty>0</penalty>
 <defaultgrade>1</defaultgrade>
 <answer fraction="100" format="moodle_auto_format">
-<text>83.2401715</text>
-<tolerance>0.1664803</tolerance>
+<text>0.14</text>
+<tolerance>0.0028</tolerance>
 </answer>
 </question>
 
 
 <question type="numerical">
 <name>
-<text> R2 Q1 : rexams_week-3_methane-csv </text>
+<text> R2 Q1 : rexams_week-3_imdb </text>
 </name>
 <questiontext format="html">
 <text><![CDATA[
 <p>
-<p>Read in the <em>csv</em> file located at <code>"https://raw.githubusercontent.com/eugene100hickey/ATU-2023/main/rexams/data/Methane_final.csv"</code>. This gives global methane emissions for (mostly) 2022. Calculate the total emissions due to Other from Central and South America.</p>
+<p>Examine the movie database webpage for <strong>2016</strong> at <strong>https://www.imdb.com/search/title/?title_type=feature&amp;year=2016-01-01,2016-12-31</strong>. What is the mean value for the movie duration in minutes? Just give the numerical answer, don’t include units.</p>
 </p>]]></text>
 </questiontext>
 <generalfeedback format="html">
 <text><![CDATA[<p>
-<p>Use <code>read_csv("https://raw.githubusercontent.com/eugene100hickey/ATU-2023/main/rexams/data/Methane_final.csv")</code> followed by <code>group_by(type, region) |&gt; summarise(total = sum(emmisions)) |&gt; ungroup()</code>.</p>
+<p>Use <code>read_html()</code>, followed by <code>html_nodes()</code>, and then <code>html_text2()</code>.</p>
 </p>]]></text>
 </generalfeedback>
 <penalty>0</penalty>
 <defaultgrade>1</defaultgrade>
 <answer fraction="100" format="moodle_auto_format">
-<text>0.7285917</text>
-<tolerance>0.0014572</tolerance>
+<text>118</text>
+<tolerance>2.36</tolerance>
 </answer>
 </question>
 
