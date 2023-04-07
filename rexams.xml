@@ -11,48 +11,52 @@
 
 <question type="numerical">
 <name>
-<text> R1 Q1 : rexams_week-3_excel </text>
+<text> R1 Q1 : rexams_week-3_noaa </text>
 </name>
 <questiontext format="html">
 <text><![CDATA[
 <p>
-<p>Open the sheet <strong><em>mnist</em></strong> from the file at <strong>https://github.com/eugene100hickey/ATU-2023/blob/main/rexams/data/excel-example.xlsx?raw=true</strong> using <code>rio::import(https://github.com/eugene100hickey/ATU-2023/blob/main/rexams/data/excel-example.xlsx?raw=true, which = "mnist")</code> (or else you can download the file to your computer and open with <code>read_excel()</code>). How many rows are there in this file?</p>
+<p>Install the <code>rnoaa</code> package if you don’t have it already. To use it, you’ll need to register at <strong><em>https://www.ncdc.noaa.gov/cdo-web/token</em></strong>, they email you a token that you can place within your R session by <code>options(noaakey = "KEY_EMAILED_TO_YOU")</code> (see https://docs.ropensci.org/rnoaa/articles/rnoaa.html).</p>
+<p>We want to find the average rainfall in <strong>MALIN HEAD, EI</strong> for the year starting <strong>2006-01-01</strong> through to <strong>2007-01-01</strong>.</p>
+<p>You can access information about the Irish weather stations from <code>ncdc_stations(locationid = "FIPS:EI")$data</code>. Access rainfall data (called “PRCP”) using the <code>ncdc()</code> command. Set the <code>stationid</code> to the appropriate <em>id</em> value for MALIN HEAD, EI. Set the <code>startdate</code> and <code>enddate</code> appropriately. The <code>datasetid</code> is <em>“GHCND”</em>, and the <code>datatypeid</code> is <em>“PRCP”</em>. The values returned are in tenths of mm, so expect an average value to be somewhere generally from 10 to 100.</p>
 </p>]]></text>
 </questiontext>
 <generalfeedback format="html">
 <text><![CDATA[<p>
-<p>Use <code>excel_sheets()</code>, followed by <code>read_excel()</code>, and then <code>nrow()</code>.</p>
+<p>Use <code>ncdc_stations(locationid = "FIPS:EI")$data</code>, then <code>ncdc(datasetid='GHCND',  stationid=ghcnd, datatypeid='PRCP', startdate = start_date, enddate = end_date, limit=500, add_units = TRUE)$data</code>.</p>
 </p>]]></text>
 </generalfeedback>
 <penalty>0</penalty>
 <defaultgrade>1</defaultgrade>
 <answer fraction="100" format="moodle_auto_format">
-<text>800</text>
-<tolerance>16</tolerance>
+<text>43.6</text>
+<tolerance>0.0872</tolerance>
 </answer>
 </question>
 
 
 <question type="numerical">
 <name>
-<text> R2 Q1 : rexams_week-3_excel </text>
+<text> R2 Q1 : rexams_week-3_noaa </text>
 </name>
 <questiontext format="html">
 <text><![CDATA[
 <p>
-<p>Open the sheet <strong><em>P_Troglodytes</em></strong> from the file at <strong>https://github.com/eugene100hickey/ATU-2023/blob/main/rexams/data/excel-example.xlsx?raw=true</strong> using <code>rio::import(https://github.com/eugene100hickey/ATU-2023/blob/main/rexams/data/excel-example.xlsx?raw=true, which = "P_Troglodytes")</code> (or else you can download the file to your computer and open with <code>read_excel()</code>). How many rows are there in this file?</p>
+<p>Install the <code>rnoaa</code> package if you don’t have it already. To use it, you’ll need to register at <strong><em>https://www.ncdc.noaa.gov/cdo-web/token</em></strong>, they email you a token that you can place within your R session by <code>options(noaakey = "KEY_EMAILED_TO_YOU")</code> (see https://docs.ropensci.org/rnoaa/articles/rnoaa.html).</p>
+<p>We want to find the average rainfall in <strong>VALENTIA OBSERVATORY, EI</strong> for the year starting <strong>1975-10-01</strong> through to <strong>1976-10-01</strong>.</p>
+<p>You can access information about the Irish weather stations from <code>ncdc_stations(locationid = "FIPS:EI")$data</code>. Access rainfall data (called “PRCP”) using the <code>ncdc()</code> command. Set the <code>stationid</code> to the appropriate <em>id</em> value for VALENTIA OBSERVATORY, EI. Set the <code>startdate</code> and <code>enddate</code> appropriately. The <code>datasetid</code> is <em>“GHCND”</em>, and the <code>datatypeid</code> is <em>“PRCP”</em>. The values returned are in tenths of mm, so expect an average value to be somewhere generally from 10 to 100.</p>
 </p>]]></text>
 </questiontext>
 <generalfeedback format="html">
 <text><![CDATA[<p>
-<p>Use <code>excel_sheets()</code>, followed by <code>read_excel()</code>, and then <code>nrow()</code>.</p>
+<p>Use <code>ncdc_stations(locationid = "FIPS:EI")$data</code>, then <code>ncdc(datasetid='GHCND',  stationid=ghcnd, datatypeid='PRCP', startdate = start_date, enddate = end_date, limit=500, add_units = TRUE)$data</code>.</p>
 </p>]]></text>
 </generalfeedback>
 <penalty>0</penalty>
 <defaultgrade>1</defaultgrade>
 <answer fraction="100" format="moodle_auto_format">
-<text>6309</text>
-<tolerance>126.18</tolerance>
+<text>35.8</text>
+<tolerance>0.0716</tolerance>
 </answer>
 </question>
 
