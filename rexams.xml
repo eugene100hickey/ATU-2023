@@ -11,52 +11,48 @@
 
 <question type="numerical">
 <name>
-<text> R1 Q1 : rexams_week-3_noaa </text>
+<text> R1 Q1 : rexams_week-4_paired-t-test </text>
 </name>
 <questiontext format="html">
 <text><![CDATA[
 <p>
-<p>Install the <code>rnoaa</code> package if you don’t have it already. To use it, you’ll need to register at <strong><em>https://www.ncdc.noaa.gov/cdo-web/token</em></strong>, they email you a token that you can place within your R session by <code>options(noaakey = "KEY_EMAILED_TO_YOU")</code> (see https://docs.ropensci.org/rnoaa/articles/rnoaa.html).</p>
-<p>We want to find the average rainfall in <strong>MALIN HEAD, EI</strong> for the year starting <strong>2006-01-01</strong> through to <strong>2007-01-01</strong>.</p>
-<p>You can access information about the Irish weather stations from <code>ncdc_stations(locationid = "FIPS:EI")$data</code>. Access rainfall data (called “PRCP”) using the <code>ncdc()</code> command. Set the <code>stationid</code> to the appropriate <em>id</em> value for MALIN HEAD, EI. Set the <code>startdate</code> and <code>enddate</code> appropriately. The <code>datasetid</code> is <em>“GHCND”</em>, and the <code>datatypeid</code> is <em>“PRCP”</em>. The values returned are in tenths of mm, so expect an average value to be somewhere generally from 10 to 100.</p>
+<p>If not done already, install the <code>dslabs</code> package from <em>CRAN</em> (use <code>install.packages("dslabs")</code>). Use <code>View()</code> or <code>glimpse()</code> to examine the <code>gapminder</code> data. Use <code>?gapminder</code> to see a discription of this data. We want to investigate changes in <strong>fertility</strong> between the years <strong>2008</strong> and <strong>1996</strong> . Use <code>filter()</code> and <code>pull()</code> to make two vectors of the fertility values for these years. Note, the 185 countries will be in the same order in both vectors, so this is a <em>paired</em> test. Also note that the values won’t be normally distributed so we won’t use a <em>t test</em>. Calculate the <strong>Wilcoxon test statistic</strong> using <code>wilcox.test()</code> for the null hypothesis that the <code>fertility</code> from the year <strong>2008</strong> is the same as the <code>fertility</code> from the year <strong>1996</strong>. Give your answer to three significant figures.</p>
 </p>]]></text>
 </questiontext>
 <generalfeedback format="html">
 <text><![CDATA[<p>
-<p>Use <code>ncdc_stations(locationid = "FIPS:EI")$data</code>, then <code>ncdc(datasetid='GHCND',  stationid=ghcnd, datatypeid='PRCP', startdate = start_date, enddate = end_date, limit=500, add_units = TRUE)$data</code>.</p>
+<p>Make the vectors using <code>gapminder |&gt; filter(year == 2008) |&gt; pull(fertility)</code> etc.Get the Wilcoxon test statistic using <code>wilcox.test(x, y, paired = T, var.equal = T)$statistic</code>.</p>
 </p>]]></text>
 </generalfeedback>
 <penalty>0</penalty>
 <defaultgrade>1</defaultgrade>
 <answer fraction="100" format="moodle_auto_format">
-<text>43.6</text>
-<tolerance>0.0872</tolerance>
+<text>1023.5</text>
+<tolerance>20.47</tolerance>
 </answer>
 </question>
 
 
 <question type="numerical">
 <name>
-<text> R2 Q1 : rexams_week-3_noaa </text>
+<text> R2 Q1 : rexams_week-4_paired-t-test </text>
 </name>
 <questiontext format="html">
 <text><![CDATA[
 <p>
-<p>Install the <code>rnoaa</code> package if you don’t have it already. To use it, you’ll need to register at <strong><em>https://www.ncdc.noaa.gov/cdo-web/token</em></strong>, they email you a token that you can place within your R session by <code>options(noaakey = "KEY_EMAILED_TO_YOU")</code> (see https://docs.ropensci.org/rnoaa/articles/rnoaa.html).</p>
-<p>We want to find the average rainfall in <strong>VALENTIA OBSERVATORY, EI</strong> for the year starting <strong>1975-10-01</strong> through to <strong>1976-10-01</strong>.</p>
-<p>You can access information about the Irish weather stations from <code>ncdc_stations(locationid = "FIPS:EI")$data</code>. Access rainfall data (called “PRCP”) using the <code>ncdc()</code> command. Set the <code>stationid</code> to the appropriate <em>id</em> value for VALENTIA OBSERVATORY, EI. Set the <code>startdate</code> and <code>enddate</code> appropriately. The <code>datasetid</code> is <em>“GHCND”</em>, and the <code>datatypeid</code> is <em>“PRCP”</em>. The values returned are in tenths of mm, so expect an average value to be somewhere generally from 10 to 100.</p>
+<p>If not done already, install the <code>dslabs</code> package from <em>CRAN</em> (use <code>install.packages("dslabs")</code>). Use <code>View()</code> or <code>glimpse()</code> to examine the <code>gapminder</code> data. Use <code>?gapminder</code> to see a discription of this data. We want to investigate changes in <strong>fertility</strong> between the years <strong>1960</strong> and <strong>1984</strong> . Use <code>filter()</code> and <code>pull()</code> to make two vectors of the fertility values for these years. Note, the 185 countries will be in the same order in both vectors, so this is a <em>paired</em> test. Also note that the values won’t be normally distributed so we won’t use a <em>t test</em>. Calculate the <strong>Wilcoxon test statistic</strong> using <code>wilcox.test()</code> for the null hypothesis that the <code>fertility</code> from the year <strong>1960</strong> is the same as the <code>fertility</code> from the year <strong>1984</strong>. Give your answer to three significant figures.</p>
 </p>]]></text>
 </questiontext>
 <generalfeedback format="html">
 <text><![CDATA[<p>
-<p>Use <code>ncdc_stations(locationid = "FIPS:EI")$data</code>, then <code>ncdc(datasetid='GHCND',  stationid=ghcnd, datatypeid='PRCP', startdate = start_date, enddate = end_date, limit=500, add_units = TRUE)$data</code>.</p>
+<p>Make the vectors using <code>gapminder |&gt; filter(year == 1960) |&gt; pull(fertility)</code> etc.Get the Wilcoxon test statistic using <code>wilcox.test(x, y, paired = T, var.equal = T)$statistic</code>.</p>
 </p>]]></text>
 </generalfeedback>
 <penalty>0</penalty>
 <defaultgrade>1</defaultgrade>
 <answer fraction="100" format="moodle_auto_format">
-<text>35.8</text>
-<tolerance>0.0716</tolerance>
+<text>15672.5</text>
+<tolerance>313.45</tolerance>
 </answer>
 </question>
 

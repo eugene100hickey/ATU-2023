@@ -13,7 +13,7 @@ library(seqinr)
 ntd <- "Enterovirus[Organism]"
 enterovirus_search <- entrez_search(db="nuccore", term=ntd, retmax=40)
 enterovirus_seqs <- entrez_fetch(db="nuccore",
-                                 id=enterovirus_search$ids[c(2:9, 15:40)],
+                                 id=enterovirus_search$ids[c(2)],
                                  rettype="fasta")
 write(enterovirus_seqs, "rexams/data/enterovirus/enterovirus-40.fasta", sep="\n")
 

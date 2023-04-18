@@ -4,21 +4,20 @@ library(tidyverse)
 library(dslabs)
 
 repeat{
-  my_state <- levels(us_contagious_diseases$state) |> 
+  my_year <- unique(dslabs::us_contagious_diseases$year) |> 
     sample(1)
-  my_year <- unique(us_contagious_diseases$year) |> 
-    sample(1)
-  my_disease <- levels(us_contagious_diseases$disease) |> 
+  my_disease <- levels(dslabs::us_contagious_diseases$disease) |> 
     sample(1)
   
-  z <- us_contagious_diseases |> 
+  z <- dslabs::us_contagious_diseases |> 
     select(disease, state, year, count) |> 
     filter(year == my_year,
            disease == my_disease)
   
-  solution <- sum(z$count)
-  break{
-    solution > 0
+  solution <- sum(z$count, na.rm = T) %>% signif(3)
+  
+  if(!is.na(solution) & solution > 0 ){
+    break
   }
 }
 ```
@@ -46,6 +45,6 @@ Filter for the year and disease using us_contagious_disease |> filter(year == "`
 Meta-information
 ================
 extype: num
-exsolution: `r solution %>% signif(3)`
+exsolution: `r solution`
 exname: us-contagious
 extol: `r solution*0.05`

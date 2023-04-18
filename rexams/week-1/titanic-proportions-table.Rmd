@@ -26,7 +26,7 @@ repeat{
   solution <- (z[class, sex, age, survived] /
                  (z[class, sex, age, "Yes"] + z[class, sex, age, "No"])) |>
     signif(3)
-  if (solution < 1) {
+  if (!is.na(solution) & solution < 1) {
     break
   }
 }

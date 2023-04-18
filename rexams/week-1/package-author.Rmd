@@ -15,7 +15,8 @@ my_packages <- c("sf", "showtext", "rtoot",
                  "extrafont", "ggchicklet","qrcode") |> 
   sample()
 author_name <- function(package = "sf") {
-  citation(package) |> as.BibEntry() |> as.data.frame() |> pull(author)
+  z <- citation(package) |> as.BibEntry() |> as.data.frame() |> pull(author)
+  z[1]
 }
 my_authors <- map_chr(my_packages, author_name)
 

@@ -40,6 +40,8 @@ Question
 ========
 Install the `dslabs` package if you haven't already (`install.packages("dslabs")`).
 
+This should give you access to the `gapminder` dataset on which this question is based (try `head(gapminder)` to have a peek at it).
+
 Filter for the year __`r my_year`__.
 
 Use `group_by()` and `summarise()` to calculate the total population for each continent in the year `r my_year` in millions (so divide by `1e6`) and the mean life expectancy (just average the values of the countries, don't worry about different populations of each country). Fill out the table below.
@@ -87,5 +89,5 @@ extype: cloze
 exsolution: `r paste(solution, collapse = "|")`
 exclozetype: num|num|num|num|num|num|num|num|num|num
 exname: gapminder-group
-extol: 0.05
+extol: 0.002
 exextra[numwidth,logical]: TRUE

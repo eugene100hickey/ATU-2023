@@ -12,7 +12,8 @@ my_region <- sample(regions, 1)
 solution <- states |> 
   filter(region == my_region) |> 
   pull(area) |> 
-  sum(na.rm = T)
+  sum(na.rm = T) |> 
+  signif(3)
 ```
 
 
