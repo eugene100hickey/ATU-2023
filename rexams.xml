@@ -4,55 +4,491 @@
 
 <question type="category">
 <category>
-<text>$course$/rexams/Exercise 1</text>
+<text>$course$/rexams/Exercise 01</text>
 </category>
 </question>
 
 
 <question type="numerical">
 <name>
-<text> R1 Q1 : rexams_week-4_paired-t-test </text>
+<text> Q01 : rexams_week-1_diamonds </text>
 </name>
 <questiontext format="html">
 <text><![CDATA[
 <p>
-<p>If not done already, install the <code>dslabs</code> package from <em>CRAN</em> (use <code>install.packages("dslabs")</code>). Use <code>View()</code> or <code>glimpse()</code> to examine the <code>gapminder</code> data. Use <code>?gapminder</code> to see a discription of this data. We want to investigate changes in <strong>fertility</strong> between the years <strong>2008</strong> and <strong>1996</strong> . Use <code>filter()</code> and <code>pull()</code> to make two vectors of the fertility values for these years. Note, the 185 countries will be in the same order in both vectors, so this is a <em>paired</em> test. Also note that the values won’t be normally distributed so we won’t use a <em>t test</em>. Calculate the <strong>Wilcoxon test statistic</strong> using <code>wilcox.test()</code> for the null hypothesis that the <code>fertility</code> from the year <strong>2008</strong> is the same as the <code>fertility</code> from the year <strong>1996</strong>. Give your answer to three significant figures.</p>
+<p>Below is an excerpt from the diamonds dataset of the <code>tidyverse</code> package:</p>
+<pre><code>library(tidyverse)
+head(diamonds)</code></pre>
+<pre><code>## # A tibble: 6 x 10
+##   carat cut       color clarity depth table price     x     y     z
+##   &lt;dbl&gt; &lt;ord&gt;     &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1  0.23 Ideal     E     SI2      61.5    55   326  3.95  3.98  2.43
+## 2  0.21 Premium   E     SI1      59.8    61   326  3.89  3.84  2.31
+## 3  0.23 Good      E     VS1      56.9    65   327  4.05  4.07  2.31
+## 4  0.29 Premium   I     VS2      62.4    58   334  4.2   4.23  2.63
+## 5  0.31 Good      J     SI2      63.3    58   335  4.34  4.35  2.75
+## 6  0.24 Very Good J     VVS2     62.8    57   336  3.94  3.96  2.48</code></pre>
+<p>Calculate the sd for the carat of this dataset.</p>
 </p>]]></text>
 </questiontext>
 <generalfeedback format="html">
 <text><![CDATA[<p>
-<p>Make the vectors using <code>gapminder |&gt; filter(year == 2008) |&gt; pull(fertility)</code> etc.Get the Wilcoxon test statistic using <code>wilcox.test(x, y, paired = T, var.equal = T)$statistic</code>.</p>
+<p>Use the R command sd(diamonds$carat)</p>
 </p>]]></text>
 </generalfeedback>
 <penalty>0</penalty>
 <defaultgrade>1</defaultgrade>
 <answer fraction="100" format="moodle_auto_format">
-<text>1023.5</text>
-<tolerance>20.47</tolerance>
+<text>0.474</text>
+<tolerance>0.0237</tolerance>
 </answer>
+</question>
+
+
+<question type="category">
+<category>
+<text>$course$/rexams/Exercise 02</text>
+</category>
 </question>
 
 
 <question type="numerical">
 <name>
-<text> R2 Q1 : rexams_week-4_paired-t-test </text>
+<text> Q02 : rexams_week-1_gettysburg </text>
 </name>
 <questiontext format="html">
 <text><![CDATA[
 <p>
-<p>If not done already, install the <code>dslabs</code> package from <em>CRAN</em> (use <code>install.packages("dslabs")</code>). Use <code>View()</code> or <code>glimpse()</code> to examine the <code>gapminder</code> data. Use <code>?gapminder</code> to see a discription of this data. We want to investigate changes in <strong>fertility</strong> between the years <strong>1960</strong> and <strong>1984</strong> . Use <code>filter()</code> and <code>pull()</code> to make two vectors of the fertility values for these years. Note, the 185 countries will be in the same order in both vectors, so this is a <em>paired</em> test. Also note that the values won’t be normally distributed so we won’t use a <em>t test</em>. Calculate the <strong>Wilcoxon test statistic</strong> using <code>wilcox.test()</code> for the null hypothesis that the <code>fertility</code> from the year <strong>1960</strong> is the same as the <code>fertility</code> from the year <strong>1984</strong>. Give your answer to three significant figures.</p>
+<p>You can see the text of the Gettysburg address from Abraham Lincoln <a href="https://en.wikipedia.org/wiki/Gettysburg_Address#Text">here</a>. Count the number of occurences of the letter <strong>a</strong> in this text.</p>
 </p>]]></text>
 </questiontext>
 <generalfeedback format="html">
 <text><![CDATA[<p>
-<p>Make the vectors using <code>gapminder |&gt; filter(year == 1960) |&gt; pull(fertility)</code> etc.Get the Wilcoxon test statistic using <code>wilcox.test(x, y, paired = T, var.equal = T)$statistic</code>.</p>
+<p>Use the R command <code>str_count()</code>.</p>
 </p>]]></text>
 </generalfeedback>
 <penalty>0</penalty>
 <defaultgrade>1</defaultgrade>
 <answer fraction="100" format="moodle_auto_format">
-<text>15672.5</text>
-<tolerance>313.45</tolerance>
+<text>102</text>
+<tolerance>1.02</tolerance>
+</answer>
+</question>
+
+
+<question type="category">
+<category>
+<text>$course$/rexams/Exercise 03</text>
+</category>
+</question>
+
+
+<question type="numerical">
+<name>
+<text> Q03 : rexams_week-1_jane-austen </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[
+<p>
+<p>The <code>janeaustenr</code> package contains the text of several Jane Austern novels, (if not already installed, use <code>install.packages("janeaustenr")</code>). Calculate the number of letters in the book <strong>Sense &amp; Sensibility</strong>.</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Use the R command <code>nchar(book_name) |&gt; sum()</code>.</p>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<answer fraction="100" format="moodle_auto_format">
+<text>661064</text>
+<tolerance>6610.64</tolerance>
+</answer>
+</question>
+
+
+<question type="category">
+<category>
+<text>$course$/rexams/Exercise 04</text>
+</category>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> Q04 : rexams_week-1_package-author </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[
+<p>
+<p>Who is the author(s)/maintainer(s) of the <strong>ggokabeito</strong> package?</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Use the R command <code>citation("package name")</code> to find out. Make sure the package is installed on your system first using <code>install.packages("package name")</code></p>
+<ol type = "a">
+<li> False </li>
+<li> False </li>
+<li> False </li>
+<li> False </li>
+<li> True </li>
+</ol>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>false</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="-25" format="html">
+<text><![CDATA[<p>
+Thierry Onkelinx and Victor Teh
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="-25" format="html">
+<text><![CDATA[<p>
+Bob Rudis
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="-25" format="html">
+<text><![CDATA[<p>
+Yixuan Qiu and authors/contributors of the included software. See file AUTHORS for details.
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="-25" format="html">
+<text><![CDATA[<p>
+Alberto Krone-Martins
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+Malcolm Barrett
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+True
+</p>]]></text>
+</feedback>
+</answer>
+</question>
+
+
+<question type="category">
+<category>
+<text>$course$/rexams/Exercise 05</text>
+</category>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> Q05 : rexams_week-1_penguins-class </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[
+<p>
+<p>Install the <code>palmerpenguins</code> package if you haven’t already (<code>install.packages("palmerpenguins")</code>.</p>
+<pre><code>library(tidyverse)
+library(palmerpenguins)
+head(penguins)</code></pre>
+<p>What type of variable is the bill_length_mm column?</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Use the R command <code>class(penguins$....)</code> to find out.</p>
+<ol type = "a">
+<li> False </li>
+<li> True </li>
+<li> False </li>
+<li> False </li>
+<li> False </li>
+</ol>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>false</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="-25" format="html">
+<text><![CDATA[<p>
+logical
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+numeric
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+True
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="-25" format="html">
+<text><![CDATA[<p>
+tibble
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="-25" format="html">
+<text><![CDATA[<p>
+integer
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="-25" format="html">
+<text><![CDATA[<p>
+data.frame
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False
+</p>]]></text>
+</feedback>
+</answer>
+</question>
+
+
+<question type="category">
+<category>
+<text>$course$/rexams/Exercise 06</text>
+</category>
+</question>
+
+
+<question type="numerical">
+<name>
+<text> Q06 : rexams_week-1_penguins-complete </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[
+<p>
+<p>Below is an excerpt from the penguins dataset of the <code>palmerpenguins</code> package (if not already installed, use <code>install.packages("palmerpenguins")</code>):</p>
+<pre><code>library(tidyverse)
+library(palmerpenguins)
+head(penguins)</code></pre>
+<pre><code>## # A tibble: 6 x 8
+##   species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g sex     year
+##   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt; &lt;fct&gt;  &lt;int&gt;
+## 1 Adelie  Torgersen           39.1          18.7               181        3750 male    2007
+## 2 Adelie  Torgersen           39.5          17.4               186        3800 female  2007
+## 3 Adelie  Torgersen           40.3          18                 195        3250 female  2007
+## 4 Adelie  Torgersen           NA            NA                  NA          NA &lt;NA&gt;    2007
+## 5 Adelie  Torgersen           36.7          19.3               193        3450 female  2007
+## 6 Adelie  Torgersen           39.3          20.6               190        3650 male    2007</code></pre>
+<p>What fraction of rows in this data set have missing values?</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Make use of the R command <code>sum(complete.cases(penguins)) / nrow(penguins)</code> and adjust accordingly.</p>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<answer fraction="100" format="moodle_auto_format">
+<text>0.032</text>
+<tolerance>0.0016</tolerance>
+</answer>
+</question>
+
+
+<question type="category">
+<category>
+<text>$course$/rexams/Exercise 07</text>
+</category>
+</question>
+
+
+<question type="numerical">
+<name>
+<text> Q07 : rexams_week-1_penguins-na </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[
+<p>
+<p>Below is an excerpt from the penguins dataset of the <code>palmerpenguins</code> package (if not already installed, use <code>install.packages("palmerpenguins")</code>):</p>
+<pre><code>library(tidyverse)
+library(palmerpenguins)
+head(penguins)</code></pre>
+<pre><code>## # A tibble: 6 x 8
+##   species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g sex     year
+##   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt; &lt;fct&gt;  &lt;int&gt;
+## 1 Adelie  Torgersen           39.1          18.7               181        3750 male    2007
+## 2 Adelie  Torgersen           39.5          17.4               186        3800 female  2007
+## 3 Adelie  Torgersen           40.3          18                 195        3250 female  2007
+## 4 Adelie  Torgersen           NA            NA                  NA          NA &lt;NA&gt;    2007
+## 5 Adelie  Torgersen           36.7          19.3               193        3450 female  2007
+## 6 Adelie  Torgersen           39.3          20.6               190        3650 male    2007</code></pre>
+<p>How many missing values are in the bill_length_mm column of this dataset?</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Use the R command <code>sum(is.na(penguins$...))</code>.</p>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<answer fraction="100" format="moodle_auto_format">
+<text>2</text>
+<tolerance>0.02</tolerance>
+</answer>
+</question>
+
+
+<question type="category">
+<category>
+<text>$course$/rexams/Exercise 08</text>
+</category>
+</question>
+
+
+<question type="numerical">
+<name>
+<text> Q08 : rexams_week-1_penguins-table </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[
+<p>
+<p>Below is an excerpt from the penguins dataset of the <code>palmerpenguins</code> package (if not already installed, use <code>install.packages("palmerpenguins")</code>):</p>
+<pre><code>library(tidyverse)
+library(palmerpenguins)
+head(penguins)</code></pre>
+<pre><code>## # A tibble: 6 x 8
+##   species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g sex     year
+##   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt; &lt;fct&gt;  &lt;int&gt;
+## 1 Adelie  Torgersen           39.1          18.7               181        3750 male    2007
+## 2 Adelie  Torgersen           39.5          17.4               186        3800 female  2007
+## 3 Adelie  Torgersen           40.3          18                 195        3250 female  2007
+## 4 Adelie  Torgersen           NA            NA                  NA          NA &lt;NA&gt;    2007
+## 5 Adelie  Torgersen           36.7          19.3               193        3450 female  2007
+## 6 Adelie  Torgersen           39.3          20.6               190        3650 male    2007</code></pre>
+<p>How many Gentoo penguins of female sex were found on Biscoe?</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Use the R command <code>table(penguins$species, penguins$island, penguins$sex)</code></p>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<answer fraction="100" format="moodle_auto_format">
+<text>58</text>
+<tolerance>0.58</tolerance>
+</answer>
+</question>
+
+
+<question type="category">
+<category>
+<text>$course$/rexams/Exercise 09</text>
+</category>
+</question>
+
+
+<question type="numerical">
+<name>
+<text> Q09 : rexams_week-1_penguins </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[
+<p>
+<p>Below is an excerpt from the penguins dataset of the <code>palmerpenguins</code> package (if not already installed, use <code>install.packages("palmerpenguins")</code>):</p>
+<pre><code>library(tidyverse)
+library(palmerpenguins)
+head(penguins)</code></pre>
+<pre><code>## # A tibble: 6 x 8
+##   species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g sex     year
+##   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt; &lt;fct&gt;  &lt;int&gt;
+## 1 Adelie  Torgersen           39.1          18.7               181        3750 male    2007
+## 2 Adelie  Torgersen           39.5          17.4               186        3800 female  2007
+## 3 Adelie  Torgersen           40.3          18                 195        3250 female  2007
+## 4 Adelie  Torgersen           NA            NA                  NA          NA &lt;NA&gt;    2007
+## 5 Adelie  Torgersen           36.7          19.3               193        3450 female  2007
+## 6 Adelie  Torgersen           39.3          20.6               190        3650 male    2007</code></pre>
+<p>Calculate the max for the bill_depth_mm of this dataset.</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Use the R command max(penguins$bill_depth_mm)</p>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<answer fraction="100" format="moodle_auto_format">
+<text>21.5</text>
+<tolerance>1.075</tolerance>
+</answer>
+</question>
+
+
+<question type="category">
+<category>
+<text>$course$/rexams/Exercise 10</text>
+</category>
+</question>
+
+
+<question type="numerical">
+<name>
+<text> Q10 : rexams_week-1_titanic-proportions-table </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[
+<p>
+<p>The <code>Titanic</code> dataset contains tabular information on survival statistics from the sinking of the <a href="https://en.wikipedia.org/wiki/Titanic">Titanic</a> in 1912. You can see this table by typing <em>Titanic</em> at the console.</p>
+<p>What proportion of female, 3rd class, children passengers survived the sinking?</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Use the R command <code>prop.table(Titanic)</code> and then calculate the fraction of <code>Survived</code> “Yes” and “No”.</p>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<answer fraction="100" format="moodle_auto_format">
+<text>0.452</text>
+<tolerance>0.0226</tolerance>
 </answer>
 </question>
 
