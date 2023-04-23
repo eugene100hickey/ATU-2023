@@ -34,7 +34,7 @@ execute:
   echo: true
 ---
 
-##  {#title-slide background="images/horn.JPG"}
+##  {#title-slide background="images/half-dome.JPG"}
 
 ```{r setup, include = FALSE}
 library(tidyverse)

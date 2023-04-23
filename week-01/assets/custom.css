@@ -9,10 +9,12 @@
 }
 
 .speech {
- font-family: 'Fuzzy Bubbles', cursive; 
+ font-family: 'Fuzzy Bubbles', cursive;
 }
 
 .title-box {
+  position: absolute;
+  bottom: 120px;
   background-color: white;
   padding: 25px;
   border: 5px solid black;
@@ -333,7 +335,7 @@ ol li:before {
   color: white;
   margin: 5px;
   text-align: center;
-  width: 300px;  
+  width: 300px;
 }
 
 .fat-diet { background: #AA3377; }
