@@ -11,7 +11,7 @@ format:
   revealjs:
     transition: slide
     transition-speed: fast
-    logo: ../images/atu-logo.png
+    logo: images/atu-logo.png
     footer: "[Statistical Computing](https://vlesligo.atu.ie)"
     # embed-resources: true
     slide-number: c/t
@@ -34,7 +34,7 @@ execute:
   echo: true
 ---
 
-##  {#title-slide background="../images/horn.JPG"}
+##  {#title-slide background="images/horn.JPG"}
 
 ```{r setup, include = FALSE}
 library(tidyverse)
@@ -88,7 +88,7 @@ fa_list <- function(x, incremental = FALSE) {
 
 ::: columns
 ::: {.column width="40%"}
-![](../images/Ruth-Moran.jpg){.absolute right="65%" width="200"}
+![](images/Ruth-Moran.jpg){.absolute right="65%" width="200"}
 :::
 
 ::: {.column width="60%"}
@@ -181,7 +181,7 @@ fa_list <- function(x, incremental = FALSE) {
 -   Data Visualization by Kieran Healy (ISBN = 978-0691181622). \~€25. Also online at <https://socviz.co/index.html>
 -   check out the list of online books at [bookdown.org](bookdown.org)
 
-![](../images/hadley.jpg){.absolute bottom="10" right="10" width="100"}
+![](images/hadley.jpg){.absolute bottom="10" right="10" width="100"}
 
 # Websites
 
@@ -209,7 +209,7 @@ fa_list <- function(x, incremental = FALSE) {
 
 -   [David Robinson's screencasts](https://www.youtube.com/@safe4democracy/streams)
 
-![](../images/hillary.jpeg){.absolute bottom="10" right="10" width="100"}
+![](images/hillary.jpeg){.absolute bottom="10" right="10" width="100"}
 
 # Online Courses
 
@@ -245,7 +245,7 @@ fa_list <- function(x, incremental = FALSE) {
 
 ## RStudio Screen
 
-![](../images/rstudio.png){.absolute top="50" right="10" width="70%"}
+![](images/rstudio.png){.absolute top="50" right="10" width="70%"}
 
 ## Using RStudio
 
