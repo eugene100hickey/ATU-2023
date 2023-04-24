@@ -374,13 +374,65 @@ Introduction to Statistical Computing
 <li><p>other file formats</p></li>
 </ul>
 </section>
-<section id="reading-in-from-files---csv-and-excel" class="slide level2">
-<h2>Reading in from Files - csv and excel</h2>
+<section id="reading-in-from-files-1" class="slide level2">
+<h2>Reading in from Files</h2>
+<ul>
+<li><p>two options</p>
+<ul>
+<li><p>files are located on your local computer</p></li>
+<li><p>files are located somewhere on the internet</p></li>
+</ul></li>
+<li><p>R is pretty good at treating these the same</p></li>
+</ul>
+</section>
+<section id="reading-in-from-files-2" class="slide level2">
+<h2>Reading in from Files</h2>
+<div style="font-size: 80%;">
 <ul>
 <li>we’ll harness two packages for this
 <ul>
-<li><code>rio</code></li>
 <li><code>here</code></li>
+<li>this package is useful for finding files on your computer</li>
+<li>makes locating files a lot more streamlined</li>
+<li>makes you code more portable</li>
+<li><code>rio</code></li>
+<li>this package is very streamlined for accessing data</li>
+<li>as well as excel and csv, will do a host of other formats: SPSS, minitab, Stata, matlab, <strong>and compressed formats like zip files</strong></li>
+<li>good at recognising file type automatically and leveraging appropriate function from other packages</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="here" class="slide level2">
+<h2><code>here</code></h2>
+<div style="font-size: 80%;">
+<ul>
+<li><p>typing the full address of a file is cumbersome, e.g.&nbsp;<code>C:\Users\keyser-soze\Documents\this-week\shopping-list.doc</code></p></li>
+<li><p>if someone copies or moves your file, they must reconstitute file address</p></li>
+<li><p>differences between “\” in windows and “/” in Linux</p>
+<ul>
+<li>sometimes even need a double “\\”</li>
+</ul></li>
+<li><p><code>here</code> gets around all this by having a chain of directories in quotes</p>
+<ul>
+<li><p><code>here("keyser-soze", "Documents", "this-week", "shopping-list.doc")</code></p></li>
+<li><p>starts from current directory, find out where that is by typing <code>here()</code></p></li>
+</ul></li>
+<li><p>using <strong>projects</strong> in R is also a good idea</p></li>
+<li><p>these make it so much easier to copy a block of someone’s work (for example from github) without having to trace down all their file locations.</p></li>
+</ul>
+</div>
+</section>
+<section id="rio" class="slide level2">
+<h2><code>rio</code></h2>
+<ul>
+<li><p>main function we’ll use is <code>import()</code></p>
+<ul>
+<li><p><code>import("some-file-name.csv")</code></p></li>
+<li><p>`import(here(.libPaths()[1], “rio”, “examples”, “noheader.csv”))</p></li>
+<li><p><code>import("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-02-14/age_gaps.csv")</code></p></li>
+<li><p>can specify sheet from <em>excel</em>, <code>import(here(.libPaths()[1], "rio", "examples", "iris.xls"), which = "Sheet2")</code></p></li>
+<li><p>can</p></li>
 </ul></li>
 </ul>
 <p><img src="images/atu-logo.png" class="slide-logo"></p>

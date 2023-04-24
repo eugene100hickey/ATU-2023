@@ -1,3 +1,4 @@
 background/*.*
 .Rproj.user
 *.pdf
+.httr-oauth

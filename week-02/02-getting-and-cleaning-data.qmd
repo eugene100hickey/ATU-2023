@@ -98,8 +98,69 @@ fa_list <- function(x, incremental = FALSE) {
 
 - other file formats
 
-## Reading in from Files - csv and excel
+## Reading in from Files
 
+- two options
+
+    - files are located on your local computer
+    
+    - files are located somewhere on the internet
+
+- R is pretty good at treating these the same
+
+
+## Reading in from Files
+
+
+::: {style="font-size: 80%;"}
 - we'll harness two packages for this
-    - `rio`
     - `here`
+    - this package is useful for finding files on your computer
+    - makes locating files a lot more streamlined
+    - makes you code more portable
+    - `rio`
+    - this package is very streamlined for accessing data
+    - as well as excel and csv, will do a host of other formats: SPSS, minitab, Stata, matlab, **and compressed formats like zip files**
+    - good at recognising file type automatically and leveraging appropriate function from other packages
+
+:::
+
+## `here`
+
+::: {style="font-size: 80%;"}
+
+- typing the full address of a file is cumbersome, e.g. `C:\Users\keyser-soze\Documents\this-week\shopping-list.doc`
+
+- if someone copies or moves your file, they must reconstitute file address
+
+- differences between "\\" in windows and "/" in Linux
+
+    -  sometimes even need a double "\\\\"
+
+- `here` gets around all this by having a chain of directories in quotes
+
+    - `here("keyser-soze", "Documents", "this-week", "shopping-list.doc")`
+    
+    - starts from current directory, find out where that is by typing `here()`
+
+
+- using **projects** in R is also a good idea
+
+- these make it so much easier to copy a block of someone's work (for example from github) without having to trace down all their file locations.
+
+:::
+
+    
+## `rio`
+
+- main function we'll use is `import()`
+
+    - `import("some-file-name.csv")`
+    
+    - `import(here(.libPaths()[1], "rio", "examples", "noheader.csv"))
+    
+    - `import("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-02-14/age_gaps.csv")`
+    
+    - can specify sheet from *excel*, `import(here(.libPaths()[1], "rio", "examples", "iris.xls"), which = "Sheet2")`
+    
+    - can 

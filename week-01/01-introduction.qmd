@@ -134,7 +134,11 @@ fa_list <- function(x, incremental = FALSE) {
 
 5)  Data Visualisation - *Wednesday June 7th*
 
+
+
 ## Stuff we won't be doing
+
+1. creating functions, iterating
 
 1. R is cracker at machine learning
 
