@@ -48,5 +48,5 @@ elearn_exam <- c(
 )
 
 set.seed(42)
-exams2moodle(elearn_exam, n = 2, name = "rexams")
+exams2moodle(elearn_exam, n = 1, name = "rexams")
 

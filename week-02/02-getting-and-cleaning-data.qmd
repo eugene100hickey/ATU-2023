@@ -155,12 +155,18 @@ fa_list <- function(x, incremental = FALSE) {
 
 - main function we'll use is `import()`
 
-    - `import("some-file-name.csv")`
+    - `import("some-file-name.xlsx")`
     
-    - `import(here(.libPaths()[1], "rio", "examples", "noheader.csv"))
+    - `import(here(system.file("examples", package = "rio"), "noheader.csv"))
     
     - `import("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-02-14/age_gaps.csv")`
     
-    - can specify sheet from *excel*, `import(here(.libPaths()[1], "rio", "examples", "iris.xls"), which = "Sheet2")`
+    - can specify sheet from *excel*, `import(here(.libPaths()[1],`   
     
-    - can 
+    `"rio", "examples", "iris.xls"), which = "Sheet2")`
+    
+    - can skip the first few rows with `skip = 4`
+    
+## PDF
+
+- two packages of note; `pdftools` and `tabulizer`

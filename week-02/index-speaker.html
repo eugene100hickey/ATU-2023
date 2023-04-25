@@ -428,13 +428,19 @@ Introduction to Statistical Computing
 <ul>
 <li><p>main function we’ll use is <code>import()</code></p>
 <ul>
-<li><p><code>import("some-file-name.csv")</code></p></li>
+<li><p><code>import("some-file-name.xlsx")</code></p></li>
 <li><p>`import(here(.libPaths()[1], “rio”, “examples”, “noheader.csv”))</p></li>
 <li><p><code>import("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-02-14/age_gaps.csv")</code></p></li>
-<li><p>can specify sheet from <em>excel</em>, <code>import(here(.libPaths()[1], "rio", "examples", "iris.xls"), which = "Sheet2")</code></p></li>
-<li><p>can</p></li>
+<li><p>can specify sheet from <em>excel</em>, <code>import(here(.libPaths()[1],</code></p></li>
+</ul>
+<p><code>"rio", "examples", "iris.xls"), which = "Sheet2")</code></p>
+<ul>
+<li>can skip the first few rows with <code>skip = 4</code></li>
 </ul></li>
 </ul>
+</section>
+<section id="pdf" class="slide level2">
+<h2>PDF</h2>
 <p><img src="images/atu-logo.png" class="slide-logo"></p>
 <div class="footer footer-default">
 <p><a href="https://vlesligo.atu.ie">Statistical Computing</a></p>
