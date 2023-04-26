@@ -37,7 +37,7 @@ elearn_exam <- c(
   # "rexams/week-3/methane-csv.Rmd",
   # # "rexams/week-3/noaa.Rmd",
   # "rexams/week-3/selector-gadget.Rmd",
-  "rexams/week-3/tidyquant.Rmd"
+  "rexams/week-3/genomics.Rmd"
 )
 
 elearn_exam <- c(

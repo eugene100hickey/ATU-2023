@@ -1,46 +1,60 @@
 ```{r data generation, echo = FALSE, results = "hide", message=F, warning=F}
 library(exams)
 library(tidyverse)
+#library(Biostrings)
+library(rentrez)
+library(seqinr)
 
+ntd <- tribble(~name, ~accession,
+               "Dengue", "MZ310562",
+               "Japanese encephalitis virus",  "L48961",
+               "Rabies", "MK981888",
+               "Zika virus", "MW015936",
+               "Yellow fever", "NC_002031",
+               "Enterovirus", "OP501799"
+               ) |> 
+  mutate(file_name = str_replace_all(name,  " ", "_")) |> 
+  slice_sample(n=1)
+my_disease_file <- ntd$file_name
 
-irish_stations <- ncdc_stations(locationid = "FIPS:EI")$data
-index <- 1:nrow(irish_stations) |> sample(1)
-ghcnd <- irish_stations$id[index]
-station_name <- irish_stations$name[index]
-start_date <- seq(from = irish_stations$mindate[index] |> as.Date(), 
-                  to = irish_stations$maxdate[index] |> as.Date() %m-% years(1),
-                  "years") |> 
+dna <- c("a", "t", "g", "c") |> 
   sample(1)
-end_date <- start_date  %m+% years(1)
 
-with_units <- ncdc(datasetid='GHCND', 
-                   stationid=ghcnd, 
-                   datatypeid='PRCP', 
-                   startdate = start_date, 
-                   enddate = end_date, 
-                   limit=500, 
-                   add_units = TRUE)$data
+enterovirus_search <- entrez_search(db="nuccore", term=ntd$accession, retmax=40) 
+enterovirus_seqs <- entrez_fetch(db="nuccore", 
+                                 id=enterovirus_search$ids[1], # c(2:9, 15:40)
+                                 rettype="fasta")
 
+file_base <- "C:\\Users\\ehickey\\OneDrive - Technological University Dublin\\Desktop\\Academic\\Research\\R_Fun\\cristianinni/data/"
 
-solution <- with_units |> 
-  pull(value) |> 
-  mean(na.rm = T) |> 
-  signif(3)
+write(enterovirus_seqs, glue::glue("{file_base}{ntd$file_name}.fasta"), sep="\n")
+
+z <- read.fasta(file = glue::glue("{file_base}{ntd$file_name}.fasta"))[[1]]
+
+solution <- table(z)[dna]
 ```
 
 
 Question
 ========
-Install the `rnoaa` package if you don't have it already. To use it, you'll need to register at __*https://www.ncdc.noaa.gov/cdo-web/token*__, they email you a token that you can place within your R session by `options(noaakey = "KEY_EMAILED_TO_YOU")` (see https://docs.ropensci.org/rnoaa/articles/rnoaa.html). 
+Install the `BiocManager` package (`install.packages("BiocManager")`). Install the `rentrez` and `seqinr` packages from `Bioconductor` (e.g. `BiocManager::install("rentrez")`). 
 
-We want to find the average rainfall in __`r station_name`__ for the year starting __`r start_date`__ through to __`r end_date`__.  
+We're going to look at the genomic sequences for [neglected tropical diseases (ntd)](https://www.cdc.gov/globalhealth/ntd/) using the [NCBI](https://www.ncbi.nlm.nih.gov/) databases. 
 
-You can access information about the Irish weather stations from `ncdc_stations(locationid = "FIPS:EI")$data`. Access rainfall data (called "PRCP") using the `ncdc()` command. Set the `stationid` to the appropriate _id_ value for `r station_name`. Set the `startdate` and `enddate` appropriately. The `datasetid` is _"GHCND"_, and the `datatypeid` is _"PRCP"_. The values returned are in tenths of mm, so expect an average value to be somewhere generally from 10 to 100. 
+Find the ncbi accession id for **`r ntd$name`** using the ncbi accession number **`r ntd$accession`** and the `entrez_search()` function from `rentrez` (something like ``r ntd$file_name` <- entrez_search(db="nuccore", term="`r ntd$accession`", retmax=40)`).
+
+Now download this sequence, again using a `rentrez` function using `entrez_fetch(db="nuccore", id=`r my_disease_file`$ids[1], rettype="fasta")`.
+
+Save this downloaded sequence as a file using `write(my_downloaded_sequence, some-file-name.fasta"), sep="\n")`.
+
+Read this sequence back in again (but now in a cleaner format) using `read.fasta(file = some-file-name.fasta")[[1]]`.
+
+Use the `table()` command to find out how many `r dna` nucleotides are in the DNA sequence.
 
 
 Solution
 ========
-Use `ncdc_stations(locationid = "FIPS:EI")$data`, then `ncdc(datasetid='GHCND',  stationid=ghcnd, datatypeid='PRCP', startdate = start_date, enddate = end_date, limit=500, add_units = TRUE)$data`.
+Use `table(z)[`r dna`]`
 
 
 
