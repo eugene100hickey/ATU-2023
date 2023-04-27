@@ -49,12 +49,12 @@ Save this downloaded sequence as a file using `write(my_downloaded_sequence, som
 
 Read this sequence back in again (but now in a cleaner format) using `read.fasta(file = some-file-name.fasta")[[1]]`.
 
-Use the `table()` command to find out how many `r dna` nucleotides are in the DNA sequence.
+Use the `table()` command to find out how many **"`r dna`"** nucleotides are in the DNA sequence.
 
 
 Solution
 ========
-Use `table(z)[`r dna`]`
+Use `table(z)["`r dna`"]`
 
 
 

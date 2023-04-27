@@ -39,7 +39,7 @@ Download the pdf file from **`r file_name_github`** which gives the CAO points f
 
 Solution
 ========
-Use `extract_tables(glue::glue("{file_name}"), output = "data.frame")[[1]]`, followed by ` mean(my_data$final, na.rm = T)`.
+Use `extract_tables("`r glue::glue("{file_name_github}")`", output = "data.frame")[[1]]`, followed by ` mean(my_data$final, na.rm = T)`.
 
 
 Meta-information

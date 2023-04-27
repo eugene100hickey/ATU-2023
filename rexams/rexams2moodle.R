@@ -30,14 +30,16 @@ elearn_exam <- c(
   )
 
 elearn_exam <- c(
-  # "rexams/week-3/excel.Rmd",
-  # #"rexams/week-3/genomics.Rmd",
-  # "rexams/week-3/imdb.Rmd",
-  # "rexams/week-3/kaggle-univ-csv.Rmd",
-  # "rexams/week-3/methane-csv.Rmd",
-  # # "rexams/week-3/noaa.Rmd",
-  # "rexams/week-3/selector-gadget.Rmd",
-  "rexams/week-3/googlesheets.Rmd"
+  # "rexams/week-02/excel.Rmd",
+  # #"rexams/week-02/genomics.Rmd",
+  # "rexams/week-02/imdb.Rmd",
+  # "rexams/week-02/kaggle-univ-csv.Rmd",
+  # "rexams/week-02/methane-csv.Rmd",
+  "rexams/week-02/noaa.Rmd",
+  # "rexams/week-02/selector-gadget.Rmd",
+  "rexams/week-02/googlesheets.Rmd",
+  "rexams/week-02/genomics.Rmd",
+  "rexams/week-02/pdf.Rmd"
 )
 
 elearn_exam <- c(
