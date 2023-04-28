@@ -245,7 +245,10 @@ fa_list <- function(x, incremental = FALSE) {
     -   **RStudio** is the cockpit
 -   alternative is to make an account at [Posit Cloud](https://posit.cloud/)
     -   give 25 hours per month
--   R is case sensitive
+-   R is case sensitive   
+
+-   [This](https://learnr-examples.shinyapps.io/ex-setup-r/#section-welcome) is a nice tutorial suite to explain installing R and RStudio:
+
 
 ## RStudio Screen
 
@@ -270,9 +273,6 @@ fa_list <- function(x, incremental = FALSE) {
     -   when that works, store them in a file (top left)
     -   when sequence of commands works, put them into a document (also top left)
 
-------------------------------------------------------------------------
-
-[This](https://learnr-examples.shinyapps.io/ex-setup-r/#section-welcome) is a nice tutorial suite to explain installing R and RStudio:
 
 ## Extending R
 
@@ -412,6 +412,23 @@ fa_list <- function(x, incremental = FALSE) {
     -   e.g. `mtcars[1:4, 2:4]` takes a chunk of the mtcars data frame
 
 ------------------------------------------------------------------------
+
+## Lists
+
+- dataframes have constraints
+
+    - all columns must be the same type
+    
+    - rows and columns must be the same length
+    
+- `lists` are more general
+
+- example, `list_data <- list(c("Jan","Feb","Mar"), matrix(c(3,9,5,1,-2,8), nrow = 2),
+   list("green",12.3))`
+   
+- `list_data[[1]]` gives the three months, etc
+
+    - note the double square bracket,`[[ ]]`
 
 ## Some Useful Functions
 

@@ -521,19 +521,20 @@ Introduction to Statistical Computing
 <section id="installing-r-and-rstudio" class="title-slide slide level1 center">
 <h1>Installing R and RStudio</h1>
 <ul>
-<li>first R from <a href="https://cran.r-project.org/">CRAN</a>
+<li><p>first R from <a href="https://cran.r-project.org/">CRAN</a></p>
 <ul>
 <li><strong>R</strong> is the engine</li>
 </ul></li>
-<li>then RStudio from <a href="https://posit.co/download/rstudio-desktop/">Posit</a>
+<li><p>then RStudio from <a href="https://posit.co/download/rstudio-desktop/">Posit</a></p>
 <ul>
 <li><strong>RStudio</strong> is the cockpit</li>
 </ul></li>
-<li>alternative is to make an account at <a href="https://posit.cloud/">Posit Cloud</a>
+<li><p>alternative is to make an account at <a href="https://posit.cloud/">Posit Cloud</a></p>
 <ul>
 <li>give 25 hours per month</li>
 </ul></li>
-<li>R is case sensitive</li>
+<li><p>R is case sensitive</p></li>
+<li><p><a href="https://learnr-examples.shinyapps.io/ex-setup-r/#section-welcome">This</a> is a nice tutorial suite to explain installing R and RStudio:</p></li>
 </ul>
 </section>
 <section id="rstudio-screen" class="slide level2">
@@ -570,10 +571,6 @@ Introduction to Statistical Computing
 <li>when sequence of commands works, put them into a document (also top left)</li>
 </ul></li>
 </ul>
-</section>
-<section class="slide level2">
-
-<p><a href="https://learnr-examples.shinyapps.io/ex-setup-r/#section-welcome">This</a> is a nice tutorial suite to explain installing R and RStudio:</p>
 </section>
 <section id="extending-r" class="slide level2">
 <h2>Extending R</h2>
@@ -762,6 +759,22 @@ Introduction to Statistical Computing
 <li>can use a number range using <em>:</em> to get a bunch of values
 <ul>
 <li>e.g.&nbsp;<code>mtcars[1:4, 2:4]</code> takes a chunk of the mtcars data frame</li>
+</ul></li>
+</ul>
+</section>
+<section id="lists" class="slide level2">
+<h2>Lists</h2>
+<ul>
+<li><p>dataframes have constraints</p>
+<ul>
+<li><p>all columns must be the same type</p></li>
+<li><p>rows and columns must be the same length</p></li>
+</ul></li>
+<li><p><code>lists</code> are more general</p></li>
+<li><p>example, <code>list_data &lt;- list(c("Jan","Feb","Mar"), matrix(c(3,9,5,1,-2,8), nrow = 2),    list("green",12.3))</code></p></li>
+<li><p><code>list_data[[1]]</code> gives the three months, etc</p>
+<ul>
+<li>note the double square bracket,<code>[[ ]]</code></li>
 </ul></li>
 </ul>
 </section>

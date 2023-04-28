@@ -153,6 +153,8 @@ fa_list <- function(x, incremental = FALSE) {
     
 ## `rio`
 
+::: {style="font-size: 80%; margin-left: 150px;"}
+
 - main function we'll use is `import()`
 
     - `import("some-file-name.xlsx")`
@@ -167,10 +169,123 @@ fa_list <- function(x, incremental = FALSE) {
     
     - can skip the first few rows with `skip = 4`
     
+    - also works with **googlesheets**. Pass in web address that we can get from the *Share* section of  the googlesheet (we'll look at this oin this weeks worsheet later on)
+    
+:::
+    
 ## PDF
 
 - two packages of note; `pdftools` and `tabulizer`
 
+- `tabulizer` has an `extract_tables()` function.
+
+    - good to specify the specific page or location in the pdf of the table you want
+    
+    -  I (pretty much) always include a `output = "data.frame"` in the call to `extract_tables()`
+    
+- always returns a list, each element of the list would be one of the tables in the document
+
+    - use `object_returned_by_extract_tables[[1]]` to get the first table
+
+
+## Other File Formats
+
+- see the bottom of [this page](https://www.epirhandbook.com/en/import-and-export.html) to see some other file formats that `rio::import()` can handle.
+
+- includes *SPSS* files ([.sav]{.underline}), *Minitab* files ([.mtp]{.underline}), *Matlab* files ([.mat]{.underline}), etc.....
+
+
+## Using Application Programme (API) Access
+
+::: {style="font-size: 80%; margin-left: 150px;"}
+
+- people working in different domains simplify access to databases
+
+- produce an R package that does the trick
+
+- financial, social media, life science, census, music, ecology, earth observation.......
+
+     - pretty much anyway there's large data stores
+     
+- we'll look at some examples of these
+
+- tend to be quite domain specific, everyone does it differently to suit the vagaries of their data source
+
+- sometimes need to register and generate user token to get access
+
+    - can store this within RStudio so we just need to do this once
+    
+:::
+
+## Life Sciences, Bioinformatics, NCBI, and Bioconductor
+
+- this is a whole ecosystem of work in R
+
+- vast troves of data
+
+- `BiocManager` package is the *sine qua non* for accessing this
+
+    - instigates installation of relevant packages
+    
+    - even tighter controls over package quality than CRAN
+    
+- I like the `rentrez` package to access gene sequences
+
+- we'll look at this in the workshop
+
+## Financial
+
+- `tidyquant` is my go-to for stock data
+
+    - `tq_index_options()` returns the names of stock markets
+    
+    - `tq_index("my_stock_market")` returns a dataframe of stock market indices
+    
+    - `td_get("my_stock_symbol")` returns actual stock market data.
+    
+## Social Media
+
+- let's look at **mastodon**
+
+- package `rtoot` is useful
+
+- function `auth_setup()` to connect to your account
+
+- `get_timeline_public(hashtag = "rstats", instance = "mastodon.social", limit = 200)` to get dataframe of [toots]{.underline}
+
+## Political Science
+
+- list of useful packages [here](https://rforpoliticalscience.com/2023/04/07/top-r-packages-for-downloading-political-science-and-economics-datasets/)
+
+
+## Web Scraping
+
+- often want to take data from an internet page (or family of pages) and read in to R
+
+- two types
+
+    - static web scraping where the web address changes when you click links in the page
+    
+    - dynamic when the web address stays the same but the page content changes
+    
+    - dynamic is tricky and requires the use of a virtual browser (RSelenium)
+    
+    - we'll just look at static web scraping
+
+
+## Static Web Scraping
+
+- `rvest` package is super useful
+
+- three step process
+
+    - read in the whole web page (`html_read()`)
+    
+    - select out the elements that you want (`html_nodes()`)
+    
+    - format the results (`html_text2()`)
+    
+- to figure out the elements part, the Chrome Extension called *Selector Gadget* is very useful. Could also look at the page source by [Ctrl+U]{.underline}
 
 # Workshop - Week Two
 
@@ -182,6 +297,8 @@ fa_list <- function(x, incremental = FALSE) {
 
 1. Look at the example excel file called `deaths.xlsx` from the `readxl` package (find it using `system.file(package = "readxl)` then look in the `extdata` directory). Read the `"other"` sheet from this file using the `import()` function. Note that the first four rows are full of junk so they should be skipped. See if you can figure out what the *Date of Birth* column represents.
 
+1. Make a new *googlesheet* in the **Chrome** browser. After you've entered some data, click **Share** (top right corner). Click **General Access** and choose *Anyone with the link*. **Copy the link**. Go to RStudio now and use the link you've  copied to import this googlesheet into R.
+
 1.  Have a look at the IPCC climate report from 2017 available [here](https://www.ipcc.ch/site/assets/uploads/2017/09/WG1AR5_AnnexII_FINAL.pdf). Use `tabulizer` to read in the table on page 10 of this report as a data.frame.
 
 1. Install the `eurostat` package. Search for datasets on *diabetes* using the `search_eurostat()` function. Get the *eurostat* dataset on screening of diabetes by sex, age, and education from 2014-2019. Decode the column values using `get_eurostat_dic()` (e.g. `get_eurostat_dic("age")`). Find the incidence of diabetes/cardiovascular that has been detected for [*less than one year*]{.underline} in [*Slovenia*]{.underline} in [*2019*]{.underline} for people of [*all*]{.underline} genders who are [*older than 75*]{.underline} with [*Upper secondary and post-secondary non-tertiary education*]{.underline}.
@@ -190,7 +307,7 @@ fa_list <- function(x, incremental = FALSE) {
 
 1.  Install **Selector Gadget** as a Chrome extension. Go to the [RTE](website). Find the *css* selector for the top navigation bar (where it says *"News Sport Entertainment..."*).
 
-1. Go to the wikipedia page for the [English Premier League Season 2020/2021](https://en.wikipedia.org/wiki/2020%E2%80%9321_Premier_League). Find the css selector for the *Best Goalkeeper* (should be something like "**tr:nth-child(11) .infobox-data a**"). Use `read_html()`, `html_nodes()`, and `html_text2()` from the `rvest` package to find the best golakepper for this season.
+1. Go to the wikipedia page for the [English Premier League Season 2020/2021](https://en.wikipedia.org/wiki/2020%E2%80%9321_Premier_League). Find the css selector for the *Best Goalkeeper* (should be something like "**tr:nth-child(11) .infobox-data a**"). Use `read_html()`, `html_nodes()`, and `html_text2()` from the `rvest` package to find the best goalkepper for this season.
 
 :::
 
