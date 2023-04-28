@@ -35,20 +35,20 @@ elearn_exam <- c(
   # "rexams/week-02/imdb.Rmd",
   # "rexams/week-02/kaggle-univ-csv.Rmd",
   # "rexams/week-02/methane-csv.Rmd",
-  "rexams/week-02/noaa.Rmd",
+   #"rexams/week-02/noaa.Rmd"
   # "rexams/week-02/selector-gadget.Rmd",
-  "rexams/week-02/googlesheets.Rmd",
-  "rexams/week-02/genomics.Rmd",
-  "rexams/week-02/pdf.Rmd"
+   "rexams/week-02/googlesheets.Rmd"
+  #"rexams/week-02/genomics.Rmd",
+  #"rexams/week-02/pdf.Rmd"
 )
 
-elearn_exam <- c(
- # "rexams/week-4/binomial-probs.Rmd",
- #"rexams/week-4/conf-int.Rmd",
- # "rexams/week-4/hypo-test.Rmd",
-  "rexams/week-4/paired-t-test.Rmd"
-)
+# elearn_exam <- c(
+#  # "rexams/week-4/binomial-probs.Rmd",
+#  #"rexams/week-4/conf-int.Rmd",
+#  # "rexams/week-4/hypo-test.Rmd",
+#   "rexams/week-4/paired-t-test.Rmd"
+# )
 
 set.seed(42)
-exams2moodle(elearn_exam, n = 1, name = "rexams")
+exams2moodle(elearn_exam, n =2, name = "rexams2")
 

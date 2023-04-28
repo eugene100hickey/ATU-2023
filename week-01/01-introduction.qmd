@@ -434,6 +434,7 @@ fa_list <- function(x, incremental = FALSE) {
 -   `sessionInfo()` tells you what packages are loaded
 -   `citation()` tells you about a package
 -   `mean()` calculates mean of a vector, `sd()` the standard deviation
+-   `complete.cases()` returns `TRUE` if there are no missing valuees in a row
 
 ## And Some Weird Characters
 
@@ -494,7 +495,7 @@ fa_list <- function(x, incremental = FALSE) {
 
 -   choose course *R Programming E*
 
--   do the eight exercises 1 (basic Building Blocks) to 4 (Vectors)
+-   do the four exercises 1 (basic Building Blocks) to 4 (Vectors)
 
 -   email the results to eugene.hickey\@associate.atu.ie
 

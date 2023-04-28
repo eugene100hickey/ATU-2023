@@ -429,7 +429,7 @@ Introduction to Statistical Computing
 <li><p>main function we’ll use is <code>import()</code></p>
 <ul>
 <li><p><code>import("some-file-name.xlsx")</code></p></li>
-<li><p>`import(here(.libPaths()[1], “rio”, “examples”, “noheader.csv”))</p></li>
+<li><p>`import(here(system.file(“examples”, package = “rio”), “noheader.csv”))</p></li>
 <li><p><code>import("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-02-14/age_gaps.csv")</code></p></li>
 <li><p>can specify sheet from <em>excel</em>, <code>import(here(.libPaths()[1],</code></p></li>
 </ul>
@@ -441,11 +441,48 @@ Introduction to Statistical Computing
 </section>
 <section id="pdf" class="slide level2">
 <h2>PDF</h2>
+<ul>
+<li>two packages of note; <code>pdftools</code> and <code>tabulizer</code></li>
+</ul>
+</section>
+<section>
+<section id="workshop---week-two" class="title-slide slide level1 center">
+<h1>Workshop - Week Two</h1>
+
+</section>
+<section id="perform-the-following-tasks" class="slide level2">
+<h2>Perform the Following Tasks:</h2>
+<div style="font-size: 45%; list-style-position: outside; padding-left: 0em;">
+<ol type="1">
+<li><p>Use <code>rio::import()</code> to read in the <em>Ferris Wheel</em> dataset available from <a href="https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-08-09/wheels.csv">https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-08-09/wheels.csv</a>. Where is the highest ferris wheel?</p></li>
+<li><p>Look at the example excel file called <code>deaths.xlsx</code> from the <code>readxl</code> package (find it using <code>system.file(package = "readxl)</code> then look in the <code>extdata</code> directory). Read the <code>"other"</code> sheet from this file using the <code>import()</code> function. Note that the first four rows are full of junk so they should be skipped. See if you can figure out what the <em>Date of Birth</em> column represents.</p></li>
+<li><p>Have a look at the IPCC climate report from 2017 available <a href="https://www.ipcc.ch/site/assets/uploads/2017/09/WG1AR5_AnnexII_FINAL.pdf">here</a>. Use <code>tabulizer</code> to read in the table on page 10 of this report as a data.frame.</p></li>
+<li><p>Install the <code>eurostat</code> package. Search for datasets on <em>diabetes</em> using the <code>search_eurostat()</code> function. Get the <em>eurostat</em> dataset on screening of diabetes by sex, age, and education from 2014-2019. Decode the column values using <code>get_eurostat_dic()</code> (e.g.&nbsp;<code>get_eurostat_dic("age")</code>). Find the incidence of diabetes/cardiovascular that has been detected for <u><em>less than one year</em></u> in <u><em>Slovenia</em></u> in <u><em>2019</em></u> for people of <u><em>all</em></u> genders who are <u><em>older than 75</em></u> with <u><em>Upper secondary and post-secondary non-tertiary education</em></u>.</p></li>
+<li><p>Install the <code>BiocManager</code> package (<code>install.packages("BiocManager")</code>). Install the <code>rentrez</code> and <code>seqinr</code> packages from <code>Bioconductor</code> (e.g.&nbsp;<code>BiocManager::install("rentrez")</code>). Find the <a href="">NCBI</a> accession numbers for the <em>BRCA1</em> cancer gene using <code>entrez_search(db = "nuccore", term = "brca1")</code>. This returns a list of 5 elements, the first of which will be the relevant accession numbers. Take the first of these accession numbers and fetch the gene sequence using <code>entrez_fetch(db = "nuccore", id = "my_accession_numbber", rettype = "fasta")</code>.</p></li>
+<li><p>Install <strong>Selector Gadget</strong> as a Chrome extension. Go to the <a href="website">RTE</a>. Find the <em>css</em> selector for the top navigation bar (where it says <em>“News Sport Entertainment…”</em>).</p></li>
+<li><p>Go to the wikipedia page for the <a href="https://en.wikipedia.org/wiki/2020%E2%80%9321_Premier_League">English Premier League Season 2020/2021</a>. Find the css selector for the <em>Best Goalkeeper</em> (should be something like <code>tr:nth-child(11) .infobox-data a</code>). Use <code>read_html()</code>, <code>html_nodes()</code>, and <code>html_text2()</code> from the <code>rvest</code> package to find the best golakepper for this season.</p></li>
+</ol>
+</div>
+</section>
+<section id="assignments---week-two" class="slide level2">
+<h2>Assignments - Week Two</h2>
+<ol type="1">
+<li><p>Complete week two moodle quiz</p></li>
+<li><p>Complete <code>swirl()</code> exercises</p></li>
+</ol>
+<div style="font-size: 80%; margin-left: 150px;">
+<ul>
+<li><p><code>swirl()</code></p></li>
+<li><p>choose course <em>R Programming E</em></p></li>
+<li><p>do the four exercises 5 (Missing Values) to 8 (Logic)</p></li>
+<li><p>email the results to eugene.hickey@associate.atu.ie</p></li>
+</ul>
+</div>
 <p><img src="images/atu-logo.png" class="slide-logo"></p>
 <div class="footer footer-default">
 <p><a href="https://vlesligo.atu.ie">Statistical Computing</a></p>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
