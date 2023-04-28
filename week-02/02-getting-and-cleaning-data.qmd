@@ -190,7 +190,7 @@ fa_list <- function(x, incremental = FALSE) {
 
 1.  Install **Selector Gadget** as a Chrome extension. Go to the [RTE](website). Find the *css* selector for the top navigation bar (where it says *"News Sport Entertainment..."*).
 
-1. Go to the wikipedia page for the [English Premier League Season 2020/2021](https://en.wikipedia.org/wiki/2020%E2%80%9321_Premier_League). Find the css selector for the *Best Goalkeeper* (should be something like `tr:nth-child(11) .infobox-data a`). Use `read_html()`, `html_nodes()`, and `html_text2()` from the `rvest` package to find the best golakepper for this season.
+1. Go to the wikipedia page for the [English Premier League Season 2020/2021](https://en.wikipedia.org/wiki/2020%E2%80%9321_Premier_League). Find the css selector for the *Best Goalkeeper* (should be something like "**tr:nth-child(11) .infobox-data a**"). Use `read_html()`, `html_nodes()`, and `html_text2()` from the `rvest` package to find the best golakepper for this season.
 
 :::
 
