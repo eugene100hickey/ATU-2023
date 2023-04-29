@@ -1,21 +1,13 @@
 ---
-format: 
-  pdf:
-    output-file: "TR-2021"
-    output-ext:  "pdf"
+format: pdf
 editor: visual
 execute:
   echo: false
   message: false
   warning: false
-params:
-  my_year: 2021
-  my_university: "TR"
 ---
 
 ```{r libraries}
-my_year <- params$my_year
-my_university <- params$my_university
 library(tidyverse)
 library(pdftools)
 library(ggokabeito)   # Colorblind-friendly color palette
@@ -25,6 +17,7 @@ library(here)
 library(gt)
 library(pdftools)
 ```
+
 
 ```{r setting-up}
 directory <- "C:\\Users\\ehickey\\OneDrive - Technological University Dublin\\Desktop\\Academic\\Hector\\fizzics\\fizzics\\_posts\\2021-12-06-university-choices\\data"
@@ -44,6 +37,7 @@ theme_clean <- function() {
           legend.text = element_text(size = 24))
 }
 ```
+
 
 ```{r data}
 #| cache: true
@@ -98,11 +92,13 @@ z20 <- readxl::read_excel(here(directory,"CAOPointsCharts2020.xlsx"),
 z <- bind_rows(z, z20, z21)
 ```
 
+
 ```{r my_table}
 z1 <- z %>%
   select(code, course) %>%
   group_by(code) %>%
-  mutate(last_name = if_else(row_number() == n(), 1 ,0)) %>%
+  mutate(last_name = if_else(row_number() == n(), 1 ,0),
+         ) %>%
   filter(last_name == 1) %>%
   select(code, last_name = course)
 
@@ -126,14 +122,16 @@ max_years <- z %>%  filter(code %in% courses) %>%
 
 courses <- max_years$code[10:18]
 
+my_year <- 2016
+my_university <- "MH"
 z2 <- z |>
   filter(str_detect(code, my_university),
          year == my_year) |> 
-  mutate(course = str_sub(course, 1, 30)) |> 
   select(-label, -last_name)
 
-length <- min(c(40, nrow(z2)))
+length <- min(c(50, nrow(z2)))
 
 z2[1:length,] |>
   gt()
 ```
+

@@ -451,7 +451,7 @@ fa_list <- function(x, incremental = FALSE) {
 -   `sessionInfo()` tells you what packages are loaded
 -   `citation()` tells you about a package
 -   `mean()` calculates mean of a vector, `sd()` the standard deviation
--   `complete.cases()` returns `TRUE` if there are no missing valuees in a row
+-   `complete.cases()` returns `TRUE` if there are no missing values in a row
 
 ## And Some Weird Characters
 

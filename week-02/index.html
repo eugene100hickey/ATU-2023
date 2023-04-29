@@ -437,13 +437,16 @@ Introduction to Statistical Computing
 <p><code>"rio", "examples", "iris.xls"), which = "Sheet2")</code></p>
 <ul>
 <li><p>can skip the first few rows with <code>skip = 4</code></p></li>
-<li><p>also works with <strong>googlesheets</strong>. Pass in web address that we can get from the <em>Share</em> section of the googlesheet (we’ll look at this oin this weeks worsheet later on)</p></li>
+<li><p>also works with <strong>googlesheets</strong>. Pass in web address that we can get from<br>
+the <em>Share</em> section of the googlesheet (we’ll look at this in this weeks<br>
+worksheet later on)</p></li>
 </ul></li>
 </ul>
 </div>
 </section>
 <section id="pdf" class="slide level2">
 <h2>PDF</h2>
+<div style="font-size: 80%; list-style-position: outside; padding-left: 0em;">
 <ul>
 <li><p>two packages of note; <code>pdftools</code> and <code>tabulizer</code></p></li>
 <li><p><code>tabulizer</code> has an <code>extract_tables()</code> function.</p>
@@ -456,6 +459,8 @@ Introduction to Statistical Computing
 <li>use <code>object_returned_by_extract_tables[[1]]</code> to get the first table</li>
 </ul></li>
 </ul>
+<p><code>here(system.file(package="tabulizer"), "examples", "data.pdf") |&gt;</code> <code>extract_tables(output = "data.frame") |&gt;</code> <code>pluck(1)</code></p>
+</div>
 </section>
 <section id="other-file-formats" class="slide level2">
 <h2>Other File Formats</h2>

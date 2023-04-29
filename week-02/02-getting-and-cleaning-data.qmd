@@ -169,11 +169,15 @@ fa_list <- function(x, incremental = FALSE) {
     
     - can skip the first few rows with `skip = 4`
     
-    - also works with **googlesheets**. Pass in web address that we can get from the *Share* section of  the googlesheet (we'll look at this oin this weeks worsheet later on)
+    - also works with **googlesheets**. Pass in web address that we can get from     
+    the *Share* section of  the googlesheet (we'll look at this in this weeks     
+    worksheet later on)
     
 :::
     
 ## PDF
+
+::: {style="font-size: 80%; list-style-position: outside; padding-left: 0em;"}
 
 - two packages of note; `pdftools` and `tabulizer`
 
@@ -186,7 +190,12 @@ fa_list <- function(x, incremental = FALSE) {
 - always returns a list, each element of the list would be one of the tables in the document
 
     - use `object_returned_by_extract_tables[[1]]` to get the first table
+    
+`here(system.file(package="tabulizer"), "examples", "data.pdf") |> `
+`extract_tables(output = "data.frame") |> `
+`pluck(1)`
 
+:::
 
 ## Other File Formats
 
