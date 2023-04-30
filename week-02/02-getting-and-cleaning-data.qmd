@@ -266,6 +266,14 @@ fa_list <- function(x, incremental = FALSE) {
 
 - list of useful packages [here](https://rforpoliticalscience.com/2023/04/07/top-r-packages-for-downloading-political-science-and-economics-datasets/)
 
+## Ecology
+
+- `rfishbase`
+
+- `rgbif`
+
+- `GIFT` with this [tutorial](https://cran.r-project.org/web/packages/GIFT/vignettes/GIFT.html)
+
 
 ## Web Scraping
 

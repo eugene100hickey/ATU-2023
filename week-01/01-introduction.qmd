@@ -1,7 +1,7 @@
 ---
 pagetitle: "Introduction to Statistical Computing"
 abstract: |
- This is the first of a six part series of lectures as part of the data handling postgraduate module in Atlantic Technological University. 
+ This is the first of a three part series of lectures as part of the data handling postgraduate module in Atlantic Technological University. 
 author: "Eugene Hickey"
 date: "May 2023"
 host: "Sligo Campus"
