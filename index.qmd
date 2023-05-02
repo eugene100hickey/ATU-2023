@@ -1,0 +1,17 @@
+---
+title: "Course Contents"
+format: html
+editor: visual
+---
+
+
+[Week One - Introduction to Statistical Computing](https://atu2023.netlify.app/week-01/#/title)
+
+
+[Week Two - Getting and Cleaning data](https://atu2023.netlify.app/week-02/#/title)
+ 
+[Week Three - Manipulating Data](https://atu2023.netlify.app/week-03/#/title)
+ 
+[Week Four - Statistical Inference](https://atu2023.netlify.app/week-04/#/title)
+ 
+[Week Five - Data Visualisation](https://atu2023.netlify.app/week-05/#/title)
