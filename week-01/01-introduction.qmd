@@ -11,7 +11,6 @@ format:
   revealjs:
     transition: slide
     transition-speed: fast
-    # chalkboard: true
     logo: images/atu-logo.png
     footer: "[Statistical Computing](https://vlesligo.atu.ie)"
     # embed-resources: true
