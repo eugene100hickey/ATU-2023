@@ -35,6 +35,8 @@
   <link href="01-introduction_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="01-introduction_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="01-introduction_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="01-introduction_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="01-introduction_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
   <link href="01-introduction_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
@@ -365,7 +367,7 @@ Introduction to Statistical Computing
 <h1>Acknowledgments</h1>
 <div class="columns">
 <div class="column" style="width:40%;">
-<p><img data-src="images/Ruth-Moran.jpg" class="absolute" style="right: 65%; width: 200px; "></p>
+<p><img data-src="images/Ruth-Moran.jpg" class="absolute" style="right: 85%; width: 200px; "> <img data-src="images/quarto.jpg" class="absolute" style="bottom: 10%; right: 65%; width: 200px; "> <img data-src="images/rexams.svg" class="absolute" style="right: 65%; width: 200px; "></p>
 </div><div class="column" style="width:60%;">
 <ul>
 <li><p><a href="https://www.itsligo.ie/research/research-office/">Ruth Moran</a>, co-pilot for this workshop Graduate Research &amp; Education Training Officer.</p></li>
@@ -802,7 +804,7 @@ Introduction to Statistical Computing
 <li><code>sessionInfo()</code> tells you what packages are loaded</li>
 <li><code>citation()</code> tells you about a package</li>
 <li><code>mean()</code> calculates mean of a vector, <code>sd()</code> the standard deviation</li>
-<li><code>complete.cases()</code> returns <code>TRUE</code> if there are no missing valuees in a row</li>
+<li><code>complete.cases()</code> returns <code>TRUE</code> if there are no missing values in a row</li>
 </ul>
 </section>
 <section id="and-some-weird-characters" class="slide level2">
@@ -875,6 +877,7 @@ Introduction to Statistical Computing
   <script src="01-introduction_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
   <script src="01-introduction_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
   <script src="01-introduction_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="01-introduction_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="01-introduction_files/libs/revealjs/plugin/multiplex/socket.io.js"></script>
   <script src="01-introduction_files/libs/revealjs/plugin/multiplex/multiplex.js"></script>
   <script src="01-introduction_files/libs/revealjs/plugin/quarto-support/support.js"></script>
@@ -898,7 +901,8 @@ Introduction to Statistical Computing
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
 'multiplex': {"secret":"16822382838713738234","id":"785f476c5b600fe6","url":"https://reveal-multiplex.glitch.me/"},
 'smaller': false,
  
@@ -1070,7 +1074,7 @@ Introduction to Statistical Computing
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
 
           RevealMath,
           RevealNotes,

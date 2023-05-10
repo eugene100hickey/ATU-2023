@@ -11,6 +11,7 @@ format:
   revealjs:
     transition: slide
     transition-speed: fast
+    chalkboard: true
     logo: images/atu-logo.png
     footer: "[Statistical Computing](https://vlesligo.atu.ie)"
     # embed-resources: true
@@ -88,7 +89,10 @@ fa_list <- function(x, incremental = FALSE) {
 
 ::: columns
 ::: {.column width="40%"}
-![](images/Ruth-Moran.jpg){.absolute right="65%" width="200"}
+![](images/Ruth-Moran.jpg){.absolute right="85%" width="200"}
+![](images/quarto.jpg){.absolute right="65%" bottom="10%" width="200"}
+![](images/rexams.svg){.absolute right="65%" width="200"}
+
 :::
 
 ::: {.column width="60%"}

@@ -1,17 +1,31 @@
 ---
-title: "Course Contents"
-format: html
+title: ""
+format: 
+  html:
+    theme: sketchy
+    logo: images/atu-logo.png
+    footer: "[Statistical Computing](https://vlesligo.atu.ie)"
 editor: visual
 ---
 
+::: {style="font-size: 250%; list-style-position: outside; padding-left: 0em;"}
 
-[Week One - Introduction to Statistical Computing](https://atu2023.netlify.app/week-01/#/title)
+## Course Contents
+
+:::
+
+::: {style="font-size: 150%; list-style-position: outside; padding-left: 0em;"}
 
 
-[Week Two - Getting and Cleaning data](https://atu2023.netlify.app/week-02/#/title)
+**[Week One - Introduction to Statistical Computing](https://atu2023.netlify.app/week-01/#/title)**
+
+
+**[Week Two - Getting and Cleaning data](https://atu2023.netlify.app/week-02/#/title)**
  
-[Week Three - Manipulating Data](https://atu2023.netlify.app/week-03/#/title)
+**[Week Three - Manipulating Data](https://atu2023.netlify.app/week-03/#/title)**
  
-[Week Four - Statistical Inference](https://atu2023.netlify.app/week-04/#/title)
+**[Week Four - Statistical Inference](https://atu2023.netlify.app/week-04/#/title)**
  
-[Week Five - Data Visualisation](https://atu2023.netlify.app/week-05/#/title)
+**[Week Five - Data Visualisation](https://atu2023.netlify.app/week-05/#/title)**
+
+:::
