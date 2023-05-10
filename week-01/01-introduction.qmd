@@ -77,7 +77,7 @@ fa_list <- function(x, incremental = FALSE) {
 
 -   Welcome to the course on statistical computing.
 
--   We'll discuss how to make the most of your data.
+-   We will discuss how to make the most of your data.
 
 -   Complimentary to the qualitative analysis you do with John.
 
