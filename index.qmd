@@ -9,13 +9,13 @@ editor: visual
 ---
 
 :::: columns
-::: {.column width="40%"}
+::: {.column width="70%"}
 
 ::: {style="font-size: 250%; list-style-position: outside; padding-left: 0em;"}
 ## Course Contents
 :::
 
-::: {style="font-size: 150%; list-style-position: outside; padding-left: 0em;"}
+::: {style="font-size: 130%; list-style-position: outside; padding-left: 0em;"}
 [**Week One - Introduction to Statistical Computing**](https://atu2023.netlify.app/week-01/#/title)
 
 [**Week Two - Getting and Cleaning data**](https://atu2023.netlify.app/week-02/#/title)
@@ -29,14 +29,14 @@ editor: visual
 
 :::
 
-::: {.column width="20%"}
+::: {.column width="1%"}
 :::
 
-::: {.column width="40%"}
+::: {.column width="29%"}
 
 ## Recordings
 
-::: {style="font-size: 150%; list-style-position: outside; padding-left: 0em;"}
+::: {style="font-size: 130%; list-style-position: outside; padding-left: 0em;"}
 
 - [Week One - May 10th](https://youtu.be/JzhEz_H8XDM)
 
