@@ -153,15 +153,16 @@ fa_list <- function(x, incremental = FALSE) {
     
 ## `rio`
 
-::: {style="font-size: 80%; margin-left: 150px;"}
+::: {style="font-size: 70%; margin-left: 150px;"}
 
 - main function we'll use is `import()`
 
     - `import("some-file-name.xlsx")`
     
-    - `import(here(system.file("examples", package = "rio"), "noheader.csv"))
+    - `import(here(system.file("examples", package = "rio"), "noheader.csv"))`
     
-    - `import("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-02-14/age_gaps.csv")`
+    - `import("https://raw.githubusercontent.com/rfordatascience/tidytuesday/`
+    `master/data/2023/2023-02-14/age_gaps.csv")`
     
     - can specify sheet from *excel*, `import(here(.libPaths()[1],`   
     
@@ -320,7 +321,7 @@ fa_list <- function(x, incremental = FALSE) {
 
 1. Install the `eurostat` package. Search for datasets on *diabetes* using the `search_eurostat()` function. Get the *eurostat* dataset on screening of diabetes by sex, age, and education from 2014-2019. Decode the column values using `get_eurostat_dic()` (e.g. `get_eurostat_dic("age")`). Find the incidence of diabetes/cardiovascular that has been detected for [*less than one year*]{.underline} in [*Slovenia*]{.underline} in [*2019*]{.underline} for people of [*all*]{.underline} genders who are [*older than 75*]{.underline} with [*Upper secondary and post-secondary non-tertiary education*]{.underline}.
 
-1. Install the `BiocManager` package (`install.packages("BiocManager")`). Install the `rentrez` and `seqinr` packages from `Bioconductor` (e.g. `BiocManager::install("rentrez")`). Find the [NCBI]() accession numbers for the *BRCA1* cancer gene using `entrez_search(db = "nuccore", term = "brca1")`. This returns a list of 5 elements, the first of which will be the relevant accession numbers. Take the first of these accession numbers and fetch the gene sequence using `entrez_fetch(db = "nuccore", id = "my_accession_numbber", rettype = "fasta")`.
+1. Install the `BiocManager` package (`install.packages("BiocManager")`). Install the `rentrez` and `seqinr` packages from `Bioconductor` (e.g. `BiocManager::install("rentrez")`). Find the [NCBI]() accession numbers for the *BRCA1* cancer gene using `entrez_search(db = "nuccore", term = "brca1")`. This returns a list of 5 elements, the first of which will be the relevant accession number. Take the first of these accession numbers and fetch the gene sequence using `entrez_fetch(db = "nuccore", id = "my_accession_numbber", rettype = "fasta")`.
 
 1.  Install **Selector Gadget** as a Chrome extension. Go to the [RTE](website). Find the *css* selector for the top navigation bar (where it says *"News Sport Entertainment..."*).
 
