@@ -259,9 +259,9 @@ fa_list <- function(x, incremental = FALSE) {
 
 - package `rtoot` is useful
 
-- function `auth_setup()` to connect to your account
+- function `auth_setup("mastodon.social", "public")` to connect to your account
 
-- `get_timeline_public(hashtag = "rstats", instance = "mastodon.social", limit = 200)` to get dataframe of [toots]{.underline}
+- `get_timeline_public(hashtag = "eurovision", instance = "mastodon.social", limit = 200)` to get dataframe of [toots]{.underline}
 
 ## Political Science
 

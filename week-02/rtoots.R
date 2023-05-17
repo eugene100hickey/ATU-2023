@@ -2,17 +2,19 @@ library(tidyverse)
 library(rtoot)
 library(lubridate)
 
-auth_setup()
+auth_setup("mastodon.social", "public")
 
-date <- Sys.Date()
-date <- paste0(wday(date, label = T, abbr = F), " ", month(date, label = T, abbr = F), " ", day(date), " ",year(date))
-search_term <- "coronavirus"
+greens <- get_timeline_hashtag(hashtag = "milan", instance = "fosstodon.org", limit = 2000)
 
-# downloads tweets
-token <- auth_get()# get_token()
-greens <- search_tweets(q= search_term, n=10000,
-                        geocode = "53.33,-6.25,500mi",
-                        token = token)
+# date <- Sys.Date()
+# date <- paste0(wday(date, label = T, abbr = F), " ", month(date, label = T, abbr = F), " ", day(date), " ",year(date))
+# search_term <- "coronavirus"
+#
+# # downloads tweets
+# token <- auth_get()# get_token()
+# greens <- search_tweets(q= search_term, n=10000,
+#                         geocode = "53.33,-6.25,500mi",
+#                         token = token)
 
 # sees which lones have emojis
 green_emojis <- greens %>%
