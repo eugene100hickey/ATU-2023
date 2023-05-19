@@ -8,9 +8,8 @@ format:
 editor: visual
 ---
 
-:::: columns
+::: columns
 ::: {.column width="70%"}
-
 ::: {style="font-size: 250%; list-style-position: outside; padding-left: 0em;"}
 ## Course Contents
 :::
@@ -26,21 +25,18 @@ editor: visual
 
 [**Week Five - Data Visualisation**](https://atu2023.netlify.app/week-05/#/title)
 :::
-
 :::
 
 ::: {.column width="1%"}
 :::
 
 ::: {.column width="29%"}
-
 ## Recordings
 
 ::: {style="font-size: 130%; list-style-position: outside; padding-left: 0em;"}
+-   [Week One - May 10<sup>th</sup>](https://youtu.be/JzhEz_H8XDM)
 
-- [Week One - May 10th](https://youtu.be/JzhEz_H8XDM)
-
+-   [Week Two - May 17<sup>th</sup>](https://youtu.be/c7ZyBYEn0-c)
 :::
-
 :::
-::::
+:::
