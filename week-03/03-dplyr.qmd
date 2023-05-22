@@ -389,9 +389,9 @@ gapminder::gapminder %>% select(country, year, lifeExp) %>%
 ## Perform the Following Tasks:
 
 ::: {style="font-size: 50%; list-style-position: outside; padding-left: 0em;"}
-1.  Take the `us_contagious_diseases` dataset from the `dslabs` library. `filter()` the dataset for the disease _Smallpox_ in the state of _Wisconsin_. This should give you 25 rows. 
+<b><p style="color:#DC143C">1</p></b>  Take the `us_contagious_diseases` dataset from the `dslabs` library. `filter()` the dataset for the disease _Smallpox_ in the state of _Wisconsin_. This should give you 25 rows. 
 
-2.  Take the `research_funding_rates` dataset from the `dslabs` library. Use `select()` to print out the dataset with only the columns _discipline_, _success_rates_men_, and _success_rates_women_. The dataframe should look as below:
+<b><p style="color:#DC143C">2</p></b>  Take the `research_funding_rates` dataset from the `dslabs` library. Use `select()` to print out the dataset with only the columns _discipline_, _success_rates_men_, and _success_rates_women_. The dataframe should look as below:
 
 ```{r select_example, echo = F, message=F, warning=F}
 library(knitr)
@@ -410,7 +410,7 @@ research_funding_rates %>%
 
 ::: {style="font-size: 50%; list-style-position: outside; padding-left: 0em;"}
 
-3.  Take the table from problem 2 and use `arrange(desc())` to modify it so that the rows are ordered by decreasing values of _applications_total_
+<b><p style="color:#DC143C">3</p></b>  Take the table from problem 2 and use `arrange(desc())` to modify it so that the rows are ordered by decreasing values of _applications_total_
 
 ```{r arrange_example, echo = F, message=F, warning=F}
 
@@ -428,7 +428,7 @@ research_funding_rates %>%
 
 ::: {style="font-size: 50%; list-style-position: outside; padding-left: 0em;"}
 
-4.  Again, take the `research_funding_rates` dataset from the `dslabs` library. Make a new column using `mutate()` that shows the overall success rate for each discipline. Print out the dataset with only the columns _discipline_ and _success_rates_, ordered by success rate. The dataframe should look as below:
+<b><p style="color:#DC143C">4</p></b>  Again, take the `research_funding_rates` dataset from the `dslabs` library. Make a new column using `mutate()` that shows the overall success rate for each discipline. Print out the dataset with only the columns _discipline_ and _success_rates_, ordered by success rate. The dataframe should look as below:
 
 ```{r mutate_example1, echo = F, message=F, warning=F}
 
@@ -448,7 +448,7 @@ research_funding_rates %>%
 
 ::: {style="font-size: 50%; list-style-position: outside; padding-left: 0em;"}
 
-5.  Take the `polls_us_election_2016` dataset from the `dslabs` library. `group_by()` the _grade_ column and `summarise()` to calculate the average sample size for each grade. `arrange(desc())` the table in decreasing _average_sample_size_. The dataframe should look as below:
+<b><p style="color:#DC143C">5</p></b>  Take the `polls_us_election_2016` dataset from the `dslabs` library. `group_by()` the _grade_ column and `summarise()` to calculate the average sample size for each grade. `arrange(desc())` the table in decreasing _average_sample_size_. The dataframe should look as below:
 
 ```{r group_example, echo = F, message=F, warning=F}
 polls_us_election_2016 %>% 
@@ -461,7 +461,7 @@ polls_us_election_2016 %>%
 
 ```
 
-6.  store the values of `Temp` from the `airquality` dataset in a new variable you can call `temperature`
+<b><p style="color:#DC143C">6</p></b>  store the values of `Temp` from the `airquality` dataset in a new variable you can call `temperature`
 
 :::
 
