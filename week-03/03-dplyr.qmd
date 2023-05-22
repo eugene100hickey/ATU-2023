@@ -330,7 +330,7 @@ gapminder::gapminder %>%
 # Wide and Long Dataframe Formats
 
 - `pivot_longer()` goes from wide to long
-- `pivot_wider()` goes fromlong to wide
+- `pivot_wider()` goes from long to wide
 
 ---
 
@@ -340,6 +340,8 @@ gapminder::gapminder %>%
     - each variable must have it's own column
     - each observation it's own row
     - each value it's own cell
+    
+---
 
 ```{r pivot1}
 iris %>% 

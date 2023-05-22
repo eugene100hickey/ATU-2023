@@ -965,7 +965,7 @@ Introduction to Statistical Computing - dplyr
 <h1>Wide and Long Dataframe Formats</h1>
 <ul>
 <li><code>pivot_longer()</code> goes from wide to long</li>
-<li><code>pivot_wider()</code> goes fromlong to wide</li>
+<li><code>pivot_wider()</code> goes from long to wide</li>
 </ul>
 </section>
 <section id="tidy-data-the-tidyr-package" class="slide level2">
@@ -978,6 +978,9 @@ Introduction to Statistical Computing - dplyr
 <li>each value it’s own cell</li>
 </ul></li>
 </ul>
+</section>
+<section class="slide level2">
+
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>iris <span class="sc">%&gt;%</span> </span>
 <span id="cb8-2"><a href="#cb8-2"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>Species, <span class="at">names_to =</span> <span class="st">"Parameter"</span>, <span class="at">values_to =</span> <span class="st">"Measurement"</span>) <span class="sc">%&gt;%</span></span>
