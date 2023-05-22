@@ -38,6 +38,7 @@ execute:
 
 ```{r setup, include = FALSE}
 library(tidyverse)
+library(showtext)
 
 rotating_text <- function(x, align = "top") {
   glue::glue('
@@ -62,6 +63,28 @@ fa_list <- function(x, incremental = FALSE) {
 
 ```
 
+```{r ggplot-theme}
+#| cache: true
+#| echo: false
+
+my_font <- "Neucha"
+my_font <- "Coming Soon"
+font_add_google(my_font, family = my_font)
+showtext_auto()
+theme_clean <- function() {
+    theme_minimal(base_family = my_font) +
+        theme(panel.grid.minor = element_blank(),
+              text = element_text(size = 20, family = my_font),
+              plot.background = element_rect(fill = "white", color = NA),
+              axis.text = element_text(size = 20),
+              axis.title = element_text(face = "bold", size = 28),
+              strip.text = element_text(face = "bold", size = rel(0.8), hjust = 0),
+              strip.background = element_rect(fill = "grey80", color = NA),
+              legend.text = element_text(size = 28))
+}
+```
+
+
 ::: title-box
 <h2>`r rmarkdown::metadata$pagetitle`</h2>
 
@@ -73,6 +96,8 @@ fa_list <- function(x, incremental = FALSE) {
 ------------------------------------------------------------------------
 
 ##  Week Three - Manipulating Data
+
+::: {style="font-size: 80%;"}
 
 - Once we get our data, we have to do stuff with it    
 
@@ -93,6 +118,8 @@ fa_list <- function(x, incremental = FALSE) {
     - `group_by()` puts rows together
     
     - `summarise()` makes new rows based on `group_by()`
+    
+:::
 
 ## filter
 
@@ -198,8 +225,11 @@ gapminder::gapminder %>%
 
 ::::
 
+---
+
 ```{r mutate_example}
 gapminder::gapminder %>% 
+  select(-continent, -lifeExp) |> 
   mutate(total_gdp_billions = pop * gdpPercap / 1e9) %>% 
   head() %>% kable()
 ```
@@ -210,6 +240,8 @@ gapminder::gapminder %>%
 - used to order columns
     - normally increasing, use _desc()_ to reverse
     
+---
+
 :::: {.columns}
 
 ::: {.column width="50%"}
@@ -251,12 +283,12 @@ gapminder::gapminder %>%
 
 ---
 
-```{r group_by_example, fig.height=4, fig.width=8}
+```{r group_by_example, fig.height=6, fig.width=10}
 gapminder::gapminder %>% 
   group_by(continent, year) %>% 
   summarise(mean_lifeExp = mean(lifeExp)) %>% ungroup() %>% 
   ggplot(aes(year, mean_lifeExp, col = continent)) + 
-  geom_line() + geom_point()
+  geom_line() + geom_point() + theme_clean()
 ```
 
 ---
@@ -268,6 +300,8 @@ gapminder::gapminder %>%
 - chains operations together
 - read it in your head as _"and then..."_
 - alternatives are, well, ugly. And unforgiving.
+- also can look like this: `|>` or `| >`
+- keyboard shortcut `Ctrl` plus `SHFT` plus `m`
 
 ---
 
@@ -292,11 +326,11 @@ gapminder::gapminder %>%
 
 - and `left_join()` links dataframes together (a.k.a. SQL)
 
----
-
-class: center, inverse
 
 # Wide and Long Dataframe Formats
+
+- `pivot_longer()` goes from wide to long
+- `pivot_wider()` goes fromlong to wide
 
 ---
 
@@ -370,7 +404,11 @@ research_funding_rates %>%
                 bootstrap_options = "striped")
 ```
 
+:::
+
 ---
+
+::: {style="font-size: 50%; list-style-position: outside; padding-left: 0em;"}
 
 3.  Take the table from problem 2 and use `arrange(desc())` to modify it so that the rows are ordered by decreasing values of _applications_total_
 
@@ -384,7 +422,11 @@ research_funding_rates %>%
                 bootstrap_options = "striped")
 ```
       
+:::
+
 ---
+
+::: {style="font-size: 50%; list-style-position: outside; padding-left: 0em;"}
 
 4.  Again, take the `research_funding_rates` dataset from the `dslabs` library. Make a new column using `mutate()` that shows the overall success rate for each discipline. Print out the dataset with only the columns _discipline_ and _success_rates_, ordered by success rate. The dataframe should look as below:
 
@@ -400,7 +442,11 @@ research_funding_rates %>%
                 bootstrap_options = "striped")
 ```
 
+:::
+
 ---
+
+::: {style="font-size: 50%; list-style-position: outside; padding-left: 0em;"}
 
 5.  Take the `polls_us_election_2016` dataset from the `dslabs` library. `group_by()` the _grade_ column and `summarise()` to calculate the average sample size for each grade. `arrange(desc())` the table in decreasing _average_sample_size_. The dataframe should look as below:
 

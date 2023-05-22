@@ -395,6 +395,9 @@
 
 <section id="title-slide" class="slide level2 center" data-background="images/sunset.JPG">
 <h2></h2>
+<div class="cell" data-hash="03-dplyr_cache/revealjs/ggplot-theme_d94bf0a2fac9ea6511fb448ee81816bc">
+
+</div>
 <div class="title-box">
 <h2>
 Introduction to Statistical Computing - dplyr
@@ -420,6 +423,7 @@ Introduction to Statistical Computing - dplyr
 </section>
 <section id="week-three---manipulating-data" class="slide level2">
 <h2>Week Three - Manipulating Data</h2>
+<div style="font-size: 80%;">
 <ul>
 <li><p>Once we get our data, we have to do stuff with it</p></li>
 <li><p>Often means recasting the shape of our data</p></li>
@@ -434,6 +438,7 @@ Introduction to Statistical Computing - dplyr
 <li><p><code>summarise()</code> makes new rows based on <code>group_by()</code></p></li>
 </ul></li>
 </ul>
+</div>
 </section>
 <section id="filter" class="slide level2">
 <h2>filter</h2>
@@ -709,19 +714,21 @@ Introduction to Statistical Computing - dplyr
 </div>
 </div>
 </div>
+</section>
+<section class="slide level2">
+
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>gapminder<span class="sc">::</span>gapminder <span class="sc">%&gt;%</span> </span>
-<span id="cb4-2"><a href="#cb4-2"></a>  <span class="fu">mutate</span>(<span class="at">total_gdp_billions =</span> pop <span class="sc">*</span> gdpPercap <span class="sc">/</span> <span class="fl">1e9</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb4-3"><a href="#cb4-3"></a>  <span class="fu">head</span>() <span class="sc">%&gt;%</span> <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-2"><a href="#cb4-2"></a>  <span class="fu">select</span>(<span class="sc">-</span>continent, <span class="sc">-</span>lifeExp) <span class="sc">|&gt;</span> </span>
+<span id="cb4-3"><a href="#cb4-3"></a>  <span class="fu">mutate</span>(<span class="at">total_gdp_billions =</span> pop <span class="sc">*</span> gdpPercap <span class="sc">/</span> <span class="fl">1e9</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-4"><a href="#cb4-4"></a>  <span class="fu">head</span>() <span class="sc">%&gt;%</span> <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <table>
  <thead>
   <tr>
    <th style="text-align:left;"> country </th>
-   <th style="text-align:left;"> continent </th>
    <th style="text-align:right;"> year </th>
-   <th style="text-align:right;"> lifeExp </th>
    <th style="text-align:right;"> pop </th>
    <th style="text-align:right;"> gdpPercap </th>
    <th style="text-align:right;"> total_gdp_billions </th>
@@ -730,54 +737,42 @@ Introduction to Statistical Computing - dplyr
 <tbody>
   <tr>
    <td style="text-align:left;"> Afghanistan </td>
-   <td style="text-align:left;"> Asia </td>
    <td style="text-align:right;"> 1952 </td>
-   <td style="text-align:right;"> 28.801 </td>
    <td style="text-align:right;"> 8425333 </td>
    <td style="text-align:right;"> 779.4453 </td>
    <td style="text-align:right;"> 6.567086 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Afghanistan </td>
-   <td style="text-align:left;"> Asia </td>
    <td style="text-align:right;"> 1957 </td>
-   <td style="text-align:right;"> 30.332 </td>
    <td style="text-align:right;"> 9240934 </td>
    <td style="text-align:right;"> 820.8530 </td>
    <td style="text-align:right;"> 7.585449 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Afghanistan </td>
-   <td style="text-align:left;"> Asia </td>
    <td style="text-align:right;"> 1962 </td>
-   <td style="text-align:right;"> 31.997 </td>
    <td style="text-align:right;"> 10267083 </td>
    <td style="text-align:right;"> 853.1007 </td>
    <td style="text-align:right;"> 8.758856 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Afghanistan </td>
-   <td style="text-align:left;"> Asia </td>
    <td style="text-align:right;"> 1967 </td>
-   <td style="text-align:right;"> 34.020 </td>
    <td style="text-align:right;"> 11537966 </td>
    <td style="text-align:right;"> 836.1971 </td>
    <td style="text-align:right;"> 9.648014 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Afghanistan </td>
-   <td style="text-align:left;"> Asia </td>
    <td style="text-align:right;"> 1972 </td>
-   <td style="text-align:right;"> 36.088 </td>
    <td style="text-align:right;"> 13079460 </td>
    <td style="text-align:right;"> 739.9811 </td>
    <td style="text-align:right;"> 9.678553 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Afghanistan </td>
-   <td style="text-align:left;"> Asia </td>
    <td style="text-align:right;"> 1977 </td>
-   <td style="text-align:right;"> 38.438 </td>
    <td style="text-align:right;"> 14880372 </td>
    <td style="text-align:right;"> 786.1134 </td>
    <td style="text-align:right;"> 11.697659 </td>
@@ -796,6 +791,9 @@ Introduction to Statistical Computing - dplyr
 <li>normally increasing, use <em>desc()</em> to reverse</li>
 </ul></li>
 </ul>
+</section>
+<section class="slide level2">
+
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
@@ -923,9 +921,9 @@ Introduction to Statistical Computing - dplyr
 <span id="cb7-2"><a href="#cb7-2"></a>  <span class="fu">group_by</span>(continent, year) <span class="sc">%&gt;%</span> </span>
 <span id="cb7-3"><a href="#cb7-3"></a>  <span class="fu">summarise</span>(<span class="at">mean_lifeExp =</span> <span class="fu">mean</span>(lifeExp)) <span class="sc">%&gt;%</span> <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span> </span>
 <span id="cb7-4"><a href="#cb7-4"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(year, mean_lifeExp, <span class="at">col =</span> continent)) <span class="sc">+</span> </span>
-<span id="cb7-5"><a href="#cb7-5"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-5"><a href="#cb7-5"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">theme_clean</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img data-src="03-dplyr_files/figure-revealjs/group_by_example-1.png" width="768"></p>
+<p><img data-src="03-dplyr_files/figure-revealjs/group_by_example-1.png" width="960"></p>
 </div>
 </div>
 </section>
@@ -937,6 +935,8 @@ Introduction to Statistical Computing - dplyr
 <li>chains operations together</li>
 <li>read it in your head as <em>“and then…”</em></li>
 <li>alternatives are, well, ugly. And unforgiving.</li>
+<li>also can look like this: <code>|&gt;</code> or <code>| &gt;</code></li>
+<li>keyboard shortcut <code>Ctrl</code> plus <code>SHFT</code> plus <code>m</code></li>
 </ul>
 </section>
 <section id="the-pipe---continued" class="slide level2">
@@ -960,14 +960,13 @@ Introduction to Statistical Computing - dplyr
 <li><p>and <code>left_join()</code> links dataframes together (a.k.a. SQL)</p></li>
 </ul>
 </section>
-<section class="slide level2">
-
-<p>class: center, inverse</p>
-</section>
 <section>
 <section id="wide-and-long-dataframe-formats" class="title-slide slide level1 center">
 <h1>Wide and Long Dataframe Formats</h1>
-
+<ul>
+<li><code>pivot_longer()</code> goes from wide to long</li>
+<li><code>pivot_wider()</code> goes fromlong to wide</li>
+</ul>
 </section>
 <section id="tidy-data-the-tidyr-package" class="slide level2">
 <h2>Tidy Data (the <code>tidyr</code> package)</h2>
@@ -1425,7 +1424,11 @@ Introduction to Statistical Computing - dplyr
 
 </div>
 </div>
-<hr>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="font-size: 50%; list-style-position: outside; padding-left: 0em;">
 <ol start="3" type="1">
 <li>Take the table from problem 2 and use <code>arrange(desc())</code> to modify it so that the rows are ordered by decreasing values of <em>applications_total</em></li>
 </ol>
@@ -1491,7 +1494,11 @@ Introduction to Statistical Computing - dplyr
 
 </div>
 </div>
-<hr>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="font-size: 50%; list-style-position: outside; padding-left: 0em;">
 <ol start="4" type="1">
 <li>Again, take the <code>research_funding_rates</code> dataset from the <code>dslabs</code> library. Make a new column using <code>mutate()</code> that shows the overall success rate for each discipline. Print out the dataset with only the columns <em>discipline</em> and <em>success_rates</em>, ordered by success rate. The dataframe should look as below:</li>
 </ol>
@@ -1547,7 +1554,11 @@ Introduction to Statistical Computing - dplyr
 
 </div>
 </div>
-<hr>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="font-size: 50%; list-style-position: outside; padding-left: 0em;">
 <ol start="5" type="1">
 <li>Take the <code>polls_us_election_2016</code> dataset from the <code>dslabs</code> library. <code>group_by()</code> the <em>grade</em> column and <code>summarise()</code> to calculate the average sample size for each grade. <code>arrange(desc())</code> the table in decreasing <em>average_sample_size</em>. The dataframe should look as below:</li>
 </ol>
