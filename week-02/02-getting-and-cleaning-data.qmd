@@ -198,6 +198,17 @@ fa_list <- function(x, incremental = FALSE) {
 
 :::
 
+---
+
+- [organ transplant an donation data from the NHS](https://nhsbtdbe.blob.core.windows.net/umbraco-assets-corp/29388/weekly-statistics.pdf)
+
+```{r}
+library(tabulizer)
+organ_transplant <- "https://nhsbtdbe.blob.core.windows.net/umbraco-assets-corp/29388/weekly-statistics.pdf"
+extract_tables(organ_transplant, output = "data.frame") |> pluck(1) |> gt::gt()
+```
+
+
 ## Other File Formats
 
 - see the bottom of [this page](https://www.epirhandbook.com/en/import-and-export.html) to see some other file formats that `rio::import()` can handle.

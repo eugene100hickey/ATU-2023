@@ -28,6 +28,70 @@
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="02-getting-and-cleaning-data_files/libs/revealjs/dist/theme/quarto.css" id="theme">
   <link rel="stylesheet" href="assets/custom.css">
@@ -460,6 +524,710 @@ worksheet later on)</p></li>
 </ul></li>
 </ul>
 <p><code>here(system.file(package="tabulizer"), "examples", "data.pdf") |&gt;</code> <code>extract_tables(output = "data.frame") |&gt;</code> <code>pluck(1)</code></p>
+</div>
+</section>
+<section class="slide level2">
+
+<ul>
+<li><a href="https://nhsbtdbe.blob.core.windows.net/umbraco-assets-corp/29388/weekly-statistics.pdf">organ transplant an donation data from the NHS</a></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(tabulizer)</span>
+<span id="cb1-2"><a href="#cb1-2"></a>organ_transplant <span class="ot">&lt;-</span> <span class="st">"https://nhsbtdbe.blob.core.windows.net/umbraco-assets-corp/29388/weekly-statistics.pdf"</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="fu">extract_tables</span>(organ_transplant, <span class="at">output =</span> <span class="st">"data.frame"</span>) <span class="sc">|&gt;</span> <span class="fu">pluck</span>(<span class="dv">1</span>) <span class="sc">|&gt;</span> gt<span class="sc">::</span><span class="fu">gt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div id="jhfxrovsgl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#jhfxrovsgl table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#jhfxrovsgl thead, #jhfxrovsgl tbody, #jhfxrovsgl tfoot, #jhfxrovsgl tr, #jhfxrovsgl td, #jhfxrovsgl th {
+  border-style: none;
+}
+
+#jhfxrovsgl p {
+  margin: 0;
+  padding: 0;
+}
+
+#jhfxrovsgl .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#jhfxrovsgl .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#jhfxrovsgl .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#jhfxrovsgl .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#jhfxrovsgl .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#jhfxrovsgl .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#jhfxrovsgl .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#jhfxrovsgl .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#jhfxrovsgl .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#jhfxrovsgl .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#jhfxrovsgl .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#jhfxrovsgl .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#jhfxrovsgl .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#jhfxrovsgl .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#jhfxrovsgl .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#jhfxrovsgl .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#jhfxrovsgl .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#jhfxrovsgl .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#jhfxrovsgl .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#jhfxrovsgl .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#jhfxrovsgl .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#jhfxrovsgl .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#jhfxrovsgl .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#jhfxrovsgl .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#jhfxrovsgl .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#jhfxrovsgl .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#jhfxrovsgl .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#jhfxrovsgl .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#jhfxrovsgl .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#jhfxrovsgl .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#jhfxrovsgl .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#jhfxrovsgl .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#jhfxrovsgl .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#jhfxrovsgl .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#jhfxrovsgl .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#jhfxrovsgl .gt_left {
+  text-align: left;
+}
+
+#jhfxrovsgl .gt_center {
+  text-align: center;
+}
+
+#jhfxrovsgl .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#jhfxrovsgl .gt_font_normal {
+  font-weight: normal;
+}
+
+#jhfxrovsgl .gt_font_bold {
+  font-weight: bold;
+}
+
+#jhfxrovsgl .gt_font_italic {
+  font-style: italic;
+}
+
+#jhfxrovsgl .gt_super {
+  font-size: 65%;
+}
+
+#jhfxrovsgl .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#jhfxrovsgl .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#jhfxrovsgl .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#jhfxrovsgl .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#jhfxrovsgl .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#jhfxrovsgl .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#jhfxrovsgl .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="DONOR.AND.TRANSPLANT.ACTIVITY">DONOR.AND.TRANSPLANT.ACTIVITY</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="X">X</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="X.1">X.1</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="X.2">X.2</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="X.3">X.3</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="X.4">X.4</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="X.5">X.5</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="DONOR.AND.TRANSPLANT.ACTIVITY" class="gt_row gt_left">Current</td>
+<td headers="X" class="gt_row gt_left"></td>
+<td headers="X.1" class="gt_row gt_left">Previous</td>
+<td headers="X.2" class="gt_row gt_center">NA</td>
+<td headers="X.3" class="gt_row gt_left">Pre-COVID</td>
+<td headers="X.4" class="gt_row gt_center">NA</td>
+<td headers="X.5" class="gt_row gt_left">Previous full</td></tr>
+    <tr><td headers="DONOR.AND.TRANSPLANT.ACTIVITY" class="gt_row gt_left">year</td>
+<td headers="X" class="gt_row gt_left"></td>
+<td headers="X.1" class="gt_row gt_left">year</td>
+<td headers="X.2" class="gt_row gt_center">NA</td>
+<td headers="X.3" class="gt_row gt_left">year</td>
+<td headers="X.4" class="gt_row gt_center">NA</td>
+<td headers="X.5" class="gt_row gt_left">financial</td></tr>
+    <tr><td headers="DONOR.AND.TRANSPLANT.ACTIVITY" class="gt_row gt_left">(01.04.23 -</td>
+<td headers="X" class="gt_row gt_left"></td>
+<td headers="X.1" class="gt_row gt_left">(01.04.22 - % Change *</td>
+<td headers="X.2" class="gt_row gt_center">NA</td>
+<td headers="X.3" class="gt_row gt_left">(01.04.19 - % Change *</td>
+<td headers="X.4" class="gt_row gt_center">NA</td>
+<td headers="X.5" class="gt_row gt_left">year</td></tr>
+    <tr><td headers="DONOR.AND.TRANSPLANT.ACTIVITY" class="gt_row gt_left">14.05.23)</td>
+<td headers="X" class="gt_row gt_left"></td>
+<td headers="X.1" class="gt_row gt_left">14.05.22)</td>
+<td headers="X.2" class="gt_row gt_center">NA</td>
+<td headers="X.3" class="gt_row gt_left">14.05.19)</td>
+<td headers="X.4" class="gt_row gt_center">NA</td>
+<td headers="X.5" class="gt_row gt_left">(2022/2023)</td></tr>
+    <tr><td headers="DONOR.AND.TRANSPLANT.ACTIVITY" class="gt_row gt_left">ORGAN DONORS</td>
+<td headers="X" class="gt_row gt_left"></td>
+<td headers="X.1" class="gt_row gt_left"></td>
+<td headers="X.2" class="gt_row gt_center">NA</td>
+<td headers="X.3" class="gt_row gt_left"></td>
+<td headers="X.4" class="gt_row gt_center">NA</td>
+<td headers="X.5" class="gt_row gt_left"></td></tr>
+    <tr><td headers="DONOR.AND.TRANSPLANT.ACTIVITY" class="gt_row gt_left">Donors after brain death (DBD) 98</td>
+<td headers="X" class="gt_row gt_left"></td>
+<td headers="X.1" class="gt_row gt_left">105 -6.7</td>
+<td headers="X.2" class="gt_row gt_center">NA</td>
+<td headers="X.3" class="gt_row gt_left">103 -4.9</td>
+<td headers="X.4" class="gt_row gt_center">NA</td>
+<td headers="X.5" class="gt_row gt_left">773</td></tr>
+    <tr><td headers="DONOR.AND.TRANSPLANT.ACTIVITY" class="gt_row gt_left">Donors after circulatory death (DCD) 99</td>
+<td headers="X" class="gt_row gt_left"></td>
+<td headers="X.1" class="gt_row gt_left">72 37.5</td>
+<td headers="X.2" class="gt_row gt_center">NA</td>
+<td headers="X.3" class="gt_row gt_left">73 35.6</td>
+<td headers="X.4" class="gt_row gt_center">NA</td>
+<td headers="X.5" class="gt_row gt_left">657</td></tr>
+    <tr><td headers="DONOR.AND.TRANSPLANT.ACTIVITY" class="gt_row gt_left">Total deceased donors (DD) 197</td>
+<td headers="X" class="gt_row gt_left"></td>
+<td headers="X.1" class="gt_row gt_left">177 11.3</td>
+<td headers="X.2" class="gt_row gt_center">NA</td>
+<td headers="X.3" class="gt_row gt_left">176 11.9</td>
+<td headers="X.4" class="gt_row gt_center">NA</td>
+<td headers="X.5" class="gt_row gt_left">1430</td></tr>
+    <tr><td headers="DONOR.AND.TRANSPLANT.ACTIVITY" class="gt_row gt_left">Non-proceeding deceased donors (DD)a 63</td>
+<td headers="X" class="gt_row gt_left"></td>
+<td headers="X.1" class="gt_row gt_left">51 23.5</td>
+<td headers="X.2" class="gt_row gt_center">NA</td>
+<td headers="X.3" class="gt_row gt_left">84 -25</td>
+<td headers="X.4" class="gt_row gt_center">NA</td>
+<td headers="X.5" class="gt_row gt_left">472</td></tr>
+    <tr><td headers="DONOR.AND.TRANSPLANT.ACTIVITY" class="gt_row gt_left">Living donors (LD) - 1 mth in arrears^ 18</td>
+<td headers="X" class="gt_row gt_left"></td>
+<td headers="X.1" class="gt_row gt_left">35 -48.6</td>
+<td headers="X.2" class="gt_row gt_center">NA</td>
+<td headers="X.3" class="gt_row gt_left">44 -59.1</td>
+<td headers="X.4" class="gt_row gt_center">NA</td>
+<td headers="X.5" class="gt_row gt_left">953</td></tr>
+    <tr><td headers="DONOR.AND.TRANSPLANT.ACTIVITY" class="gt_row gt_left">ORGAN TRANSPLANTS</td>
+<td headers="X" class="gt_row gt_left"></td>
+<td headers="X.1" class="gt_row gt_left"></td>
+<td headers="X.2" class="gt_row gt_center">NA</td>
+<td headers="X.3" class="gt_row gt_left"></td>
+<td headers="X.4" class="gt_row gt_center">NA</td>
+<td headers="X.5" class="gt_row gt_left"></td></tr>
+    <tr><td headers="DONOR.AND.TRANSPLANT.ACTIVITY" class="gt_row gt_left">Deceased donors (DD)</td>
+<td headers="X" class="gt_row gt_left"></td>
+<td headers="X.1" class="gt_row gt_left"></td>
+<td headers="X.2" class="gt_row gt_center">NA</td>
+<td headers="X.3" class="gt_row gt_left"></td>
+<td headers="X.4" class="gt_row gt_center">NA</td>
+<td headers="X.5" class="gt_row gt_left"></td></tr>
+    <tr><td headers="DONOR.AND.TRANSPLANT.ACTIVITY" class="gt_row gt_left">Kidney 287</td>
+<td headers="X" class="gt_row gt_left"></td>
+<td headers="X.1" class="gt_row gt_left">283 1.4</td>
+<td headers="X.2" class="gt_row gt_center">NA</td>
+<td headers="X.3" class="gt_row gt_left">257 11.7</td>
+<td headers="X.4" class="gt_row gt_center">NA</td>
+<td headers="X.5" class="gt_row gt_left">2214</td></tr>
+    <tr><td headers="DONOR.AND.TRANSPLANT.ACTIVITY" class="gt_row gt_left">Pancreas 2</td>
+<td headers="X" class="gt_row gt_left"></td>
+<td headers="X.1" class="gt_row gt_left">2</td>
+<td headers="X.2" class="gt_row gt_center">NA</td>
+<td headers="X.3" class="gt_row gt_left">1</td>
+<td headers="X.4" class="gt_row gt_center">NA</td>
+<td headers="X.5" class="gt_row gt_left">8</td></tr>
+    <tr><td headers="DONOR.AND.TRANSPLANT.ACTIVITY" class="gt_row gt_left">Kidney/pancreas^^^ 24</td>
+<td headers="X" class="gt_row gt_left"></td>
+<td headers="X.1" class="gt_row gt_left">18 33.3</td>
+<td headers="X.2" class="gt_row gt_center">NA</td>
+<td headers="X.3" class="gt_row gt_left">21 14.3</td>
+<td headers="X.4" class="gt_row gt_center">NA</td>
+<td headers="X.5" class="gt_row gt_left">126</td></tr>
+    <tr><td headers="DONOR.AND.TRANSPLANT.ACTIVITY" class="gt_row gt_left">Pancreas islets 3</td>
+<td headers="X" class="gt_row gt_left"></td>
+<td headers="X.1" class="gt_row gt_left">3</td>
+<td headers="X.2" class="gt_row gt_center">NA</td>
+<td headers="X.3" class="gt_row gt_left">4</td>
+<td headers="X.4" class="gt_row gt_center">NA</td>
+<td headers="X.5" class="gt_row gt_left">13</td></tr>
+    <tr><td headers="DONOR.AND.TRANSPLANT.ACTIVITY" class="gt_row gt_left">Heart^^ 25</td>
+<td headers="X" class="gt_row gt_left"></td>
+<td headers="X.1" class="gt_row gt_left">27 -7.4</td>
+<td headers="X.2" class="gt_row gt_center">NA</td>
+<td headers="X.3" class="gt_row gt_left">17 47.1</td>
+<td headers="X.4" class="gt_row gt_center">NA</td>
+<td headers="X.5" class="gt_row gt_left">212</td></tr>
+    <tr><td headers="DONOR.AND.TRANSPLANT.ACTIVITY" class="gt_row gt_left">Lung(s) 23</td>
+<td headers="X" class="gt_row gt_left"></td>
+<td headers="X.1" class="gt_row gt_left">11 109.1</td>
+<td headers="X.2" class="gt_row gt_center">NA</td>
+<td headers="X.3" class="gt_row gt_left">28 -17.9</td>
+<td headers="X.4" class="gt_row gt_center">NA</td>
+<td headers="X.5" class="gt_row gt_left">100</td></tr>
+    <tr><td headers="DONOR.AND.TRANSPLANT.ACTIVITY" class="gt_row gt_left">Heart/lung 1</td>
+<td headers="X" class="gt_row gt_left"></td>
+<td headers="X.1" class="gt_row gt_left">0</td>
+<td headers="X.2" class="gt_row gt_center">NA</td>
+<td headers="X.3" class="gt_row gt_left">0</td>
+<td headers="X.4" class="gt_row gt_center">NA</td>
+<td headers="X.5" class="gt_row gt_left">1</td></tr>
+    <tr><td headers="DONOR.AND.TRANSPLANT.ACTIVITY" class="gt_row gt_left">Liver/lobe^^ 113</td>
+<td headers="X" class="gt_row gt_left"></td>
+<td headers="X.1" class="gt_row gt_left">109 3.7</td>
+<td headers="X.2" class="gt_row gt_center">NA</td>
+<td headers="X.3" class="gt_row gt_left">101 11.9</td>
+<td headers="X.4" class="gt_row gt_center">NA</td>
+<td headers="X.5" class="gt_row gt_left">865</td></tr>
+    <tr><td headers="DONOR.AND.TRANSPLANT.ACTIVITY" class="gt_row gt_left">Intestinal 0</td>
+<td headers="X" class="gt_row gt_left"></td>
+<td headers="X.1" class="gt_row gt_left">4</td>
+<td headers="X.2" class="gt_row gt_center">NA</td>
+<td headers="X.3" class="gt_row gt_left">3</td>
+<td headers="X.4" class="gt_row gt_center">NA</td>
+<td headers="X.5" class="gt_row gt_left">25</td></tr>
+    <tr><td headers="DONOR.AND.TRANSPLANT.ACTIVITY" class="gt_row gt_left">Other (multi-organ) 0</td>
+<td headers="X" class="gt_row gt_left"></td>
+<td headers="X.1" class="gt_row gt_left">2</td>
+<td headers="X.2" class="gt_row gt_center">NA</td>
+<td headers="X.3" class="gt_row gt_left">4</td>
+<td headers="X.4" class="gt_row gt_center">NA</td>
+<td headers="X.5" class="gt_row gt_left">11</td></tr>
+    <tr><td headers="DONOR.AND.TRANSPLANT.ACTIVITY" class="gt_row gt_left">Total DD transplants 478</td>
+<td headers="X" class="gt_row gt_left"></td>
+<td headers="X.1" class="gt_row gt_left">459 4.1</td>
+<td headers="X.2" class="gt_row gt_center">NA</td>
+<td headers="X.3" class="gt_row gt_left">436 9.6</td>
+<td headers="X.4" class="gt_row gt_center">NA</td>
+<td headers="X.5" class="gt_row gt_left">3575</td></tr>
+    <tr><td headers="DONOR.AND.TRANSPLANT.ACTIVITY" class="gt_row gt_left">Living donor (LD) - 1 mth in arrears^</td>
+<td headers="X" class="gt_row gt_left"></td>
+<td headers="X.1" class="gt_row gt_left"></td>
+<td headers="X.2" class="gt_row gt_center">NA</td>
+<td headers="X.3" class="gt_row gt_left"></td>
+<td headers="X.4" class="gt_row gt_center">NA</td>
+<td headers="X.5" class="gt_row gt_left"></td></tr>
+    <tr><td headers="DONOR.AND.TRANSPLANT.ACTIVITY" class="gt_row gt_left">Kidney 18</td>
+<td headers="X" class="gt_row gt_left"></td>
+<td headers="X.1" class="gt_row gt_left">31 -41.9</td>
+<td headers="X.2" class="gt_row gt_center">NA</td>
+<td headers="X.3" class="gt_row gt_left">43 -58.1</td>
+<td headers="X.4" class="gt_row gt_center">NA</td>
+<td headers="X.5" class="gt_row gt_left">920</td></tr>
+    <tr><td headers="DONOR.AND.TRANSPLANT.ACTIVITY" class="gt_row gt_left">Liver 0</td>
+<td headers="X" class="gt_row gt_left"></td>
+<td headers="X.1" class="gt_row gt_left">4</td>
+<td headers="X.2" class="gt_row gt_center">NA</td>
+<td headers="X.3" class="gt_row gt_left">1</td>
+<td headers="X.4" class="gt_row gt_center">NA</td>
+<td headers="X.5" class="gt_row gt_left">34</td></tr>
+    <tr><td headers="DONOR.AND.TRANSPLANT.ACTIVITY" class="gt_row gt_left">Lung 0</td>
+<td headers="X" class="gt_row gt_left"></td>
+<td headers="X.1" class="gt_row gt_left">0</td>
+<td headers="X.2" class="gt_row gt_center">NA</td>
+<td headers="X.3" class="gt_row gt_left">0</td>
+<td headers="X.4" class="gt_row gt_center">NA</td>
+<td headers="X.5" class="gt_row gt_left">0</td></tr>
+    <tr><td headers="DONOR.AND.TRANSPLANT.ACTIVITY" class="gt_row gt_left">Intestinal 0</td>
+<td headers="X" class="gt_row gt_left"></td>
+<td headers="X.1" class="gt_row gt_left">0</td>
+<td headers="X.2" class="gt_row gt_center">NA</td>
+<td headers="X.3" class="gt_row gt_left">0</td>
+<td headers="X.4" class="gt_row gt_center">NA</td>
+<td headers="X.5" class="gt_row gt_left">0</td></tr>
+    <tr><td headers="DONOR.AND.TRANSPLANT.ACTIVITY" class="gt_row gt_left">Total LD transplants 18</td>
+<td headers="X" class="gt_row gt_left"></td>
+<td headers="X.1" class="gt_row gt_left">35 -48.6</td>
+<td headers="X.2" class="gt_row gt_center">NA</td>
+<td headers="X.3" class="gt_row gt_left">44 -59.1</td>
+<td headers="X.4" class="gt_row gt_center">NA</td>
+<td headers="X.5" class="gt_row gt_left">954</td></tr>
+    <tr><td headers="DONOR.AND.TRANSPLANT.ACTIVITY" class="gt_row gt_left">a patients eligible for donation with consent/authorisation</td>
+<td headers="X" class="gt_row gt_left">where no organ retrieved</td>
+<td headers="X.1" class="gt_row gt_left">for transplant</td>
+<td headers="X.2" class="gt_row gt_center">NA</td>
+<td headers="X.3" class="gt_row gt_left"></td>
+<td headers="X.4" class="gt_row gt_center">NA</td>
+<td headers="X.5" class="gt_row gt_left"></td></tr>
+    <tr><td headers="DONOR.AND.TRANSPLANT.ACTIVITY" class="gt_row gt_left">* % change only given when both counts &gt; 10 ^ figures</td>
+<td headers="X" class="gt_row gt_left"></td>
+<td headers="X.1" class="gt_row gt_left">to 14.04.23 due to delayed</td>
+<td headers="X.2" class="gt_row gt_center">NA</td>
+<td headers="X.3" class="gt_row gt_left">notification of LD transplants</td>
+<td headers="X.4" class="gt_row gt_center">NA</td>
+<td headers="X.5" class="gt_row gt_left"></td></tr>
+    <tr><td headers="DONOR.AND.TRANSPLANT.ACTIVITY" class="gt_row gt_left">^^includes 'domino' donors / transplants</td>
+<td headers="X" class="gt_row gt_left"></td>
+<td headers="X.1" class="gt_row gt_left"></td>
+<td headers="X.2" class="gt_row gt_center">NA</td>
+<td headers="X.3" class="gt_row gt_left"></td>
+<td headers="X.4" class="gt_row gt_center">NA</td>
+<td headers="X.5" class="gt_row gt_left"></td></tr>
+    <tr><td headers="DONOR.AND.TRANSPLANT.ACTIVITY" class="gt_row gt_left">^^ încludes kidney &amp; pancreas islet transplants</td>
+<td headers="X" class="gt_row gt_left"></td>
+<td headers="X.1" class="gt_row gt_left"></td>
+<td headers="X.2" class="gt_row gt_center">NA</td>
+<td headers="X.3" class="gt_row gt_left"></td>
+<td headers="X.4" class="gt_row gt_center">NA</td>
+<td headers="X.5" class="gt_row gt_left"></td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</div>
 </div>
 </section>
 <section id="other-file-formats" class="slide level2">
