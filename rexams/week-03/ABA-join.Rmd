@@ -7,7 +7,7 @@ brain_data <- read_rds("https://github.com/eugene100hickey/ATU-2023/blob/main/re
 my_brain_area <- brain_data$brain_area |> sample(1)
 
 z1 <- gene_data |> 
-  left_join(brain_data, join_by(structure == brain_code))
+  left_join(brain_data)
 
 z2 <- z1 |> 
   filter(brain_area == my_brain_area)
