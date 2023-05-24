@@ -326,6 +326,35 @@ gapminder::gapminder %>%
 
 - and `left_join()` links dataframes together (a.k.a. SQL)
 
+## `left_join()`
+
+::: {.columns}
+
+::: {.column width="30%"}
+
+```{r}
+band_members |> gt::gt() |> gt::tab_options(table.font.size = 24)
+```
+
+:::
+
+::: {.column width="30%"}
+
+```{r}
+band_instruments |> gt::gt() |> gt::tab_options(table.font.size = 24)
+```
+
+:::
+
+::: {.column width="30%"}
+
+```{r}
+band_members |> left_join(band_instruments) |> gt::gt() |> gt::tab_options(table.font.size = 24)
+```
+
+:::
+
+:::
 
 # Wide and Long Dataframe Formats
 
