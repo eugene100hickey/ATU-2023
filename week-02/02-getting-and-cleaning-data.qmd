@@ -262,7 +262,7 @@ extract_tables(organ_transplant, output = "data.frame") |> pluck(1) |> gt::gt()
     
     - `tq_index("my_stock_market")` returns a dataframe of stock market indices
     
-    - `td_get("my_stock_symbol")` returns actual stock market data.
+    - `tq_get("my_stock_symbol")` returns actual stock market data.
     
 ## Social Media
 
@@ -272,7 +272,7 @@ extract_tables(organ_transplant, output = "data.frame") |> pluck(1) |> gt::gt()
 
 - function `auth_setup("mastodon.social", "public")` to connect to your account
 
-- `get_timeline_public(hashtag = "eurovision", instance = "mastodon.social", limit = 200)` to get dataframe of [toots]{.underline}
+- `get_timeline_hashtag(hashtag = "eurovision", instance = "mastodon.social", limit = 200)` to get dataframe of [toots]{.underline}
 
 ## Political Science
 
@@ -322,7 +322,7 @@ extract_tables(organ_transplant, output = "data.frame") |> pluck(1) |> gt::gt()
 
 - three step process
 
-    - read in the whole web page (`html_read()`)
+    - read in the whole web page (`read_html()`)
     
     - select out the elements that you want (`html_nodes()`)
     
@@ -346,7 +346,7 @@ extract_tables(organ_transplant, output = "data.frame") |> pluck(1) |> gt::gt()
 
 1. Install the `eurostat` package. Search for datasets on *diabetes* using the `search_eurostat()` function. Get the *eurostat* dataset on screening of diabetes by sex, age, and education from 2014-2019. Decode the column values using `get_eurostat_dic()` (e.g. `get_eurostat_dic("age")`). Find the incidence of diabetes/cardiovascular that has been detected for [*less than one year*]{.underline} in [*Slovenia*]{.underline} in [*2019*]{.underline} for people of [*all*]{.underline} genders who are [*older than 75*]{.underline} with [*Upper secondary and post-secondary non-tertiary education*]{.underline}.
 
-1. Install the `BiocManager` package (`install.packages("BiocManager")`). Install the `rentrez` and `seqinr` packages from `Bioconductor` (e.g. `BiocManager::install("rentrez")`). Find the [NCBI]() accession numbers for the *BRCA1* cancer gene using `entrez_search(db = "nuccore", term = "brca1")`. This returns a list of 5 elements, the first of which will be the relevant accession number. Take the first of these accession numbers and fetch the gene sequence using `entrez_fetch(db = "nuccore", id = "my_accession_numbber", rettype = "fasta")`.
+1. Install the `BiocManager` package (`install.packages("BiocManager")`). Install the `rentrez` and `seqinr` packages from `Bioconductor` (e.g. `BiocManager::install("rentrez")`). Find the [NCBI]() accession numbers for the *BRCA1* cancer gene using `z <- entrez_search(db = "nuccore", term = "brca1")`. This returns a list of 5 elements, the first of which (`z[[1]]`) will be the relevant accession numbers. Take the first of these accession numbers and fetch the gene sequence using `entrez_fetch(db = "nuccore", id = "my_accession_numbber", rettype = "fasta")`.
 
 1.  Install **Selector Gadget** as a Chrome extension. Go to the [RTE](website). Find the *css* selector for the top navigation bar (where it says *"News Sport Entertainment..."*).
 
