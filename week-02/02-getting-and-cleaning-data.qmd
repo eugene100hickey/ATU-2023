@@ -286,6 +286,20 @@ extract_tables(organ_transplant, output = "data.frame") |> pluck(1) |> gt::gt()
 
 - `GIFT` with this [tutorial](https://cran.r-project.org/web/packages/GIFT/vignettes/GIFT.html)
 
+## Earth Observation - Satellite Images
+
+- good resource for Ireland is [Sentinel2](https://scihub.copernicus.eu/)
+
+    - need to make an account on Copernicus
+    
+    - R package `sen2r`
+    
+    - see [this presentation](https://www.youtube.com/watch?v=k1K6nqgtRL8) for a walkthrough
+    
+- also [Planet.com](https://www.planet.com/)
+
+    - free (but limited) academic access
+
 
 ## Web Scraping
 
