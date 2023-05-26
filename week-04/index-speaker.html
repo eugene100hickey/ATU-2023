@@ -392,7 +392,7 @@
 
 <section id="title-slide" class="slide level2 center" data-background="images/dawn.JPG">
 <h2></h2>
-<div class="cell" data-hash="04-stats-inference_cache/revealjs/ggplot-theme_da870eaf0ff6c2920d8351a56bc35551">
+<div class="cell">
 
 </div>
 <div class="title-box">
@@ -436,11 +436,11 @@ Introduction to Statistical Computing - dplyr
 <section id="distributions" class="slide level2">
 <h2>Distributions</h2>
 <ul>
-<li><p>There are lots of these, but we’ll focus on four</p>
+<li><p>There are lots of these, but we’ll mention four (and describe two)</p>
 <ul>
-<li><p>binomial</p></li>
+<li><p><strong>binomial</strong> (discrete)</p></li>
 <li><p>poisson</p></li>
-<li><p>normal</p></li>
+<li><p><strong>normal</strong> (continuous)</p></li>
 <li><p>exponential</p></li>
 </ul></li>
 </ul>
@@ -521,7 +521,7 @@ Introduction to Statistical Computing - dplyr
 <li><p><code>pbinom()</code> calculates the sum of probabilities less than (or greater than), an outcome value</p>
 <ul>
 <li><p>this is the <em>cumulative probability</em></p></li>
-<li><p>adds up a whole bunch of <code>dbinoms()</code></p></li>
+<li><p>adds up a whole bunch of <code>dbinom()</code>’s</p></li>
 </ul></li>
 <li><p><code>qbinom()</code> calculates the number of successes below which there is a certain probability</p>
 <ul>
@@ -562,6 +562,7 @@ Introduction to Statistical Computing - dplyr
 <ul>
 <li><p><code>lower.tail = TRUE</code> means <em>k</em> successes or less (successes <span class="math inline">\(\le\)</span> threshold, k)</p></li>
 <li><p><code>lower.tail = FALSE</code> means more than <em>k</em> successes (successes <span class="math inline">\(&gt;\)</span> threshold, k)</p></li>
+<li><p>worth remembering when to use <code>lower.tail = TRUE/FALSE</code></p></li>
 </ul>
 </div>
 </section>
@@ -582,7 +583,210 @@ Introduction to Statistical Computing - dplyr
 <pre><code>[1] 0.03515625</code></pre>
 </div>
 </div>
-<p>Note we had to use <em>k - 1 = 6</em> in <code>pbinom()</code> calculation</p>
+<ul>
+<li>Note we had to use <em>k - 1 = 6</em> in <code>pbinom()</code> calculation</li>
+</ul>
+</section>
+<section id="qbinom" class="slide level2">
+<h2><code>qbinom()</code></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="04-stats-inference_files/figure-revealjs/unnamed-chunk-12-1.png" width="960"></p>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<ul>
+<li><p>in families of eight children, 30% of them have <strong>X</strong> girls or less. What is <strong>X</strong>?</p></li>
+<li><p><code>qbinom(p = 0.3, size = 8, prob = 0.5, lower.tail = TRUE)</code></p></li>
+<li><p>gives <strong>X</strong> = 3</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="rbinom" class="slide level2">
+<h2><code>rbinom()</code></h2>
+<ul>
+<li><p>this gives a random number from the distribution</p></li>
+<li><p>take a sample of 100 rocket launches, then for this sample 90 will be successful</p></li>
+<li><p>command is <code>rbinom(n = 1, size= 100, prob = 0.85)</code></p>
+<ul>
+<li><code>n = 1</code> means just one sample</li>
+</ul></li>
+</ul>
+</section>
+<section id="normal-distribution" class="slide level2">
+<h2>Normal Distribution</h2>
+<ul>
+<li><p>spread in values of a continuous variable</p></li>
+<li><p>two parameters</p>
+<ul>
+<li><p>the mean value, <strong><span class="math display">\[ \mu \]</span></strong></p></li>
+<li><p>the standard deviation, <strong><span class="math display">\[ \sigma \]</span></strong></p></li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<p><span class="math display">\[ {\displaystyle f(x)={\frac {1}{\sigma {\sqrt {2\pi }}}}e^{-{\frac {1}{2}}\left({\frac {x-\mu }{\sigma }}\right)^{2}}} \]</span> - <span class="math display">\[ \mu \]</span> is the mean</p>
+<ul>
+<li><span class="math display">\[ \sigma \]</span> is the standard deviation</li>
+</ul>
+</section>
+<section id="what-this-looks-like-1" class="slide level2">
+<h2>What this looks like:</h2>
+<div class="cell">
+
+</div>
+<p>A human liver has an average mass of 0.85kg with a standard deviation of 0.2kg.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="04-stats-inference_files/figure-revealjs/norm-1-1.png" width="960"></p>
+</div>
+</div>
+</section>
+<section id="how-this-works-in-r-1" class="slide level2">
+<h2>How this works in R</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="fu">dnorm</span>(<span class="at">x =</span> <span class="fl">1.0</span>, <span class="at">mean =</span> <span class="fl">1.5</span>, <span class="at">sd =</span> <span class="fl">0.2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.0876415</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="fu">dnorm</span>(<span class="at">x =</span> <span class="fl">1.2</span>, <span class="at">mean =</span> <span class="fl">1.5</span>, <span class="at">sd =</span> <span class="fl">0.2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.647588</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="fu">dnorm</span>(<span class="at">x =</span> <span class="fl">1.4</span>, <span class="at">mean =</span> <span class="fl">1.5</span>, <span class="at">sd =</span> <span class="fl">0.2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.760327</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">dnorm</span>(<span class="at">x =</span> <span class="fl">1.6</span>, <span class="at">mean =</span> <span class="fl">1.5</span>, <span class="at">sd =</span> <span class="fl">0.2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.760327</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="fu">dnorm</span>(<span class="at">x =</span> <span class="fl">1.8</span>, <span class="at">mean =</span> <span class="fl">1.5</span>, <span class="at">sd =</span> <span class="fl">0.2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.647588</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="fu">dnorm</span>(<span class="at">x =</span> <span class="fl">2.0</span>, <span class="at">mean =</span> <span class="fl">1.5</span>, <span class="at">sd =</span> <span class="fl">0.2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.0876415</code></pre>
+</div>
+</div>
+</section>
+<section id="dnorm-pnorm-qnorm-and-rnorm" class="slide level2">
+<h2><code>dnorm()</code>, <code>pnorm()</code>, <code>qnorm()</code>, and <code>rnorm()</code></h2>
+<div style="font-size: 80%;">
+<ul>
+<li><p><code>dnorm()</code> calculates the relative probability of a specific outcome value</p></li>
+<li><p><code>pnorm()</code> calculates the sum of probabilities less than (or greater than), an outcome value</p>
+<ul>
+<li><p>this is the <em>cumulative probability</em></p></li>
+<li><p>adds up a whole bunch of <code>dnorm()</code>’s</p></li>
+</ul></li>
+<li><p><code>qbinom()</code> calculates the number of successes below which there is a certain probability</p>
+<ul>
+<li><p>like the inverse function of <code>pbinom()</code></p></li>
+<li><p>give it a probability of it works out the number of successes threshold</p></li>
+</ul></li>
+<li><p><code>rbinom()</code> generates random numbers of <em>successs</em> from a binomial distribution</p></li>
+</ul>
+</div>
+</section>
+<section id="pbinom-1" class="slide level2">
+<h2><code>pbinom()</code></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a><span class="fu">pbinom</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>,<span class="dv">100</span>,<span class="fl">0.85</span>,<span class="at">lower.tail=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="04-stats-inference_files/figure-revealjs/norm-2-1.png" width="960"></p>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="fu">pbinom</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>,<span class="dv">100</span>,<span class="fl">0.85</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="04-stats-inference_files/figure-revealjs/norm-3-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+<div style="font-size: 80%;">
+<ul>
+<li><p><code>lower.tail = TRUE</code> means <em>k</em> successes or less (successes <span class="math inline">\(\le\)</span> threshold, k)</p></li>
+<li><p><code>lower.tail = FALSE</code> means more than <em>k</em> successes (successes <span class="math inline">\(&gt;\)</span> threshold, k)</p></li>
+<li><p>worth remembering when to use <code>lower.tail = TRUE/FALSE</code></p></li>
+</ul>
+</div>
+</section>
+<section id="example-1" class="slide level2">
+<h2>Example</h2>
+<ul>
+<li>Family of eight children, chance of getting at least 7 girls</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="fu">dbinom</span>(<span class="at">x =</span> <span class="dv">7</span>, <span class="at">size =</span> <span class="dv">8</span>, <span class="at">prob =</span> <span class="fl">0.5</span>) <span class="sc">+</span> <span class="fu">dbinom</span>(<span class="at">x =</span> <span class="dv">8</span>, <span class="at">size =</span> <span class="dv">8</span>, <span class="at">prob =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.03515625</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="fu">pbinom</span>(<span class="at">q =</span> <span class="dv">6</span>, <span class="at">size =</span> <span class="dv">8</span>, <span class="at">prob =</span> <span class="fl">0.5</span>, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.03515625</code></pre>
+</div>
+</div>
+<ul>
+<li>Note we had to use <em>k - 1 = 6</em> in <code>pbinom()</code> calculation</li>
+</ul>
+</section>
+<section id="qbinom-1" class="slide level2">
+<h2><code>qbinom()</code></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="04-stats-inference_files/figure-revealjs/unnamed-chunk-24-1.png" width="960"></p>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<ul>
+<li><p>in families of eight children, 30% of them have <strong>X</strong> girls or less. What is <strong>X</strong>?</p></li>
+<li><p><code>qbinom(p = 0.3, size = 8, prob = 0.5, lower.tail = TRUE)</code></p></li>
+<li><p>gives <strong>X</strong> = 3</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="rbinom-1" class="slide level2">
+<h2><code>rbinom()</code></h2>
+<ul>
+<li><p>this gives a random number from the distribution</p></li>
+<li><p>take a sample of 100 rocket launches, then for this sample 87 will be successful</p></li>
+<li><p>command is <code>rbinom(n = 1, size= 100, prob = 0.85)</code></p>
+<ul>
+<li><code>n = 1</code> means just one sample</li>
+</ul></li>
+</ul>
 <p><img src="images/atu-logo.png" class="slide-logo"></p>
 <div class="footer footer-default">
 <p><a href="https://vlesligo.atu.ie">Statistical Computing</a></p>

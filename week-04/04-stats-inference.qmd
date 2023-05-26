@@ -66,7 +66,7 @@ fa_list <- function(x, incremental = FALSE) {
 ```
 
 ```{r ggplot-theme}
-#| cache: true
+#| cache: false
 #| echo: false
 
 my_font <- "Neucha"
@@ -117,13 +117,13 @@ theme_clean <- function() {
 
 ## Distributions
 
-- There are lots of these, but we'll focus on four
+- There are lots of these, but we'll mention four (and describe two)
 
-    - binomial
+    - **binomial** (discrete)
     
     - poisson
     
-    - normal
+    - **normal** (continuous)
     
     - exponential
     
@@ -210,7 +210,7 @@ dbinom(x = 50, size = 100, prob = 0.85)
 
     - this is the _cumulative probability_
     
-    - adds up a whole bunch of `dbinoms()`
+    - adds up a whole bunch of `dbinom()`'s
     
 - `qbinom()` calculates the number of successes below which there is a certain probability
 
@@ -282,6 +282,8 @@ tibble(x = 1:n, y = pbinom(1:n, n, p, lower.tail = F)) |>
  
 - `lower.tail = FALSE` means more than _k_ successes (successes $>$ threshold, k)
 
+- worth remembering when to use `lower.tail = TRUE/FALSE`
+
 :::
 
 ## Example
@@ -292,8 +294,277 @@ tibble(x = 1:n, y = pbinom(1:n, n, p, lower.tail = F)) |>
 dbinom(x = 7, size = 8, prob = 0.5) + dbinom(x = 8, size = 8, prob = 0.5)
 ```
 
+
+
 ```{r}
 pbinom(q = 6, size = 8, prob = 0.5, lower.tail = FALSE)
 ```
 
-Note we had to use _k - 1 = 6_ in `pbinom()` calculation
+
+
+- Note we had to use _k - 1 = 6_ in `pbinom()` calculation
+
+
+## `qbinom()`
+
+::::{.columns}
+
+:::{.column width="50%"}
+
+```{r}
+#| echo: false
+#| fig-height: 8
+tibble(x = seq(0, 1, by = 0.01), y = qbinom(seq(0, 1, by = 0.01), 8, 0.5)) |> 
+  ggplot(aes(x, y)) + 
+  geom_line() + 
+  labs(y = "At least this number of girls",
+       x = "Proportion of Families") +
+  theme(axis.title = element_text(size = 44),
+        axis.text = element_text(size = 36))
+  
+```
+
+:::
+:::{.column width="50%"}
+
+- in families of eight children, 30% of them have **X** girls or less. What is **X**?
+
+- `qbinom(p = 0.3, size = 8, prob = 0.5, lower.tail = TRUE)`
+
+- gives **X** = 3
+
+:::
+
+::::
+
+## `rbinom()`
+
+- this gives a random number from the distribution
+
+- take a sample of `r n` rocket launches, then for this sample `r rbinom(1, n, p)` will be successful
+
+- command is `rbinom(n = 1, size= `r n`, prob = `r p`)`
+
+    - `n = 1` means just one sample
+    
+
+## Normal Distribution
+
+- spread in values of a continuous variable
+
+- two parameters
+
+    - the mean value, **$$ \mu $$**
+    
+    - the standard deviation, **$$ \sigma $$**
+    
+    
+---
+
+$$ {\displaystyle f(x)={\frac {1}{\sigma {\sqrt {2\pi }}}}e^{-{\frac {1}{2}}\left({\frac {x-\mu }{\sigma }}\right)^{2}}} $$
+- $$ \mu $$ is the mean
+
+- $$ \sigma $$ is the standard deviation
+
+
+## What this looks like:
+
+```{r norm-setup}
+#| echo: false
+
+m <- 1.5
+dev <- 0.2
+```
+
+
+A human liver has an average mass of `r p`kg with a standard deviation of `r dev`kg. 
+
+```{r norm-1}
+#| echo: false
+
+x = seq(0, 3, by = 0.01)
+tibble(x = x, y = dnorm(x, mean = 1.5, sd = 0.2)) |> 
+  ggplot(aes(x, y))  + 
+  geom_point(size = 2, colour = "firebrick4") + 
+  geom_line(alpha = 0.5, colour = "firebrick4") +
+  labs(title = "Mass of Human Livers", y = "", x = "Mass (kg)") + 
+  theme_clean() +
+  theme(plot.title.position = "plot",
+        axis.text.y = element_blank())
+
+```
+
+## How this works in R
+
+```{r}
+dnorm(x = 1.0, mean = 1.5, sd = 0.2)
+```
+
+```{r}
+dnorm(x = 1.2, mean = 1.5, sd = 0.2)
+```
+
+```{r}
+dnorm(x = 1.4, mean = 1.5, sd = 0.2)
+```
+
+```{r}
+dnorm(x = 1.6, mean = 1.5, sd = 0.2)
+```
+
+```{r}
+dnorm(x = 1.8, mean = 1.5, sd = 0.2)
+```
+
+```{r}
+dnorm(x = 2.0, mean = 1.5, sd = 0.2)
+```
+
+
+## `dnorm()`, `pnorm()`, `qnorm()`, and `rnorm()`
+
+::: {style="font-size: 80%;"}
+
+- `dnorm()` calculates the relative probability of a specific outcome value
+
+- `pnorm()` calculates the sum of probabilities less than (or greater than), an outcome value
+
+    - this is the _cumulative probability_
+    
+    - adds up a whole bunch of `dnorm()`'s
+    
+- `qbinom()` calculates the number of successes below which there is a certain probability
+
+    - like the inverse function of `pbinom()`
+    
+    - give it a probability of it works out the number of successes threshold
+    
+- `rbinom()` generates random numbers of _successs_ from a binomial distribution
+
+:::
+
+## `pbinom()`
+
+::::{.columns}
+:::{.column width="50%"}
+
+```{r}
+#| echo: false
+
+theme_set(
+  theme_clean() +
+  theme(plot.title.position = "plot"))
+```
+
+
+```{r}
+#| eval: false
+pbinom(1:100,100,0.85,lower.tail=TRUE)
+```
+
+
+```{r norm-2}
+#| echo: false
+
+tibble(x = 1:n, y = pbinom(1:n, n, p, lower.tail=T)) |> 
+  ggplot(aes(x, y))  + 
+  geom_point(size = 5, colour = "firebrick4") + 
+  geom_line(alpha = 0.5, colour = "firebrick4") +
+  labs(title = "Probability of getting this or less than this\nnumber of successful rocket launches", y = "", x = "Successful Launches")
+
+```
+
+:::
+:::{.column width="50%"}
+
+```{r}
+#| eval: false
+pbinom(1:100,100,0.85,lower.tail=FALSE)
+```
+
+
+```{r norm-3}
+#| echo: false
+
+tibble(x = 1:n, y = pbinom(1:n, n, p, lower.tail = F)) |> 
+  ggplot(aes(x, y))  + 
+  geom_point(size = 5, colour = "firebrick4") + 
+  geom_line(alpha = 0.5, colour = "firebrick4") +
+  labs(title = "Probability of getting more than this\nnumber of successful rocket launches", y = "", x = "Successful Launches")
+
+```
+
+:::
+::::
+
+::: {style="font-size: 80%;"}
+
+- `lower.tail = TRUE` means _k_ successes or less (successes $\le$ threshold, k)
+ 
+- `lower.tail = FALSE` means more than _k_ successes (successes $>$ threshold, k)
+
+- worth remembering when to use `lower.tail = TRUE/FALSE`
+
+:::
+
+## Example
+
+- Family of eight children, chance of getting at least 7 girls
+
+```{r}
+dbinom(x = 7, size = 8, prob = 0.5) + dbinom(x = 8, size = 8, prob = 0.5)
+```
+
+
+
+```{r}
+pbinom(q = 6, size = 8, prob = 0.5, lower.tail = FALSE)
+```
+
+
+
+- Note we had to use _k - 1 = 6_ in `pbinom()` calculation
+
+
+## `qbinom()`
+
+::::{.columns}
+
+:::{.column width="50%"}
+
+```{r}
+#| echo: false
+#| fig-height: 8
+tibble(x = seq(0, 1, by = 0.01), y = qbinom(seq(0, 1, by = 0.01), 8, 0.5)) |> 
+  ggplot(aes(x, y)) + 
+  geom_line() + 
+  labs(y = "At least this number of girls",
+       x = "Proportion of Families") +
+  theme(axis.title = element_text(size = 44),
+        axis.text = element_text(size = 36))
+  
+```
+
+:::
+:::{.column width="50%"}
+
+- in families of eight children, 30% of them have **X** girls or less. What is **X**?
+
+- `qbinom(p = 0.3, size = 8, prob = 0.5, lower.tail = TRUE)`
+
+- gives **X** = 3
+
+:::
+
+::::
+
+## `rbinom()`
+
+- this gives a random number from the distribution
+
+- take a sample of `r n` rocket launches, then for this sample `r rbinom(1, n, p)` will be successful
+
+- command is `rbinom(n = 1, size= `r n`, prob = `r p`)`
+
+    - `n = 1` means just one sample
+    
