@@ -1,0 +1,299 @@
+---
+pagetitle: "Introduction to Statistical Computing - dplyr"
+abstract: |
+ This is the third of a five part series of lectures as part of the data handling postgraduate module in Atlantic Technological University. 
+author: "Eugene Hickey"
+date: "May 2023"
+host: "Sligo Campus"
+institute: "Atlantic Technological University"
+strip-comments: true
+format: 
+  revealjs:
+    transition: slide
+    transition-speed: fast
+    logo: images/atu-logo.png
+    footer: "[Statistical Computing](https://vlesligo.atu.ie)"
+    # embed-resources: true
+    slide-number: c/t
+    multiplex: true
+    theme: solarized
+    show-slide-number: all
+    controls: true
+    width: 1280
+    height: 720
+    incremental: false
+    auto-stretch: false
+    css: [assets/custom.css, assets/tachyons-addon.css]
+    include-after: |
+      <link rel="stylesheet" href="assets/syntax-highlight.css">
+      <link rel="stylesheet" href="assets/fontawesome-free-6.1.1-web/css/all.min.css">
+      <script src="assets/fontawesome-free-6.1.1-web/js/all.min.js"></script>
+callout-icon: false
+output-file: index.html
+execute:
+  echo: true
+  message: false
+  warning: false
+---
+
+##  {#title-slide background="images/dawn.JPG"}
+
+```{r setup, include = FALSE}
+library(tidyverse)
+library(showtext)
+
+rotating_text <- function(x, align = "top") {
+  glue::glue('
+<div style="overflow: hidden; height: 1.2em;">
+<ul class="content__container__list {align}" style="text-align: {align}">
+<li class="content__item">{x[1]}</li>
+<li class="content__item">{x[2]}</li>
+<li class="content__item">{x[3]}</li>
+<li class="content__item">{x[4]}</li>
+</ul>
+</div>')
+}
+
+fa_list <- function(x, incremental = FALSE) {
+  icons <- names(x)
+  fragment <- ifelse(incremental, "fragment", "")
+  items <- glue::glue('<li class="{fragment}"><span class="fa-li"><i class="{icons}"></i></span> {x}</li>')
+  paste('<ul class="fa-ul">', 
+        paste(items, collapse = "\n"),
+        "</ul>", sep = "\n")
+}
+
+```
+
+```{r ggplot-theme}
+#| cache: true
+#| echo: false
+
+my_font <- "Neucha"
+my_font <- "Coming Soon"
+font_add(family = my_font, regular = "assets/ComingSoon-Regular.ttf")
+showtext_auto()
+theme_clean <- function() {
+    theme_minimal(base_family = my_font) +
+        theme(panel.grid.minor = element_blank(),
+              text = element_text(size = 32, family = my_font),
+              plot.background = element_rect(fill = "white", color = NA),
+              axis.text = element_text(size = 32),
+              axis.title = element_text(face = "bold", size = 28),
+              strip.text = element_text(face = "bold", size = rel(0.8), hjust = 0),
+              strip.background = element_rect(fill = "grey80", color = NA),
+              legend.text = element_text(size = 36))
+}
+```
+
+
+::: title-box
+<h2>`r rmarkdown::metadata$pagetitle`</h2>
+
+👨‍💻 [`r rmarkdown::metadata$author` \@ `r rmarkdown::metadata$institute`]{.author} 👨‍💻
+
+`r rotating_text(c('<i class="fa-solid fa-envelope"></i> eugene.hickey@tudublin.ie', '<i class="fa-brands fa-mastodon"></i> @eugene100hickey', '<i class="fa-brands fa-github"></i> github.com/eugene100hickey', '<i class="fa-solid fa-globe"></i> www.fizzics.ie'))`
+:::
+
+------------------------------------------------------------------------
+
+##  Week Four - Statistical Inference
+
+::: {style="font-size: 100%;"}
+
+- Time we did some statistics on our data
+
+- This ties in nicely with John's half of our course
+
+- We'll look at this from three perspectives
+
+    - distributions
+    
+    - confidence intervals
+    
+    - hypothesis tests
+
+:::
+
+## Distributions
+
+- There are lots of these, but we'll focus on four
+
+    - binomial
+    
+    - poisson
+    
+    - normal
+    
+    - exponential
+    
+    
+## Binomial Distribution
+
+- number of _successes_ in a sequence of trials
+
+- three parameters
+
+    - the number of trials, **n**
+    
+    - the number of successes, **k**
+    
+    - the probability of success in a single trial, **p**
+    
+---
+
+$$ {\displaystyle f(k,n,p)=\Pr(k;n,p)=\Pr(X=k)={\binom {n}{k}}p^{k}(1-p)^{n-k}}$$
+for k = 0, 1, 2, ..., n, where
+
+
+$$ {\displaystyle {\binom {n}{k}}={\frac {n!}{k!(n-k)!}}} $$
+
+## What this looks like:
+
+```{r binom-setup}
+#| echo: false
+
+n <- 100
+p <- 0.85
+```
+
+
+A rocket launch has a probability of success of `r p`%. From a `r n` launches, what is the profile of the number of successes?
+
+```{r binom-1}
+#| echo: false
+
+tibble(x = 1:n, y = dbinom(1:n, n, p)) |> 
+  ggplot(aes(x, y))  + 
+  geom_point(size = 5, colour = "firebrick4") + 
+  geom_line(alpha = 0.5, colour = "firebrick4") +
+  labs(title = "Number of successful rocket launches", y = "", x = "Successful Launches") + 
+  theme_clean() +
+  theme(plot.title.position = "plot")
+
+```
+
+## How this works in R
+
+```{r}
+dbinom(x = 90, size = 100, prob = 0.85)
+```
+
+```{r}
+dbinom(x = 85, size = 100, prob = 0.85)
+```
+
+```{r}
+dbinom(x = 80, size = 100, prob = 0.85)
+```
+
+```{r}
+dbinom(x = 70, size = 100, prob = 0.85)
+```
+
+```{r}
+dbinom(x = 60, size = 100, prob = 0.85)
+```
+
+```{r}
+dbinom(x = 50, size = 100, prob = 0.85)
+```
+
+
+## `dbinom()`, `pbinom()`, `qbinom()`, and `rbinom()`
+
+::: {style="font-size: 80%;"}
+
+- `dbinom()` calculates the probability of a specific outcome value
+
+- `pbinom()` calculates the sum of probabilities less than (or greater than), an outcome value
+
+    - this is the _cumulative probability_
+    
+    - adds up a whole bunch of `dbinoms()`
+    
+- `qbinom()` calculates the number of successes below which there is a certain probability
+
+    - like the inverse function of `pbinom()`
+    
+    - give it a probability of it works out the number of successes threshold
+    
+- `rbinom()` generates random numbers of _successs_ from a binomial distribution
+
+:::
+
+## `pbinom()`
+
+::::{.columns}
+:::{.column width="50%"}
+
+```{r}
+#| echo: false
+
+theme_set(
+  theme_clean() +
+  theme(plot.title.position = "plot"))
+```
+
+
+```{r}
+#| eval: false
+pbinom(1:100,100,0.85,lower.tail=TRUE)
+```
+
+
+```{r binom-2}
+#| echo: false
+
+tibble(x = 1:n, y = pbinom(1:n, n, p, lower.tail=T)) |> 
+  ggplot(aes(x, y))  + 
+  geom_point(size = 5, colour = "firebrick4") + 
+  geom_line(alpha = 0.5, colour = "firebrick4") +
+  labs(title = "Probability of getting this or less than this\nnumber of successful rocket launches", y = "", x = "Successful Launches")
+
+```
+
+:::
+:::{.column width="50%"}
+
+```{r}
+#| eval: false
+pbinom(1:100,100,0.85,lower.tail=FALSE)
+```
+
+
+```{r binom-3}
+#| echo: false
+
+tibble(x = 1:n, y = pbinom(1:n, n, p, lower.tail = F)) |> 
+  ggplot(aes(x, y))  + 
+  geom_point(size = 5, colour = "firebrick4") + 
+  geom_line(alpha = 0.5, colour = "firebrick4") +
+  labs(title = "Probability of getting more than this\nnumber of successful rocket launches", y = "", x = "Successful Launches")
+
+```
+
+:::
+::::
+
+::: {style="font-size: 80%;"}
+
+- `lower.tail = TRUE` means _k_ successes or less (successes $\le$ threshold, k)
+ 
+- `lower.tail = FALSE` means more than _k_ successes (successes $>$ threshold, k)
+
+:::
+
+## Example
+
+- Family of eight children, chance of getting at least 7 girls
+
+```{r}
+dbinom(x = 7, size = 8, prob = 0.5) + dbinom(x = 8, size = 8, prob = 0.5)
+```
+
+```{r}
+pbinom(q = 6, size = 8, prob = 0.5, lower.tail = FALSE)
+```
+
+Note we had to use _k - 1 = 6_ in `pbinom()` calculation
