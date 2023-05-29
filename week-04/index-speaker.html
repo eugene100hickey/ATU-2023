@@ -624,7 +624,7 @@ Introduction to Statistical Computing - dplyr
 <h2><code>rbinom()</code></h2>
 <ul>
 <li><p>this gives a random number from the distribution</p></li>
-<li><p>take a sample of 100 rocket launches, then for this sample 89 will be successful</p></li>
+<li><p>take a sample of 100 rocket launches, then for this sample 86 will be successful</p></li>
 <li><p>command is <code>rbinom(n = 1, size=100, prob =0.85)</code></p>
 <ul>
 <li><code>n = 1</code> means just one sample</li>
@@ -782,6 +782,38 @@ Introduction to Statistical Computing - dplyr
 <li><code>n = 1</code> means just one sample</li>
 </ul></li>
 </ul>
+</section>
+<section id="confidence-intervals" class="slide level2">
+<h2>Confidence Intervals</h2>
+<ul>
+<li><p>we rarely know <em>population</em> statistics about our data</p></li>
+<li><p>more common to have to infer them from <em>sample</em> statistics</p></li>
+<li><p>if we don’t know the real standard deviation</p>
+<ul>
+<li><p>estimate it from the sample</p></li>
+<li><p>replace the normal distribution by its little cousin, the <strong>t-distribution</strong></p></li>
+<li><p><em>t-distribution</em> is more spread out (more uncertain) than the <em>normal</em></p></li>
+<li><p>as sample size gets bigger the <em>t</em> converges to the <em>normal</em></p></li>
+</ul></li>
+</ul>
+</section>
+<section id="confidence-intervals-1" class="slide level2">
+<h2>Confidence Intervals</h2>
+<ul>
+<li><p>imagine taking a bunch of different samples from a population</p></li>
+<li><p>each one will have a slightly different mean</p></li>
+<li><p>for one sample, its mean is our best guess as to the true population mean</p></li>
+<li><p>but also need to express our degree of certainty (or otherwise) in this guess</p></li>
+<li><p>this gives the <strong>confidence interval</strong></p></li>
+</ul>
+</section>
+<section id="confidence-interval-imagined" class="slide level2">
+<h2>Confidence Interval Imagined</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/conf-int.png" style="width:75.0%;height:75.0%"></p>
+</figure>
+</div>
 <p><img src="images/atu-logo.png" class="slide-logo"></p>
 <div class="footer footer-default">
 <p><a href="https://vlesligo.atu.ie">Statistical Computing</a></p>
