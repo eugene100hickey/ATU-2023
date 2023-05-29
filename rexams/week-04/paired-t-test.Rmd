@@ -6,21 +6,25 @@ library(dslabs)
 repeat{
   year1 <- 1960:2013 |> 
     sample(1)
-  year2 <- 1960:2013 |> 
-    sample(1) 
-  if(year1 != year2){
+  repeat{
+    year2 <- 1960:2013 |> 
+      sample(1) 
+    if(year2 != year1){
+      break
+    }
+  }
+  x <- gapminder |> 
+    filter(year == year1) |> 
+    pull(fertility)
+  y <- gapminder |> 
+    filter(year == year2) |> 
+    pull(fertility)
+  solution <- wilcox.test(x, y, paired = T, var.equal = T)$statistic
+  
+  if(solution > 0.1 & solution < 500){
     break
   }
 }
-x <- gapminder |> 
-  filter(year == year1) |> 
-  pull(fertility)
-y <- gapminder |> 
-  filter(year == year2) |> 
-  pull(fertility)
-
-
-solution <- wilcox.test(x, y, paired = T, var.equal = T)$statistic
 ```
 
 

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+
+
+<question type="category">
+<category>
+<text>$course$/rexams22/Exercise 1</text>
+</category>
+</question>
+
+
+<question type="numerical">
+<name>
+<text> R1 Q1 : rexams_week-04_hypo-test </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[
+<p>
+<p>Install the <code>agridat</code> package from <em>CRAN</em> (use <code>install.packages("agridat")</code>). Load up the <code>hanks.sprinkler</code> data. Use <code>?hanks.sprinkler</code> to see a discription of this data. Calculate the <strong>P Value</strong> for the null hypothesis that the <code>yield</code> from <strong>subplot 8</strong> is the same as the <code>yield</code> from <strong>subplot 4</strong>. Give your answer as a probabilty between 0 and 1, and give it to three significant figures.</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Filter the data set for only subplots 8 and 4 using <code>hanks.sprinkler |&gt; filter(subplot %in% c(8, 4)</code>. Use <code>t.test(yield ~ subplot, paired = F, var.equal = T, data = filtered_hanks.sprinkler)$p.value</code>.</p>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<answer fraction="100" format="moodle_auto_format">
+<text>0.9337541</text>
+<tolerance>0.0186751</tolerance>
+</answer>
+</question>
+
+
+<question type="numerical">
+<name>
+<text> R2 Q1 : rexams_week-04_hypo-test </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[
+<p>
+<p>Install the <code>agridat</code> package from <em>CRAN</em> (use <code>install.packages("agridat")</code>). Load up the <code>hanks.sprinkler</code> data. Use <code>?hanks.sprinkler</code> to see a discription of this data. Calculate the <strong>P Value</strong> for the null hypothesis that the <code>yield</code> from <strong>subplot 4</strong> is the same as the <code>yield</code> from <strong>subplot 6</strong>. Give your answer as a probabilty between 0 and 1, and give it to three significant figures.</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Filter the data set for only subplots 4 and 6 using <code>hanks.sprinkler |&gt; filter(subplot %in% c(4, 6)</code>. Use <code>t.test(yield ~ subplot, paired = F, var.equal = T, data = filtered_hanks.sprinkler)$p.value</code>.</p>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<answer fraction="100" format="moodle_auto_format">
+<text>0.3513629</text>
+<tolerance>0.0070273</tolerance>
+</answer>
+</question>
+
+
+<question type="numerical">
+<name>
+<text> R3 Q1 : rexams_week-04_hypo-test </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[
+<p>
+<p>Install the <code>agridat</code> package from <em>CRAN</em> (use <code>install.packages("agridat")</code>). Load up the <code>hanks.sprinkler</code> data. Use <code>?hanks.sprinkler</code> to see a discription of this data. Calculate the <strong>P Value</strong> for the null hypothesis that the <code>yield</code> from <strong>subplot 2</strong> is the same as the <code>yield</code> from <strong>subplot 12</strong>. Give your answer as a probabilty between 0 and 1, and give it to three significant figures.</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Filter the data set for only subplots 2 and 12 using <code>hanks.sprinkler |&gt; filter(subplot %in% c(2, 12)</code>. Use <code>t.test(yield ~ subplot, paired = F, var.equal = T, data = filtered_hanks.sprinkler)$p.value</code>.</p>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<answer fraction="100" format="moodle_auto_format">
+<text>0.6894542</text>
+<tolerance>0.0137891</tolerance>
+</answer>
+</question>
+
+
+<question type="numerical">
+<name>
+<text> R4 Q1 : rexams_week-04_hypo-test </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[
+<p>
+<p>Install the <code>agridat</code> package from <em>CRAN</em> (use <code>install.packages("agridat")</code>). Load up the <code>hanks.sprinkler</code> data. Use <code>?hanks.sprinkler</code> to see a discription of this data. Calculate the <strong>P Value</strong> for the null hypothesis that the <code>yield</code> from <strong>subplot 5</strong> is the same as the <code>yield</code> from <strong>subplot 4</strong>. Give your answer as a probabilty between 0 and 1, and give it to three significant figures.</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Filter the data set for only subplots 5 and 4 using <code>hanks.sprinkler |&gt; filter(subplot %in% c(5, 4)</code>. Use <code>t.test(yield ~ subplot, paired = F, var.equal = T, data = filtered_hanks.sprinkler)$p.value</code>.</p>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<answer fraction="100" format="moodle_auto_format">
+<text>0.3530864</text>
+<tolerance>0.0070617</tolerance>
+</answer>
+</question>
+
+
+<question type="numerical">
+<name>
+<text> R5 Q1 : rexams_week-04_hypo-test </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[
+<p>
+<p>Install the <code>agridat</code> package from <em>CRAN</em> (use <code>install.packages("agridat")</code>). Load up the <code>hanks.sprinkler</code> data. Use <code>?hanks.sprinkler</code> to see a discription of this data. Calculate the <strong>P Value</strong> for the null hypothesis that the <code>yield</code> from <strong>subplot 8</strong> is the same as the <code>yield</code> from <strong>subplot 7</strong>. Give your answer as a probabilty between 0 and 1, and give it to three significant figures.</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Filter the data set for only subplots 8 and 7 using <code>hanks.sprinkler |&gt; filter(subplot %in% c(8, 7)</code>. Use <code>t.test(yield ~ subplot, paired = F, var.equal = T, data = filtered_hanks.sprinkler)$p.value</code>.</p>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<answer fraction="100" format="moodle_auto_format">
+<text>1</text>
+<tolerance>0.02</tolerance>
+</answer>
+</question>
+
+</quiz>

@@ -30,6 +30,7 @@ format:
       <script src="assets/fontawesome-free-6.1.1-web/js/all.min.js"></script>
 callout-icon: false
 output-file: index.html
+keep-tex: true
 execute:
   echo: true
   message: false
@@ -40,6 +41,7 @@ execute:
 
 ```{r setup, include = FALSE}
 library(tidyverse)
+library(gt)
 library(showtext)
 
 rotating_text <- function(x, align = "top") {
@@ -86,7 +88,6 @@ theme_clean <- function() {
 }
 ```
 
-
 ::: title-box
 <h2>`r rmarkdown::metadata$pagetitle`</h2>
 
@@ -97,54 +98,51 @@ theme_clean <- function() {
 
 ------------------------------------------------------------------------
 
-##  Week Four - Statistical Inference
+## Week Four - Statistical Inference
 
 ::: {style="font-size: 100%;"}
+-   Time we did some statistics on our data
 
-- Time we did some statistics on our data
+-   This ties in nicely with John's half of our course
 
-- This ties in nicely with John's half of our course
+-   We'll look at this from three perspectives
 
-- We'll look at this from three perspectives
+    -   distributions
 
-    - distributions
-    
-    - confidence intervals
-    
-    - hypothesis tests
+    -   confidence intervals
 
+    -   hypothesis tests
 :::
 
 ## Distributions
 
-- There are lots of these, but we'll mention four (and describe two)
+-   There are lots of these, but we'll mention five (and describe two)
 
-    - **binomial** (discrete)
+    -   **binomial** (discrete)
+
+    -   poisson
+
+    -   **normal** (continuous)
     
-    - poisson
-    
-    - **normal** (continuous)
-    
-    - exponential
-    
-    
+    -   Student's t distribution
+
+    -   exponential
+
 ## Binomial Distribution
 
-- number of _successes_ in a sequence of trials
+-   number of *successes* in a sequence of trials
 
-- three parameters
+-   three parameters
 
-    - the number of trials, **n**
-    
-    - the number of successes, **k**
-    
-    - the probability of success in a single trial, **p**
-    
----
+    -   the number of trials, **n**
 
-$$ {\displaystyle f(k,n,p)=\Pr(k;n,p)=\Pr(X=k)={\binom {n}{k}}p^{k}(1-p)^{n-k}}$$
-for k = 0, 1, 2, ..., n, where
+    -   the number of successes, **k**
 
+    -   the probability of success in a single trial, **p**
+
+------------------------------------------------------------------------
+
+$$ {\displaystyle f(k,n,p)=\Pr(k;n,p)=\Pr(X=k)={\binom {n}{k}}p^{k}(1-p)^{n-k}}$$ for k = 0, 1, 2, ..., n, where
 
 $$ {\displaystyle {\binom {n}{k}}={\frac {n!}{k!(n-k)!}}} $$
 
@@ -156,7 +154,6 @@ $$ {\displaystyle {\binom {n}{k}}={\frac {n!}{k!(n-k)!}}} $$
 n <- 100
 p <- 0.85
 ```
-
 
 A rocket launch has a probability of success of `r p`%. From a `r n` launches, what is the profile of the number of successes?
 
@@ -199,34 +196,30 @@ dbinom(x = 60, size = 100, prob = 0.85)
 dbinom(x = 50, size = 100, prob = 0.85)
 ```
 
-
 ## `dbinom()`, `pbinom()`, `qbinom()`, and `rbinom()`
 
 ::: {style="font-size: 80%;"}
+-   `dbinom()` calculates the probability of a specific outcome value
 
-- `dbinom()` calculates the probability of a specific outcome value
+-   `pbinom()` calculates the sum of probabilities less than (or greater than), an outcome value
 
-- `pbinom()` calculates the sum of probabilities less than (or greater than), an outcome value
+    -   this is the *cumulative probability*
 
-    - this is the _cumulative probability_
-    
-    - adds up a whole bunch of `dbinom()`'s
-    
-- `qbinom()` calculates the number of successes below which there is a certain probability
+    -   adds up a whole bunch of `dbinom()`'s
 
-    - like the inverse function of `pbinom()`
-    
-    - give it a probability of it works out the number of successes threshold
-    
-- `rbinom()` generates random numbers of _successs_ from a binomial distribution
+-   `qbinom()` calculates the number of successes below which there is a certain probability
 
+    -   like the inverse function of `pbinom()`
+
+    -   give it a probability and it works out the number of successes threshold
+
+-   `rbinom()` generates random numbers of *successs* from a binomial distribution
 :::
 
 ## `pbinom()`
 
-::::{.columns}
-:::{.column width="50%"}
-
+::: columns
+::: {.column width="50%"}
 ```{r}
 #| echo: false
 
@@ -235,12 +228,10 @@ theme_set(
   theme(plot.title.position = "plot"))
 ```
 
-
 ```{r}
 #| eval: false
 pbinom(1:100,100,0.85,lower.tail=TRUE)
 ```
-
 
 ```{r binom-2}
 #| echo: false
@@ -252,15 +243,13 @@ tibble(x = 1:n, y = pbinom(1:n, n, p, lower.tail=T)) |>
   labs(title = "Probability of getting this or less than this\nnumber of successful rocket launches", y = "", x = "Successful Launches")
 
 ```
-
 :::
-:::{.column width="50%"}
 
+::: {.column width="50%"}
 ```{r}
 #| eval: false
 pbinom(1:100,100,0.85,lower.tail=FALSE)
 ```
-
 
 ```{r binom-3}
 #| echo: false
@@ -272,45 +261,35 @@ tibble(x = 1:n, y = pbinom(1:n, n, p, lower.tail = F)) |>
   labs(title = "Probability of getting more than this\nnumber of successful rocket launches", y = "", x = "Successful Launches")
 
 ```
-
 :::
-::::
+:::
 
 ::: {style="font-size: 80%;"}
+-   `lower.tail = TRUE` means *k* successes or less (successes $\le$ threshold, k)
 
-- `lower.tail = TRUE` means _k_ successes or less (successes $\le$ threshold, k)
- 
-- `lower.tail = FALSE` means more than _k_ successes (successes $>$ threshold, k)
+-   `lower.tail = FALSE` means more than *k* successes (successes $>$ threshold, k)
 
-- worth remembering when to use `lower.tail = TRUE/FALSE`
-
+-   worth remembering when to use `lower.tail = TRUE/FALSE`
 :::
 
 ## Example
 
-- Family of eight children, chance of getting at least 7 girls
+-   Family of eight children, chance of getting at least 7 girls
 
 ```{r}
 dbinom(x = 7, size = 8, prob = 0.5) + dbinom(x = 8, size = 8, prob = 0.5)
 ```
 
-
-
 ```{r}
 pbinom(q = 6, size = 8, prob = 0.5, lower.tail = FALSE)
 ```
 
-
-
-- Note we had to use _k - 1 = 6_ in `pbinom()` calculation
-
+-   Note we had to use *k - 1 = 6* in `pbinom()` calculation
 
 ## `qbinom()`
 
-::::{.columns}
-
-:::{.column width="50%"}
-
+::: columns
+::: {.column width="50%"}
 ```{r}
 #| echo: false
 #| fig-height: 8
@@ -323,49 +302,56 @@ tibble(x = seq(0, 1, by = 0.01), y = qbinom(seq(0, 1, by = 0.01), 8, 0.5)) |>
         axis.text = element_text(size = 36))
   
 ```
-
-:::
-:::{.column width="50%"}
-
-- in families of eight children, 30% of them have **X** girls or less. What is **X**?
-
-- `qbinom(p = 0.3, size = 8, prob = 0.5, lower.tail = TRUE)`
-
-- gives **X** = 3
-
 :::
 
-::::
+::: {.column width="50%"}
+-   in families of eight children, 30% of them have **X** girls or less. What is **X**?
+
+-   `qbinom(p = 0.3, size = 8, prob = 0.5, lower.tail = TRUE)`
+
+-   gives **X** = 3
+:::
+:::
+
+## `pbinom()` versus `qbinom()`
+
+-   `pbinom()` gives the [probability]{.underline} of observing at least *k* successes
+
+    -   it returns a **probability**
+
+-   `qbinom()` gives the [number of successes]{.underline} that would be observed with *p* probability
+
+    -   it returns a **number of successes**
+
+    -   gives us the positon of some *quantile*
 
 ## `rbinom()`
 
-- this gives a random number from the distribution
+-   this gives a random number from the distribution
 
-- take a sample of `r n` rocket launches, then for this sample `r rbinom(1, n, p)` will be successful
+-   take a sample of `r n` rocket launches, then for this sample `r rbinom(1, n, p)` will be successful
 
-- command is `rbinom(n = 1, size= `r n`, prob = `r p`)`
+-   command is `rbinom(n = 1, size=`r n`, prob =`r p`)`
 
-    - `n = 1` means just one sample
-    
+    -   `n = 1` means just one sample
 
 ## Normal Distribution
 
-- spread in values of a continuous variable
+-   spread in values of a continuous variable
 
-- two parameters
+-   two parameters
 
-    - the mean value, **$$ \mu $$**
-    
-    - the standard deviation, **$$ \sigma $$**
-    
-    
----
+-   the mean value, $\mu$
+
+-   the standard deviation, $\sigma$
+
+------------------------------------------------------------------------
 
 $$ {\displaystyle f(x)={\frac {1}{\sigma {\sqrt {2\pi }}}}e^{-{\frac {1}{2}}\left({\frac {x-\mu }{\sigma }}\right)^{2}}} $$
-- $$ \mu $$ is the mean
 
-- $$ \sigma $$ is the standard deviation
+- $\mu$ is the mean
 
+- $\sigma$ is the standard deviation
 
 ## What this looks like:
 
@@ -376,8 +362,7 @@ m <- 1.5
 dev <- 0.2
 ```
 
-
-A human liver has an average mass of `r p`kg with a standard deviation of `r dev`kg. 
+A human liver has an average mass of `r p`kg with a standard deviation of `r dev`kg.
 
 ```{r norm-1}
 #| echo: false
@@ -420,34 +405,30 @@ dnorm(x = 1.8, mean = 1.5, sd = 0.2)
 dnorm(x = 2.0, mean = 1.5, sd = 0.2)
 ```
 
-
 ## `dnorm()`, `pnorm()`, `qnorm()`, and `rnorm()`
 
 ::: {style="font-size: 80%;"}
+-   `dnorm()` calculates the relative probability of a specific outcome value
 
-- `dnorm()` calculates the relative probability of a specific outcome value
+-   `pnorm()` calculates the sum of probabilities less than (or greater than), an outcome value
 
-- `pnorm()` calculates the sum of probabilities less than (or greater than), an outcome value
+    -   this is the *cumulative probability*
 
-    - this is the _cumulative probability_
-    
-    - adds up a whole bunch of `dnorm()`'s
-    
-- `qbinom()` calculates the number of successes below which there is a certain probability
+    -   adds up a whole bunch of `dnorm()`'s
 
-    - like the inverse function of `pbinom()`
-    
-    - give it a probability of it works out the number of successes threshold
-    
-- `rbinom()` generates random numbers of _successs_ from a binomial distribution
+-   `qnorm()` calculates the value below which there is a certain probability
 
+    -   like the inverse function of `pnorm()`
+
+    -   give it a probability and it works out the value
+
+-   `rnorm()` generates random value from the normal distribution
 :::
 
-## `pbinom()`
+## `pnorm()`
 
-::::{.columns}
-:::{.column width="50%"}
-
+::: columns
+::: {.column width="50%"}
 ```{r}
 #| echo: false
 
@@ -456,115 +437,85 @@ theme_set(
   theme(plot.title.position = "plot"))
 ```
 
-
 ```{r}
 #| eval: false
-pbinom(1:100,100,0.85,lower.tail=TRUE)
+pnorm(q = seq(0, 3, by = 0.01), mean = 1.5, sd = 0.2, lower.tail = TRUE)
 ```
-
 
 ```{r norm-2}
 #| echo: false
-
-tibble(x = 1:n, y = pbinom(1:n, n, p, lower.tail=T)) |> 
+x <- seq(0, 3, by = 0.01)
+y <- pnorm(q = x, mean = 1.5, sd = 0.2, lower.tail = TRUE)
+tibble(x = x, y = y) |> 
   ggplot(aes(x, y))  + 
   geom_point(size = 5, colour = "firebrick4") + 
   geom_line(alpha = 0.5, colour = "firebrick4") +
-  labs(title = "Probability of getting this or less than this\nnumber of successful rocket launches", y = "", x = "Successful Launches")
+  labs(title = "Probability of a human liver being lighter than this mass", y = "", x = "Liver Mass (kg)")
 
 ```
-
 :::
-:::{.column width="50%"}
 
+::: {.column width="50%"}
 ```{r}
 #| eval: false
-pbinom(1:100,100,0.85,lower.tail=FALSE)
+pnorm(q = seq(0, 3, by = 0.01), mean = 1.5, sd = 0.2, lower.tail = FALSE)
 ```
-
 
 ```{r norm-3}
 #| echo: false
 
-tibble(x = 1:n, y = pbinom(1:n, n, p, lower.tail = F)) |> 
+x <- seq(0, 3, by = 0.01)
+y <- pnorm(q = x, mean = 1.5, sd = 0.2, lower.tail = FALSE)
+tibble(x = x, y = y) |> 
   ggplot(aes(x, y))  + 
   geom_point(size = 5, colour = "firebrick4") + 
   geom_line(alpha = 0.5, colour = "firebrick4") +
-  labs(title = "Probability of getting more than this\nnumber of successful rocket launches", y = "", x = "Successful Launches")
+  labs(title = "Probability of a human liver being **heavier** than this mass", y = "", x = "Liver Mass (kg)") +
+  theme(plot.title = ggtext::element_textbox_simple())
 
 ```
-
 :::
-::::
+:::
 
 ::: {style="font-size: 80%;"}
+-   `lower.tail = TRUE` means values less than
 
-- `lower.tail = TRUE` means _k_ successes or less (successes $\le$ threshold, k)
- 
-- `lower.tail = FALSE` means more than _k_ successes (successes $>$ threshold, k)
+-   `lower.tail = FALSE` means values more than
 
-- worth remembering when to use `lower.tail = TRUE/FALSE`
-
+-   because this is a continuous distribution we never have to worry about the pesky *-1*
 :::
 
-## Example
-
-- Family of eight children, chance of getting at least 7 girls
-
-```{r}
-dbinom(x = 7, size = 8, prob = 0.5) + dbinom(x = 8, size = 8, prob = 0.5)
-```
-
-
-
-```{r}
-pbinom(q = 6, size = 8, prob = 0.5, lower.tail = FALSE)
-```
-
-
-
-- Note we had to use _k - 1 = 6_ in `pbinom()` calculation
-
-
-## `qbinom()`
-
-::::{.columns}
-
-:::{.column width="50%"}
+## Examples
 
 ```{r}
 #| echo: false
-#| fig-height: 8
-tibble(x = seq(0, 1, by = 0.01), y = qbinom(seq(0, 1, by = 0.01), 8, 0.5)) |> 
-  ggplot(aes(x, y)) + 
-  geom_line() + 
-  labs(y = "At least this number of girls",
-       x = "Proportion of Families") +
-  theme(axis.title = element_text(size = 44),
-        axis.text = element_text(size = 36))
-  
+#| 
+my_mean <- 12
+my_sd <- 5
 ```
 
-:::
-:::{.column width="50%"}
+::: {style="font-size: 80%;"}
 
-- in families of eight children, 30% of them have **X** girls or less. What is **X**?
+- The concentration of $PM_{2.5}$ in air has an average value of `r my_mean` $\mu g/m^{3}$ with a standard deviation of `r my_sd` $\mu g/m^{3}$. What is the probability that a given day will exceed the recommended 25$\mu g/m^{3}$?
 
-- `qbinom(p = 0.3, size = 8, prob = 0.5, lower.tail = TRUE)`
-
-- gives **X** = 3
-
-:::
-
-::::
-
-## `rbinom()`
-
-- this gives a random number from the distribution
-
-- take a sample of `r n` rocket launches, then for this sample `r rbinom(1, n, p)` will be successful
-
-- command is `rbinom(n = 1, size= `r n`, prob = `r p`)`
-
-    - `n = 1` means just one sample
+    - `pnorm(q = 25, mean = `r my_mean`, sd = `r my_sd`, lower.tail = FALSE)`
     
+    - gives `r (pnorm(q = 25, mean = my_mean, sd = my_sd, lower.tail = FALSE)*100) |> signif(2)`%
+    
+- Using the values above, what is the highest value of $PM_{2.5}$ we can expect to see once a year?
+
+     - `qnorm(p = 1/365.25, mean = `r my_mean`, sd = `r my_sd`, lower.tail = FALSE)`
+     
+     - gives `r qnorm(p = 1/365.25, mean = my_mean, sd = my_sd, lower.tail = FALSE) |> round(1)`$\mu g/m^{3}$
+
+:::
+
+## `rnorm()`
+
+-   this gives a random number from the normal distribution
+
+-   a random sample of one person's liver mass
+
+-   command is `rnorm(n = 1, mean = 1.5, sd = 0.2)`
+
+    -   `n = 1` means just one sample

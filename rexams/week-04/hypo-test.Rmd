@@ -8,17 +8,15 @@ repeat{
     sample(1)
   subplot2 <- 1:12 |> 
     sample(1)  
-  if(subplot1 != subplot2){
+  solution <- t.test(yield ~ subplot, 
+                     paired = F, 
+                     var.equal = T, 
+                     data = hanks.sprinkler |> filter(subplot %in% c(subplot1, subplot2))
+  )$p.value
+  if(subplot1 != subplot2 & solution > 0.1){
     break
   }
 }
-
-
-solution <- t.test(yield ~ subplot, 
-                   paired = F, 
-                   var.equal = T, 
-                   data = hanks.sprinkler |> filter(subplot %in% c(subplot1, subplot2))
-                   )$p.value
 ```
 
 

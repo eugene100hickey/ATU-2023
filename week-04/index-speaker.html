@@ -436,11 +436,12 @@ Introduction to Statistical Computing - dplyr
 <section id="distributions" class="slide level2">
 <h2>Distributions</h2>
 <ul>
-<li><p>There are lots of these, but we’ll mention four (and describe two)</p>
+<li><p>There are lots of these, but we’ll mention five (and describe two)</p>
 <ul>
 <li><p><strong>binomial</strong> (discrete)</p></li>
 <li><p>poisson</p></li>
 <li><p><strong>normal</strong> (continuous)</p></li>
+<li><p>Student’s t distribution</p></li>
 <li><p>exponential</p></li>
 </ul></li>
 </ul>
@@ -526,7 +527,7 @@ Introduction to Statistical Computing - dplyr
 <li><p><code>qbinom()</code> calculates the number of successes below which there is a certain probability</p>
 <ul>
 <li><p>like the inverse function of <code>pbinom()</code></p></li>
-<li><p>give it a probability of it works out the number of successes threshold</p></li>
+<li><p>give it a probability and it works out the number of successes threshold</p></li>
 </ul></li>
 <li><p><code>rbinom()</code> generates random numbers of <em>successs</em> from a binomial distribution</p></li>
 </ul>
@@ -605,12 +606,26 @@ Introduction to Statistical Computing - dplyr
 </div>
 </div>
 </section>
+<section id="pbinom-versus-qbinom" class="slide level2">
+<h2><code>pbinom()</code> versus <code>qbinom()</code></h2>
+<ul>
+<li><p><code>pbinom()</code> gives the <u>probability</u> of observing at least <em>k</em> successes</p>
+<ul>
+<li>it returns a <strong>probability</strong></li>
+</ul></li>
+<li><p><code>qbinom()</code> gives the <u>number of successes</u> that would be observed with <em>p</em> probability</p>
+<ul>
+<li><p>it returns a <strong>number of successes</strong></p></li>
+<li><p>gives us the positon of some <em>quantile</em></p></li>
+</ul></li>
+</ul>
+</section>
 <section id="rbinom" class="slide level2">
 <h2><code>rbinom()</code></h2>
 <ul>
 <li><p>this gives a random number from the distribution</p></li>
-<li><p>take a sample of 100 rocket launches, then for this sample 90 will be successful</p></li>
-<li><p>command is <code>rbinom(n = 1, size= 100, prob = 0.85)</code></p>
+<li><p>take a sample of 100 rocket launches, then for this sample 89 will be successful</p></li>
+<li><p>command is <code>rbinom(n = 1, size=100, prob =0.85)</code></p>
 <ul>
 <li><code>n = 1</code> means just one sample</li>
 </ul></li>
@@ -620,18 +635,17 @@ Introduction to Statistical Computing - dplyr
 <h2>Normal Distribution</h2>
 <ul>
 <li><p>spread in values of a continuous variable</p></li>
-<li><p>two parameters</p>
-<ul>
-<li><p>the mean value, <strong><span class="math display">\[ \mu \]</span></strong></p></li>
-<li><p>the standard deviation, <strong><span class="math display">\[ \sigma \]</span></strong></p></li>
-</ul></li>
+<li><p>two parameters</p></li>
+<li><p>the mean value, <span class="math inline">\(\mu\)</span></p></li>
+<li><p>the standard deviation, <span class="math inline">\(\sigma\)</span></p></li>
 </ul>
 </section>
 <section class="slide level2">
 
-<p><span class="math display">\[ {\displaystyle f(x)={\frac {1}{\sigma {\sqrt {2\pi }}}}e^{-{\frac {1}{2}}\left({\frac {x-\mu }{\sigma }}\right)^{2}}} \]</span> - <span class="math display">\[ \mu \]</span> is the mean</p>
+<p><span class="math display">\[ {\displaystyle f(x)={\frac {1}{\sigma {\sqrt {2\pi }}}}e^{-{\frac {1}{2}}\left({\frac {x-\mu }{\sigma }}\right)^{2}}} \]</span></p>
 <ul>
-<li><span class="math display">\[ \sigma \]</span> is the standard deviation</li>
+<li><p><span class="math inline">\(\mu\)</span> is the mean</p></li>
+<li><p><span class="math inline">\(\sigma\)</span> is the standard deviation</p></li>
 </ul>
 </section>
 <section id="what-this-looks-like-1" class="slide level2">
@@ -695,24 +709,24 @@ Introduction to Statistical Computing - dplyr
 <li><p>this is the <em>cumulative probability</em></p></li>
 <li><p>adds up a whole bunch of <code>dnorm()</code>’s</p></li>
 </ul></li>
-<li><p><code>qbinom()</code> calculates the number of successes below which there is a certain probability</p>
+<li><p><code>qnorm()</code> calculates the value below which there is a certain probability</p>
 <ul>
-<li><p>like the inverse function of <code>pbinom()</code></p></li>
-<li><p>give it a probability of it works out the number of successes threshold</p></li>
+<li><p>like the inverse function of <code>pnorm()</code></p></li>
+<li><p>give it a probability and it works out the value</p></li>
 </ul></li>
-<li><p><code>rbinom()</code> generates random numbers of <em>successs</em> from a binomial distribution</p></li>
+<li><p><code>rnorm()</code> generates random value from the normal distribution</p></li>
 </ul>
 </div>
 </section>
-<section id="pbinom-1" class="slide level2">
-<h2><code>pbinom()</code></h2>
+<section id="pnorm" class="slide level2">
+<h2><code>pnorm()</code></h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
 
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a><span class="fu">pbinom</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>,<span class="dv">100</span>,<span class="fl">0.85</span>,<span class="at">lower.tail=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a><span class="fu">pnorm</span>(<span class="at">q =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">3</span>, <span class="at">by =</span> <span class="fl">0.01</span>), <span class="at">mean =</span> <span class="fl">1.5</span>, <span class="at">sd =</span> <span class="fl">0.2</span>, <span class="at">lower.tail =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
@@ -721,7 +735,7 @@ Introduction to Statistical Computing - dplyr
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="fu">pbinom</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>,<span class="dv">100</span>,<span class="fl">0.85</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="fu">pnorm</span>(<span class="at">q =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">3</span>, <span class="at">by =</span> <span class="fl">0.01</span>), <span class="at">mean =</span> <span class="fl">1.5</span>, <span class="at">sd =</span> <span class="fl">0.2</span>, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
@@ -732,57 +746,38 @@ Introduction to Statistical Computing - dplyr
 </div>
 <div style="font-size: 80%;">
 <ul>
-<li><p><code>lower.tail = TRUE</code> means <em>k</em> successes or less (successes <span class="math inline">\(\le\)</span> threshold, k)</p></li>
-<li><p><code>lower.tail = FALSE</code> means more than <em>k</em> successes (successes <span class="math inline">\(&gt;\)</span> threshold, k)</p></li>
-<li><p>worth remembering when to use <code>lower.tail = TRUE/FALSE</code></p></li>
+<li><p><code>lower.tail = TRUE</code> means values less than</p></li>
+<li><p><code>lower.tail = FALSE</code> means values more than</p></li>
+<li><p>because this is a continuous distribution we never have to worry about the pesky <em>-1</em></p></li>
 </ul>
 </div>
 </section>
-<section id="example-1" class="slide level2">
-<h2>Example</h2>
-<ul>
-<li>Family of eight children, chance of getting at least 7 girls</li>
-</ul>
+<section id="examples" class="slide level2">
+<h2>Examples</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="fu">dbinom</span>(<span class="at">x =</span> <span class="dv">7</span>, <span class="at">size =</span> <span class="dv">8</span>, <span class="at">prob =</span> <span class="fl">0.5</span>) <span class="sc">+</span> <span class="fu">dbinom</span>(<span class="at">x =</span> <span class="dv">8</span>, <span class="at">size =</span> <span class="dv">8</span>, <span class="at">prob =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.03515625</code></pre>
+
 </div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="fu">pbinom</span>(<span class="at">q =</span> <span class="dv">6</span>, <span class="at">size =</span> <span class="dv">8</span>, <span class="at">prob =</span> <span class="fl">0.5</span>, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.03515625</code></pre>
-</div>
-</div>
+<div style="font-size: 80%;">
 <ul>
-<li>Note we had to use <em>k - 1 = 6</em> in <code>pbinom()</code> calculation</li>
-</ul>
-</section>
-<section id="qbinom-1" class="slide level2">
-<h2><code>qbinom()</code></h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="cell">
-<div class="cell-output-display">
-<p><img data-src="04-stats-inference_files/figure-revealjs/unnamed-chunk-24-1.png" width="960"></p>
-</div>
-</div>
-</div><div class="column" style="width:50%;">
+<li><p>The concentration of <span class="math inline">\(PM_{2.5}\)</span> in air has an average value of 12 <span class="math inline">\(\mu g/m^{3}\)</span> with a standard deviation of 5 <span class="math inline">\(\mu g/m^{3}\)</span>. What is the probability that a given day will exceed the recommended 25<span class="math inline">\(\mu g/m^{3}\)</span>?</p>
 <ul>
-<li><p>in families of eight children, 30% of them have <strong>X</strong> girls or less. What is <strong>X</strong>?</p></li>
-<li><p><code>qbinom(p = 0.3, size = 8, prob = 0.5, lower.tail = TRUE)</code></p></li>
-<li><p>gives <strong>X</strong> = 3</p></li>
+<li><p><code>pnorm(q = 25, mean = 12, sd = 5, lower.tail = FALSE)</code></p></li>
+<li><p>gives 0.47%</p></li>
+</ul></li>
+<li><p>Using the values above, what is the highest value of <span class="math inline">\(PM_{2.5}\)</span> we can expect to see once a year?</p>
+<ul>
+<li><p><code>qnorm(p = 1/365.25, mean = 12, sd = 5, lower.tail = FALSE)</code></p></li>
+<li><p>gives 25.9<span class="math inline">\(\mu g/m^{3}\)</span></p></li>
+</ul></li>
 </ul>
-</div>
 </div>
 </section>
-<section id="rbinom-1" class="slide level2">
-<h2><code>rbinom()</code></h2>
+<section id="rnorm" class="slide level2">
+<h2><code>rnorm()</code></h2>
 <ul>
-<li><p>this gives a random number from the distribution</p></li>
-<li><p>take a sample of 100 rocket launches, then for this sample 87 will be successful</p></li>
-<li><p>command is <code>rbinom(n = 1, size= 100, prob = 0.85)</code></p>
+<li><p>this gives a random number from the normal distribution</p></li>
+<li><p>a random sample of one person’s liver mass</p></li>
+<li><p>command is <code>rnorm(n = 1, mean = 1.5, sd = 0.2)</code></p>
 <ul>
 <li><code>n = 1</code> means just one sample</li>
 </ul></li>

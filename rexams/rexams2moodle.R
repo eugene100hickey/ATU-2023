@@ -5,16 +5,16 @@ library(exams)
 #                  "rexams/penguins-class.Rmd")
 
 elearn_exam <- c(
-  "rexams/week-1/diamonds.Rmd",
-  "rexams/week-1/gettysburg.Rmd",
-  "rexams/week-1/jane-austen.Rmd",
-  "rexams/week-1/package-author.Rmd",
-  "rexams/week-1/penguins-class.Rmd",
-  "rexams/week-1/penguins-complete.Rmd",
-  "rexams/week-1/penguins-na.Rmd",
-  "rexams/week-1/penguins-table.Rmd",
-  "rexams/week-1/penguins.Rmd",
-  "rexams/week-1/titanic-proportions-table.Rmd")
+  "rexams/week-01/diamonds.Rmd",
+  # "rexams/week-1/gettysburg.Rmd",
+  # "rexams/week-1/jane-austen.Rmd",
+  # "rexams/week-1/package-author.Rmd",
+  # "rexams/week-1/penguins-class.Rmd",
+  # "rexams/week-1/penguins-complete.Rmd",
+  # "rexams/week-1/penguins-na.Rmd",
+  # "rexams/week-1/penguins-table.Rmd",
+  # "rexams/week-1/penguins.Rmd",
+  "rexams/week-01/titanic-proportions-table.Rmd")
 
 elearn_exam <- c(
   "rexams/week-2/ABA-group.Rmd",
@@ -42,13 +42,21 @@ elearn_exam <- c(
   #"rexams/week-02/pdf.Rmd"
 )
 
-# elearn_exam <- c(
-#  # "rexams/week-4/binomial-probs.Rmd",
-#  #"rexams/week-4/conf-int.Rmd",
-#  # "rexams/week-4/hypo-test.Rmd",
-#   "rexams/week-4/paired-t-test.Rmd"
-# )
+elearn_exam <- c(
+ "rexams/week-04/hypo-test.Rmd"
+ # "rexams/week-04/paired-t-test.Rmd",
+ # "rexams/week-04/binomial-probs.Rmd",
+ # "rexams/week-04/conf-int.Rmd",
+ # "rexams/week-04/normal-probs.Rmd"
+ # "rexams/week-04/normal-quant.Rmd",
+ # "rexams/week-04/binomial-quant.Rmd",
+ # "rexams/week-04/normal-probs-1.Rmd",
+ # "rexams/week-04/correct-command.Rmd",
+ # "rexams/week-04/soybean-conf-int.Rmd"
+)
+
+
 
 set.seed(42)
-exams2moodle(elearn_exam, n =2, name = "rexams2")
+exams2moodle(elearn_exam, n = 5, name = "rexams22")
 
