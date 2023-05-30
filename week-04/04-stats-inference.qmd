@@ -722,6 +722,8 @@ t.test(weight ~ group, data = my_data, paired = TRUE)
     - `remotes::install_github("lter/lterdatasampler")`
 
 
+1. Human gestation has an average period of 266 days with a standard deviation of 16 days. What is the probability that a baby will arrive exactly on their due date? Assume normal distribution.
+
 1. Make a 95% confidence interval for animal weight for the bisons recorded in the `knz_bison` dataset.
 
 1. Perform a hypothesis test that female and  male bisons are the same weight.
