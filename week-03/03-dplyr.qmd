@@ -496,7 +496,7 @@ polls_us_election_2016 %>%
 
 :::
 
-## Assignments - Week One
+## Assignments - Week Three
 
 1.  Complete week three moodle quiz
 

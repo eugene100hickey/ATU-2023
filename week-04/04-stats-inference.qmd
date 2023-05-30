@@ -573,5 +573,103 @@ my_sd <- 5
 
 ## Confidence Intervals in R
 
+::: columns
+::: {.column width="60%"}
+
 - function `t.test()` is handy for confidence interval calculation
+
+- in fact it's a bit of a Swiss army knife of conf. int., hypothesis testing....
+
+- give it a set of values and it'll output the confidence interval for their mean
+
+- `t.test(airquality$Wind)`
+
+- `t.test(airquality$Wind)$conf.int`
+
+:::
+::: {.column width="40%"}
+
+```{r}
+#| echo: false
+t.test(airquality$Wind)
+```
+
+:::
+:::
+
+
+
+## Hypothesis Testing
+
+::: {style="font-size: 80%;"}
+
+- do two samples have difference means?
+
+- consider `gapminder` dataset
+
+    - was life expectancy in 2007 higher in Southern Europe than Northern Europe?
+    
+```{r}
+z <- dslabs::gapminder |> 
+  filter(year == 2007, region %in% c("Northern Europe", "Southern Europe"))
+t.test(life_expectancy ~  region, data = z)
+```
+
+:::
+
+```{r paired-t-test-data}
+#| echo: false
+
+# Data in two numeric vectors
+# ++++++++++++++++++++++++++
+# Weight of the mice before treatment
+before <-rnorm(10, mean = 200, sd = 50) |> round(1)
+# Weight of the mice after treatment
+after <- before + rnorm(10, mean = 10, sd=5) |> round(1)
+# Create a data frame
+my_data <- data.frame( 
+    group = rep(c("before", "after"), each = 10),
+    weight = c(before,  after), mouse = c(1:10,  1:10)
+)
+```
+
+# Workshop - Week Four
+
+## Perform the Following Tasks:
+
+- These are largely based on the [lterdatasampler package](https://lter.github.io/lterdatasampler/)
+
+    - `remotes::install_github("lter/lterdatasampler")`
+
+
+1. Make a 95% confidence interval for animal weight for the bisons recorded in the `knz_bison` dataset.
+
+1. Perform a hypothesis test that female and  male bisons are the same weight.
+
+## Assignments - Week Four
+
+1.  Complete week four moodle quiz
+
+2.  Complete `swirl()` exercises
+
+::: {style="font-size: 80%; margin-left: 150px;"}
+
+-   `install.packages("swirl")`
+
+-   `library(swirl)`
+
+-   `install_course("Statistical Inference")`
+
+-   `swirl()`
+
+-   choose course *Statistical Inference*
+
+-   do the four exercises 1 (Introduction), 7 (CommonDistros),  9 (T Confidence Intervals), and 10 (Hypothesis Testing)
+
+-   email the results to eugene.hickey\@associate.atu.ie
+
+:::
+
+
+
 

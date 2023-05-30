@@ -638,7 +638,7 @@ Introduction to Statistical Computing - dplyr
 <h2><code>rbinom()</code></h2>
 <ul>
 <li><p>this gives a random number from the distribution</p></li>
-<li><p>take a sample of 100 rocket launches, then for this sample 88 will be successful</p></li>
+<li><p>take a sample of 100 rocket launches, then for this sample 87 will be successful</p></li>
 <li><p>command is <code>rbinom(n = 1, size=100, prob =0.85)</code></p>
 <ul>
 <li><code>n = 1</code> means just one sample</li>
@@ -831,14 +831,107 @@ Introduction to Statistical Computing - dplyr
 </section>
 <section id="confidence-intervals-in-r" class="slide level2">
 <h2>Confidence Intervals in R</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
 <ul>
-<li>function <code>t.test()</code> is handy for confidence interval calculation</li>
+<li><p>function <code>t.test()</code> is handy for confidence interval calculation</p></li>
+<li><p>in fact it’s a bit of a Swiss army knife of conf. int., hypothesis testing….</p></li>
+<li><p>give it a set of values and it’ll output the confidence interval for their mean</p></li>
+<li><p><code>t.test(airquality$Wind)</code></p></li>
+<li><p><code>t.test(airquality$Wind)$conf.int</code></p></li>
 </ul>
+</div><div class="column" style="width:40%;">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    One Sample t-test
+
+data:  airquality$Wind
+t = 34.961, df = 152, p-value &lt; 2.2e-16
+alternative hypothesis: true mean is not equal to 0
+95 percent confidence interval:
+  9.394804 10.520229
+sample estimates:
+mean of x 
+ 9.957516 </code></pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="hypothesis-testing" class="slide level2">
+<h2>Hypothesis Testing</h2>
+<div style="font-size: 80%;">
+<ul>
+<li><p>do two samples have difference means?</p></li>
+<li><p>consider <code>gapminder</code> dataset</p>
+<ul>
+<li>was life expectancy in 2007 higher in Southern Europe than Northern Europe?</li>
+</ul></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a>z <span class="ot">&lt;-</span> dslabs<span class="sc">::</span>gapminder <span class="sc">|&gt;</span> </span>
+<span id="cb34-2"><a href="#cb34-2"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2007</span>, region <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Northern Europe"</span>, <span class="st">"Southern Europe"</span>))</span>
+<span id="cb34-3"><a href="#cb34-3"></a><span class="fu">t.test</span>(life_expectancy <span class="sc">~</span>  region, <span class="at">data =</span> z)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Welch Two Sample t-test
+
+data:  life_expectancy by region
+t = -0.10871, df = 14.573, p-value = 0.9149
+alternative hypothesis: true difference in means between group Northern Europe and group Southern Europe is not equal to 0
+95 percent confidence interval:
+ -3.374106  3.047439
+sample estimates:
+mean in group Northern Europe mean in group Southern Europe 
+                     77.67000                      77.83333 </code></pre>
+</div>
+</div>
+</div>
+<div class="cell">
+
+</div>
+</section>
+<section>
+<section id="workshop---week-four" class="title-slide slide level1 center">
+<h1>Workshop - Week Four</h1>
+
+</section>
+<section id="perform-the-following-tasks" class="slide level2">
+<h2>Perform the Following Tasks:</h2>
+<ul>
+<li><p>These are largely based on the <a href="https://lter.github.io/lterdatasampler/">lterdatasampler package</a></p>
+<ul>
+<li><code>remotes::install_github("lter/lterdatasampler")</code></li>
+</ul></li>
+</ul>
+<ol type="1">
+<li><p>Make a 95% confidence interval for animal weight for the bisons recorded in the <code>knz_bison</code> dataset.</p></li>
+<li><p>Perform a hypothesis test that female and male bisons are the same weight.</p></li>
+</ol>
+</section>
+<section id="assignments---week-four" class="slide level2">
+<h2>Assignments - Week Four</h2>
+<ol type="1">
+<li><p>Complete week four moodle quiz</p></li>
+<li><p>Complete <code>swirl()</code> exercises</p></li>
+</ol>
+<div style="font-size: 80%; margin-left: 150px;">
+<ul>
+<li><p><code>install.packages("swirl")</code></p></li>
+<li><p><code>library(swirl)</code></p></li>
+<li><p><code>install_course("Statistical Inference")</code></p></li>
+<li><p><code>swirl()</code></p></li>
+<li><p>choose course <em>Statistical Inference</em></p></li>
+<li><p>do the four exercises 1 (Introduction), 7 (CommonDistros), 9 (T Confidence Intervals), and 10 (Hypothesis Testing)</p></li>
+<li><p>email the results to eugene.hickey@associate.atu.ie</p></li>
+</ul>
+</div>
 <p><img src="images/atu-logo.png" class="slide-logo"></p>
 <div class="footer footer-default">
 <p><a href="https://vlesligo.atu.ie">Statistical Computing</a></p>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
