@@ -617,6 +617,17 @@ t.test(life_expectancy ~  region, data = z)
 
 :::
 
+## Paired T-tests
+
+::: columns
+::: {.column width="50%"}
+
+Ten mice were placed on a high fat diet. Their weights were recorded before and afterwards. Is  there a significant weight gain?
+
+:::
+::: {.column width="50%"}
+
+
 ```{r paired-t-test-data}
 #| echo: false
 
@@ -630,8 +641,77 @@ after <- before + rnorm(10, mean = 10, sd=5) |> round(1)
 my_data <- data.frame( 
     group = rep(c("before", "after"), each = 10),
     weight = c(before,  after), mouse = c(1:10,  1:10)
-)
+) |> 
+  mutate(group = fct_relevel(group, "before", "after"))
+
+my_data |> 
+  relocate(mouse, .before = group) |> 
+  pivot_wider(names_from = group, values_from = weight) |> 
+  gt::gt()
 ```
+
+:::
+:::
+
+  
+
+## Graphically
+
+::: columns
+::: {.column width="50%"}
+
+```{r}
+#| echo: false
+#| fig-height: 10
+
+my_data |> 
+  ggplot(aes(group, weight)) + 
+  geom_point() + 
+  ggalt::geom_encircle(spread = 0.01) + 
+  theme_clean()
+```
+
+:::
+::: {.column width="50%"}
+
+```{r}
+#| echo: false
+#| fig-height: 10
+
+my_data |> 
+  ggplot(aes(group, weight)) + 
+  geom_point() + 
+  ggalt::geom_encircle(spread = 0.01) + 
+  theme_clean() +
+  geom_segment(x = "before", xend = "after",  
+                 aes(y = before, yend = after), 
+                 data =  my_data |> pivot_wider(names_from = group, values_from = weight),
+                 inherit.aes = F)
+```
+:::
+:::
+
+## With Paired t-test
+
+::: columns
+::: {.column width="50%"}
+
+```{r}
+#| echo: true
+t.test(weight ~ group, data = my_data)
+```
+
+:::
+::: {.column width="50%"}
+
+```{r}
+#| echo: true
+t.test(weight ~ group, data = my_data, paired = TRUE)
+```
+:::
+:::
+
+
 
 # Workshop - Week Four
 
