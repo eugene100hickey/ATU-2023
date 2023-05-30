@@ -460,7 +460,10 @@ Introduction to Statistical Computing - dplyr
 </section>
 <section class="slide level2">
 
-<p><span class="math display">\[ {\displaystyle f(k,n,p)=\Pr(k;n,p)=\Pr(X=k)={\binom {n}{k}}p^{k}(1-p)^{n-k}}\]</span> for k = 0, 1, 2, …, n, where</p>
+<p><span class="math display">\[ {\displaystyle f(k,n,p)=\Pr(k;n,p)=\Pr(X=k)={\binom {n}{k}}p^{k}(1-p)^{n-k}}\]</span></p>
+<ul>
+<li>for k = 0, 1, 2, …, n, where</li>
+</ul>
 <p><span class="math display">\[ {\displaystyle {\binom {n}{k}}={\frac {n!}{k!(n-k)!}}} \]</span></p>
 </section>
 <section id="what-this-looks-like" class="slide level2">
@@ -468,7 +471,7 @@ Introduction to Statistical Computing - dplyr
 <div class="cell">
 
 </div>
-<p>A rocket launch has a probability of success of 0.85%. From a 100 launches, what is the profile of the number of successes?</p>
+<p>A rocket launch has a probability of success of 85%. From a 100 launches, what is the profile of the number of successes?</p>
 <div class="cell">
 <div class="cell-output-display">
 <p><img data-src="04-stats-inference_files/figure-revealjs/binom-1-1.png" width="960"></p>
@@ -477,6 +480,14 @@ Introduction to Statistical Computing - dplyr
 </section>
 <section id="how-this-works-in-r" class="slide level2">
 <h2>How this works in R</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>number if successes (k) called <strong>x</strong></li>
+<li>number of trials (n) called <strong>size</strong></li>
+<li>probability (p) called <strong>prob</strong></li>
+</ul>
+</div><div class="column" style="width:50%;">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">dbinom</span>(<span class="at">x =</span> <span class="dv">90</span>, <span class="at">size =</span> <span class="dv">100</span>, <span class="at">prob =</span> <span class="fl">0.85</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -513,6 +524,8 @@ Introduction to Statistical Computing - dplyr
 <pre><code>[1] 1.902669e-16</code></pre>
 </div>
 </div>
+</div>
+</div>
 </section>
 <section id="dbinom-pbinom-qbinom-and-rbinom" class="slide level2">
 <h2><code>dbinom()</code>, <code>pbinom()</code>, <code>qbinom()</code>, and <code>rbinom()</code></h2>
@@ -528,6 +541,7 @@ Introduction to Statistical Computing - dplyr
 <ul>
 <li><p>like the inverse function of <code>pbinom()</code></p></li>
 <li><p>give it a probability and it works out the number of successes threshold</p></li>
+<li><p><em>q</em> stands for <strong>quantile</strong></p></li>
 </ul></li>
 <li><p><code>rbinom()</code> generates random numbers of <em>successs</em> from a binomial distribution</p></li>
 </ul>
@@ -624,7 +638,7 @@ Introduction to Statistical Computing - dplyr
 <h2><code>rbinom()</code></h2>
 <ul>
 <li><p>this gives a random number from the distribution</p></li>
-<li><p>take a sample of 100 rocket launches, then for this sample 86 will be successful</p></li>
+<li><p>take a sample of 100 rocket launches, then for this sample 88 will be successful</p></li>
 <li><p>command is <code>rbinom(n = 1, size=100, prob =0.85)</code></p>
 <ul>
 <li><code>n = 1</code> means just one sample</li>
@@ -814,6 +828,12 @@ Introduction to Statistical Computing - dplyr
 <p><img data-src="images/conf-int.png" style="width:75.0%;height:75.0%"></p>
 </figure>
 </div>
+</section>
+<section id="confidence-intervals-in-r" class="slide level2">
+<h2>Confidence Intervals in R</h2>
+<ul>
+<li>function <code>t.test()</code> is handy for confidence interval calculation</li>
+</ul>
 <p><img src="images/atu-logo.png" class="slide-logo"></p>
 <div class="footer footer-default">
 <p><a href="https://vlesligo.atu.ie">Statistical Computing</a></p>

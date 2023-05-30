@@ -142,7 +142,9 @@ theme_clean <- function() {
 
 ------------------------------------------------------------------------
 
-$$ {\displaystyle f(k,n,p)=\Pr(k;n,p)=\Pr(X=k)={\binom {n}{k}}p^{k}(1-p)^{n-k}}$$ for k = 0, 1, 2, ..., n, where
+$$ {\displaystyle f(k,n,p)=\Pr(k;n,p)=\Pr(X=k)={\binom {n}{k}}p^{k}(1-p)^{n-k}}$$ 
+
+- for k = 0, 1, 2, ..., n, where
 
 $$ {\displaystyle {\binom {n}{k}}={\frac {n!}{k!(n-k)!}}} $$
 
@@ -155,7 +157,7 @@ n <- 100
 p <- 0.85
 ```
 
-A rocket launch has a probability of success of `r p`%. From a `r n` launches, what is the profile of the number of successes?
+A rocket launch has a probability of success of `r p*100`%. From a `r n` launches, what is the profile of the number of successes?
 
 ```{r binom-1}
 #| echo: false
@@ -171,6 +173,16 @@ tibble(x = 1:n, y = dbinom(1:n, n, p)) |>
 ```
 
 ## How this works in R
+
+::: columns
+::: {.column width="50%"}
+
+- number if successes (k) called **x**
+- number of trials (n) called **size**
+- probability (p) called **prob**
+
+:::
+::: {.column width="50%"}
 
 ```{r}
 dbinom(x = 90, size = 100, prob = 0.85)
@@ -196,6 +208,9 @@ dbinom(x = 60, size = 100, prob = 0.85)
 dbinom(x = 50, size = 100, prob = 0.85)
 ```
 
+:::
+::::
+
 ## `dbinom()`, `pbinom()`, `qbinom()`, and `rbinom()`
 
 ::: {style="font-size: 80%;"}
@@ -212,6 +227,8 @@ dbinom(x = 50, size = 100, prob = 0.85)
     -   like the inverse function of `pbinom()`
 
     -   give it a probability and it works out the number of successes threshold
+    
+    - _q_ stands for **quantile**
 
 -   `rbinom()` generates random numbers of *successs* from a binomial distribution
 :::
@@ -553,4 +570,8 @@ my_sd <- 5
 
 ![](images/conf-int.png){fig-align="center" width=75% height=75%}
 
+
+## Confidence Intervals in R
+
+- function `t.test()` is handy for confidence interval calculation
 
