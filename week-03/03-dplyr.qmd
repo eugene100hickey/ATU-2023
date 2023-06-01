@@ -502,7 +502,7 @@ polls_us_election_2016 %>%
 
 2.  Complete `swirl()` exercises
 
-::: {style="font-size: 80%; margin-left: 150px;"}
+::: {style="font-size: 70%; margin-left: 150px;"}
 
 -   `install.packages("swirl")`
 
@@ -514,9 +514,16 @@ polls_us_election_2016 %>%
 
 -   choose course *Getting and Cleaning Data*
 
--   do the four exercises 1 (Manipulating Data with dplyr) to 4 (Dates and Times with lubridate)
+-   do the three exercises 2 (Grouping and Chaining with dplyr) to 4 (Dates and Times with lubridate)
+<!--     - note, these only work properly after restarting RStudio (Ctrl+Shift+F10) so `tidyverse` isn't loaded -->
 
--   email the results to eugene.hickey\@associate.atu.ie
+-   email a screen shot of the end of each lesson to eugene.hickey\@associate.atu.ie
+
+-   it'll look a bit like screen capture here
+:::
+
+![](images/swirl.png){.absolute top="20" right="0" width="400" height="300"}
+
 
 :::
 
