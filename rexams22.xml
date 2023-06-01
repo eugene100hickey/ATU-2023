@@ -11,120 +11,260 @@
 
 <question type="numerical">
 <name>
-<text> R1 Q1 : rexams_week-04_hypo-test </text>
+<text> R01 Q1 : rexams_week-02_noaa </text>
 </name>
 <questiontext format="html">
 <text><![CDATA[
 <p>
-<p>Install the <code>agridat</code> package from <em>CRAN</em> (use <code>install.packages("agridat")</code>). Load up the <code>hanks.sprinkler</code> data. Use <code>?hanks.sprinkler</code> to see a discription of this data. Calculate the <strong>P Value</strong> for the null hypothesis that the <code>yield</code> from <strong>subplot 8</strong> is the same as the <code>yield</code> from <strong>subplot 4</strong>. Give your answer as a probabilty between 0 and 1, and give it to three significant figures.</p>
+<p>Install the <code>rnoaa</code> package if you don’t have it already. To use it, you’ll need to register at <strong><em>https://www.ncdc.noaa.gov/cdo-web/token</em></strong>, they email you a token that you can place within your R session by <code>options(noaakey = "KEY_EMAILED_TO_YOU")</code> (see https://docs.ropensci.org/rnoaa/articles/rnoaa.html).</p>
+<p>We want to find the average rainfall in <strong>MALIN HEAD, EI</strong> for the year starting <strong>1998-01-01</strong> through to <strong>1999-01-01</strong>.</p>
+<p>You can access information about the Irish weather stations from <code>ncdc_stations(locationid = "FIPS:EI")$data</code>. Access rainfall data (called “PRCP”) using the <code>ncdc()</code> command. Set the <code>stationid</code> to the appropriate <em>id</em> value for MALIN HEAD, EI. Set the <code>startdate</code> and <code>enddate</code> appropriately. The <code>datasetid</code> is <em>“GHCND”</em>, and the <code>datatypeid</code> is <em>“PRCP”</em>. The values returned are in tenths of mm, so expect an average value to be somewhere generally from 10 to 100.</p>
 </p>]]></text>
 </questiontext>
 <generalfeedback format="html">
 <text><![CDATA[<p>
-<p>Filter the data set for only subplots 8 and 4 using <code>hanks.sprinkler |&gt; filter(subplot %in% c(8, 4)</code>. Use <code>t.test(yield ~ subplot, paired = F, var.equal = T, data = filtered_hanks.sprinkler)$p.value</code>.</p>
+<p>Use <code>ncdc_stations(locationid = "FIPS:EI")$data</code>, then <code>ncdc(datasetid='GHCND',  stationid="GHCND:EI000003980", datatypeid='PRCP', startdate = "1998-01-01", enddate = "1999-01-01", limit=500, add_units = TRUE)$data</code>.</p>
 </p>]]></text>
 </generalfeedback>
 <penalty>0</penalty>
 <defaultgrade>1</defaultgrade>
 <answer fraction="100" format="moodle_auto_format">
-<text>0.9337541</text>
-<tolerance>0.0186751</tolerance>
+<text>35.3</text>
+<tolerance>0.0706</tolerance>
 </answer>
 </question>
 
 
 <question type="numerical">
 <name>
-<text> R2 Q1 : rexams_week-04_hypo-test </text>
+<text> R02 Q1 : rexams_week-02_noaa </text>
 </name>
 <questiontext format="html">
 <text><![CDATA[
 <p>
-<p>Install the <code>agridat</code> package from <em>CRAN</em> (use <code>install.packages("agridat")</code>). Load up the <code>hanks.sprinkler</code> data. Use <code>?hanks.sprinkler</code> to see a discription of this data. Calculate the <strong>P Value</strong> for the null hypothesis that the <code>yield</code> from <strong>subplot 4</strong> is the same as the <code>yield</code> from <strong>subplot 6</strong>. Give your answer as a probabilty between 0 and 1, and give it to three significant figures.</p>
+<p>Install the <code>rnoaa</code> package if you don’t have it already. To use it, you’ll need to register at <strong><em>https://www.ncdc.noaa.gov/cdo-web/token</em></strong>, they email you a token that you can place within your R session by <code>options(noaakey = "KEY_EMAILED_TO_YOU")</code> (see https://docs.ropensci.org/rnoaa/articles/rnoaa.html).</p>
+<p>We want to find the average rainfall in <strong>DUBLIN PHOENIX PARK, EI</strong> for the year starting <strong>1907-01-01</strong> through to <strong>1908-01-01</strong>.</p>
+<p>You can access information about the Irish weather stations from <code>ncdc_stations(locationid = "FIPS:EI")$data</code>. Access rainfall data (called “PRCP”) using the <code>ncdc()</code> command. Set the <code>stationid</code> to the appropriate <em>id</em> value for DUBLIN PHOENIX PARK, EI. Set the <code>startdate</code> and <code>enddate</code> appropriately. The <code>datasetid</code> is <em>“GHCND”</em>, and the <code>datatypeid</code> is <em>“PRCP”</em>. The values returned are in tenths of mm, so expect an average value to be somewhere generally from 10 to 100.</p>
 </p>]]></text>
 </questiontext>
 <generalfeedback format="html">
 <text><![CDATA[<p>
-<p>Filter the data set for only subplots 4 and 6 using <code>hanks.sprinkler |&gt; filter(subplot %in% c(4, 6)</code>. Use <code>t.test(yield ~ subplot, paired = F, var.equal = T, data = filtered_hanks.sprinkler)$p.value</code>.</p>
+<p>Use <code>ncdc_stations(locationid = "FIPS:EI")$data</code>, then <code>ncdc(datasetid='GHCND',  stationid="GHCND:EI000003969", datatypeid='PRCP', startdate = "1907-01-01", enddate = "1908-01-01", limit=500, add_units = TRUE)$data</code>.</p>
 </p>]]></text>
 </generalfeedback>
 <penalty>0</penalty>
 <defaultgrade>1</defaultgrade>
 <answer fraction="100" format="moodle_auto_format">
-<text>0.3513629</text>
-<tolerance>0.0070273</tolerance>
+<text>19.3</text>
+<tolerance>0.0386</tolerance>
 </answer>
 </question>
 
 
 <question type="numerical">
 <name>
-<text> R3 Q1 : rexams_week-04_hypo-test </text>
+<text> R03 Q1 : rexams_week-02_noaa </text>
 </name>
 <questiontext format="html">
 <text><![CDATA[
 <p>
-<p>Install the <code>agridat</code> package from <em>CRAN</em> (use <code>install.packages("agridat")</code>). Load up the <code>hanks.sprinkler</code> data. Use <code>?hanks.sprinkler</code> to see a discription of this data. Calculate the <strong>P Value</strong> for the null hypothesis that the <code>yield</code> from <strong>subplot 2</strong> is the same as the <code>yield</code> from <strong>subplot 12</strong>. Give your answer as a probabilty between 0 and 1, and give it to three significant figures.</p>
+<p>Install the <code>rnoaa</code> package if you don’t have it already. To use it, you’ll need to register at <strong><em>https://www.ncdc.noaa.gov/cdo-web/token</em></strong>, they email you a token that you can place within your R session by <code>options(noaakey = "KEY_EMAILED_TO_YOU")</code> (see https://docs.ropensci.org/rnoaa/articles/rnoaa.html).</p>
+<p>We want to find the average rainfall in <strong>JOHNSTOWN CASTLE, EI</strong> for the year starting <strong>2017-08-01</strong> through to <strong>2018-08-01</strong>.</p>
+<p>You can access information about the Irish weather stations from <code>ncdc_stations(locationid = "FIPS:EI")$data</code>. Access rainfall data (called “PRCP”) using the <code>ncdc()</code> command. Set the <code>stationid</code> to the appropriate <em>id</em> value for JOHNSTOWN CASTLE, EI. Set the <code>startdate</code> and <code>enddate</code> appropriately. The <code>datasetid</code> is <em>“GHCND”</em>, and the <code>datatypeid</code> is <em>“PRCP”</em>. The values returned are in tenths of mm, so expect an average value to be somewhere generally from 10 to 100.</p>
 </p>]]></text>
 </questiontext>
 <generalfeedback format="html">
 <text><![CDATA[<p>
-<p>Filter the data set for only subplots 2 and 12 using <code>hanks.sprinkler |&gt; filter(subplot %in% c(2, 12)</code>. Use <code>t.test(yield ~ subplot, paired = F, var.equal = T, data = filtered_hanks.sprinkler)$p.value</code>.</p>
+<p>Use <code>ncdc_stations(locationid = "FIPS:EI")$data</code>, then <code>ncdc(datasetid='GHCND',  stationid="GHCND:EIM00003956", datatypeid='PRCP', startdate = "2017-08-01", enddate = "2018-08-01", limit=500, add_units = TRUE)$data</code>.</p>
 </p>]]></text>
 </generalfeedback>
 <penalty>0</penalty>
 <defaultgrade>1</defaultgrade>
 <answer fraction="100" format="moodle_auto_format">
-<text>0.6894542</text>
-<tolerance>0.0137891</tolerance>
+<text>58.4</text>
+<tolerance>0.1168</tolerance>
 </answer>
 </question>
 
 
 <question type="numerical">
 <name>
-<text> R4 Q1 : rexams_week-04_hypo-test </text>
+<text> R04 Q1 : rexams_week-02_noaa </text>
 </name>
 <questiontext format="html">
 <text><![CDATA[
 <p>
-<p>Install the <code>agridat</code> package from <em>CRAN</em> (use <code>install.packages("agridat")</code>). Load up the <code>hanks.sprinkler</code> data. Use <code>?hanks.sprinkler</code> to see a discription of this data. Calculate the <strong>P Value</strong> for the null hypothesis that the <code>yield</code> from <strong>subplot 5</strong> is the same as the <code>yield</code> from <strong>subplot 4</strong>. Give your answer as a probabilty between 0 and 1, and give it to three significant figures.</p>
+<p>Install the <code>rnoaa</code> package if you don’t have it already. To use it, you’ll need to register at <strong><em>https://www.ncdc.noaa.gov/cdo-web/token</em></strong>, they email you a token that you can place within your R session by <code>options(noaakey = "KEY_EMAILED_TO_YOU")</code> (see https://docs.ropensci.org/rnoaa/articles/rnoaa.html).</p>
+<p>We want to find the average rainfall in <strong>MALIN HEAD, EI</strong> for the year starting <strong>1993-01-01</strong> through to <strong>1994-01-01</strong>.</p>
+<p>You can access information about the Irish weather stations from <code>ncdc_stations(locationid = "FIPS:EI")$data</code>. Access rainfall data (called “PRCP”) using the <code>ncdc()</code> command. Set the <code>stationid</code> to the appropriate <em>id</em> value for MALIN HEAD, EI. Set the <code>startdate</code> and <code>enddate</code> appropriately. The <code>datasetid</code> is <em>“GHCND”</em>, and the <code>datatypeid</code> is <em>“PRCP”</em>. The values returned are in tenths of mm, so expect an average value to be somewhere generally from 10 to 100.</p>
 </p>]]></text>
 </questiontext>
 <generalfeedback format="html">
 <text><![CDATA[<p>
-<p>Filter the data set for only subplots 5 and 4 using <code>hanks.sprinkler |&gt; filter(subplot %in% c(5, 4)</code>. Use <code>t.test(yield ~ subplot, paired = F, var.equal = T, data = filtered_hanks.sprinkler)$p.value</code>.</p>
+<p>Use <code>ncdc_stations(locationid = "FIPS:EI")$data</code>, then <code>ncdc(datasetid='GHCND',  stationid="GHCND:EI000003980", datatypeid='PRCP', startdate = "1993-01-01", enddate = "1994-01-01", limit=500, add_units = TRUE)$data</code>.</p>
 </p>]]></text>
 </generalfeedback>
 <penalty>0</penalty>
 <defaultgrade>1</defaultgrade>
 <answer fraction="100" format="moodle_auto_format">
-<text>0.3530864</text>
-<tolerance>0.0070617</tolerance>
+<text>29.7</text>
+<tolerance>0.0594</tolerance>
 </answer>
 </question>
 
 
 <question type="numerical">
 <name>
-<text> R5 Q1 : rexams_week-04_hypo-test </text>
+<text> R05 Q1 : rexams_week-02_noaa </text>
 </name>
 <questiontext format="html">
 <text><![CDATA[
 <p>
-<p>Install the <code>agridat</code> package from <em>CRAN</em> (use <code>install.packages("agridat")</code>). Load up the <code>hanks.sprinkler</code> data. Use <code>?hanks.sprinkler</code> to see a discription of this data. Calculate the <strong>P Value</strong> for the null hypothesis that the <code>yield</code> from <strong>subplot 8</strong> is the same as the <code>yield</code> from <strong>subplot 7</strong>. Give your answer as a probabilty between 0 and 1, and give it to three significant figures.</p>
+<p>Install the <code>rnoaa</code> package if you don’t have it already. To use it, you’ll need to register at <strong><em>https://www.ncdc.noaa.gov/cdo-web/token</em></strong>, they email you a token that you can place within your R session by <code>options(noaakey = "KEY_EMAILED_TO_YOU")</code> (see https://docs.ropensci.org/rnoaa/articles/rnoaa.html).</p>
+<p>We want to find the average rainfall in <strong>GALWAY, EI</strong> for the year starting <strong>1952-01-01</strong> through to <strong>1953-01-01</strong>.</p>
+<p>You can access information about the Irish weather stations from <code>ncdc_stations(locationid = "FIPS:EI")$data</code>. Access rainfall data (called “PRCP”) using the <code>ncdc()</code> command. Set the <code>stationid</code> to the appropriate <em>id</em> value for GALWAY, EI. Set the <code>startdate</code> and <code>enddate</code> appropriately. The <code>datasetid</code> is <em>“GHCND”</em>, and the <code>datatypeid</code> is <em>“PRCP”</em>. The values returned are in tenths of mm, so expect an average value to be somewhere generally from 10 to 100.</p>
 </p>]]></text>
 </questiontext>
 <generalfeedback format="html">
 <text><![CDATA[<p>
-<p>Filter the data set for only subplots 8 and 7 using <code>hanks.sprinkler |&gt; filter(subplot %in% c(8, 7)</code>. Use <code>t.test(yield ~ subplot, paired = F, var.equal = T, data = filtered_hanks.sprinkler)$p.value</code>.</p>
+<p>Use <code>ncdc_stations(locationid = "FIPS:EI")$data</code>, then <code>ncdc(datasetid='GHCND',  stationid="GHCND:EIE00101859", datatypeid='PRCP', startdate = "1952-01-01", enddate = "1953-01-01", limit=500, add_units = TRUE)$data</code>.</p>
 </p>]]></text>
 </generalfeedback>
 <penalty>0</penalty>
 <defaultgrade>1</defaultgrade>
 <answer fraction="100" format="moodle_auto_format">
-<text>1</text>
-<tolerance>0.02</tolerance>
+<text>18.8</text>
+<tolerance>0.0376</tolerance>
+</answer>
+</question>
+
+
+<question type="numerical">
+<name>
+<text> R06 Q1 : rexams_week-02_noaa </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[
+<p>
+<p>Install the <code>rnoaa</code> package if you don’t have it already. To use it, you’ll need to register at <strong><em>https://www.ncdc.noaa.gov/cdo-web/token</em></strong>, they email you a token that you can place within your R session by <code>options(noaakey = "KEY_EMAILED_TO_YOU")</code> (see https://docs.ropensci.org/rnoaa/articles/rnoaa.html).</p>
+<p>We want to find the average rainfall in <strong>CORK, EI</strong> for the year starting <strong>1975-01-01</strong> through to <strong>1976-01-01</strong>.</p>
+<p>You can access information about the Irish weather stations from <code>ncdc_stations(locationid = "FIPS:EI")$data</code>. Access rainfall data (called “PRCP”) using the <code>ncdc()</code> command. Set the <code>stationid</code> to the appropriate <em>id</em> value for CORK, EI. Set the <code>startdate</code> and <code>enddate</code> appropriately. The <code>datasetid</code> is <em>“GHCND”</em>, and the <code>datatypeid</code> is <em>“PRCP”</em>. The values returned are in tenths of mm, so expect an average value to be somewhere generally from 10 to 100.</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Use <code>ncdc_stations(locationid = "FIPS:EI")$data</code>, then <code>ncdc(datasetid='GHCND',  stationid="GHCND:EIM00003955", datatypeid='PRCP', startdate = "1975-01-01", enddate = "1976-01-01", limit=500, add_units = TRUE)$data</code>.</p>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<answer fraction="100" format="moodle_auto_format">
+<text>32.3</text>
+<tolerance>0.0646</tolerance>
+</answer>
+</question>
+
+
+<question type="numerical">
+<name>
+<text> R07 Q1 : rexams_week-02_noaa </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[
+<p>
+<p>Install the <code>rnoaa</code> package if you don’t have it already. To use it, you’ll need to register at <strong><em>https://www.ncdc.noaa.gov/cdo-web/token</em></strong>, they email you a token that you can place within your R session by <code>options(noaakey = "KEY_EMAILED_TO_YOU")</code> (see https://docs.ropensci.org/rnoaa/articles/rnoaa.html).</p>
+<p>We want to find the average rainfall in <strong>ROSSLARE, EI</strong> for the year starting <strong>2005-01-01</strong> through to <strong>2006-01-01</strong>.</p>
+<p>You can access information about the Irish weather stations from <code>ncdc_stations(locationid = "FIPS:EI")$data</code>. Access rainfall data (called “PRCP”) using the <code>ncdc()</code> command. Set the <code>stationid</code> to the appropriate <em>id</em> value for ROSSLARE, EI. Set the <code>startdate</code> and <code>enddate</code> appropriately. The <code>datasetid</code> is <em>“GHCND”</em>, and the <code>datatypeid</code> is <em>“PRCP”</em>. The values returned are in tenths of mm, so expect an average value to be somewhere generally from 10 to 100.</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Use <code>ncdc_stations(locationid = "FIPS:EI")$data</code>, then <code>ncdc(datasetid='GHCND',  stationid="GHCND:EIM00003957", datatypeid='PRCP', startdate = "2005-01-01", enddate = "2006-01-01", limit=500, add_units = TRUE)$data</code>.</p>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<answer fraction="100" format="moodle_auto_format">
+<text>33.9</text>
+<tolerance>0.0678</tolerance>
+</answer>
+</question>
+
+
+<question type="numerical">
+<name>
+<text> R08 Q1 : rexams_week-02_noaa </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[
+<p>
+<p>Install the <code>rnoaa</code> package if you don’t have it already. To use it, you’ll need to register at <strong><em>https://www.ncdc.noaa.gov/cdo-web/token</em></strong>, they email you a token that you can place within your R session by <code>options(noaakey = "KEY_EMAILED_TO_YOU")</code> (see https://docs.ropensci.org/rnoaa/articles/rnoaa.html).</p>
+<p>We want to find the average rainfall in <strong>ROSSLARE, EI</strong> for the year starting <strong>1996-01-01</strong> through to <strong>1997-01-01</strong>.</p>
+<p>You can access information about the Irish weather stations from <code>ncdc_stations(locationid = "FIPS:EI")$data</code>. Access rainfall data (called “PRCP”) using the <code>ncdc()</code> command. Set the <code>stationid</code> to the appropriate <em>id</em> value for ROSSLARE, EI. Set the <code>startdate</code> and <code>enddate</code> appropriately. The <code>datasetid</code> is <em>“GHCND”</em>, and the <code>datatypeid</code> is <em>“PRCP”</em>. The values returned are in tenths of mm, so expect an average value to be somewhere generally from 10 to 100.</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Use <code>ncdc_stations(locationid = "FIPS:EI")$data</code>, then <code>ncdc(datasetid='GHCND',  stationid="GHCND:EIM00003957", datatypeid='PRCP', startdate = "1996-01-01", enddate = "1997-01-01", limit=500, add_units = TRUE)$data</code>.</p>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<answer fraction="100" format="moodle_auto_format">
+<text>33</text>
+<tolerance>0.066</tolerance>
+</answer>
+</question>
+
+
+<question type="numerical">
+<name>
+<text> R09 Q1 : rexams_week-02_noaa </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[
+<p>
+<p>Install the <code>rnoaa</code> package if you don’t have it already. To use it, you’ll need to register at <strong><em>https://www.ncdc.noaa.gov/cdo-web/token</em></strong>, they email you a token that you can place within your R session by <code>options(noaakey = "KEY_EMAILED_TO_YOU")</code> (see https://docs.ropensci.org/rnoaa/articles/rnoaa.html).</p>
+<p>We want to find the average rainfall in <strong>BELMULLET, EI</strong> for the year starting <strong>2015-01-01</strong> through to <strong>2016-01-01</strong>.</p>
+<p>You can access information about the Irish weather stations from <code>ncdc_stations(locationid = "FIPS:EI")$data</code>. Access rainfall data (called “PRCP”) using the <code>ncdc()</code> command. Set the <code>stationid</code> to the appropriate <em>id</em> value for BELMULLET, EI. Set the <code>startdate</code> and <code>enddate</code> appropriately. The <code>datasetid</code> is <em>“GHCND”</em>, and the <code>datatypeid</code> is <em>“PRCP”</em>. The values returned are in tenths of mm, so expect an average value to be somewhere generally from 10 to 100.</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Use <code>ncdc_stations(locationid = "FIPS:EI")$data</code>, then <code>ncdc(datasetid='GHCND',  stationid="GHCND:EIM00003976", datatypeid='PRCP', startdate = "2015-01-01", enddate = "2016-01-01", limit=500, add_units = TRUE)$data</code>.</p>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<answer fraction="100" format="moodle_auto_format">
+<text>39.9</text>
+<tolerance>0.0798</tolerance>
+</answer>
+</question>
+
+
+<question type="numerical">
+<name>
+<text> R10 Q1 : rexams_week-02_noaa </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[
+<p>
+<p>Install the <code>rnoaa</code> package if you don’t have it already. To use it, you’ll need to register at <strong><em>https://www.ncdc.noaa.gov/cdo-web/token</em></strong>, they email you a token that you can place within your R session by <code>options(noaakey = "KEY_EMAILED_TO_YOU")</code> (see https://docs.ropensci.org/rnoaa/articles/rnoaa.html).</p>
+<p>We want to find the average rainfall in <strong>WATERFORD TYCOR, EI</strong> for the year starting <strong>1998-01-01</strong> through to <strong>1999-01-01</strong>.</p>
+<p>You can access information about the Irish weather stations from <code>ncdc_stations(locationid = "FIPS:EI")$data</code>. Access rainfall data (called “PRCP”) using the <code>ncdc()</code> command. Set the <code>stationid</code> to the appropriate <em>id</em> value for WATERFORD TYCOR, EI. Set the <code>startdate</code> and <code>enddate</code> appropriately. The <code>datasetid</code> is <em>“GHCND”</em>, and the <code>datatypeid</code> is <em>“PRCP”</em>. The values returned are in tenths of mm, so expect an average value to be somewhere generally from 10 to 100.</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Use <code>ncdc_stations(locationid = "FIPS:EI")$data</code>, then <code>ncdc(datasetid='GHCND',  stationid="GHCND:EIE00107762", datatypeid='PRCP', startdate = "1998-01-01", enddate = "1999-01-01", limit=500, add_units = TRUE)$data</code>.</p>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<answer fraction="100" format="moodle_auto_format">
+<text>33.1</text>
+<tolerance>0.0662</tolerance>
 </answer>
 </question>
 

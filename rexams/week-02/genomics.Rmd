@@ -45,9 +45,9 @@ Find the ncbi accession id for **`r ntd$name`** using the ncbi accession number 
 
 Now download this sequence, again using a `rentrez` function using `entrez_fetch(db="nuccore", id=`r my_disease_file`$ids[1], rettype="fasta")`.
 
-Save this downloaded sequence as a file using `write(my_downloaded_sequence, some-file-name.fasta"), sep="\n")`.
+Save this downloaded sequence as a file using `write(my_downloaded_sequence, "some-file-name.fasta", sep="\n")`.
 
-Read this sequence back in again (but now in a cleaner format) using `read.fasta(file = some-file-name.fasta")[[1]]`.
+Read this sequence back in again (but now in a cleaner format) using `read.fasta(file = "some-file-name.fasta")[[1]]`.
 
 Use the `table()` command to find out how many **"`r dna`"** nucleotides are in the DNA sequence.
 

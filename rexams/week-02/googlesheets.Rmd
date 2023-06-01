@@ -13,7 +13,7 @@ z <- read_sheet(google_link, sheet = my_sheet) |>
 my_column <- names(z) |> 
   sample(1)
 
-solution <- z[, {{my_column}}] |> pull(1) |> mean()
+solution <- z[, {{my_column}}] |> pull(1) |> mean(na.rm = T)
 ```
 
 

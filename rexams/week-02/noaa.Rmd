@@ -41,7 +41,7 @@ You can access information about the Irish weather stations from `ncdc_stations(
 
 Solution
 ========
-Use `ncdc_stations(locationid = "FIPS:EI")$data`, then `ncdc(datasetid='GHCND',  stationid=ghcnd, datatypeid='PRCP', startdate = start_date, enddate = end_date, limit=500, add_units = TRUE)$data`.
+Use `ncdc_stations(locationid = "FIPS:EI")$data`, then `ncdc(datasetid='GHCND',  stationid="`r ghcnd`", datatypeid='PRCP', startdate = "`r start_date`", enddate = "`r end_date`", limit=500, add_units = TRUE)$data`.
 
 
 

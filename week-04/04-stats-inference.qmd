@@ -1,7 +1,7 @@
 ---
 pagetitle: "Introduction to Statistical Computing - dplyr"
 abstract: |
- This is the third of a five part series of lectures as part of the data handling postgraduate module in Atlantic Technological University. 
+ This is the fourth of a five part series of lectures as part of the data handling postgraduate module in Atlantic Technological University. 
 author: "Eugene Hickey"
 date: "May 2023"
 host: "Sligo Campus"
@@ -43,7 +43,6 @@ execute:
 library(tidyverse)
 library(gt)
 library(showtext)
-
 rotating_text <- function(x, align = "top") {
   glue::glue('
 <div style="overflow: hidden; height: 1.2em;">
@@ -55,7 +54,6 @@ rotating_text <- function(x, align = "top") {
 </ul>
 </div>')
 }
-
 fa_list <- function(x, incremental = FALSE) {
   icons <- names(x)
   fragment <- ifelse(incremental, "fragment", "")
@@ -64,13 +62,11 @@ fa_list <- function(x, incremental = FALSE) {
         paste(items, collapse = "\n"),
         "</ul>", sep = "\n")
 }
-
 ```
 
 ```{r ggplot-theme}
 #| cache: false
 #| echo: false
-
 my_font <- "Neucha"
 my_font <- "Coming Soon"
 font_add(family = my_font, regular = "assets/ComingSoon-Regular.ttf")
@@ -152,7 +148,6 @@ $$ {\displaystyle {\binom {n}{k}}={\frac {n!}{k!(n-k)!}}} $$
 
 ```{r binom-setup}
 #| echo: false
-
 n <- 100
 p <- 0.85
 ```
@@ -161,7 +156,6 @@ A rocket launch has a probability of success of `r p*100`%. From a `r n` launche
 
 ```{r binom-1}
 #| echo: false
-
 tibble(x = 1:n, y = dbinom(1:n, n, p)) |> 
   ggplot(aes(x, y))  + 
   geom_point(size = 5, colour = "firebrick4") + 
@@ -169,7 +163,6 @@ tibble(x = 1:n, y = dbinom(1:n, n, p)) |>
   labs(title = "Number of successful rocket launches", y = "", x = "Successful Launches") + 
   theme_clean() +
   theme(plot.title.position = "plot")
-
 ```
 
 ## How this works in R
@@ -239,7 +232,6 @@ dbinom(x = 50, size = 100, prob = 0.85)
 ::: {.column width="50%"}
 ```{r}
 #| echo: false
-
 theme_set(
   theme_clean() +
   theme(plot.title.position = "plot"))
@@ -252,13 +244,11 @@ pbinom(1:100,100,0.85,lower.tail=TRUE)
 
 ```{r binom-2}
 #| echo: false
-
 tibble(x = 1:n, y = pbinom(1:n, n, p, lower.tail=T)) |> 
   ggplot(aes(x, y))  + 
   geom_point(size = 5, colour = "firebrick4") + 
   geom_line(alpha = 0.5, colour = "firebrick4") +
   labs(title = "Probability of getting this or less than this\nnumber of successful rocket launches", y = "", x = "Successful Launches")
-
 ```
 :::
 
@@ -270,13 +260,11 @@ pbinom(1:100,100,0.85,lower.tail=FALSE)
 
 ```{r binom-3}
 #| echo: false
-
 tibble(x = 1:n, y = pbinom(1:n, n, p, lower.tail = F)) |> 
   ggplot(aes(x, y))  + 
   geom_point(size = 5, colour = "firebrick4") + 
   geom_line(alpha = 0.5, colour = "firebrick4") +
   labs(title = "Probability of getting more than this\nnumber of successful rocket launches", y = "", x = "Successful Launches")
-
 ```
 :::
 :::
@@ -374,7 +362,6 @@ $$ {\displaystyle f(x)={\frac {1}{\sigma {\sqrt {2\pi }}}}e^{-{\frac {1}{2}}\lef
 
 ```{r norm-setup}
 #| echo: false
-
 m <- 1.5
 dev <- 0.2
 ```
@@ -383,7 +370,6 @@ A human liver has an average mass of `r p`kg with a standard deviation of `r dev
 
 ```{r norm-1}
 #| echo: false
-
 x = seq(0, 3, by = 0.01)
 tibble(x = x, y = dnorm(x, mean = 1.5, sd = 0.2)) |> 
   ggplot(aes(x, y))  + 
@@ -393,7 +379,6 @@ tibble(x = x, y = dnorm(x, mean = 1.5, sd = 0.2)) |>
   theme_clean() +
   theme(plot.title.position = "plot",
         axis.text.y = element_blank())
-
 ```
 
 ## How this works in R
@@ -448,7 +433,6 @@ dnorm(x = 2.0, mean = 1.5, sd = 0.2)
 ::: {.column width="50%"}
 ```{r}
 #| echo: false
-
 theme_set(
   theme_clean() +
   theme(plot.title.position = "plot"))
@@ -468,7 +452,6 @@ tibble(x = x, y = y) |>
   geom_point(size = 5, colour = "firebrick4") + 
   geom_line(alpha = 0.5, colour = "firebrick4") +
   labs(title = "Probability of a human liver being lighter than this mass", y = "", x = "Liver Mass (kg)")
-
 ```
 :::
 
@@ -480,7 +463,6 @@ pnorm(q = seq(0, 3, by = 0.01), mean = 1.5, sd = 0.2, lower.tail = FALSE)
 
 ```{r norm-3}
 #| echo: false
-
 x <- seq(0, 3, by = 0.01)
 y <- pnorm(q = x, mean = 1.5, sd = 0.2, lower.tail = FALSE)
 tibble(x = x, y = y) |> 
@@ -489,7 +471,6 @@ tibble(x = x, y = y) |>
   geom_line(alpha = 0.5, colour = "firebrick4") +
   labs(title = "Probability of a human liver being **heavier** than this mass", y = "", x = "Liver Mass (kg)") +
   theme(plot.title = ggtext::element_textbox_simple())
-
 ```
 :::
 :::
@@ -630,7 +611,6 @@ Ten mice were placed on a high fat diet. Their weights were recorded before and 
 
 ```{r paired-t-test-data}
 #| echo: false
-
 # Data in two numeric vectors
 # ++++++++++++++++++++++++++
 # Weight of the mice before treatment
@@ -643,7 +623,6 @@ my_data <- data.frame(
     weight = c(before,  after), mouse = c(1:10,  1:10)
 ) |> 
   mutate(group = fct_relevel(group, "before", "after"))
-
 my_data |> 
   relocate(mouse, .before = group) |> 
   pivot_wider(names_from = group, values_from = weight) |> 
@@ -663,7 +642,6 @@ my_data |>
 ```{r}
 #| echo: false
 #| fig-height: 10
-
 my_data |> 
   ggplot(aes(group, weight)) + 
   geom_point() + 
@@ -677,7 +655,6 @@ my_data |>
 ```{r}
 #| echo: false
 #| fig-height: 10
-
 my_data |> 
   ggplot(aes(group, weight)) + 
   geom_point() + 
@@ -730,11 +707,12 @@ t.test(weight ~ group, data = my_data, paired = TRUE)
 
 ## Assignments - Week Four
 
+
 1.  Complete week four moodle quiz
 
 2.  Complete `swirl()` exercises
 
-::: {style="font-size: 80%; margin-left: 150px;"}
+::: {style="font-size: 70%; margin-left: 150px;"}
 
 -   `install.packages("swirl")`
 
@@ -748,10 +726,16 @@ t.test(weight ~ group, data = my_data, paired = TRUE)
 
 -   do the four exercises 1 (Introduction), 7 (CommonDistros),  9 (T Confidence Intervals), and 10 (Hypothesis Testing)
 
--   email the results to eugene.hickey\@associate.atu.ie
+-   email a screen shot of the end of each lesson to eugene.hickey\@associate.atu.ie
+
+- it'll look a bit like screen capture here
 
 :::
 
 
+![](images/swirl.png){.absolute top=20 right=0 width="400" height="300"}
 
 
+:::
+:::
+::::

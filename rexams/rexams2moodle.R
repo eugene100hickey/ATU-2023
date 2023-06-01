@@ -54,9 +54,9 @@ elearn_exam <- c(
  # "rexams/week-04/correct-command.Rmd",
  # "rexams/week-04/soybean-conf-int.Rmd"
 )
-
+ elearn_exam <- "rexams/week-02/noaa.Rmd"
 
 
 set.seed(42)
-exams2moodle(elearn_exam, n = 5, name = "rexams22")
+exams2moodle(elearn_exam, n = 10, name = "rexams22")
 

@@ -41,7 +41,7 @@ Answerlist
 
 Solution
 ========
-Use the R command `mutate(ratio = total / population)` followed by `filter(region == `r my_region`)`, and then `arrange(desc(ratio))`.
+Use the R command `mutate(ratio = total / population)` followed by `filter(region == "`r my_region`")`, and then `arrange(desc(ratio))`.
 
 Answerlist
 ----------

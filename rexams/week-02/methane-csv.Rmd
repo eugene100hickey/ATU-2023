@@ -29,7 +29,7 @@ Read in the _csv_ file located at `"https://raw.githubusercontent.com/eugene100h
 
 Solution
 ========
-Use `read_csv("https://raw.githubusercontent.com/eugene100hickey/ATU-2023/main/rexams/data/Methane_final.csv")` followed by `group_by(type, region) |> summarise(total = sum(emmisions)) |> ungroup()`.
+Use `read_csv("https://raw.githubusercontent.com/eugene100hickey/ATU-2023/main/rexams/data/Methane_final.csv")` followed by `group_by(type, region) |> summarise(total = sum(emissions)) |> ungroup()`.
 
 
 
