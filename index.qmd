@@ -23,7 +23,7 @@ editor: visual
 
 [**Week Four - Statistical Inference**](https://atu2023.netlify.app/week-04/#/title)
 
-[**Week Five - Data Visualisation**](https://atu2023.netlify.app/week-05/#/title)
+[**Week Five - Data Visualisation**](https://atu2023.netlify.app/week-05/05-data-viz.html)
 :::
 :::
 
