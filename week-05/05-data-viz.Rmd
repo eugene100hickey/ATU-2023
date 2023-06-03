@@ -1,0 +1,198 @@
+---
+title: "Data Visualisation"
+abstract: |
+ This is the fifth of a five part series of lectures as part of the data handling postgraduate module in Atlantic Technological University. 
+author: "Eugene Hickey"
+date: "May 2023"
+host: "Sligo Campus"
+institute: "Atlantic Technological University"
+output:
+  xaringan::moon_reader:
+    css: 
+      - default
+      - assets/custom.css
+      - assets/tachyons-addon.css
+      - assets/hygge.css
+    lib_dir: libs
+    includes:
+      in_header: favicon.html
+    seal: false
+    self_contained: true
+    nature:
+      highlightStyle: googlecode
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "16:9"
+      beforeInit: "macros.js"
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>
+---
+
+class: title-slide, right, top
+background-image: url(images/flowers.JPG)
+background-position: 90% 75%, 75% 75%
+background-size:cover
+
+
+```{r setup, include = FALSE}
+library(tidyverse)
+
+rotating_text <- function(x, align = "top") {
+  glue::glue('
+<div style="overflow: hidden; height: 1.2em;">
+<ul class="content__container__list {align}" style="text-align: {align}">
+<li class="content__item">{x[1]}</li>
+<li class="content__item">{x[2]}</li>
+<li class="content__item">{x[3]}</li>
+<li class="content__item">{x[4]}</li>
+</ul>
+</div>')
+}
+
+fa_list <- function(x, incremental = FALSE) {
+  icons <- names(x)
+  fragment <- ifelse(incremental, "fragment", "")
+  items <- glue::glue('<li class="{fragment}"><span class="fa-li"><i class="{icons}"></i></span> {x}</li>')
+  paste('<ul class="fa-ul">', 
+        paste(items, collapse = "\n"),
+        "</ul>", sep = "\n")
+}
+
+```
+
+```{r meta, echo=FALSE, message=FALSE, warning=FALSE}
+library(metathis)
+meta() %>%
+  meta_general(
+    description = "Week 5 - Data Visualisation",
+    generator = "xaringan and remark.js"
+  ) %>% 
+  meta_name("github-repo" = "eugene100hickey/atu2023") %>% 
+  meta_social(
+    title = "Week 5 - Data Visualisation",
+    url = "https://atu2023.netlify.app",
+    image = "https://github.com/eugene100hickey/blob/main/ice.png",
+    image_alt = "Week 5 - Data Visualisation",
+    og_type = "website",
+    og_author = "Eugene Hickey",
+    twitter_card_type = "summary_large_image",
+    twitter_creator = "@eugene100hickey"
+  )
+```
+
+.content-box-blue[
+
+<h2>`r rmarkdown::metadata$title`</h2>
+
+<h3>  👨‍💻 `r rmarkdown::metadata$author` @ `r rmarkdown::metadata$institute` 👨‍💻 </h3>
+
+`r rotating_text(c('<i class="fa-solid fa-envelope"></i> eugene.hickey@tudublin.ie', '<i class="fa-brands fa-mastodon"></i> @eugene100hickey', '<i class="fa-brands fa-github"></i> github.com/eugene100hickey', '<i class="fa-solid fa-globe"></i> www.fizzics.ie'))`
+
+
+]
+------------------------------------------------------------------------
+
+
+
+
+```{r setup1, include = FALSE}
+options(htmltools.dir.version = FALSE)
+library(tidyverse)
+library(scales)
+library(gapminder)
+library(flipbookr)
+# library(ggrepel)
+# library(glue)
+# library(waffle)
+# library(treemapify)
+# library(ggridges)
+# library(lubridate)
+# library(boxoffice)
+# library(knitr)
+# library(xaringanExtra)
+library(ggtext)
+# library(hrbrthemes)
+# library(sf)
+# library(cartogram)
+# library(tmap)
+
+```
+
+```{r ink-free}
+#| cache: false
+#| echo: false
+sysfonts::font_add("Ink Free", regular = "fonts/Inkfree.ttf")
+showtext::showtext_auto()
+```
+
+---
+
+## Basic Picture of ggplot
+
+
+.content-box-yellow[
+
+- aesthetics
+    - values that each individual observation (row) has
+    - will be different for each observation
+- atrributes
+    - values that are shared between all points
+    - decide to make everything mint green
+- layers
+    - each visualisation is built sequentially
+    - add features in layers, one on top of the last
+    - examples: add a plot title, change an axis scale....]
+
+
+---
+```{r ggplot-example, echo = F, message = F, warning = F, cache = T, fig.height=6, include = F}
+
+palmerpenguins::penguins %>% drop_na() %>% 
+  ggplot() +
+  aes(x = body_mass_g) +
+  aes(y = bill_length_mm) + 
+  geom_point(size = 3, show.legend = F) +
+  aes(colour = species) +
+  scale_color_manual(values = c("black", "blue", "grey70")) +
+  ggalt::geom_encircle(size = 5, show.legend = FALSE) +
+  labs(title = "Bill Length versus Body Mass",
+       subtitle = "for <span style = 'color:black;'>Adelie</span>, <span style = 'color:blue;'>Chinstrap</span>, and <span style = 'color:#B0B0B0;'>Gentoo</span> penguins",
+       x = "Body Mass (g)",
+       y = "Bill Length (mm)",
+       caption = "@Data from Palmer Penguins") +
+  theme_minimal() + 
+  theme(text = element_text(family = "Ink Free", size = 18)) +
+  theme(plot.subtitle = element_markdown(size = 24)) + 
+  facet_grid(~sex)
+
+```
+
+`r chunk_reveal("ggplot-example")`
+
+---
+
+```{r theme, cache = F}
+
+my_colour = "firebrick4"
+ggplot2::theme_set(ggplot2::theme_minimal())
+ggplot2::theme_update(text = ggplot2::element_text(family = "Ink Free", 
+                                 size = 20, 
+                                 colour = my_colour),
+             axis.text = ggplot2::element_text(colour = my_colour),
+             rect = element_rect(colour = my_colour),
+             line = element_line(colour = my_colour))
+caption = "@DataVis_2020 Eugene"
+
+my_ordinal_date <- function(dates){
+     dayy <- day(dates)
+     suff <- case_when(dayy %in% c(11,12,13) ~ "th",
+                       dayy %% 10 == 1 ~ 'st',
+                       dayy %% 10 == 2 ~ 'nd',
+                       dayy %% 10 == 3 ~'rd',
+                       TRUE ~ "th")
+     paste0(dayy, suff)
+ }
+```

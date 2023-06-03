@@ -119,7 +119,7 @@ theme_clean <- function() {
     -   poisson
 
     -   **normal** (continuous)
-    
+
     -   Student's t distribution
 
     -   exponential
@@ -138,9 +138,9 @@ theme_clean <- function() {
 
 ------------------------------------------------------------------------
 
-$$ {\displaystyle f(k,n,p)=\Pr(k;n,p)=\Pr(X=k)={\binom {n}{k}}p^{k}(1-p)^{n-k}}$$ 
+$$ {\displaystyle f(k,n,p)=\Pr(k;n,p)=\Pr(X=k)={\binom {n}{k}}p^{k}(1-p)^{n-k}}$$
 
-- for k = 0, 1, 2, ..., n, where
+-   for k = 0, 1, 2, ..., n, where
 
 $$ {\displaystyle {\binom {n}{k}}={\frac {n!}{k!(n-k)!}}} $$
 
@@ -169,14 +169,12 @@ tibble(x = 1:n, y = dbinom(1:n, n, p)) |>
 
 ::: columns
 ::: {.column width="50%"}
-
-- number if successes (k) called **x**
-- number of trials (n) called **size**
-- probability (p) called **prob**
-
+-   number if successes (k) called **x**
+-   number of trials (n) called **size**
+-   probability (p) called **prob**
 :::
-::: {.column width="50%"}
 
+::: {.column width="50%"}
 ```{r}
 dbinom(x = 90, size = 100, prob = 0.85)
 ```
@@ -200,9 +198,8 @@ dbinom(x = 60, size = 100, prob = 0.85)
 ```{r}
 dbinom(x = 50, size = 100, prob = 0.85)
 ```
-
 :::
-::::
+:::
 
 ## `dbinom()`, `pbinom()`, `qbinom()`, and `rbinom()`
 
@@ -220,8 +217,8 @@ dbinom(x = 50, size = 100, prob = 0.85)
     -   like the inverse function of `pbinom()`
 
     -   give it a probability and it works out the number of successes threshold
-    
-    - _q_ stands for **quantile**
+
+    -   *q* stands for **quantile**
 
 -   `rbinom()` generates random numbers of *successs* from a binomial distribution
 :::
@@ -354,9 +351,9 @@ tibble(x = seq(0, 1, by = 0.01), y = qbinom(seq(0, 1, by = 0.01), 8, 0.5)) |>
 
 $$ {\displaystyle f(x)={\frac {1}{\sigma {\sqrt {2\pi }}}}e^{-{\frac {1}{2}}\left({\frac {x-\mu }{\sigma }}\right)^{2}}} $$
 
-- $\mu$ is the mean
+-   $\mu$ is the mean
 
-- $\sigma$ is the standard deviation
+-   $\sigma$ is the standard deviation
 
 ## What this looks like:
 
@@ -493,19 +490,17 @@ my_sd <- 5
 ```
 
 ::: {style="font-size: 80%;"}
+-   The concentration of $PM_{2.5}$ in air has an average value of `r my_mean` $\mu g/m^{3}$ with a standard deviation of `r my_sd` $\mu g/m^{3}$. What is the probability that a given day will exceed the recommended 25$\mu g/m^{3}$?
 
-- The concentration of $PM_{2.5}$ in air has an average value of `r my_mean` $\mu g/m^{3}$ with a standard deviation of `r my_sd` $\mu g/m^{3}$. What is the probability that a given day will exceed the recommended 25$\mu g/m^{3}$?
+    -   `pnorm(q = 25, mean =`r my_mean`, sd =`r my_sd`, lower.tail = FALSE)`
 
-    - `pnorm(q = 25, mean = `r my_mean`, sd = `r my_sd`, lower.tail = FALSE)`
-    
-    - gives `r (pnorm(q = 25, mean = my_mean, sd = my_sd, lower.tail = FALSE)*100) |> signif(2)`%
-    
-- Using the values above, what is the highest value of $PM_{2.5}$ we can expect to see once a year?
+    -   gives `r (pnorm(q = 25, mean = my_mean, sd = my_sd, lower.tail = FALSE)*100) |> signif(2)`%
 
-     - `qnorm(p = 1/365.25, mean = `r my_mean`, sd = `r my_sd`, lower.tail = FALSE)`
-     
-     - gives `r qnorm(p = 1/365.25, mean = my_mean, sd = my_sd, lower.tail = FALSE) |> round(1)`$\mu g/m^{3}$
+-   Using the values above, what is the highest value of $PM_{2.5}$ we can expect to see once a year?
 
+    -   `qnorm(p = 1/365.25, mean =`r my_mean`, sd =`r my_sd`, lower.tail = FALSE)`
+
+    -   gives `r qnorm(p = 1/365.25, mean = my_mean, sd = my_sd, lower.tail = FALSE) |> round(1)`$\mu g/m^{3}$
 :::
 
 ## `rnorm()`
@@ -517,98 +512,86 @@ my_sd <- 5
 -   command is `rnorm(n = 1, mean = 1.5, sd = 0.2)`
 
     -   `n = 1` means just one sample
-    
-    
+
 ## Confidence Intervals
 
-- we rarely know _population_ statistics about our data
+-   we rarely know *population* statistics about our data
 
-- more common to have to infer them from _sample_ statistics
+-   more common to have to infer them from *sample* statistics
 
-- if we don't know the real standard deviation
+-   if we don't know the real standard deviation
 
-    - estimate it from the sample
-    
-    - replace the normal distribution by its little cousin, the **t-distribution**
-    
-    - _t-distribution_ is more spread out (more uncertain) than the _normal_
-    
-    - as sample size gets bigger the _t_ converges to the _normal_
-    
+    -   estimate it from the sample
+
+    -   replace the normal distribution by its little cousin, the **t-distribution**
+
+    -   *t-distribution* is more spread out (more uncertain) than the *normal*
+
+    -   as sample size gets bigger the *t* converges to the *normal*
+
 ## Confidence Intervals
 
-- imagine taking a bunch of different samples from a population
+-   imagine taking a bunch of different samples from a population
 
-- each one will have a slightly different mean
+-   each one will have a slightly different mean
 
-- for one sample, its mean is our best guess as to the true population mean
+-   for one sample, its mean is our best guess as to the true population mean
 
-- but also need to express our degree of certainty (or otherwise) in this guess
+-   but also need to express our degree of certainty (or otherwise) in this guess
 
-- this gives the **confidence interval**
+-   this gives the **confidence interval**
 
 ## Confidence Interval Imagined
 
-![](images/conf-int.png){fig-align="center" width=75% height=75%}
-
+![](images/conf-int.png){fig-align="center" width="75%" height="75%"}
 
 ## Confidence Intervals in R
 
 ::: columns
 ::: {.column width="60%"}
+-   function `t.test()` is handy for confidence interval calculation
 
-- function `t.test()` is handy for confidence interval calculation
+-   in fact it's a bit of a Swiss army knife of conf. int., hypothesis testing....
 
-- in fact it's a bit of a Swiss army knife of conf. int., hypothesis testing....
+-   give it a set of values and it'll output the confidence interval for their mean
 
-- give it a set of values and it'll output the confidence interval for their mean
+-   `t.test(airquality$Wind)`
 
-- `t.test(airquality$Wind)`
-
-- `t.test(airquality$Wind)$conf.int`
-
+-   `t.test(airquality$Wind)$conf.int`
 :::
-::: {.column width="40%"}
 
+::: {.column width="40%"}
 ```{r}
 #| echo: false
 t.test(airquality$Wind)
 ```
-
 :::
 :::
-
-
 
 ## Hypothesis Testing
 
 ::: {style="font-size: 80%;"}
+-   do two samples have difference means?
 
-- do two samples have difference means?
+-   consider `gapminder` dataset
 
-- consider `gapminder` dataset
+    -   was life expectancy in 2007 higher in Southern Europe than Northern Europe?
 
-    - was life expectancy in 2007 higher in Southern Europe than Northern Europe?
-    
 ```{r}
 z <- dslabs::gapminder |> 
   filter(year == 2007, region %in% c("Northern Europe", "Southern Europe"))
 t.test(life_expectancy ~  region, data = z)
 ```
-
 :::
 
 ## Paired T-tests
 
 ::: columns
 ::: {.column width="50%"}
-
-Ten mice were placed on a high fat diet. Their weights were recorded before and afterwards. Is  there a significant weight gain?
-
+Ten mice were placed on a high fat diet. Their weights were recorded before and afterwards. Is there a significant weight gain?
 :::
+
 ::: {.column width="50%"}
-
-
 ```{r paired-t-test-data}
 #| echo: false
 # Data in two numeric vectors
@@ -628,17 +611,13 @@ my_data |>
   pivot_wider(names_from = group, values_from = weight) |> 
   gt::gt()
 ```
-
 :::
 :::
-
-  
 
 ## Graphically
 
 ::: columns
 ::: {.column width="50%"}
-
 ```{r}
 #| echo: false
 #| fig-height: 10
@@ -648,10 +627,9 @@ my_data |>
   ggalt::geom_encircle(spread = 0.01) + 
   theme_clean()
 ```
-
 :::
-::: {.column width="50%"}
 
+::: {.column width="50%"}
 ```{r}
 #| echo: false
 #| fig-height: 10
@@ -672,15 +650,13 @@ my_data |>
 
 ::: columns
 ::: {.column width="50%"}
-
 ```{r}
 #| echo: true
 t.test(weight ~ group, data = my_data)
 ```
-
 :::
-::: {.column width="50%"}
 
+::: {.column width="50%"}
 ```{r}
 #| echo: true
 t.test(weight ~ group, data = my_data, paired = TRUE)
@@ -688,32 +664,27 @@ t.test(weight ~ group, data = my_data, paired = TRUE)
 :::
 :::
 
-
-
 # Workshop - Week Four
 
 ## Perform the Following Tasks:
 
-- These are largely based on the [lterdatasampler package](https://lter.github.io/lterdatasampler/)
+-   These are largely based on the [lterdatasampler package](https://lter.github.io/lterdatasampler/)
 
-    - `remotes::install_github("lter/lterdatasampler")`
+    -   `remotes::install_github("lter/lterdatasampler")`
 
+1.  Human gestation has an average period of 266 days with a standard deviation of 16 days. What is the probability that a baby will arrive exactly on their due date? Assume normal distribution.
 
-1. Human gestation has an average period of 266 days with a standard deviation of 16 days. What is the probability that a baby will arrive exactly on their due date? Assume normal distribution.
+2.  Make a 95% confidence interval for animal weight for the bisons recorded in the `knz_bison` dataset.
 
-1. Make a 95% confidence interval for animal weight for the bisons recorded in the `knz_bison` dataset.
-
-1. Perform a hypothesis test that female and  male bisons are the same weight.
+3.  Perform a hypothesis test that female and male bisons are the same weight.
 
 ## Assignments - Week Four
-
 
 1.  Complete week four moodle quiz
 
 2.  Complete `swirl()` exercises
 
 ::: {style="font-size: 70%; margin-left: 150px;"}
-
 -   `install.packages("swirl")`
 
 -   `library(swirl)`
@@ -724,18 +695,12 @@ t.test(weight ~ group, data = my_data, paired = TRUE)
 
 -   choose course *Statistical Inference*
 
--   do the four exercises 1 (Introduction), 7 (CommonDistros),  9 (T Confidence Intervals), and 10 (Hypothesis Testing)
+-   do the four exercises 1 (Introduction), 7 (CommonDistros), 9 (T Confidence Intervals), and 10 (Hypothesis Testing)
 
 -   email a screen shot of the end of each lesson to eugene.hickey\@associate.atu.ie
 
-- it'll look a bit like screen capture here
-
+-   it'll look a bit like screen capture here
 :::
 
+![](images/swirl.png){.absolute top="20" right="0" width="400" height="300"}
 
-![](images/swirl.png){.absolute top=20 right=0 width="400" height="300"}
-
-
-:::
-:::
-::::
