@@ -282,8 +282,6 @@ boxoffice_date_string <- sf(boxoffice_date)
 
 
 ```{r box-office, eval=FALSE, echo = T, include=F, message=F, warning=F}
-sf <- stamp("Sunday, 8th January, 1999")
-boxoffice_date_string <- sf(boxoffice_date)
 movies %>% mutate(movie = fct_reorder(movie, gross)) %>% 
   slice_head(n=10) %>% 
   ggplot(aes(movie, gross)) + 
