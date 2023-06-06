@@ -155,27 +155,27 @@ showtext::showtext_auto()
 
 palmerpenguins::penguins %>% drop_na() %>% 
   ggplot() +
-  aes(x = body_mass_g) +
+  aes(x = flipper_length_mm) +
+  scale_x_continuous(breaks = seq(170, 230, by = 20)) +
   aes(y = bill_length_mm) + 
   geom_point(size = 3, show.legend = F) +
   aes(colour = species) +
   scale_color_manual(values = c("black", "blue", "grey70")) +
   ggalt::geom_encircle(size = 5, show.legend = FALSE) +
-  labs(title = "Bill Length versus Body Mass",
-       subtitle = "for <span style = 'color:black;'>Adelie</span>, <span style = 'color:blue;'>Chinstrap</span>, and <span style = 'color:#B0B0B0;'>Gentoo</span> penguins",
-       x = "Body Mass (g)",
+  labs(title = "Chinstraps have Short Flippers",
+       subtitle = "<span style = 'color:black;'>Adelie</span>, <span style = 'color:blue;'>Chinstrap</span>, and <span style = 'color:#B0B0B0;'>Gentoo</span> penguins",
+       x = "Flipper Length (mm)",
        y = "Bill Length (mm)",
        caption = "@Data from Palmer Penguins") +
   theme_minimal() + 
   theme(text = element_text(family = "Ink Free", size = 18)) +
-  theme(plot.subtitle = element_markdown(size = 24)) + 
+  theme(plot.subtitle = element_markdown(size = 18)) + 
   facet_grid(~sex)
 
 ```
 
 `r chunk_reveal("ggplot-example")`
 
----
 
 ```{r theme, cache = F, echo = FALSE}
 my_colour = "firebrick4"
@@ -201,11 +201,6 @@ my_ordinal_date <- function(dates){
 
 ---
 
-```{r basketball, cache = T, echo = T}
-basketball <- read_csv("https://raw.githubusercontent.com/eugene100hickey/ATU-2023/main/week-05/data/basketball.csv")
-```
-
-
 
 # Picturing Data Different Ways with ggplot
 
@@ -216,6 +211,16 @@ basketball <- read_csv("https://raw.githubusercontent.com/eugene100hickey/ATU-20
 ### and what you want to investigate
 
 Lots of these come from [Top 50 Visualizations in R](http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html#5.%20Composition)
+
+- Show the data
+
+- Use ink sparingly
+
+- Title should tell the story
+
+- Don't try to show too much
+
+- Start with grey
 
 
 
@@ -231,7 +236,7 @@ Lots of these come from [Top 50 Visualizations in R](http://r-statistics.co/Top5
 <li><span style="color: blue;"> Visualising Networks </span>
 <li><span style="color: blue;"> Visualising Spatial Data </span>
 
-Items in <span style="color: red;">red</span> we'll cover this afternoon. In <span style="color: blue;">blue</span> will have to wait for a future workshop.
+Items in <span style="color: red;">red</span> we'll cover this today. In <span style="color: blue;">blue</span> will have to wait for a future workshop.
 
 ---
 class: inverse
@@ -242,22 +247,9 @@ class: inverse
 - dot plot
 - lollipop plot
 
-
-
 ---
 
-
-```{r data, cache = F}
-boxoffice_date <- Sys.Date()-7
-movies <- boxoffice(boxoffice_date) %>% 
-  mutate(gross = gross / 1e6,
-         movie_name = movie,
-         movie = abbreviate(movie))
-
-```
-
-
-```{r barplot2, eval=FALSE, echo = T, include=F}
+```{r barplot2, eval=FALSE, echo = T, include=F, message=F, warning=F}
 diamonds %>% 
   ggplot(aes(cut)) + 
   geom_bar(fill = "firebrick4") + 
@@ -271,11 +263,26 @@ diamonds %>%
 
 `r chunk_reveal("barplot2")`
 
+
 ---
 
 
-```{r box-office, eval=FALSE, echo = T, include=F}
-sf <- stamp("Sunday, 28th January, 1999")
+```{r data, cache = F, echo=T, message=FALSE, warning=FALSE}
+boxoffice_date <- Sys.Date()-7
+movies <- boxoffice(boxoffice_date) %>% 
+  mutate(gross = gross / 1e6,
+         movie_name = movie,
+         movie = abbreviate(movie))
+sf <- stamp("Sunday, 8th January, 1999")
+boxoffice_date_string <- sf(boxoffice_date)
+```
+
+---
+
+
+
+```{r box-office, eval=FALSE, echo = T, include=F, message=F, warning=F}
+sf <- stamp("Sunday, 8th January, 1999")
 boxoffice_date_string <- sf(boxoffice_date)
 movies %>% mutate(movie = fct_reorder(movie, gross)) %>% 
   slice_head(n=10) %>% 
@@ -372,6 +379,13 @@ class: inverse
 
 ---
 
+
+```{r basketball, cache = T, echo = T, message=F, warning=F}
+basketball <- read_csv("https://raw.githubusercontent.com/eugene100hickey/ATU-2023/main/week-05/data/basketball.csv")
+```
+
+---
+
 ```{r histogram, echo = T, include=F}
 basketball %>% 
   ggplot(aes(weight)) + 
@@ -396,7 +410,7 @@ basketball %>%
   labs(x = "weight (kg)", 
        y = "",
        caption = "@Data from Kaggle", 
-       title = "Weight of NBA Players by Position")
+       title = "Weight of NBA Players by\nPosition")
 ```
 
 `r chunk_reveal("histogram-dodge")`
@@ -412,7 +426,7 @@ basketball %>%
   labs(x = "weight (kg)", 
        y = "",
        caption = "@Data from Kaggle", 
-       title = "Weight of NBA Players by Position") +
+       title = "Weight of NBA Players by\nPosition") +
   geom_rug()
 ```
 
@@ -430,7 +444,7 @@ basketball %>%
    labs(y = "weight (kg)", 
         x = "position",
         caption = "@Data from Kaggle", 
-        title = "Weight of NBA Players by Position") +
+        title = "Weight of NBA Players by\nPosition") +
   geom_jitter(size = 0.4, 
               alpha = 0.2, 
               show.legend = F)
@@ -447,7 +461,7 @@ basketball %>%
    labs(x = "position",
         y = "weight (kg)",
         caption = "@Data from Kaggle", 
-        title = "Weight of NBA Players by Position") +
+        title = "Weight of NBA Players by\nPosition") +
    geom_jitter(size = 0.4, 
                alpha = 0.2, 
                show.legend = F)
@@ -457,7 +471,7 @@ basketball %>%
 
 ---
 
-```{r ridges, echo = T, fig.height=6, include = FALSE}
+```{r ridges, echo = T, fig.height=6, include = FALSE, message=FALSE, warning=FALSE}
 gapminder::gapminder %>% 
   ggplot(aes(x = lifeExp, 
              y = factor(year))) +
@@ -536,3 +550,76 @@ jittered <- HistData::Galton %>%
   ggplot(aes(parent, child)) + geom_jitter(width = 0.4, height = 0.4)
 scatter + plot_spacer() + jittered 
 ```
+
+
+---
+
+### Workshop Week 5:
+
+<ol>
+<li> you have a dataset with the counties of Ireland in one column and their populations in a second column. To produce a bar chart, should you use *geom_col()* or *geom_bar()*?
+<li> make a bar chart of the number of counties in each of the five US midwest states. Use the *midwest* dataset from *ggplot2*
+<li> make a bar chart of the number of each species of pengiun from the *penguins* dataset in *palmerpenguins* (you can *install.packages("palmerpenguins")* from CRAN)
+<li> make a bar chart of the 12 *Carnivora* total sleep times from the *msleep* dataset in *ggplot2*
+<li> make a lollipop plot of the 12 *Primates* total sleep times from the *msleep* dataset in *ggplot2*
+<li> install the *boxoffice* package. Use the following commands to downloads box office receipts from this day last week:
+
+```
+boxoffice_date <- Sys.Date()-7
+movies <- boxoffice(boxoffice_date) %>% 
+     mutate(gross = gross / 1e3,
+            movie_name = movie,
+            movie = abbreviate(movie)) %>% 
+     head()
+```
+Plot a pie chart of gross receipt for these top six films (see the [R Graph Gallery](https://r-graph-gallery.com/piechart-ggplot2.html))
+
+
+---
+
+## Assignment - Week Five
+
+You are tasked with reproducing the following figure:
+
+```{r plot, echo = F, message = F, warning=F, fig.height=6}
+library(tidyverse)
+library(dslabs)
+
+death_prob %>% 
+  ggplot(aes(age, prob, col = sex)) + 
+  geom_point() + 
+  scale_y_log10() + 
+  labs(title = "Probability of Death within 1 Year by Age and Sex\nin the United States in 2015", x = "Age in Years", y = "Probability of Death", caption = "@Data from DSLabs")
+```
+
+---
+
+## Procedure
+
+- You'll need the _tidyverse_ library and the _dslabs_ library (install from CRAN by _install.packages("dslabs")_)
+- Get the dataset using _data("death_prob")_
+- You'll need to call ggplot setting _data = death_prob_
+- There are three aesthetics; for _age_, _prob_, and _sex_
+- Add the graph title, the axes labels, and add a caption
+- The y axis should be plotted on a log scale
+- There are also extra marks for improving the figure with your own ideas
+- You can save your plot using _ggsave("my-first-assignment.png")_ at the console or in your .R file, or by clicking _Export_ in the plots pane of RStudio
+
+---
+
+## Marking
+
+<ol>
+<li> Correct call to _ggplot_ to set up the figure framework
+**(2 marks)**
+<li> Correct _geom_ to insert the points 
+**(2 marks)**
+<li> Inserting the _title_, _axes labels_, and _caption_ 
+**(2 marks)**
+<li> Making the y-axis on a log scale using _scale_y_log10_ 
+**(2 marks)**
+<li> Your improvement 
+**(2 marks)**
+
+Upload your work (the image and your code) to moodle at [Week Five Assignment - death_prob](https://vlesligo.atu.ie/mod/assign/view.php?id=1092783). The deadline is midnight
+on Wednesday 14th June 2023.
