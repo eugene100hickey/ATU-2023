@@ -45,6 +45,8 @@ editor: visual
 -   [Week 5 - June 7<sup>th</sup>](https://youtu.be/1mEU_2McRjU)
 
 -   [Week 4 - Quiz](https://youtu.be/5MEm0D1s3FY)
+
+-   [Data Visualisation](https://youtu.be/5MEm0D1s3FY)
 :::
 :::
 :::
