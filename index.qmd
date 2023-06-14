@@ -46,7 +46,7 @@ editor: visual
 
 -   [Week 4 - Quiz](https://youtu.be/5MEm0D1s3FY)
 
--   [Data Visualisation](https://youtu.be/5MEm0D1s3FY)
+-   [Data Visualisation](https://youtu.be/yJEvsJXm7mw)
 :::
 :::
 :::

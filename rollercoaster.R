@@ -1,6 +1,10 @@
 library(tidyverse)
 library(imager)
 library(grid)
+library(showtext)
+
+font_add(family = "Ink Free", regular = here::here("week-05", "assets", "ComingSoon-Regular.ttf"))
+showtext_auto()
 
 #data
 tx_injuries <- readr::read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-09-10/tx_injuries.csv")
@@ -44,6 +48,7 @@ df %>%
              curvature = -0.2,  arrow = arrow(length = unit(0.1, "inches"))) +
   scale_x_continuous(breaks = seq(0, 70, by = 10))+
   scale_y_continuous(limits = c(0, 0.03))+
+  geom_line(color = "#e44fb7", size = 1.5)+
   theme_minimal() +
   theme(
     plot.background = element_rect(fill = "black"),
@@ -52,12 +57,13 @@ df %>%
     #adds some space around
     text = element_text(
       color = "white",
-      size = 10,
+      size = 24,
       family = "Ink Free",
       face = "bold"
     ),
     axis.text = element_text(color = "white"),
-    axis.title.y = element_text(angle = 0),
+    axis.title.y = element_blank(),
+    axis.text.y = element_blank(),
     plot.caption = element_text(
       color = "#ec99d3",
       size = 9,
@@ -67,8 +73,8 @@ df %>%
       face = "bold",
       hjust = 0.5,
       color = "white",
-      size = 16,
-      vjust = 6,
+      size = 28,
+      vjust = 2,
       family = "Ink Free"
     ),
     #vjust to move it towards margins
@@ -86,7 +92,7 @@ df %>%
     y = 0.029,
     label = "There is a peak in \ninjuries among \nchildren aged around 10",
     color = "white",
-    size = 2.7
+    size = 6
   ) +
   geom_curve(
     x = 37,
@@ -103,5 +109,5 @@ df %>%
     y = 0.019,
     label = "From age 35 onwards, \ninjuries sharply decrease \n(probably attendance to \namusement parks too!)",
     color = "white",
-    size = 2.7
+    size = 6
   )
