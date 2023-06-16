@@ -4,7 +4,7 @@ format: html
 editor: visual
 ---
 
-Guidelines for Major Projectin  Quantitive Data Handling
+Guidelines for Major Projectin Quantitive Data Handling
 
 Deadline: September 1st 2023
 
@@ -12,38 +12,35 @@ Length: 9 pages maximum
 
 Contents
 
-1. Describe your research project in less than 100 words _(20 marks)_
+1.  Describe your research project in less than 100 words *(20 marks)*
 
-1. Give an except of your data (first ten rows) _(10 marks)_
+2.  Give an except of your data (first ten rows) *(10 marks)*
 
-1. Produce a table describing each column on the data _(10 marks)_
+3.  Produce a table describing each column on the data *(10 marks)*
 
-1. Produce a summary of your data using a function like `summary()`, `str()`, `dplyr::glimpse()`, or `skimr::skim()` _(10 marks)_
+4.  Produce a summary of your data using a function like `summary()`, `str()`, `dplyr::glimpse()`, or `skimr::skim()` *(10 marks)*
 
-1. Produce some summary statistics using `group_by()` and `summarise()` _(10 marks)_
+5.  Produce some summary statistics using `group_by()` and `summarise()` *(10 marks)*
 
-1. Produce some confidence intervals _(10 marks)_
+6.  Produce some confidence intervals *(10 marks)*
 
-1. Produce some hypothesis reports _(10 marks)_
+7.  Produce some hypothesis reports *(10 marks)*
 
-1. Produce some data visualisations _(10 marks)_
+8.  Produce some data visualisations *(10 marks)*
 
-1. Summarise your report in less than 100 words _(10 marks)_
-
+9.  Summarise your report in less than 100 words *(10 marks)*
 
 ### This could be useful
 
-It is possible to create the entire report all within R, integrating all the data, tables, and graphics without have to cut, paste, or  insert anything. The utility that does this is called [quatro](https://quarto.org/docs/get-started/hello/rstudio.html){target="_blank"}. In fact, this document is written in `quarto` and you can see the code that produced it at [this link](https://github.com/eugene100hickey/ATU-2023/blob/main/major-project.qmd){target="_blank"}.
+It is possible to create the entire report all within R, integrating all the data, tables, and graphics without having to cut, paste, or insert anything. The utility that does this is called [quatro](https://quarto.org/docs/get-started/hello/rstudio.html){target="_blank"}. In fact, this document is written in `quarto` and you can see the code that produced it at [this link](https://github.com/eugene100hickey/ATU-2023/blob/main/major-project.qmd){target="_blank"}.
 
 The tables here were produced using the [gt](https://gt.rstudio.com/){target="_blank"} package. It's a bit like `ggplot2` for tables. Like `quarto`, it takes a bit of getting used to, but it makes very nice data tables.
 
 The easiest way to make a pdf from this is to make a html file first and then print to pdf (quarto can do pdf's directly, but then you need Latex installed).
 
-
 ## Example Report
 
 Below is an example report using our `palmerpenguins::penguins` dataset.
-
 
 ### 1. Data Description
 
@@ -94,10 +91,9 @@ theme_clean <- function() {
 
 ```
 
-
 **some text describing what is shown in the table above**
 
----
+------------------------------------------------------------------------
 
 ### 3. Data Codebook
 
@@ -121,7 +117,6 @@ z <- tribble(~column, ~description,
 gt(z)
 ```
 
-
 **some text describing what is shown in the table above**
 
 ### 4. Data Summary
@@ -129,7 +124,6 @@ gt(z)
 ```{r data-summary}
 penguins |> skimr::skim()
 ```
-
 
 **some text describing what is shown in the table above**
 
@@ -160,14 +154,14 @@ penguins |>
   tab_options(row_group.as_column = TRUE)
 ```
 
-
 **some text describing what is shown in the table above**
 
+\newpage
 
 ### 6. Confidence Intervals for Flipper Length and Body Weight
 
 ```{r conf-int}
-#| echo: false
+#| echo: true
 #| message: false
 
 penguins |>
@@ -201,7 +195,6 @@ penguins |>
   tab_options(row_group.as_column = TRUE)
 ```
 
-
 **some text describing what is shown in the table above**
 
 \newpage
@@ -212,13 +205,11 @@ penguins |>
 t.test(bill_depth_mm ~ sex, data = penguins)
 ```
 
-
 ```{r}
 t.test(body_mass_g ~ year, data = penguins |> filter(year != 2008))
 ```
 
 **some text describing the results above**
-
 
 ### 8. Data Visualisations
 
@@ -235,7 +226,6 @@ penguins |>
   coord_flip() +
   theme_clean()
 ```
-
 
 \newpage
 
@@ -269,9 +259,8 @@ penguins |>
   theme(legend.position = "top")
 ```
 
-
 **some text describing the figures above**
 
-### 9.  Report Summary
+### 9. Report Summary
 
 **some text describing the overall results for the project presented here**
