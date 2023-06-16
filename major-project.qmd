@@ -28,12 +28,16 @@ Contents
 
 1. Produce some data visualisations _(10 marks)_
 
-1. Summarise your report _(10 marks)_
+1. Summarise your report in less than 100 words _(10 marks)_
 
 
 ### This could be useful
 
-It is possible to create the entire report all within R, integrating all the data, tables, and graphics without have to cut, paste, or  insert anything. The utility that does this is called [quatro](https://quarto.org/docs/get-started/hello/rstudio.html). In fact, this document is written in `quarto` and you can see the code that produced it at [this link]()
+It is possible to create the entire report all within R, integrating all the data, tables, and graphics without have to cut, paste, or  insert anything. The utility that does this is called [quatro](https://quarto.org/docs/get-started/hello/rstudio.html){target="_blank"}. In fact, this document is written in `quarto` and you can see the code that produced it at [this link](https://github.com/eugene100hickey/ATU-2023/blob/main/major-project.qmd){target="_blank"}.
+
+The tables here were produced using the [gt](https://gt.rstudio.com/){target="_blank"} package. It's a bit like `ggplot2` for tables. Like `quarto`, it takes a bit of getting used to, but it makes very nice data tables.
+
+The easiest way to make a pdf from this is to make a html file first and then print to pdf (quarto can do pdf's directly, but then you need Latex installed).
 
 
 ## Example Report
@@ -43,7 +47,7 @@ Below is an example report using our `palmerpenguins::penguins` dataset.
 
 ### 1. Data Description
 
-Data were collected and made available by [Dr. Kristen Gorman](https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php) and the [Palmer Station, Antarctica LTER](https://pallter.marine.rutgers.edu/), a member of the [Long Term Ecological Research Network](https://lternet.edu/). It includes Size measurements for adult foraging Adélie, Chinstrap, and Gentoo penguins observed on islands in the Palmer Archipelago near Palmer Station, Antarctica.
+Data were collected and made available by [Dr. Kristen Gorman](https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php){target="_blank"} and the [Palmer Station, Antarctica LTER](https://pallter.marine.rutgers.edu/){target="_blank"}, a member of the [Long Term Ecological Research Network](https://lternet.edu/){target="_blank"}. It includes Size measurements for adult foraging Adélie, Chinstrap, and Gentoo penguins observed on islands in the Palmer Archipelago near Palmer Station, Antarctica.
 
 ### 2. Data Excerpt
 
@@ -58,7 +62,7 @@ library(gt)
 
 
 penguins |> 
-  slice_sample(n = 10) |> 
+  slice_sample(n = 8) |> 
   drop_na() |> 
   gt::gt() |> 
   gt::cols_label(bill_length_mm = html("Bill Length<br>(mm)"),
@@ -129,6 +133,8 @@ penguins |> skimr::skim()
 
 **some text describing what is shown in the table above**
 
+\newpage
+
 ### 5. Summary Statistics
 
 ```{r data-summary-table}
@@ -136,10 +142,10 @@ penguins |> skimr::skim()
 penguins |>
   group_by(island, sex, species) |>
   summarise(
-    mean_flipper_length_mm = mean(flipper_length_mm, na.rm = T),
-    mean_body_mass_g = mean(body_mass_g, na.rm = T),
-    mean_bill_length_mm = mean(bill_length_mm, na.rm = T),
-    mean_bill_depth_mm = mean(bill_depth_mm, na.rm = T)
+    mean_flipper_length_mm = mean(flipper_length_mm, na.rm = T) |> signif(3),
+    mean_body_mass_g = mean(body_mass_g, na.rm = T) |> signif(3),
+    mean_bill_length_mm = mean(bill_length_mm, na.rm = T) |> signif(3),
+    mean_bill_depth_mm = mean(bill_depth_mm, na.rm = T) |> signif(3)
   ) |>
   drop_na() |>
   ungroup() |>
@@ -167,10 +173,10 @@ penguins |>
 penguins |>
   group_by(sex, species) |>
   summarise(
-    flipper1 = t.test(flipper_length_mm)$conf[1],
-    flipper2 = t.test(flipper_length_mm)$conf[2],
-    body1 = t.test(body_mass_g)$conf[1],
-    body2 = t.test(body_mass_g)$conf[2],
+    flipper1 = t.test(flipper_length_mm)$conf[1] |> signif(3),
+    flipper2 = t.test(flipper_length_mm)$conf[2] |> signif(3),
+    body1 = (t.test(body_mass_g)$conf[1]/1e3) |> signif(3),
+    body2 = (t.test(body_mass_g)$conf[2]/1e3) |> signif(3),
   ) |>
   drop_na() |>
   ungroup() |>
@@ -181,8 +187,8 @@ penguins |>
   gt::cols_label(
     flipper1 = html("Lower (mm)"),
     flipper2 = html("Higher (mm)"),
-    body1 = html("Lower (mm)"),
-    body2 = html("Higher (mm)")
+    body1 = html("Lower (kg)"),
+    body2 = html("Higher (kg)")
   ) |> 
   data_color(
     columns = c(flipper1, body1),
@@ -197,6 +203,8 @@ penguins |>
 
 
 **some text describing what is shown in the table above**
+
+\newpage
 
 ### 7. Hypothesis Tests
 
@@ -228,6 +236,8 @@ penguins |>
   theme_clean()
 ```
 
+
+\newpage
 
 ```{r ridges}
 #| message: false
@@ -263,3 +273,5 @@ penguins |>
 **some text describing the figures above**
 
 ### 9.  Report Summary
+
+**some text describing the overall results for the project presented here**
