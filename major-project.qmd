@@ -1,7 +1,16 @@
 ---
 title: "Major Project - Quantitative"
-format: html
-editor: visual
+format:
+  html:
+    theme: yeti
+    embed-resources: true
+    smooth-scroll: true
+    fontcolor: black
+    toc: true
+    toc-location: left
+    toc-title: Summary
+    toc-depth: 3
+css: assets/custom.css
 ---
 
 Guidelines for Major Projectin Quantitive Data Handling
