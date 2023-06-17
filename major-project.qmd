@@ -258,14 +258,15 @@ penguins |>
 
 penguins |> 
   ggplot(aes(x = bill_length_mm, y = bill_depth_mm, colour = species)) +
-  geom_point(size = 2) +
+  geom_point(size = 3, alpha= 0.6) +
   labs(title = "Adelie Penguins have Short, Deep Bills",
        x = "Bill Length (mm)",
        y = "Bill Depth (mm)",
        caption = "Data from @Palmerpenguins") +
   scale_color_viridis_d() +
   theme_clean() +
-  theme(legend.position = "top")
+  theme(legend.position = "top", legend.title=element_blank(),
+        legend.text = element_text(size=28))
 ```
 
 **some text describing the figures above**

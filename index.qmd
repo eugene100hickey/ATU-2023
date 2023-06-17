@@ -8,6 +8,10 @@ format:
 editor: visual
 ---
 
+::: {style="font-size: 250%; list-style-position: outside; padding-left: 0em;"}
+- [Desciption of Major Quantitative Project](https://atu2023.netlify.app/major-project.html)
+:::
+
 ::: columns
 ::: {.column width="70%"}
 ::: {style="font-size: 250%; list-style-position: outside; padding-left: 0em;"}
@@ -53,6 +57,4 @@ editor: visual
 :::
 :::
 
-::: {style="font-size: 250%; list-style-position: outside; padding-left: 0em;"}
-[Desciption of Major Quantitative Project](https://atu2023.netlify.app/major-project.html)
-:::
+
