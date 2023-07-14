@@ -2,6 +2,7 @@
 title: "Major Project - Quantitative"
 format:
   html:
+    logo: images/atu-logo.png
     theme: yeti
     embed-resources: true
     smooth-scroll: true
@@ -17,7 +18,7 @@ Guidelines for Major Projectin Quantitive Data Handling
 
 Deadline: September 1st 2023
 
-Length: 9 pages maximum
+Length: 9 pages maximum, not including figures and tables
 
 Contents
 
@@ -88,11 +89,11 @@ showtext::showtext_auto()
 theme_clean <- function() {
   theme_minimal(base_family = "Fuzzy Bubbles") +
     theme(panel.grid.minor = element_blank(),
-          text = element_text(size = 24, family = "Fuzzy Bubbles"),
+          text = element_text(size = 26, family = "Fuzzy Bubbles"),
           plot.title = element_text(size = 32, family = "Fuzzy Bubbles"),
           plot.background = element_rect(fill = "white", color = NA),
           axis.text = element_text(size = 24),
-          axis.title = element_text(face = "bold", size = 28),
+          axis.title = element_text(face = "bold", size = 32),
           strip.text = element_text(face = "bold", size = rel(0.8), hjust = 0),
           strip.background = element_rect(fill = "grey80", color = NA),
           legend.text = element_text(size = 16))
@@ -210,9 +211,13 @@ penguins |>
 
 ### 7. Hypothesis Tests
 
+###  Is **bill depth** different for _female_ and _male_ penguins?
+
 ```{r}
 t.test(bill_depth_mm ~ sex, data = penguins)
 ```
+
+### Has **bill depth** changed from _2007_ to _2009_?
 
 ```{r}
 t.test(body_mass_g ~ year, data = penguins |> filter(year != 2008))
@@ -259,14 +264,14 @@ penguins |>
 penguins |> 
   ggplot(aes(x = bill_length_mm, y = bill_depth_mm, colour = species)) +
   geom_point(size = 3, alpha= 0.6) +
-  labs(title = "Adelie Penguins have Short, Deep Bills",
+  labs(title = "<span style = 'color:#440154;'>Adelie</span> Penguins have Short, Deep Bills",
        x = "Bill Length (mm)",
        y = "Bill Depth (mm)",
        caption = "Data from @Palmerpenguins") +
   scale_color_viridis_d() +
   theme_clean() +
   theme(legend.position = "top", legend.title=element_blank(),
-        legend.text = element_text(size=28))
+        legend.text = element_text(size=28), plot.title = ggtext::element_markdown(color="gray50"))
 ```
 
 **some text describing the figures above**
